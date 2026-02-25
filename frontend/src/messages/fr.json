@@ -70,6 +70,7 @@
   "contact": {
     "title": "Contact",
     "heroSubtitle": "VIVAZ Clay Targets",
+    "metaDescription": "Contactez VIVAZ Clay Targets. Distributeurs nationaux et internationaux de plateaux écologiques. Demandez un devis.",
     "talkTitle": "Parlons",
     "talkDesc": "Parlez-nous de votre projet, discipline ou type d'utilisation. Nous vous guiderons vers la meilleure solution pour vos besoins.",
     "location": "Emplacement",
@@ -156,6 +157,7 @@
   "regulation": {
     "title": "Réglementation Européenne 2026",
     "subtitle": "Règlement UE 2025/660",
+    "metaDescription": "Réglementation européenne EU 2025/660 sur les HAP dans les plateaux de tir. Échéance avril 2026. VIVAZ conforme depuis 25 ans.",
     "countdown": "Temps restant",
     "days": "jours",
     "hours": "heures",
@@ -206,6 +208,7 @@
   "technology": {
     "title": "Technologie et Durabilité",
     "subtitle": "Innovation écologique",
+    "metaDescription": "Technologie exclusive de résine de pin pour plateaux écologiques. 0 mg/kg de HAP avec NATURA. Fabrication durable par VIVAZ.",
     "pineResinTitle": "Résine de Pin : Notre Matière Première",
     "pineResinDesc": "Depuis 2001, nous utilisons de la résine de pin naturelle comme base de nos plateaux. Une ressource renouvelable qui remplace complètement les dérivés du pétrole, éliminant la présence de HAP (Hydrocarbures Aromatiques Polycycliques) dans nos produits premium.",
     "processTitle": "Processus de Fabrication",
@@ -243,6 +246,7 @@
   "about": {
     "title": "À Propos de Vivaz",
     "subtitle": "Depuis 1967",
+    "metaDescription": "Fabricant de plateaux de tir depuis 1967. VIVAZ a été pionnier dans l'élimination des HAP avec la résine de pin en 2001.",
     "brandName": "VIVAZ Clay Targets",
     "historyTitle": "Notre Histoire",
     "historyDesc": "Fondée en 1967, Jesús y Vicente Vázquez S.L. est synonyme d'excellence dans la fabrication de plateaux de tir depuis plus de cinq décennies. Depuis notre usine en Espagne, nous fournissons tireurs, clubs et fédérations du monde entier.",

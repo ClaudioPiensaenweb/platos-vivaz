@@ -8,12 +8,18 @@ import PageHero from "@/components/ui/PageHero";
 import PAHComparisonChart from "@/components/technology/PAHComparisonChart";
 import CertBadgeRow from "@/components/technology/CertBadgeRow";
 import TimelineSection from "@/components/about/TimelineSection";
+import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "technology" });
-  return { title: `${t("title")} | VIVAZ Clay Targets` };
+  const title = `${t("title")} | VIVAZ Clay Targets`;
+  return {
+    title,
+    description: t("metaDescription"),
+    openGraph: { ...sharedOpenGraph, title, description: t("metaDescription") },
+  };
 }
 
 export default async function TecnologiaPage({ params }: { params: Promise<{ locale: string }> }) {

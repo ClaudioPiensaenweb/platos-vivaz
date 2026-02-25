@@ -9,6 +9,7 @@ import PAHComparisonChart from "@/components/technology/PAHComparisonChart";
 import CertBadgeRow from "@/components/technology/CertBadgeRow";
 import Image from "next/image";
 import { getRegulationData } from "@/lib/directus";
+import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 const EUR_LEX_URL =
@@ -17,7 +18,12 @@ const EUR_LEX_URL =
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "regulation" });
-  return { title: `${t("title")} | VIVAZ Clay Targets` };
+  const title = `${t("title")} | VIVAZ Clay Targets`;
+  return {
+    title,
+    description: t("metaDescription"),
+    openGraph: { ...sharedOpenGraph, title, description: t("metaDescription") },
+  };
 }
 
 export default async function RegulacionPage({ params }: { params: Promise<{ locale: string }> }) {

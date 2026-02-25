@@ -3,12 +3,18 @@ import Container from "@/components/ui/Container";
 import InView from "@/components/ui/InView";
 import PageHero from "@/components/ui/PageHero";
 import ContactSplit from "@/components/contact/ContactSplit";
+import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
-  return { title: `${t("title")} | VIVAZ Clay Targets` };
+  const title = `${t("title")} | VIVAZ Clay Targets`;
+  return {
+    title,
+    description: t("metaDescription"),
+    openGraph: { ...sharedOpenGraph, title, description: t("metaDescription") },
+  };
 }
 
 export default async function ContactoPage() {

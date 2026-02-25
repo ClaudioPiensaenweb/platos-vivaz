@@ -13,6 +13,7 @@ import SmoothScroll from "@/components/providers/SmoothScroll";
 import PageTransition from "@/components/providers/PageTransition";
 import { organizationJsonLd } from "@/lib/json-ld";
 import { getBrandData } from "@/lib/directus";
+import { sharedOpenGraph } from "@/lib/metadata";
 import "../globals.css";
 
 const quablo = localFont({
@@ -53,6 +54,7 @@ export async function generateMetadata({
   const canonical = locale === "es" ? siteUrl : `${siteUrl}/${locale}`;
 
   return {
+    metadataBase: new URL(siteUrl),
     title: t("title"),
     description: t("description"),
     alternates: {
@@ -66,10 +68,9 @@ export async function generateMetadata({
       },
     },
     openGraph: {
+      ...sharedOpenGraph,
       title: t("title"),
       description: t("description"),
-      siteName: "VIVAZ Clay Targets",
-      type: "website",
     },
   };
 }

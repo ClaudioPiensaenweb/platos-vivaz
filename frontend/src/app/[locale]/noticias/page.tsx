@@ -4,14 +4,17 @@ import PageHero from "@/components/ui/PageHero";
 import InView from "@/components/ui/InView";
 import BlogCard from "@/components/blog/BlogCard";
 import { getBlogPosts } from "@/lib/directus";
+import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "news" });
+  const title = `${t("metaTitle")} | VIVAZ Clay Targets`;
   return {
-    title: `${t("metaTitle")} | VIVAZ Clay Targets`,
+    title,
     description: t("metaDescription"),
+    openGraph: { ...sharedOpenGraph, title, description: t("metaDescription") },
   };
 }
 

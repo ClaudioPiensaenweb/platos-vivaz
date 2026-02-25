@@ -70,6 +70,7 @@
   "contact": {
     "title": "Contact",
     "heroSubtitle": "VIVAZ Clay Targets",
+    "metaDescription": "Contact VIVAZ Clay Targets. National and international distributors of ecological clay targets. Request a quote today.",
     "talkTitle": "Let's Talk",
     "talkDesc": "Tell us your project, discipline or type of use. We'll guide you to the best solution for your needs.",
     "location": "Location",
@@ -156,6 +157,7 @@
   "regulation": {
     "title": "European Regulation 2026",
     "subtitle": "EU Regulation 2025/660",
+    "metaDescription": "EU 2025/660 regulation on PAH in clay targets. April 2026 deadline. VIVAZ has been compliant for over 25 years.",
     "countdown": "Time remaining",
     "days": "days",
     "hours": "hours",
@@ -206,6 +208,7 @@
   "technology": {
     "title": "Technology & Sustainability",
     "subtitle": "Ecological innovation",
+    "metaDescription": "Exclusive pine resin technology for ecological clay targets. 0 mg/kg PAH with NATURA. Sustainable manufacturing by VIVAZ.",
     "pineResinTitle": "Pine Resin: Our Raw Material",
     "pineResinDesc": "Since 2001, we have used natural pine resin as the base for our targets. A renewable resource that completely replaces petroleum derivatives, eliminating the presence of PAH (Polycyclic Aromatic Hydrocarbons) in our premium products.",
     "processTitle": "Manufacturing Process",
@@ -243,6 +246,7 @@
   "about": {
     "title": "About Vivaz",
     "subtitle": "Since 1967",
+    "metaDescription": "Manufacturing clay targets since 1967. VIVAZ pioneered PAH-free production with pine resin in 2001. Discover our story.",
     "brandName": "VIVAZ Clay Targets",
     "historyTitle": "Our History",
     "historyDesc": "Founded in 1967, Jesús y Vicente Vázquez S.L. has been synonymous with excellence in clay target manufacturing for over five decades. From our factory in Spain, we supply shooters, clubs and federations worldwide.",

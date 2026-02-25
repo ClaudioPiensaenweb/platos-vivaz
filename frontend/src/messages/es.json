@@ -70,6 +70,7 @@
   "contact": {
     "title": "Contacto",
     "heroSubtitle": "VIVAZ Clay Targets",
+    "metaDescription": "Contacte con VIVAZ Clay Targets. Distribuidores nacionales e internacionales de platos de tiro ecológicos. Solicite presupuesto.",
     "talkTitle": "Hablemos",
     "talkDesc": "Cuéntanos tu proyecto, disciplina o tipo de uso. Te orientamos hacia la mejor solución para tus necesidades.",
     "location": "Ubicación",
@@ -156,6 +157,7 @@
   "regulation": {
     "title": "Regulación Europea 2026",
     "subtitle": "Normativa UE 2025/660",
+    "metaDescription": "Regulación europea EU 2025/660 sobre HAPs en platos de tiro. Fecha límite abril 2026. VIVAZ cumple desde hace 25 años.",
     "countdown": "Tiempo restante",
     "days": "días",
     "hours": "horas",
@@ -206,6 +208,7 @@
   "technology": {
     "title": "Tecnología y Sostenibilidad",
     "subtitle": "Innovación ecológica",
+    "metaDescription": "Tecnología exclusiva de resina de pino para platos ecológicos. 0 mg/kg de HAPs con NATURA. Proceso de fabricación sostenible de VIVAZ.",
     "pineResinTitle": "Resina de Pino: Nuestra Materia Prima",
     "pineResinDesc": "Desde 2001, utilizamos resina natural de pino como base de nuestros platos. Un recurso renovable que sustituye completamente a los derivados del petróleo, eliminando la presencia de HAP (Hidrocarburos Aromáticos Policíclicos) en nuestros productos premium.",
     "processTitle": "Proceso de Fabricación",
@@ -243,6 +246,7 @@
   "about": {
     "title": "Sobre Vivaz",
     "subtitle": "Desde 1967",
+    "metaDescription": "Desde 1967 fabricando platos de tiro. VIVAZ fue pionera en eliminar HAPs con resina de pino en 2001. Conozca nuestra historia.",
     "brandName": "VIVAZ Clay Targets",
     "historyTitle": "Nuestra Historia",
     "historyDesc": "Fundada en 1967, Jesús y Vicente Vázquez S.L. ha sido sinónimo de excelencia en la fabricación de platos de tiro durante más de cinco décadas. Desde nuestra fábrica en España, suministramos a tiradores, clubes y federaciones de todo el mundo.",

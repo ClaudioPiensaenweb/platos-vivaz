@@ -2,6 +2,7 @@ import { getProducts, getBrandData } from "@/lib/directus";
 import { getTranslations } from "next-intl/server";
 import ProductLinePage from "@/components/product/ProductLinePage";
 import { notFound } from "next/navigation";
+import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 const rangeMap: Record<string, string> = {
@@ -26,11 +27,16 @@ export async function generateMetadata({
   const isNatura = slug === "natura";
   const lineName = isNatura ? t("premiumNatura") : t("ecoStarEfficiency");
 
+  const productTitle = `${lineName} | VIVAZ Clay Targets`;
+  const productDescription = isNatura ? t("metaDescriptionNatura") : t("metaDescriptionEcoStar");
   return {
-    title: `${lineName} | VIVAZ Clay Targets`,
-    description: isNatura
-      ? t("metaDescriptionNatura")
-      : t("metaDescriptionEcoStar"),
+    title: productTitle,
+    description: productDescription,
+    openGraph: {
+      ...sharedOpenGraph,
+      title: productTitle,
+      description: productDescription,
+    },
   };
 }
 
