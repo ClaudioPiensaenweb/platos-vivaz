@@ -24,12 +24,12 @@ This is a brownfield enhancement project on a codebase that is 60-70% complete. 
   3. All prose content (product descriptions, blog posts) renders with correct typography — paragraphs, headings, lists styled
   4. Navigating between all 8 routes with smooth scroll enabled produces no scroll conflicts or Lenis errors
   5. Design token manifest is locked — any color or spacing value in the codebase traces back to a CSS variable in globals.css
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Fix rendering errors, install @tailwindcss/typography and isomorphic-dompurify, lock design tokens
-- [ ] 01-02: Extract PageHero shared component, fix RegulationInfographic Server/Client split
-- [ ] 01-03: Complete all 4 locale message files with briefing copy, verify hreflang and canonical URLs
+- [ ] 01-01-PLAN.md — Install @tailwindcss/typography + isomorphic-dompurify, sanitize HTML, lock design tokens
+- [ ] 01-02-PLAN.md — Extract PageHero shared component, fix RegulationInfographic Server/Client split, verify Lenis scroll
+- [ ] 01-03-PLAN.md — Complete all 4 locale message files with missing keys, replace hardcoded strings, verify hreflang/canonical
 
 ### Phase 2: CMS Data
 **Goal**: Directus collections seeded with real, complete data — product specs, brand contacts, regulation content, and blog posts — so Phase 3 components can be built against accurate typed props.
