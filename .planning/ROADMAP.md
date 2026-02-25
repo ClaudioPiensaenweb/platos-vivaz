@@ -98,7 +98,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/3 | In progress | - |
+| 1. Foundation | 2/3 | In Progress|  |
 | 2. CMS Data | 0/2 | Not started | - |
 | 3. Components | 0/2 | Not started | - |
 | 4. Page Assembly | 0/3 | Not started | - |

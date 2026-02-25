@@ -11,9 +11,9 @@
 - [x] **FOUND-02**: `@tailwindcss/typography` installed — prose classes render correctly in product descriptions and blog content
 - [x] **FOUND-03**: `isomorphic-dompurify` sanitizes all Directus HTML before `dangerouslySetInnerHTML`
 - [x] **FOUND-04**: Design token manifest locked — all colors, spacing, and motion constants in CSS variables and `@theme inline`, no hardcoded values in JSX
-- [ ] **FOUND-05**: `PageHero` shared component extracted — replaces 5 duplicated hero patterns across pages
-- [ ] **FOUND-06**: `RegulationInfographic` refactored — translations passed as props from Server Component, not `useTranslations()` in Client Component
-- [ ] **FOUND-07**: Lenis smooth scroll verified across all route transitions without conflicts
+- [x] **FOUND-05**: `PageHero` shared component extracted — replaces 5 duplicated hero patterns across pages
+- [x] **FOUND-06**: `RegulationInfographic` refactored — translations passed as props from Server Component, not `useTranslations()` in Client Component
+- [x] **FOUND-07**: Lenis smooth scroll verified across all route transitions without conflicts
 
 ### Internationalization (I18N)
 
@@ -126,9 +126,9 @@
 | FOUND-02 | Phase 1 | Pending |
 | FOUND-03 | Phase 1 | Pending |
 | FOUND-04 | Phase 1 | Pending |
-| FOUND-05 | Phase 1 | Pending |
-| FOUND-06 | Phase 1 | Pending |
-| FOUND-07 | Phase 1 | Pending |
+| FOUND-05 | Phase 1 | Complete |
+| FOUND-06 | Phase 1 | Complete |
+| FOUND-07 | Phase 1 | Complete |
 | I18N-01 | Phase 1 | Pending |
 | I18N-02 | Phase 1 | Pending |
 | I18N-03 | Phase 1 | Pending |

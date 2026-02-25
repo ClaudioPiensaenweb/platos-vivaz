@@ -49,6 +49,9 @@ Recent decisions affecting current work:
 - [01-01]: Used isomorphic-dompurify (not bare dompurify) — SSR-safe for Next.js App Router server components
 - [01-01]: DOMPurify allowlist excludes img tag — Directus images rendered via assetUrl() helper only
 - [01-01]: danger-light token uses full hex (#fef2f2) for Tailwind opacity modifier composability
+- [Phase 01-foundation]: Delete RegulationInfographic.tsx and create RegulationContent.tsx — translations-as-props pattern fixes Server/Client hydration split without useTranslations in non-client components
+- [Phase 01-foundation]: PageHero shared Server Component: single component replaces 5 duplicated hero sections — props-based customization (backgroundImage, opacity, minHeight)
+- [Phase 01-foundation]: Lenis ScrollToTop: useLenis()+usePathname() effect calls scrollTo(0, immediate) on route change — prevents scroll position conflicts in App Router
 
 ### Pending Todos
 
