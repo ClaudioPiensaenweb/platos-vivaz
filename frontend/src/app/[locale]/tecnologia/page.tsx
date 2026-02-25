@@ -74,6 +74,7 @@ export default async function TecnologiaPage({ params }: { params: Promise<{ loc
                   alt={t("pineResinTitle")}
                   width={702}
                   height={478}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -115,6 +116,7 @@ export default async function TecnologiaPage({ params }: { params: Promise<{ loc
                   alt={t("processTitle")}
                   width={702}
                   height={478}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -134,6 +136,7 @@ export default async function TecnologiaPage({ params }: { params: Promise<{ loc
                   alt={t("environmentTitle")}
                   width={1055}
                   height={626}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -205,7 +208,7 @@ export default async function TecnologiaPage({ params }: { params: Promise<{ loc
       {/* REACH Certification + CertBadgeRow (SUST-04) */}
       <section className="relative overflow-hidden bg-primary-dark py-20 lg:py-28">
         <div className="absolute inset-0 opacity-10">
-          <Image src="/img/hero-bg.png" alt="" fill className="object-cover" />
+          <Image src="/img/hero-bg.png" alt="" fill sizes="100vw" className="object-cover" />
         </div>
         <Container className="relative z-10 text-center">
           <InView animation="scale-in">

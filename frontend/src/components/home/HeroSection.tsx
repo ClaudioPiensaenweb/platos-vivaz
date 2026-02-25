@@ -46,6 +46,7 @@ export default function HeroSection({ market }: HeroSectionProps) {
         src="/img/hero-bg.png"
         alt=""
         fill
+        sizes="100vw"
         className="object-cover"
         priority
         quality={90}
@@ -60,6 +61,7 @@ export default function HeroSection({ market }: HeroSectionProps) {
           src="/svg/hero-overlay.svg"
           alt=""
           fill
+          sizes="100vw"
           className="object-cover object-top"
         />
       </div>

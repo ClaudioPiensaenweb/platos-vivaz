@@ -354,6 +354,7 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
             src="/img/commitment-bg.png"
             alt=""
             fill
+            sizes="100vw"
             className="object-cover"
           />
         </div>

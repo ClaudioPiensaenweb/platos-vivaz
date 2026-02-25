@@ -159,6 +159,7 @@ export default async function SobreVivazPage() {
                   alt={t("historyTitle")}
                   width={464}
                   height={275}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -223,6 +224,7 @@ export default async function SobreVivazPage() {
                   alt={t("pioneerTitle")}
                   width={481}
                   height={275}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -238,6 +240,7 @@ export default async function SobreVivazPage() {
             src="/img/commitment-bg.png"
             alt={t("factoryTitle")}
             fill
+            sizes="100vw"
             className="object-cover opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/80 to-transparent" />
