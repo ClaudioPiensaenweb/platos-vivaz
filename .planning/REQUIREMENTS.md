@@ -30,7 +30,7 @@
 - [ ] **PROD-04**: Product detail pages show `TechSpecGrid` with PAH level prominently displayed
 - [ ] **PROD-05**: Product listing page with visual distinction between NATURA (premium) and ECO STAR (performance)
 - [ ] **PROD-06**: Logistics table visible with format x pack size x pallet data for distributor procurement
-- [ ] **PROD-07**: Technical data sheets and certificates accessible (downloadable PDFs or linked documents)
+- [x] **PROD-07**: Technical data sheets and certificates accessible (downloadable PDFs or linked documents)
 
 ### Sustainability & Technology (SUST)
 
@@ -62,7 +62,7 @@
 - [ ] **LEAD-02**: National contact displayed: +34-618-757-580, export@platosvivaz.com
 - [ ] **LEAD-03**: International contact displayed: +34-606-172-746, sales@vivazclaytargets.com
 - [ ] **LEAD-04**: WhatsApp button integrated for quick contact
-- [ ] **LEAD-05**: Email notification sent to admin on form submission (currently TODO)
+- [x] **LEAD-05**: Email notification sent to admin on form submission (currently TODO)
 - [ ] **LEAD-06**: Contact split display — market-aware using geo-routing header
 
 ### About (ABOUT)
@@ -81,10 +81,10 @@
 
 - [ ] **PERF-01**: Core Web Vitals passing — LCP < 2.5s, CLS < 0.1, INP < 200ms on all pages
 - [ ] **PERF-02**: Mobile responsive across all pages (375px+)
-- [ ] **PERF-03**: JSON-LD structured data on product pages (Product schema)
+- [x] **PERF-03**: JSON-LD structured data on product pages (Product schema)
 - [ ] **PERF-04**: Unique meta title/description per page per locale with Open Graph tags
 - [ ] **PERF-05**: Animation budget enforced — `useReducedMotion()` on all motion components
-- [ ] **PERF-06**: Image pipeline optimized — `assetUrl()` always requests WebP with explicit dimensions
+- [x] **PERF-06**: Image pipeline optimized — `assetUrl()` always requests WebP with explicit dimensions
 
 ### Design (DESGN)
 
@@ -139,7 +139,7 @@
 | PROD-04 | Phase 3 | Pending |
 | PROD-05 | Phase 4 | Pending |
 | PROD-06 | Phase 4 | Pending |
-| PROD-07 | Phase 2 | Pending |
+| PROD-07 | Phase 2 | Complete |
 | SUST-01 | Phase 3 | Pending |
 | SUST-02 | Phase 4 | Pending |
 | SUST-03 | Phase 4 | Pending |
@@ -159,7 +159,7 @@
 | LEAD-02 | Phase 4 | Pending |
 | LEAD-03 | Phase 4 | Pending |
 | LEAD-04 | Phase 4 | Pending |
-| LEAD-05 | Phase 2 | Pending |
+| LEAD-05 | Phase 2 | Complete |
 | LEAD-06 | Phase 4 | Pending |
 | ABOUT-01 | Phase 4 | Pending |
 | ABOUT-02 | Phase 4 | Pending |
@@ -169,10 +169,10 @@
 | BLOG-03 | Phase 4 | Pending |
 | PERF-01 | Phase 5 | Pending |
 | PERF-02 | Phase 5 | Pending |
-| PERF-03 | Phase 2 | Pending |
+| PERF-03 | Phase 2 | Complete |
 | PERF-04 | Phase 5 | Pending |
 | PERF-05 | Phase 3 | Pending |
-| PERF-06 | Phase 2 | Pending |
+| PERF-06 | Phase 2 | Complete |
 | DESGN-01 | Phase 4 | Pending |
 | DESGN-02 | Phase 4 | Pending |
 | DESGN-03 | Phase 3 | Pending |

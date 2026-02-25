@@ -5,38 +5,41 @@
 See: .planning/PROJECT.md (updated 2026-02-25)
 
 **Core value:** Position Vivaz as the undisputed #1 manufacturer in clay target quality and sustainability, leveraging EU 2026 regulation as the proof point of 25 years of ecological leadership.
-**Current focus:** Phase 1 - Foundation (Complete)
+**Current focus:** Phase 2 - CMS Data (In Progress)
 
 ## Current Position
 
-Phase: 1 of 5 (Foundation)
-Plan: 3 of 3 in current phase (Phase 1 complete)
-Status: Phase 1 complete — ready for Phase 2
-Last activity: 2026-02-25 — Completed 01-03 (i18n completion, hreflang, sitemap)
+Phase: 2 of 5 (CMS Data)
+Plan: 2 of 3 in current phase (Plan 2 complete)
+Status: Plan 02-02 complete — image pipeline WebP defaults, Resend email, productJsonLd rich results
+Last activity: 2026-02-25 — Completed 02-02 (assetUrl WebP defaults, Resend email integration, productJsonLd augmentation)
 
-Progress: [██░░░░░░░░] 20%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: 6 min
-- Total execution time: 0.3 hours
+- Total plans completed: 5
+- Average duration: 5 min
+- Total execution time: 0.5 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation | 3/3 | 18 min | 6 min |
+| 02-cms-data | 2/3 | 6 min | 3 min |
 
 **Recent Trend:**
-- Last 5 plans: 5 min, 5 min, 8 min
+- Last 5 plans: 5 min, 5 min, 8 min, 3 min, 3 min
 - Trend: Stable
 
 *Updated after each plan completion*
 | Phase 01-foundation P01 | 5 | 2 tasks | 10 files |
 | Phase 01-foundation P02 | 5 | 2 tasks | 12 files |
 | Phase 01-foundation P03 | 8 | 2 tasks | 8 files |
+| Phase 02-cms-data P01 | 3 | 2 tasks | 3 files |
+| Phase 02-cms-data P02 | 3 | 3 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -57,6 +60,15 @@ Recent decisions affecting current work:
 - [01-03]: products.heroSubtitle added to all locales — brand name literal kept in message files for zero-hardcoded-string consistency
 - [01-03]: Sitemap canonical uses no-prefix for Spanish, /locale/ prefix for en/fr/de — correct per localePrefix: "as-needed"
 - [01-03]: x-default hreflang points to root Spanish URL in both layout metadata and sitemap
+- [02-01]: M2M discipline links built via slug-based readItems() lookups — never hardcode Directus IDs across environments
+- [02-01]: Node 22 native Blob + FormData used for PDF upload in seed-pdf.js — no extra npm packages needed
+- [02-01]: NATURA Standard + Rabbit: issf_approved=true; all ECO STAR + Battue: issf_approved=false — spec from plan data table
+- [02-02]: assetUrl() enforces format=webp and quality=80 as ALWAYS-set defaults — callers override with explicit params
+- [02-02]: IMG_PRESETS.card = 600 (not 400) — retina screens need 2x pixels; 600px at 80% quality is ~50KB
+- [02-02]: Resend null-check at module level — contact form degrades gracefully without RESEND_API_KEY
+- [02-02]: Email in nested try/catch — email failure never blocks form success response
+- [02-02]: onboarding@resend.dev default from address — works without DNS verification in dev/staging
+- [02-02]: productJsonLd Spanish locale prefix = empty string — matches localePrefix: "as-needed"
 
 ### Pending Todos
 
@@ -64,13 +76,14 @@ None yet.
 
 ### Blockers/Concerns
 
-- [Research flag]: @react-pdf/renderer React 19 peer dependency unverified — run `npm info @react-pdf/renderer peerDependencies` before Phase 2 PDF work. Fallback: static PDFs in Directus storage.
 - [Research flag]: GDPR/cookie consent scope depends on whether analytics scripts will be deployed — confirm with client before Phase 3 vanilla-cookieconsent work.
 - [Research flag]: Video hero (Phase 4) depends on whether Davide Carolis session produced video assets — confirm with client.
 - [Research flag]: ISSF approval current status for NATURA must be confirmed before displaying ISSF badges on product pages.
+- [Resolved]: @react-pdf/renderer React 19 concern — resolved by using static PDFs in Directus storage (Catalog-min.pdf via seed-pdf.js). No @react-pdf/renderer needed.
+- [User setup needed]: Resend API key must be configured (RESEND_API_KEY env var) and platosvivaz.com domain verified in Resend Dashboard before production email sending works.
 
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Completed 01-03-PLAN.md — i18n completion, hreflang/canonical, sitemap locale-prefix fix
+Stopped at: Completed 02-02-PLAN.md — image pipeline WebP defaults, Resend email integration, productJsonLd rich results augmentation
 Resume file: None
