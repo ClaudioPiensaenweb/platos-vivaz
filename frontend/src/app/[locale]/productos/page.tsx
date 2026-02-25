@@ -31,7 +31,7 @@ export default async function ProductosPage() {
     <main>
       <PageHero
         title={t("title")}
-        subtitle="VIVAZ Clay Targets"
+        subtitle={t("heroSubtitle")}
         minHeight="min-h-[50vh]"
         minHeightLg="lg:min-h-[55vh]"
       />
@@ -102,7 +102,7 @@ export default async function ProductosPage() {
             <InView animation="fade-in-up">
               <div className="rounded-[24px] bg-cream-light py-16 text-center">
                 <p className="font-body text-[18px] text-primary">
-                  Productos disponibles próximamente.
+                  {t("emptyState")}
                 </p>
               </div>
             </InView>

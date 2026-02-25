@@ -19,7 +19,7 @@ export default async function ContactoPage() {
     <main>
       <PageHero
         title={t("title")}
-        subtitle="VIVAZ Clay Targets"
+        subtitle={t("heroSubtitle")}
         backgroundImage="/img/hero-bg.png"
         backgroundOpacity="opacity-20"
         minHeight="min-h-[45vh]"
@@ -35,10 +35,10 @@ export default async function ContactoPage() {
               <InView animation="slide-in-left">
                 <div className="mb-10">
                   <h2 className="mb-4 text-[24px] font-bold text-primary lg:text-[28px]">
-                    Hablemos
+                    {t("talkTitle")}
                   </h2>
                   <p className="font-body text-[16px] leading-relaxed text-muted">
-                    Cuéntanos tu proyecto, disciplina o tipo de uso. Te orientamos hacia la mejor solución para tus necesidades.
+                    {t("talkDesc")}
                   </p>
                 </div>
 
@@ -76,8 +76,8 @@ export default async function ContactoPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[14px] font-medium text-primary">Ubicación</p>
-                      <p className="font-body text-[15px] text-muted">España</p>
+                      <p className="text-[14px] font-medium text-primary">{t("location")}</p>
+                      <p className="font-body text-[15px] text-muted">{t("locationValue")}</p>
                     </div>
                   </div>
                 </div>
@@ -118,22 +118,22 @@ export default async function ContactoPage() {
             <div className="flex flex-wrap items-center justify-center gap-8 text-center lg:gap-16">
               <div>
                 <p className="text-[28px] font-bold text-primary lg:text-[34px]">50+</p>
-                <p className="font-body text-[14px] text-muted">Años de experiencia</p>
+                <p className="font-body text-[14px] text-muted">{t("statsYears")}</p>
               </div>
               <div className="h-8 w-px bg-primary/10" />
               <div>
                 <p className="text-[28px] font-bold text-primary lg:text-[34px]">2001</p>
-                <p className="font-body text-[14px] text-muted">Pioneros en resina</p>
+                <p className="font-body text-[14px] text-muted">{t("statsPioneer")}</p>
               </div>
               <div className="h-8 w-px bg-primary/10" />
               <div>
                 <p className="text-[28px] font-bold text-primary lg:text-[34px]">0</p>
-                <p className="font-body text-[14px] text-muted">mg/kg PAH (Natura)</p>
+                <p className="font-body text-[14px] text-muted">{t("statsPah")}</p>
               </div>
               <div className="h-8 w-px bg-primary/10" />
               <div>
                 <p className="text-[28px] font-bold text-primary lg:text-[34px]">EU</p>
-                <p className="font-body text-[14px] text-muted">REACH compliant</p>
+                <p className="font-body text-[14px] text-muted">{t("statsReach")}</p>
               </div>
             </div>
           </InView>

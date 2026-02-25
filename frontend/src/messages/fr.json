@@ -61,6 +61,15 @@
   },
   "contact": {
     "title": "Contact",
+    "heroSubtitle": "VIVAZ Clay Targets",
+    "talkTitle": "Parlons",
+    "talkDesc": "Parlez-nous de votre projet, discipline ou type d'utilisation. Nous vous guiderons vers la meilleure solution pour vos besoins.",
+    "location": "Emplacement",
+    "locationValue": "Espagne",
+    "statsYears": "Années d'expérience",
+    "statsPioneer": "Pionniers en résine",
+    "statsPah": "mg/kg HAP (Natura)",
+    "statsReach": "Conforme REACH",
     "name": "Nom",
     "email": "Email",
     "phone": "Téléphone",
@@ -79,6 +88,7 @@
   },
   "products": {
     "title": "Nos Produits",
+    "heroSubtitle": "VIVAZ Clay Targets",
     "allRanges": "Toutes les gammes",
     "premiumNatura": "Premium Natura",
     "ecoStarEfficiency": "Eco Star Efficiency",
@@ -89,7 +99,8 @@
     "disciplines": "Disciplines",
     "logistics": "Logistique",
     "specifications": "Spécifications",
-    "contactUs": "Nous contacter"
+    "contactUs": "Nous contacter",
+    "emptyState": "Produits disponibles prochainement."
   },
   "regulation": {
     "title": "Réglementation Européenne 2026",
