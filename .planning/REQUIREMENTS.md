@@ -34,7 +34,7 @@
 
 ### Sustainability & Technology (SUST)
 
-- [ ] **SUST-01**: PAH comparison visualization — animated chart showing Traditional (>500) → EU limit (50) → ECO STAR (<50) → NATURA (0)
+- [x] **SUST-01**: PAH comparison visualization — animated chart showing Traditional (>500) → EU limit (50) → ECO STAR (<50) → NATURA (0)
 - [ ] **SUST-02**: Technology page explains pine resin chemistry with visual comparison vs traditional petroleum-based targets
 - [ ] **SUST-03**: Sustainability narrative positioned as primary brand architecture across site — not just a section
 - [ ] **SUST-04**: Carbon footprint data, REACH traceability, and regulatory compliance information accessible
@@ -45,7 +45,7 @@
 - [ ] **REG-01**: EU 2025/660 regulation explainer page — PAH limits, enforcement date (April 2026), scope
 - [ ] **REG-02**: Infographic showing what changes and why, in didactic format
 - [ ] **REG-03**: Link to official EU commission regulation document
-- [ ] **REG-04**: Compliance matrix showing NATURA / ECO STAR / Traditional compliance status
+- [x] **REG-04**: Compliance matrix showing NATURA / ECO STAR / Traditional compliance status
 - [ ] **REG-05**: Content emphasizes Vivaz's 25-year head start in ecological production
 
 ### Home Page (HOME)
@@ -83,14 +83,14 @@
 - [ ] **PERF-02**: Mobile responsive across all pages (375px+)
 - [x] **PERF-03**: JSON-LD structured data on product pages (Product schema)
 - [ ] **PERF-04**: Unique meta title/description per page per locale with Open Graph tags
-- [ ] **PERF-05**: Animation budget enforced — `useReducedMotion()` on all motion components
+- [x] **PERF-05**: Animation budget enforced — `useReducedMotion()` on all motion components
 - [x] **PERF-06**: Image pipeline optimized — `assetUrl()` always requests WebP with explicit dimensions
 
 ### Design (DESGN)
 
 - [ ] **DESGN-01**: Clean, precision-focused design that conveys premium quality — not overloaded
 - [ ] **DESGN-02**: Consistent visual language across all 8 pages
-- [ ] **DESGN-03**: MagneticButton and SpotlightReveal gated behind `pointer: fine` media query
+- [x] **DESGN-03**: MagneticButton and SpotlightReveal gated behind `pointer: fine` media query
 - [ ] **DESGN-04**: Briefing copy integrated across all pages (from `briefing/vivaz textos web.md`)
 
 ## v2 Requirements
@@ -140,7 +140,7 @@
 | PROD-05 | Phase 4 | Pending |
 | PROD-06 | Phase 4 | Pending |
 | PROD-07 | Phase 2 | Complete |
-| SUST-01 | Phase 3 | Pending |
+| SUST-01 | Phase 3 | Complete |
 | SUST-02 | Phase 4 | Pending |
 | SUST-03 | Phase 4 | Pending |
 | SUST-04 | Phase 4 | Pending |
@@ -148,7 +148,7 @@
 | REG-01 | Phase 4 | Pending |
 | REG-02 | Phase 4 | Pending |
 | REG-03 | Phase 4 | Pending |
-| REG-04 | Phase 3 | Pending |
+| REG-04 | Phase 3 | Complete |
 | REG-05 | Phase 4 | Pending |
 | HOME-01 | Phase 4 | Pending |
 | HOME-02 | Phase 4 | Pending |
@@ -171,11 +171,11 @@
 | PERF-02 | Phase 5 | Pending |
 | PERF-03 | Phase 2 | Complete |
 | PERF-04 | Phase 5 | Pending |
-| PERF-05 | Phase 3 | Pending |
+| PERF-05 | Phase 3 | Complete |
 | PERF-06 | Phase 2 | Complete |
 | DESGN-01 | Phase 4 | Pending |
 | DESGN-02 | Phase 4 | Pending |
-| DESGN-03 | Phase 3 | Pending |
+| DESGN-03 | Phase 3 | Complete |
 | DESGN-04 | Phase 4 | Pending |
 
 **Coverage:**

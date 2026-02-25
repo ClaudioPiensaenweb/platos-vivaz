@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-25)
 ## Current Position
 
 Phase: 3 of 5 (Components)
-Plan: 2 of 3 in current phase (Plan 2 complete)
-Status: Plan 03-02 complete — TechSpecGrid, TimelineSection, StatCard, ContactSplit, ContactCards, WhatsAppFAB, BlogCard, BlogHero, BlogContent, CertBadgeRow
-Last activity: 2026-02-25 — Completed 03-02 (all feature-specific components for product, contact, blog, about, technology pages)
+Plan: 3 of 3 in current phase (Plans 01 and 02 complete)
+Status: Plan 03-01 complete — MagneticButton/SpotlightReveal pointer-fine guards, MotionConfig blanket, PAHComparisonChart, ComplianceMatrix, animateCount
+Last activity: 2026-02-25 — Completed 03-01 (motion safety infrastructure, PAH bar chart, compliance matrix)
 
-Progress: [█████░░░░░] 50%
+Progress: [██████░░░░] 60%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: 5 min
-- Total execution time: ~0.6 hours
+- Total execution time: ~0.7 hours
 
 **By Phase:**
 
@@ -29,7 +29,7 @@ Progress: [█████░░░░░] 50%
 |-------|-------|-------|----------|
 | 01-foundation | 3/3 | 18 min | 6 min |
 | 02-cms-data | 2/3 | 6 min | 3 min |
-| 03-components | 2/3 | ~10 min | 5 min |
+| 03-components | 3/3 | ~17 min | 6 min |
 
 **Recent Trend:**
 - Last 5 plans: 5 min, 5 min, 8 min, 3 min, 3 min
@@ -42,6 +42,7 @@ Progress: [█████░░░░░] 50%
 | Phase 02-cms-data P01 | 3 | 2 tasks | 3 files |
 | Phase 02-cms-data P02 | 3 | 3 tasks | 8 files |
 | Phase 03-components P02 | 5 | 2 tasks | 10 files |
+| Phase 03-components P01 | 7 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -74,6 +75,10 @@ Recent decisions affecting current work:
 - [Phase 03-components]: DirectusImage takes uuid prop not full URL — blog components pass post.image UUID directly, not assetUrl() string
 - [Phase 03-components]: ContactCards is Client Component for highlight state; ContactSplit is Server Component boundary that reads await headers() for geo-routing
 - [Phase 03-components]: TimelineSection receives events array prop — never hardcodes milestones; Phase 4 supplies 1967/2001/2026 content
+- [03-01]: Lazy useState initializer for pointer-fine: useState(() => typeof window !== 'undefined' && matchMedia('(pointer: fine)').matches) — SSR-safe AND avoids react-hooks/set-state-in-effect lint rule
+- [03-01]: animateCount with 1ms duration for reduced-motion — avoids synchronous setState in useEffect body
+- [03-01]: NATURA bar as 4px accent line — zero-height bar invisible; accent line communicates 0 mg/kg clearly
+- [03-01]: warning token added to globals.css — amber #d97706 for EU threshold visualizations
 
 ### Pending Todos
 
@@ -90,5 +95,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Completed 03-02-PLAN.md — TechSpecGrid, TimelineSection, StatCard, ContactSplit, ContactCards, WhatsAppFAB, BlogCard, BlogHero, BlogContent, CertBadgeRow
+Stopped at: Completed 03-01-PLAN.md — pointer-fine guards, MotionConfig blanket, PAHComparisonChart, ComplianceMatrix, animateCount
 Resume file: None
