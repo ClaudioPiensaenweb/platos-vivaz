@@ -17,9 +17,9 @@
 
 ### Internationalization (I18N)
 
-- [ ] **I18N-01**: All 4 locale message files (es, en, fr, de) complete with briefing copy — no raw translation key strings visible
-- [ ] **I18N-02**: Canonical URLs and hreflang tags correct for `localePrefix: "as-needed"` configuration
-- [ ] **I18N-03**: No hardcoded user-visible strings in any component — all strings from message files
+- [x] **I18N-01**: All 4 locale message files (es, en, fr, de) complete with briefing copy — no raw translation key strings visible
+- [x] **I18N-02**: Canonical URLs and hreflang tags correct for `localePrefix: "as-needed"` configuration
+- [x] **I18N-03**: No hardcoded user-visible strings in any component — all strings from message files
 - [ ] **I18N-04**: Sitemap includes all locale variants for each page
 
 ### Products (PROD)
@@ -129,9 +129,9 @@
 | FOUND-05 | Phase 1 | Complete |
 | FOUND-06 | Phase 1 | Complete |
 | FOUND-07 | Phase 1 | Complete |
-| I18N-01 | Phase 1 | Pending |
-| I18N-02 | Phase 1 | Pending |
-| I18N-03 | Phase 1 | Pending |
+| I18N-01 | Phase 1 | Complete |
+| I18N-02 | Phase 1 | Complete |
+| I18N-03 | Phase 1 | Complete |
 | I18N-04 | Phase 5 | Pending |
 | PROD-01 | Phase 4 | Pending |
 | PROD-02 | Phase 4 | Pending |

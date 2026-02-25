@@ -5,36 +5,38 @@
 See: .planning/PROJECT.md (updated 2026-02-25)
 
 **Core value:** Position Vivaz as the undisputed #1 manufacturer in clay target quality and sustainability, leveraging EU 2026 regulation as the proof point of 25 years of ecological leadership.
-**Current focus:** Phase 1 - Foundation
+**Current focus:** Phase 1 - Foundation (Complete)
 
 ## Current Position
 
 Phase: 1 of 5 (Foundation)
-Plan: 1 of 3 in current phase
-Status: In progress
-Last activity: 2026-02-25 — Completed 01-01 (typography, sanitization, design tokens)
+Plan: 3 of 3 in current phase (Phase 1 complete)
+Status: Phase 1 complete — ready for Phase 2
+Last activity: 2026-02-25 — Completed 01-03 (i18n completion, hreflang, sitemap)
 
-Progress: [█░░░░░░░░░] 7%
+Progress: [██░░░░░░░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 5 min
-- Total execution time: 0.1 hours
+- Total plans completed: 3
+- Average duration: 6 min
+- Total execution time: 0.3 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-foundation | 1/3 | 5 min | 5 min |
+| 01-foundation | 3/3 | 18 min | 6 min |
 
 **Recent Trend:**
-- Last 5 plans: 5 min
-- Trend: -
+- Last 5 plans: 5 min, 5 min, 8 min
+- Trend: Stable
 
 *Updated after each plan completion*
+| Phase 01-foundation P01 | 5 | 2 tasks | 10 files |
 | Phase 01-foundation P02 | 5 | 2 tasks | 12 files |
+| Phase 01-foundation P03 | 8 | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -52,6 +54,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: Delete RegulationInfographic.tsx and create RegulationContent.tsx — translations-as-props pattern fixes Server/Client hydration split without useTranslations in non-client components
 - [Phase 01-foundation]: PageHero shared Server Component: single component replaces 5 duplicated hero sections — props-based customization (backgroundImage, opacity, minHeight)
 - [Phase 01-foundation]: Lenis ScrollToTop: useLenis()+usePathname() effect calls scrollTo(0, immediate) on route change — prevents scroll position conflicts in App Router
+- [01-03]: products.heroSubtitle added to all locales — brand name literal kept in message files for zero-hardcoded-string consistency
+- [01-03]: Sitemap canonical uses no-prefix for Spanish, /locale/ prefix for en/fr/de — correct per localePrefix: "as-needed"
+- [01-03]: x-default hreflang points to root Spanish URL in both layout metadata and sitemap
 
 ### Pending Todos
 
@@ -67,5 +72,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Completed 01-01-PLAN.md — typography plugin, sanitization, design token manifest
+Stopped at: Completed 01-03-PLAN.md — i18n completion, hreflang/canonical, sitemap locale-prefix fix
 Resume file: None
