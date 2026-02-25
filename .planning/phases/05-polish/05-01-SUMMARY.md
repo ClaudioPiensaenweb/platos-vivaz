@@ -89,7 +89,7 @@ Each task was committed atomically:
 1. **Task 1: Create shared metadata utility and complete page-level SEO metadata** - `8720ab5` (feat)
 2. **Task 2: Add CSS reduced-motion guard and verify sitemap locale coverage** - `b98ff69` (feat)
 
-**Plan metadata:** (docs commit — created next)
+**Plan metadata:** `b392b07` (docs: complete plan)
 
 ## Files Created/Modified
 

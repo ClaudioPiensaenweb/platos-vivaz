@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Website for Vivaz Clay Targets (Platos Vivaz), a Spanish manufacturer of ecological clay targets for shooting sports founded in 1967. The site positions Vivaz as the European leader in quality and sustainability — the first company to use pine resin (2001) instead of petroleum-based materials. Two product lines: NATURA (premium, 0 mg/kg PAH) and ECO STAR (high performance, <50 mg/kg PAH). Target audiences: shooters, shooting grounds, distributors, and hunters across international markets (90%+ export).
+Corporate website for Vivaz Clay Targets (Platos Vivaz), a Spanish manufacturer of ecological clay targets for shooting sports founded in 1967. The site positions Vivaz as the European leader in quality and sustainability with instant geo-adapted messaging, animated PAH data visualization, and EU 2025/660 regulation compliance proof. Two product lines: NATURA (premium, 0 mg/kg PAH) and ECO STAR (high performance, <50 mg/kg PAH). Serves 4 languages (es/en/fr/de) across 8 pages with Directus CMS backend.
 
 ## Core Value
 
@@ -12,100 +12,72 @@ Position Vivaz as the undisputed #1 manufacturer in clay target quality and sust
 
 ### Validated
 
-Existing codebase already delivers:
-
-- ✓ Next.js 16 + React 19 + TypeScript + Tailwind v4 + framer-motion stack — existing
-- ✓ Directus 11 CMS backend with product, blog, regulation, brand, leads collections — existing
-- ✓ Multi-language support (es, en, fr, de) via next-intl with localePrefix "as-needed" — existing
-- ✓ Docker Compose deployment (PostgreSQL + Directus + Next.js + Nginx proxy) — existing
-- ✓ 8 page routes: Home, Productos (list + detail), Tecnologia, Sobre Vivaz, Noticias (list + detail), Contacto, Regulacion 2026 — existing
-- ✓ Agency-grade UI components: SpotlightReveal, MagneticButton, MotionImage, InView, SmoothScroll, PageTransition — existing
-- ✓ Contact form API with CRM lead storage in Directus — existing
-- ✓ SEO endpoints: sitemap.ts, robots.ts, llms.txt — existing
-- ✓ Quablo (heading) + Manrope (body) typography system — existing
-- ✓ Geo-routing middleware (national/export market detection) — existing
+- ✓ Full 8-page multilingual site with Next.js 16 + Directus CMS — v1.0
+- ✓ Geo-routing middleware adapts hero copy and contact for national vs export — v1.0
+- ✓ Animated PAH comparison chart + compliance matrix (EU regulation proof) — v1.0
+- ✓ Product line pages with FormatTabs, TechSpecGrid, logistics data — v1.0
+- ✓ SEO-complete: unique meta/OG per page per locale, hreflang sitemap, JSON-LD — v1.0
+- ✓ Core Web Vitals optimized: CLS=0, TBT<200ms, responsive 375px+ — v1.0
+- ✓ Agency-grade UI: SpotlightReveal, MagneticButton, pointer-fine guards — v1.0
+- ✓ Contact form with CRM leads + WhatsApp FAB + email notifications — v1.0
+- ✓ 1967-2001-2026 brand timeline on About and Technology pages — v1.0
+- ✓ Prefers-reduced-motion CSS guard + framer-motion useReducedMotion — v1.0
 
 ### Active
 
-- [ ] Comprehensive design and copy revision across all pages (changed direction since initial build)
-- [ ] Home page overhaul: hero video/landscape + Natura visualization, "Why Vivaz" pillars (Quality, Sustainability, Performance), CTA for Natura/ECO STAR
-- [ ] Product pages: NATURA as premium flagship (100% pine resin, 0% PAH, ISSF disciplines), ECO STAR as efficient choice (Sporting disciplines, <50 mg/kg PAH)
-- [ ] Full product range display: American Trap, Extra Rabbit, Rabbit, Battue, Midi 90, Mini 60 formats
-- [ ] Technology & Sustainability page: pine resin technical explanation, visual comparison vs traditional targets, carbon footprint data, REACH traceability
-- [ ] About Vivaz: innovation history since 1967, factory, team, values
-- [ ] Regulation 2026 page: EU 2025/660 explainer with infographic, PAH limits (0.005%), timeline, link to EU commission, Vivaz's 25-year head start
-- [ ] News/Blog section fully functional with Directus content
-- [ ] Contact page: forms + WhatsApp button, split national (+34-618-757-580) and international (+34-606-172-746) contacts
-- [ ] Product technical data sheets and certificates accessible
-- [ ] Logistics table for product range
-- [ ] Design that conveys precision, innovation, reliability — clean, not overloaded
-- [ ] Content from briefing document (`briefing/vivaz textos web.md`) integrated across all pages
-- [ ] Fix loading errors and rendering issues from initial build
+- [ ] Regular product line (pending client confirmation — V2-01)
+- [ ] Distributor/shooting ground finder with map (V2-02)
+- [ ] On-demand PDF data sheet generation (V2-03)
+- [ ] GDPR cookie consent banner (V2-04)
+- [ ] CI pipeline with locale key diff + Lighthouse gate (V2-05)
+- [ ] Directus type generation from OpenAPI spec (V2-06)
+- [ ] Quablo font subsetting for Latin ranges (V2-07)
 
 ### Out of Scope
 
-- Regular product line — deferred, to be confirmed later
 - E-commerce / direct sales — Vivaz sells B2B through distributors
-- User accounts / login system — not needed for corporate site
-- Machine/launcher products — Vivaz manufactures targets only (unlike competitor Laporte)
+- User accounts / login — corporate site, no user-facing auth
+- Live chat widget — WhatsApp FAB covers quick contact
 - Mobile app — web-only
+- Machine/launcher products — Vivaz manufactures targets only
+- Blog content machine — 3-4 high-value annual posts only
 
 ## Context
 
+### Current State (v1.0 shipped 2026-02-25)
+- 6,431 LOC TypeScript across frontend/src (54 files)
+- Tech stack: Next.js 16.1.6, React 19.2, Tailwind CSS v4, framer-motion, Directus 11.14.1
+- Docker Compose: PostgreSQL 16 + Directus + Next.js + Nginx
+- 4 locales: es (default, no prefix), en, fr, de
+- Lighthouse: CLS=0.000, TBT<200ms on all key pages
+
 ### Market Position
-- 4 European manufacturers cover 95% of world demand (excl. USA): Eurotarget (Italy), Laporte (France), Vivaz & Corsivia (Spain)
-- Vivaz has the best quality and supply consistency, confirmed by shooters
-- Eurotarget communicates sustainability better despite inferior product
-- Laporte leverages machine+target positioning but unstable eco supply
-- Vivaz's historical deficit: communication and web presence
-
-### 2026 Regulation Opportunity
-- EU 2025/660: from April 2026, clay targets cannot contain >0.005% PAH (50 mg/kg sum of 18 PAH types)
-- Petroleum-based binder targets will be illegal in EU
-- Industry faces cost increases and material sourcing challenges
-- Vivaz is uniquely positioned: 25 years of ecological production experience
-- Two compliant products ready: NATURA (0 mg/kg PAH) and ECO STAR (<50 mg/kg PAH)
-
-### Reference Sites (design inspiration)
-- E.J. Churchill Shooting Ground (ejchurchill.com)
-- Coniston Shooting Ground (conistonshootingground.co.uk)
-- White Flyer (whiteflyer.com)
-
-### Existing Codebase State
-- Brownfield: All 8 routes built with 40+ components
-- Design direction changed since initial build — needs comprehensive refresh
-- Copy needs updating to match briefing document
-- Some rendering/loading issues reported
-- Tech stack is solid and should be preserved
-
-### Briefing Assets Available
-- `briefing/vivaz textos web.md` — Complete web copy (all sections, all languages base)
-- `briefing/IMG/` — Product photos, crash details, branding, generated images
-- `briefing/v2/` — Updated assets (hero header, target SVGs, range image, brand mark)
-- `briefing/Quablo Complete Desktop/` — Full Quablo font family (already integrated)
-- `briefing/Fotos Davide Carolis/` — Professional photography
-- `briefing/Platos Vivaz PW.fig` — Figma design file
+- 4 European manufacturers cover 95% of world demand (excl. USA)
+- Vivaz has the best quality and supply consistency
+- EU 2025/660 (April 2026): clay targets cannot contain >0.005% PAH
+- Vivaz uniquely positioned: 25 years of ecological production experience
 
 ## Constraints
 
-- **Tech Stack**: Next.js 16 + React 19 + Directus 11 + Tailwind v4 — already built, preserve
-- **Languages**: es, en, fr, de — all pages must support 4 locales via next-intl
-- **Products**: Only NATURA and ECO STAR in v1 (no Regular)
-- **CMS**: All dynamic content (products, blog, regulation data) served from Directus
-- **Hosting**: Docker Compose stack behind Nginx proxy with Let's Encrypt SSL
-- **Domain**: platosvivaz.com (production)
-- **Design**: Clean, precision-focused, not overloaded — must convey premium quality
+- **Tech Stack**: Next.js 16 + React 19 + Directus 11 + Tailwind v4
+- **Languages**: es, en, fr, de via next-intl (localePrefix: "as-needed")
+- **Products**: Only NATURA and ECO STAR in v1 (Regular deferred to v2)
+- **Hosting**: Docker Compose behind Nginx with Let's Encrypt SSL
+- **Domain**: platosvivaz.com
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Brownfield revision (not rebuild) | Solid tech foundation exists, changing direction not stack | — Pending |
-| NATURA as premium flagship | 0 mg/kg PAH, best product in market per expert feedback | — Pending |
-| ECO STAR as performance line | <50 mg/kg PAH, Sporting disciplines, value positioning | — Pending |
-| No Regular product in v1 | Pending client confirmation | — Pending |
-| Sustainability as core narrative | EU 2026 regulation validates Vivaz's 25-year strategy | — Pending |
-| Bilingual contact split | National (Spain) vs International (export) with different numbers | — Pending |
+| Brownfield revision (not rebuild) | Solid tech foundation, changing direction not stack | ✓ Good — 54 files modified, zero rewrites |
+| NATURA as premium flagship | 0 mg/kg PAH, best product per expert feedback | ✓ Good — flagship positioning throughout site |
+| ECO STAR as performance line | <50 mg/kg PAH, Sporting disciplines, value positioning | ✓ Good — clear differentiation from NATURA |
+| No Regular product in v1 | Pending client confirmation | — Deferred to v2 |
+| Sustainability as core narrative | EU 2026 regulation validates Vivaz's 25-year strategy | ✓ Good — PAH chart + compliance matrix prove it |
+| Bilingual contact split | National vs International with different numbers | ✓ Good — geo-routing auto-highlights relevant card |
+| Per-line product slugs | /natura and /eco-star with FormatTabs vs per-SKU | ✓ Good — cleaner URLs, tabs for format switching |
+| Floating WhatsApp FAB | User preference over in-card CTA | ✓ Good — always accessible |
+| Shared OG image (not per-page) | Simpler, consistent brand presence on social | ✓ Good — one 1200x630 brand image |
 
 ---
-*Last updated: 2026-02-25 after initialization*
+*Last updated: 2026-02-25 after v1.0 milestone*
