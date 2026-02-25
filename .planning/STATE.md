@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-25)
 
 **Core value:** Position Vivaz as the undisputed #1 manufacturer in clay target quality and sustainability, leveraging EU 2026 regulation as the proof point of 25 years of ecological leadership.
-**Current focus:** Phase 3 - Components (In Progress)
+**Current focus:** Phase 4 - Page Assembly (In Progress)
 
 ## Current Position
 
-Phase: 3 of 5 (Components)
-Plan: 3 of 3 in current phase (Plans 01 and 02 complete)
-Status: Plan 03-01 complete — MagneticButton/SpotlightReveal pointer-fine guards, MotionConfig blanket, PAHComparisonChart, ComplianceMatrix, animateCount
-Last activity: 2026-02-25 — Completed 03-01 (motion safety infrastructure, PAH bar chart, compliance matrix)
+Phase: 4 of 5 (Page Assembly)
+Plan: 2 of 3 in current phase (Plan 01 complete)
+Status: Plan 04-01 complete — Home page assembled (all sections), About page (TimelineSection + SVG icons), Contact page (side-by-side cards), WhatsAppFAB global, Footer redesigned, ContactForm simplified
+Last activity: 2026-02-25 — Completed 04-01 (page assembly, VideoSection, Footer redesign, geo-adapted hero)
 
-Progress: [██████░░░░] 60%
+Progress: [███████░░░] 70%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 9
 - Average duration: 5 min
-- Total execution time: ~0.7 hours
+- Total execution time: ~0.85 hours
 
 **By Phase:**
 
@@ -30,9 +30,10 @@ Progress: [██████░░░░] 60%
 | 01-foundation | 3/3 | 18 min | 6 min |
 | 02-cms-data | 2/3 | 6 min | 3 min |
 | 03-components | 3/3 | ~17 min | 6 min |
+| 04-page-assembly | 1/3 | 9 min | 9 min |
 
 **Recent Trend:**
-- Last 5 plans: 5 min, 5 min, 8 min, 3 min, 3 min
+- Last 5 plans: 5 min, 8 min, 3 min, 3 min, 9 min
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -43,6 +44,7 @@ Progress: [██████░░░░] 60%
 | Phase 02-cms-data P02 | 3 | 3 tasks | 8 files |
 | Phase 03-components P02 | 5 | 2 tasks | 10 files |
 | Phase 03-components P01 | 7 | 2 tasks | 7 files |
+| Phase 04-page-assembly P01 | 9 | 2 tasks | 16 files |
 
 ## Accumulated Context
 
@@ -79,6 +81,11 @@ Recent decisions affecting current work:
 - [03-01]: animateCount with 1ms duration for reduced-motion — avoids synchronous setState in useEffect body
 - [03-01]: NATURA bar as 4px accent line — zero-height bar invisible; accent line communicates 0 mg/kg clearly
 - [03-01]: warning token added to globals.css — amber #d97706 for EU threshold visualizations
+- [04-01]: ContactSplit self-contained Server Component — fetches own translations via getTranslations(), reads x-vivaz-market; parent just renders <ContactSplit /> with no props
+- [04-01]: ContactCards layout prop — "stacked" (default) vs "side-by-side" for flexible card arrangement on different pages
+- [04-01]: Footer converted from Client to Server Component — getTranslations() from next-intl/server
+- [04-01]: About page SVG icons as inline component functions — no external icon library, crosshair/lightbulb/leaf/handshake
+- [04-01]: VideoSection returns null on empty array — graceful empty state, no skeleton
 
 ### Pending Todos
 
@@ -95,5 +102,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Completed 03-01-PLAN.md — pointer-fine guards, MotionConfig blanket, PAHComparisonChart, ComplianceMatrix, animateCount
+Stopped at: Completed 04-01-PLAN.md — Home/About/Contact pages assembled, VideoSection, Footer redesign, WhatsAppFAB global, ContactForm simplified
 Resume file: None

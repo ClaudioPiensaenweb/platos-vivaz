@@ -36,7 +36,7 @@
 
 - [x] **SUST-01**: PAH comparison visualization — animated chart showing Traditional (>500) → EU limit (50) → ECO STAR (<50) → NATURA (0)
 - [ ] **SUST-02**: Technology page explains pine resin chemistry with visual comparison vs traditional petroleum-based targets
-- [ ] **SUST-03**: Sustainability narrative positioned as primary brand architecture across site — not just a section
+- [x] **SUST-03**: Sustainability narrative positioned as primary brand architecture across site — not just a section
 - [ ] **SUST-04**: Carbon footprint data, REACH traceability, and regulatory compliance information accessible
 - [x] **SUST-05**: 1967 → 2001 → 2026 brand timeline showing innovation history
 
@@ -50,25 +50,25 @@
 
 ### Home Page (HOME)
 
-- [ ] **HOME-01**: Hero section with landscape/nature visual + Natura product visualization
-- [ ] **HOME-02**: "Why Vivaz" module with three pillars: Quality, Sustainability, Performance
-- [ ] **HOME-03**: CTA buttons: Discover Natura / Discover ECO STAR
-- [ ] **HOME-04**: Geo-adapted hero copy — regulation urgency for export visitors, performance focus for national
-- [ ] **HOME-05**: Brief ecological leadership message in hero area
+- [x] **HOME-01**: Hero section with landscape/nature visual + Natura product visualization
+- [x] **HOME-02**: "Why Vivaz" module with three pillars: Quality, Sustainability, Performance
+- [x] **HOME-03**: CTA buttons: Discover Natura / Discover ECO STAR
+- [x] **HOME-04**: Geo-adapted hero copy — regulation urgency for export visitors, performance focus for national
+- [x] **HOME-05**: Brief ecological leadership message in hero area
 
 ### Contact & Leads (LEAD)
 
-- [ ] **LEAD-01**: Contact form functional with all fields (name, email, phone, company, market, interest, message)
-- [ ] **LEAD-02**: National contact displayed: +34-618-757-580, export@platosvivaz.com
-- [ ] **LEAD-03**: International contact displayed: +34-606-172-746, sales@vivazclaytargets.com
-- [ ] **LEAD-04**: WhatsApp button integrated for quick contact
+- [x] **LEAD-01**: Contact form functional with all fields (name, email, phone, company, market, interest, message)
+- [x] **LEAD-02**: National contact displayed: +34-618-757-580, export@platosvivaz.com
+- [x] **LEAD-03**: International contact displayed: +34-606-172-746, sales@vivazclaytargets.com
+- [x] **LEAD-04**: WhatsApp button integrated for quick contact
 - [x] **LEAD-05**: Email notification sent to admin on form submission (currently TODO)
-- [ ] **LEAD-06**: Contact split display — market-aware using geo-routing header
+- [x] **LEAD-06**: Contact split display — market-aware using geo-routing header
 
 ### About (ABOUT)
 
-- [ ] **ABOUT-01**: Company history since 1967 with innovation milestones
-- [ ] **ABOUT-02**: Factory, team, and values content from briefing
+- [x] **ABOUT-01**: Company history since 1967 with innovation milestones
+- [x] **ABOUT-02**: Factory, team, and values content from briefing
 - [x] **ABOUT-03**: Visual timeline of Vivaz's ecological leadership journey
 
 ### Blog/News (BLOG)
@@ -88,10 +88,10 @@
 
 ### Design (DESGN)
 
-- [ ] **DESGN-01**: Clean, precision-focused design that conveys premium quality — not overloaded
-- [ ] **DESGN-02**: Consistent visual language across all 8 pages
+- [x] **DESGN-01**: Clean, precision-focused design that conveys premium quality — not overloaded
+- [x] **DESGN-02**: Consistent visual language across all 8 pages
 - [x] **DESGN-03**: MagneticButton and SpotlightReveal gated behind `pointer: fine` media query
-- [ ] **DESGN-04**: Briefing copy integrated across all pages (from `briefing/vivaz textos web.md`)
+- [x] **DESGN-04**: Briefing copy integrated across all pages (from `briefing/vivaz textos web.md`)
 
 ## v2 Requirements
 
@@ -142,7 +142,7 @@
 | PROD-07 | Phase 2 | Complete |
 | SUST-01 | Phase 3 | Complete |
 | SUST-02 | Phase 4 | Pending |
-| SUST-03 | Phase 4 | Pending |
+| SUST-03 | Phase 4 | Complete |
 | SUST-04 | Phase 4 | Pending |
 | SUST-05 | Phase 3 | Complete |
 | REG-01 | Phase 4 | Pending |
@@ -150,19 +150,19 @@
 | REG-03 | Phase 4 | Pending |
 | REG-04 | Phase 3 | Complete |
 | REG-05 | Phase 4 | Pending |
-| HOME-01 | Phase 4 | Pending |
-| HOME-02 | Phase 4 | Pending |
-| HOME-03 | Phase 4 | Pending |
-| HOME-04 | Phase 4 | Pending |
-| HOME-05 | Phase 4 | Pending |
-| LEAD-01 | Phase 4 | Pending |
-| LEAD-02 | Phase 4 | Pending |
-| LEAD-03 | Phase 4 | Pending |
-| LEAD-04 | Phase 4 | Pending |
+| HOME-01 | Phase 4 | Complete |
+| HOME-02 | Phase 4 | Complete |
+| HOME-03 | Phase 4 | Complete |
+| HOME-04 | Phase 4 | Complete |
+| HOME-05 | Phase 4 | Complete |
+| LEAD-01 | Phase 4 | Complete |
+| LEAD-02 | Phase 4 | Complete |
+| LEAD-03 | Phase 4 | Complete |
+| LEAD-04 | Phase 4 | Complete |
 | LEAD-05 | Phase 2 | Complete |
-| LEAD-06 | Phase 4 | Pending |
-| ABOUT-01 | Phase 4 | Pending |
-| ABOUT-02 | Phase 4 | Pending |
+| LEAD-06 | Phase 4 | Complete |
+| ABOUT-01 | Phase 4 | Complete |
+| ABOUT-02 | Phase 4 | Complete |
 | ABOUT-03 | Phase 3 | Complete |
 | BLOG-01 | Phase 4 | Pending |
 | BLOG-02 | Phase 4 | Pending |
@@ -173,10 +173,10 @@
 | PERF-04 | Phase 5 | Pending |
 | PERF-05 | Phase 3 | Complete |
 | PERF-06 | Phase 2 | Complete |
-| DESGN-01 | Phase 4 | Pending |
-| DESGN-02 | Phase 4 | Pending |
+| DESGN-01 | Phase 4 | Complete |
+| DESGN-02 | Phase 4 | Complete |
 | DESGN-03 | Phase 3 | Complete |
-| DESGN-04 | Phase 4 | Pending |
+| DESGN-04 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 53 total
