@@ -79,8 +79,8 @@
 
 ### Performance & SEO (PERF)
 
-- [ ] **PERF-01**: Core Web Vitals passing — LCP < 2.5s, CLS < 0.1, INP < 200ms on all pages
-- [ ] **PERF-02**: Mobile responsive across all pages (375px+)
+- [x] **PERF-01**: Core Web Vitals passing — LCP < 2.5s, CLS < 0.1, INP < 200ms on all pages
+- [x] **PERF-02**: Mobile responsive across all pages (375px+)
 - [x] **PERF-03**: JSON-LD structured data on product pages (Product schema)
 - [x] **PERF-04**: Unique meta title/description per page per locale with Open Graph tags
 - [x] **PERF-05**: Animation budget enforced — `useReducedMotion()` on all motion components
@@ -167,8 +167,8 @@
 | BLOG-01 | Phase 4 | Complete |
 | BLOG-02 | Phase 4 | Complete |
 | BLOG-03 | Phase 4 | Complete |
-| PERF-01 | Phase 5 | Pending |
-| PERF-02 | Phase 5 | Pending |
+| PERF-01 | Phase 5 | Complete |
+| PERF-02 | Phase 5 | Complete |
 | PERF-03 | Phase 2 | Complete |
 | PERF-04 | Phase 5 | Complete |
 | PERF-05 | Phase 3 | Complete |
