@@ -16,12 +16,15 @@ export default function MagneticButton({
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [hasFinePointer, setHasFinePointer] = useState(false);
+  // Lazy initializer: default false for SSR; reads matchMedia immediately on client
+  const [hasFinePointer, setHasFinePointer] = useState<boolean>(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(pointer: fine)").matches;
+  });
 
+  // Listen for dynamic pointer changes (e.g., tablet docking)
   useEffect(() => {
     const mq = window.matchMedia("(pointer: fine)");
-    setHasFinePointer(mq.matches);
-
     const handler = (e: MediaQueryListEvent) => setHasFinePointer(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
