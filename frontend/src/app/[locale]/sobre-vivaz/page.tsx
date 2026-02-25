@@ -4,6 +4,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import InView from "@/components/ui/InView";
 import PageHero from "@/components/ui/PageHero";
+import TimelineSection from "@/components/about/TimelineSection";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -12,15 +13,125 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: `${t("title")} | VIVAZ Clay Targets` };
 }
 
+/* SVG icon components for the values section (no emoji) */
+function QualityIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+    >
+      {/* Crosshair / target */}
+      <circle cx="16" cy="16" r="14" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16" cy="16" r="7" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16" cy="16" r="2.5" fill="currentColor" />
+      <line x1="16" y1="0" x2="16" y2="7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="16" y1="25" x2="16" y2="32" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="0" y1="16" x2="7" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="25" y1="16" x2="32" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function InnovationIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      {/* Lightbulb */}
+      <path d="M9 18h6" />
+      <path d="M10 22h4" />
+      <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8a6 6 0 0 0-12 0c0 1.4.58 2.67 1.5 3.56.78.76 1.23 1.5 1.41 2.44" />
+    </svg>
+  );
+}
+
+function SustainabilityIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      {/* Leaf */}
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+    </svg>
+  );
+}
+
+function ServiceIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      {/* Handshake */}
+      <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z" />
+    </svg>
+  );
+}
+
+const VALUE_ICONS = {
+  valueQuality: { Icon: QualityIcon, bg: "bg-primary", text: "text-warm-white" },
+  valueInnovation: { Icon: InnovationIcon, bg: "bg-accent", text: "text-white" },
+  valueSustainability: { Icon: SustainabilityIcon, bg: "bg-success", text: "text-white" },
+  valueService: { Icon: ServiceIcon, bg: "bg-primary-dark", text: "text-warm-white" },
+} as const;
+
 export default async function SobreVivazPage() {
   const t = await getTranslations("about");
 
-  const values = [
-    { key: "valueQuality" as const, icon: "🎯", color: "bg-primary" },
-    { key: "valueInnovation" as const, icon: "💡", color: "bg-accent" },
-    { key: "valueSustainability" as const, icon: "🌿", color: "bg-success" },
-    { key: "valueService" as const, icon: "🤝", color: "bg-primary-dark" },
+  const timelineEvents = [
+    {
+      year: 1967,
+      title: t("timeline.founded"),
+      description: t("timeline.foundedDesc"),
+    },
+    {
+      year: 2001,
+      title: t("timeline.pioneers"),
+      description: t("timeline.pioneersDesc"),
+    },
+    {
+      year: 2026,
+      title: t("timeline.regulation"),
+      description: t("timeline.regulationDesc"),
+    },
   ];
+
+  const values = Object.keys(VALUE_ICONS) as (keyof typeof VALUE_ICONS)[];
 
   return (
     <main>
@@ -62,8 +173,29 @@ export default async function SobreVivazPage() {
         </Container>
       </section>
 
-      {/* Pioneers — inverted layout */}
+      {/* Timeline — 1967 / 2001 / 2026 milestones */}
       <section className="bg-cream-light py-20 lg:py-28">
+        <Container>
+          <InView animation="fade-in-up">
+            <div className="mb-12 text-center">
+              <div className="mb-3 flex items-center justify-center gap-3">
+                <div className="h-px w-8 bg-accent" />
+                <span className="text-[13px] font-medium uppercase tracking-[3px] text-accent">
+                  VIVAZ
+                </span>
+                <div className="h-px w-8 bg-accent" />
+              </div>
+              <h2 className="text-[28px] font-bold text-primary lg:text-[34px]">
+                {t("pioneerTitle")}
+              </h2>
+            </div>
+          </InView>
+          <TimelineSection events={timelineEvents} />
+        </Container>
+      </section>
+
+      {/* Pioneers — narrative section */}
+      <section className="bg-white py-20 lg:py-28">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <InView animation="slide-in-left" className="order-2 lg:order-1">
@@ -124,7 +256,7 @@ export default async function SobreVivazPage() {
         </div>
       </section>
 
-      {/* Values */}
+      {/* Values — SVG icon cards (no emoji) */}
       <section className="bg-white py-20 lg:py-28">
         <Container>
           <InView animation="fade-in-up">
@@ -133,16 +265,21 @@ export default async function SobreVivazPage() {
             </h2>
           </InView>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map(({ key, icon, color }, i) => (
-              <InView key={key} animation="scale-in" delay={i * 100}>
-                <div className="group rounded-[20px] bg-cream-light p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
-                  <div className={`mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full ${color} text-2xl shadow-md transition-transform duration-300 group-hover:scale-110`}>
-                    <span>{icon}</span>
+            {values.map((key, i) => {
+              const { Icon, bg, text } = VALUE_ICONS[key];
+              return (
+                <InView key={key} animation="scale-in" delay={i * 100}>
+                  <div className="group rounded-[20px] bg-cream-light p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                    <div
+                      className={`mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full ${bg} shadow-md transition-transform duration-300 group-hover:scale-110`}
+                    >
+                      <Icon className={`h-8 w-8 ${text}`} />
+                    </div>
+                    <p className="font-body text-[16px] font-medium text-primary-deep">{t(key)}</p>
                   </div>
-                  <p className="font-body text-[16px] font-medium text-primary-deep">{t(key)}</p>
-                </div>
-              </InView>
-            ))}
+                </InView>
+              );
+            })}
           </div>
         </Container>
       </section>

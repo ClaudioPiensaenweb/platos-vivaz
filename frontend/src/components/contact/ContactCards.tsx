@@ -14,6 +14,8 @@ interface ContactCardsProps {
   phoneExport?: string;
   emailNational?: string;
   emailExport?: string;
+  /** "stacked" = column layout (default); "side-by-side" = grid layout on desktop */
+  layout?: "stacked" | "side-by-side";
 }
 
 function PhoneIcon() {
@@ -62,6 +64,7 @@ export default function ContactCards({
   phoneExport = "+34 606 172 746",
   emailNational = "export@platosvivaz.com",
   emailExport = "sales@vivazclaytargets.com",
+  layout = "stacked",
 }: ContactCardsProps) {
   const cards = [
     {
@@ -78,8 +81,13 @@ export default function ContactCards({
     },
   ];
 
+  const containerClass =
+    layout === "side-by-side"
+      ? "grid gap-4 sm:grid-cols-2"
+      : "flex flex-col gap-4";
+
   return (
-    <div className="flex flex-col gap-4">
+    <div className={containerClass}>
       {cards.map((card) => {
         const isHighlighted = card.key === highlightedMarket;
         return (

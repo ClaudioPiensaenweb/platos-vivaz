@@ -1,61 +1,74 @@
 import { headers } from "next/headers";
+import { getTranslations } from "next-intl/server";
 import ContactForm from "@/components/contact/ContactForm";
 import ContactCards from "@/components/contact/ContactCards";
-
-interface ContactSplitTranslations {
-  national: string;
-  international: string;
-  phone: string;
-  email: string;
-  formTitle: string;
-}
+import Container from "@/components/ui/Container";
 
 interface ContactSplitProps {
-  translations: ContactSplitTranslations;
-  phoneNational?: string;
-  phoneExport?: string;
-  emailNational?: string;
-  emailExport?: string;
+  /** When "side-by-side", renders Nacional/Internacional cards in a 2-column grid */
+  cardLayout?: "stacked" | "side-by-side";
+  /** Optional custom section title override */
+  sectionTitle?: string;
 }
 
 export default async function ContactSplit({
-  translations,
-  phoneNational,
-  phoneExport,
-  emailNational,
-  emailExport,
-}: ContactSplitProps) {
+  cardLayout = "stacked",
+  sectionTitle,
+}: ContactSplitProps = {}) {
   const headersList = await headers();
   const market = (headersList.get("x-vivaz-market") ?? "export") as "national" | "export";
+  const t = await getTranslations("contact");
 
   return (
-    <div className="grid gap-12 lg:grid-cols-2">
-      {/* Left: Contact form */}
-      <div>
-        {translations.formTitle && (
-          <h2 className="mb-6 font-heading text-2xl font-bold text-foreground">
-            {translations.formTitle}
+    <section className="bg-cream py-20 lg:py-28">
+      <Container>
+        {/* Section header */}
+        <div className="mb-12 text-center">
+          <div className="mb-3 flex items-center justify-center gap-3">
+            <div className="h-px w-8 bg-accent" />
+            <span className="text-[13px] font-medium uppercase tracking-[3px] text-accent">
+              VIVAZ
+            </span>
+            <div className="h-px w-8 bg-accent" />
+          </div>
+          <h2 className="text-[28px] font-bold text-primary lg:text-[38px]">
+            {sectionTitle ?? t("talkTitle")}
           </h2>
-        )}
-        <ContactForm />
-      </div>
+          <p className="mx-auto mt-4 max-w-xl font-body text-[17px] leading-relaxed text-muted">
+            {t("talkDesc")}
+          </p>
+        </div>
 
-      {/* Right: Contact cards with geo-highlighted market */}
-      <div>
-        <ContactCards
-          highlightedMarket={market}
-          translations={{
-            national: translations.national,
-            international: translations.international,
-            phone: translations.phone,
-            email: translations.email,
-          }}
-          phoneNational={phoneNational}
-          phoneExport={phoneExport}
-          emailNational={emailNational}
-          emailExport={emailExport}
-        />
-      </div>
-    </div>
+        {/* Main grid: form left, cards right */}
+        <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
+          {/* Contact form */}
+          <div className="lg:col-span-3">
+            <div className="rounded-[24px] bg-white p-8 shadow-sm lg:p-10">
+              <h3 className="mb-6 text-[20px] font-bold text-primary">
+                {t("formTitle")}
+              </h3>
+              <ContactForm />
+            </div>
+          </div>
+
+          {/* Contact cards */}
+          <div className="lg:col-span-2">
+            <p className="mb-4 font-body text-[14px] font-medium uppercase tracking-[2px] text-primary/60">
+              {t("national")}
+            </p>
+            <ContactCards
+              highlightedMarket={market}
+              layout={cardLayout}
+              translations={{
+                national: t("national"),
+                international: t("international"),
+                phone: t("phone_label"),
+                email: t("email_label"),
+              }}
+            />
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
