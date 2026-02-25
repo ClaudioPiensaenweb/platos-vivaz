@@ -28,8 +28,8 @@ This is a brownfield enhancement project on a codebase that is 60-70% complete. 
 
 Plans:
 - [x] 01-01-PLAN.md — Install @tailwindcss/typography + isomorphic-dompurify, sanitize HTML, lock design tokens
-- [ ] 01-02-PLAN.md — Extract PageHero shared component, fix RegulationInfographic Server/Client split, verify Lenis scroll
-- [ ] 01-03-PLAN.md — Complete all 4 locale message files with missing keys, replace hardcoded strings, verify hreflang/canonical
+- [x] 01-02-PLAN.md — Extract PageHero shared component, fix RegulationInfographic Server/Client split, verify Lenis scroll
+- [x] 01-03-PLAN.md — Complete all 4 locale message files with missing keys, replace hardcoded strings, verify hreflang/canonical
 
 ### Phase 2: CMS Data
 **Goal**: Directus collections seeded with real, complete data — product specs, brand contacts, regulation content, and blog posts — so Phase 3 components can be built against accurate typed props.
@@ -40,11 +40,11 @@ Plans:
   2. Submitting the contact form triggers an email notification to the admin address
   3. Product images load as WebP with correct dimensions — no oversized JPEG originals served
   4. Technical data sheet PDFs are accessible via Directus file storage (downloadable from product pages)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: Seed pim_products (NATURA + ECO STAR), sys_brand contacts, web_regulation content, blog_posts
-- [ ] 02-02: Audit and fix assetUrl() helper (WebP + explicit dimensions), implement productSchema() JSON-LD utility, wire Resend to contact form API
+- [ ] 02-01-PLAN.md — Add missing schema fields, seed complete product data with specs/M2M disciplines, seed sys_brand, upload catalog PDF
+- [ ] 02-02-PLAN.md — Upgrade assetUrl() with WebP defaults + IMG_PRESETS, wire Resend email into contact form, augment productJsonLd() for Google rich results
 
 ### Phase 3: Components
 **Goal**: All shared and feature-specific components built — especially the PAH comparison visualization and compliance matrix that are the commercial core of the site — ready to compose into pages.
