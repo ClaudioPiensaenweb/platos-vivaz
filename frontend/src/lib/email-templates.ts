@@ -134,15 +134,15 @@ export function generateUserEmail(data: UserEmailData): string {
                 <tr>
                   <td style="padding: 20px 24px; border-bottom: 1px solid #e0d8cc;">
                     <p style="margin: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: #1B5E20; text-transform: uppercase; letter-spacing: 0.5px;">Mercado Nacional</p>
-                    <p style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; color: #444444;">Tel: +34 963 XXX XXX</p>
-                    <p style="margin: 4px 0 0 0; font-family: Arial, sans-serif; font-size: 14px; color: #444444;"><a href="mailto:info@platosvivaz.com" style="color: #E8732A; text-decoration: none;">info@platosvivaz.com</a></p>
+                    <p style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; color: #444444;">Tel: +34-618-757-580</p>
+                    <p style="margin: 4px 0 0 0; font-family: Arial, sans-serif; font-size: 14px; color: #444444;"><a href="mailto:admin@platosvivaz.com" style="color: #E8732A; text-decoration: none;">admin@platosvivaz.com</a></p>
                   </td>
                 </tr>
                 <tr>
                   <td style="padding: 20px 24px;">
                     <p style="margin: 0 0 4px 0; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; color: #1B5E20; text-transform: uppercase; letter-spacing: 0.5px;">Export / Internacional</p>
-                    <p style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; color: #444444;">Tel: +34 963 XXX XXX</p>
-                    <p style="margin: 4px 0 0 0; font-family: Arial, sans-serif; font-size: 14px; color: #444444;"><a href="mailto:export@platosvivaz.com" style="color: #E8732A; text-decoration: none;">export@platosvivaz.com</a></p>
+                    <p style="margin: 0; font-family: Arial, sans-serif; font-size: 14px; color: #444444;">Tel: +34-606-172-746</p>
+                    <p style="margin: 4px 0 0 0; font-family: Arial, sans-serif; font-size: 14px; color: #444444;"><a href="mailto:sales@vivazclaytargets.com" style="color: #E8732A; text-decoration: none;">sales@vivazclaytargets.com</a></p>
                   </td>
                 </tr>
               </table>
