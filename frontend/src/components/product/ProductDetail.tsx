@@ -108,7 +108,16 @@ export default function ProductDetail({ product }: ProductDetailProps) {
         {product.logistics_data && (
           <div className="mt-16 rounded-[30px] bg-white p-8 shadow-sm lg:p-10">
             <h2 className="mb-6 text-[24px] font-bold text-primary">{t("logistics")}</h2>
-            <LogisticsTable data={product.logistics_data} />
+            <LogisticsTable
+              data={product.logistics_data}
+              translations={{
+                logistics: t("logistics"),
+                boxUnits: t("logisticsTable.boxUnits"),
+                palletEu: t("logisticsTable.palletEu"),
+                container20: t("logisticsTable.container20"),
+                container40: t("logisticsTable.container40"),
+              }}
+            />
           </div>
         )}
       </Container>
