@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import MotionImage from "@/components/ui/MotionImage";
 import LogisticsTable from "./LogisticsTable";
-import { assetUrl } from "@/lib/directus";
+import { assetUrl, IMG_PRESETS } from "@/lib/directus";
 import { sanitizeHtml } from "@/lib/sanitize";
 import type { Product } from "@/lib/types";
 
@@ -28,7 +28,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
               <MotionImage
                 layoutId={`product-image-${product.slug}`}
                 viewTransitionName={`product-${product.slug}`}
-                src={assetUrl(product.image, { width: 600, format: "webp" })}
+                src={assetUrl(product.image, { width: IMG_PRESETS.card })}
                 alt={product.name}
                 width={500}
                 height={500}
