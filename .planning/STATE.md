@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-25)
 ## Current Position
 
 Phase: 4 of 5 (Page Assembly)
-Plan: 2 of 3 in current phase (Plan 01 complete)
-Status: Plan 04-01 complete — Home page assembled (all sections), About page (TimelineSection + SVG icons), Contact page (side-by-side cards), WhatsAppFAB global, Footer redesigned, ContactForm simplified
-Last activity: 2026-02-25 — Completed 04-01 (page assembly, VideoSection, Footer redesign, geo-adapted hero)
+Plan: 3 of 3 in current phase (Plans 01 and 02 complete)
+Status: Plan 04-02 complete — Product listing page enhanced 3-category grid, product line detail pages (natura/eco-star) with FormatTabs, TechSpecGrid, PAHComparisonChart, LogisticsTable, CertBadgeRow wired
+Last activity: 2026-02-25 — Completed 04-02 (product pages, format variant tabs, all Phase 3 components integrated)
 
-Progress: [███████░░░] 70%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: 5 min
-- Total execution time: ~0.85 hours
+- Total plans completed: 10
+- Average duration: 6 min
+- Total execution time: ~0.95 hours
 
 **By Phase:**
 
@@ -30,10 +30,10 @@ Progress: [███████░░░] 70%
 | 01-foundation | 3/3 | 18 min | 6 min |
 | 02-cms-data | 2/3 | 6 min | 3 min |
 | 03-components | 3/3 | ~17 min | 6 min |
-| 04-page-assembly | 1/3 | 9 min | 9 min |
+| 04-page-assembly | 2/3 | ~18 min | 9 min |
 
 **Recent Trend:**
-- Last 5 plans: 5 min, 8 min, 3 min, 3 min, 9 min
+- Last 5 plans: 8 min, 3 min, 3 min, 9 min, 9 min
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -45,6 +45,7 @@ Progress: [███████░░░] 70%
 | Phase 03-components P02 | 5 | 2 tasks | 10 files |
 | Phase 03-components P01 | 7 | 2 tasks | 7 files |
 | Phase 04-page-assembly P01 | 9 | 2 tasks | 16 files |
+| Phase 04-page-assembly P02 | 9 | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,10 @@ Recent decisions affecting current work:
 - [04-01]: Footer converted from Client to Server Component — getTranslations() from next-intl/server
 - [04-01]: About page SVG icons as inline component functions — no external icon library, crosshair/lightbulb/leaf/handshake
 - [04-01]: VideoSection returns null on empty array — graceful empty state, no skeleton
+- [04-02]: Line-level slugs [natura, eco-star] not per-SKU — one URL per product line, format variants switched client-side via useState
+- [04-02]: LogisticsTable converted from useTranslations hook to props-based translations — required for use inside client component that receives server-fetched translations
+- [04-02]: Catalog PDF URL built directly from DIRECTUS_PUBLIC_URL env var — assetUrl() enforces webp format which would corrupt PDF
+- [04-02]: ProductCard href prop optional — defaults to /productos/[slug], overridden at listing to line-level slugs
 
 ### Pending Todos
 
@@ -102,5 +107,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Completed 04-01-PLAN.md — Home/About/Contact pages assembled, VideoSection, Footer redesign, WhatsAppFAB global, ContactForm simplified
+Stopped at: Completed 04-02-PLAN.md — Product pages (listing + detail), FormatTabs, ProductLinePage, Phase 3 components wired in
 Resume file: None

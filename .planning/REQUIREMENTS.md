@@ -24,12 +24,12 @@
 
 ### Products (PROD)
 
-- [ ] **PROD-01**: NATURA product page displays complete specs — 100% pine resin, 0 mg/kg PAH, ISSF disciplines, weight, dimensions
-- [ ] **PROD-02**: ECO STAR product page displays complete specs — <50 mg/kg PAH, Sporting disciplines, weight, dimensions
-- [ ] **PROD-03**: Product range displays all 6 formats: American Trap, Extra Rabbit, Rabbit, Battue, Midi 90, Mini 60
+- [x] **PROD-01**: NATURA product page displays complete specs — 100% pine resin, 0 mg/kg PAH, ISSF disciplines, weight, dimensions
+- [x] **PROD-02**: ECO STAR product page displays complete specs — <50 mg/kg PAH, Sporting disciplines, weight, dimensions
+- [x] **PROD-03**: Product range displays all 6 formats: American Trap, Extra Rabbit, Rabbit, Battue, Midi 90, Mini 60
 - [x] **PROD-04**: Product detail pages show `TechSpecGrid` with PAH level prominently displayed
-- [ ] **PROD-05**: Product listing page with visual distinction between NATURA (premium) and ECO STAR (performance)
-- [ ] **PROD-06**: Logistics table visible with format x pack size x pallet data for distributor procurement
+- [x] **PROD-05**: Product listing page with visual distinction between NATURA (premium) and ECO STAR (performance)
+- [x] **PROD-06**: Logistics table visible with format x pack size x pallet data for distributor procurement
 - [x] **PROD-07**: Technical data sheets and certificates accessible (downloadable PDFs or linked documents)
 
 ### Sustainability & Technology (SUST)
@@ -133,12 +133,12 @@
 | I18N-02 | Phase 1 | Complete |
 | I18N-03 | Phase 1 | Complete |
 | I18N-04 | Phase 5 | Pending |
-| PROD-01 | Phase 4 | Pending |
-| PROD-02 | Phase 4 | Pending |
-| PROD-03 | Phase 4 | Pending |
+| PROD-01 | Phase 4 | Complete |
+| PROD-02 | Phase 4 | Complete |
+| PROD-03 | Phase 4 | Complete |
 | PROD-04 | Phase 3 | Complete |
-| PROD-05 | Phase 4 | Pending |
-| PROD-06 | Phase 4 | Pending |
+| PROD-05 | Phase 4 | Complete |
+| PROD-06 | Phase 4 | Complete |
 | PROD-07 | Phase 2 | Complete |
 | SUST-01 | Phase 3 | Complete |
 | SUST-02 | Phase 4 | Pending |
