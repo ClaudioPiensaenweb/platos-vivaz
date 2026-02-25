@@ -176,7 +176,32 @@
     "marketImpactDesc": "Vereine, Verbände und Händler müssen vor dem Inkrafttreten auf konforme Produkte umsteigen.",
     "ctaTitle": "Bereit für die EU 2026?",
     "ctaDesc": "Stellen Sie sicher, dass Ihr Verein oder Verband mit den umweltfreundlichen Wurfscheiben von VIVAZ vorbereitet ist.",
-    "ctaButton": "Kontaktieren Sie uns"
+    "ctaButton": "Kontaktieren Sie uns",
+    "complianceMatrix": {
+      "natura": "NATURA",
+      "ecoStar": "ECO STAR",
+      "traditional": "Traditionelle Scheiben",
+      "pahLevel": "PAK-Gehalt",
+      "euCompliant": "EU 2026 konform",
+      "composition": "Zusammensetzung",
+      "issfApproved": "ISSF-zugelassen",
+      "biodegradable": "Biologisch abbaubar",
+      "compliant": "Konform",
+      "nonCompliant": "Nicht konform"
+    },
+    "euDocLink": "Rechtstext lesen: EU 2025/660",
+    "euDocSummary": "Die EU-Verordnung 2025/660 begrenzt Polyzyklische Aromatische Kohlenwasserstoffe (PAK) in Wurfscheiben auf maximal 50 mg/kg ab dem 22. April 2026. Scheiben aus Steinkohleteer oder Erdölderivaten überschreiten diesen Grenzwert bei weitem und werden in der gesamten EU verboten.",
+    "headStart": "25 Jahre Vorsprung",
+    "headStartDescription": "Seit 2001 stellt VIVAZ Wurfscheiben mit natürlichem Kiefernharz her — 25 Jahre bevor die Verordnung es verlangt. Während sich die Branche anpasst, führt VIVAZ seit einem Vierteljahrhundert den ökologischen Wandel an.",
+    "pahChart": {
+      "traditional": "Traditionelle Scheiben",
+      "euLimit": "EU-Grenzwert 2026",
+      "ecoStar": "ECO STAR",
+      "natura": "NATURA",
+      "euLimitLabel": "EU-Grenzwert: 50 mg/kg",
+      "noPatLabel": "Ohne PAK",
+      "unit": "mg/kg"
+    }
   },
   "technology": {
     "title": "Technologie & Nachhaltigkeit",
@@ -193,7 +218,27 @@
     "vivazLabel": "VIVAZ-Scheiben (Kiefernharz)",
     "vivazItems": "0 mg/kg PAK (Natura)|Natürlich biologisch abbaubar|Erneuerbares Kiefernharz|Bereit für EU 2026",
     "reachTitle": "REACH-Verordnung",
-    "reachDesc": "Alle unsere Produkte entsprechen der EU-REACH-Verordnung (EG) 1907/2006, die die Herstellung und Verwendung chemischer Stoffe regelt."
+    "reachDesc": "Alle unsere Produkte entsprechen der EU-REACH-Verordnung (EG) 1907/2006, die die Herstellung und Verwendung chemischer Stoffe regelt.",
+    "pahChart": {
+      "traditional": "Traditionelle Scheiben",
+      "euLimit": "EU-Grenzwert 2026",
+      "ecoStar": "ECO STAR",
+      "natura": "NATURA",
+      "euLimitLabel": "EU-Grenzwert: 50 mg/kg",
+      "noPatLabel": "Ohne PAK",
+      "unit": "mg/kg"
+    },
+    "resinSectionTitle": "Die Kiefernharz-Chemie: Warum Es Wichtig Ist",
+    "resinSectionDesc": "Natürliches Kiefernharz enthält keine Polyzyklischen Aromatischen Kohlenwasserstoffe (PAK). Durch den Ersatz erdölbasierter Bindemittel durch Kiefernharz erreicht NATURA 0 mg/kg PAK — weit unter dem Maximum von 50 mg/kg, das die EU-Verordnung 2025/660 fordert.",
+    "timelineTitle": "25 Jahre Ökologische Führerschaft",
+    "timeline": {
+      "founded": "Gründung",
+      "foundedDesc": "Jesús y Vicente Vázquez S.L. beginnt mit der Herstellung hochwertiger Wurfscheiben.",
+      "pioneers": "Harzpioniere",
+      "pioneersDesc": "Erste in Europa mit Wurfscheiben aus natürlichem Kiefernharz. 25 Jahre vor der Verordnung.",
+      "regulation": "EU-Verordnung 2025/660",
+      "regulationDesc": "Die europäische Verordnung schreibt vor, was VIVAZ seit 2001 praktiziert. Die Branche holt auf."
+    }
   },
   "about": {
     "title": "Über Vivaz",
@@ -224,7 +269,11 @@
     "subtitle": "VIVAZ Aktuell",
     "readMore": "Weiterlesen",
     "noArticles": "Nachrichten und Artikel werden in Kürze veröffentlicht.",
-    "backToNews": "Zurück zu Nachrichten"
+    "noPosts": "Nachrichten und Artikel werden in Kürze veröffentlicht.",
+    "backToNews": "Zurück zu Nachrichten",
+    "backToList": "Zurück zu Nachrichten",
+    "metaTitle": "VIVAZ Nachrichten — Ökologische Wurfscheiben & EU 2026 Verordnung",
+    "metaDescription": "Neueste Nachrichten von VIVAZ Clay Targets: Innovation bei ökologischen Scheiben, EU-Verordnung 2025/660 und Branchenneuheiten."
   },
   "notFound": {
     "title": "Seite nicht gefunden",
