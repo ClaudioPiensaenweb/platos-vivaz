@@ -151,7 +151,7 @@ export default async function SobreVivazPage() {
       <section className="bg-cream py-16 text-center lg:py-20">
         <Container>
           <InView animation="fade-in-up">
-            <h2 className="mb-2 text-[14px] font-medium uppercase tracking-[3px] text-primary/60">VIVAZ Clay Targets</h2>
+            <h2 className="mb-2 text-[14px] font-medium uppercase tracking-[3px] text-primary/60">{t("brandName")}</h2>
             <p className="mb-8 text-[24px] font-bold text-primary lg:text-[28px]">
               {t("title")}
             </p>

@@ -151,19 +151,19 @@ export default async function TecnologiaPage() {
           <div className="grid gap-8 md:grid-cols-2">
             {/* Petroleum column */}
             <InView animation="slide-in-left">
-              <div className="h-full rounded-[24px] border border-red-100 bg-white p-8 lg:p-10">
+              <div className="h-full rounded-[24px] border border-danger-light bg-white p-8 lg:p-10">
                 <div className="mb-6 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-100">
-                    <svg className="h-5 w-5 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-danger-light">
+                    <svg className="h-5 w-5 text-danger" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </div>
-                  <h3 className="text-[20px] font-bold text-red-700">{t("petroleumLabel")}</h3>
+                  <h3 className="text-[20px] font-bold text-danger-dark">{t("petroleumLabel")}</h3>
                 </div>
                 <ul className="space-y-4">
                   {petroleumItems.map((item) => (
-                    <li key={item} className="flex items-start gap-3 font-body text-[15px] text-red-600/80">
-                      <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-red-300" />
+                    <li key={item} className="flex items-start gap-3 font-body text-[15px] text-danger-muted">
+                      <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-danger/50" />
                       {item}
                     </li>
                   ))}
