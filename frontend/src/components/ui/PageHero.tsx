@@ -42,7 +42,7 @@ export default function PageHero({
               {subtitle}
             </p>
           )}
-          <h1 className="max-w-2xl text-[36px] font-bold leading-tight text-warm-white lg:text-[52px] lg:leading-[1.15]">
+          <h1 className="max-w-2xl break-words text-[28px] font-bold leading-tight text-warm-white md:text-[36px] lg:text-[52px] lg:leading-[1.15]">
             {title}
           </h1>
         </InView>

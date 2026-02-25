@@ -77,7 +77,7 @@ export default function HeroSection({ market }: HeroSectionProps) {
           <span className="inline-block h-[10px] w-[10px] rounded-full bg-accent lg:h-[14px] lg:w-[14px]" />
           {t("subtitle")}
         </p>
-        <h1 className="animate-fade-in-up delay-100 mb-6 max-w-4xl text-3xl font-bold leading-tight tracking-[-1.5px] text-white md:text-5xl lg:text-[72px] lg:leading-[88px] lg:tracking-[-2.88px]">
+        <h1 className="animate-fade-in-up delay-100 mb-6 max-w-4xl break-words text-3xl font-bold leading-tight tracking-[-1.5px] text-white md:text-5xl lg:text-[72px] lg:leading-[88px] lg:tracking-[-2.88px]">
           {t("title")}
         </h1>
         <p className="animate-fade-in-up delay-200 mb-8 max-w-2xl font-body text-base text-white md:text-lg lg:text-[26px]">
