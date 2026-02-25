@@ -10,30 +10,31 @@ See: .planning/PROJECT.md (updated 2026-02-25)
 ## Current Position
 
 Phase: 1 of 5 (Foundation)
-Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-02-25 — Roadmap and STATE.md initialized
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-02-25 — Completed 01-01 (typography, sanitization, design tokens)
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 7%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: 5 min
+- Total execution time: 0.1 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 01-foundation | 1/3 | 5 min | 5 min |
 
 **Recent Trend:**
-- Last 5 plans: -
+- Last 5 plans: 5 min
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 01-foundation P02 | 5 | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -45,6 +46,9 @@ Recent decisions affecting current work:
 - [Init]: Brownfield revision — preserve existing Next.js 16 + Directus 11 + Tailwind v4 stack
 - [Init]: NATURA as premium flagship (0 mg/kg PAH), ECO STAR as performance line (<50 mg/kg PAH)
 - [Init]: No Regular product line in v1 — pending client confirmation
+- [01-01]: Used isomorphic-dompurify (not bare dompurify) — SSR-safe for Next.js App Router server components
+- [01-01]: DOMPurify allowlist excludes img tag — Directus images rendered via assetUrl() helper only
+- [01-01]: danger-light token uses full hex (#fef2f2) for Tailwind opacity modifier composability
 
 ### Pending Todos
 
@@ -60,5 +64,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Roadmap created, STATE.md initialized. Ready to run /gsd:plan-phase 1.
+Stopped at: Completed 01-01-PLAN.md — typography plugin, sanitization, design token manifest
 Resume file: None

@@ -8,9 +8,9 @@
 ### Foundation (FOUND)
 
 - [ ] **FOUND-01**: All existing rendering and hydration errors resolved — zero JS errors in browser console
-- [ ] **FOUND-02**: `@tailwindcss/typography` installed — prose classes render correctly in product descriptions and blog content
-- [ ] **FOUND-03**: `isomorphic-dompurify` sanitizes all Directus HTML before `dangerouslySetInnerHTML`
-- [ ] **FOUND-04**: Design token manifest locked — all colors, spacing, and motion constants in CSS variables and `@theme inline`, no hardcoded values in JSX
+- [x] **FOUND-02**: `@tailwindcss/typography` installed — prose classes render correctly in product descriptions and blog content
+- [x] **FOUND-03**: `isomorphic-dompurify` sanitizes all Directus HTML before `dangerouslySetInnerHTML`
+- [x] **FOUND-04**: Design token manifest locked — all colors, spacing, and motion constants in CSS variables and `@theme inline`, no hardcoded values in JSX
 - [ ] **FOUND-05**: `PageHero` shared component extracted — replaces 5 duplicated hero patterns across pages
 - [ ] **FOUND-06**: `RegulationInfographic` refactored — translations passed as props from Server Component, not `useTranslations()` in Client Component
 - [ ] **FOUND-07**: Lenis smooth scroll verified across all route transitions without conflicts

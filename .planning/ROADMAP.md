@@ -27,7 +27,7 @@ This is a brownfield enhancement project on a codebase that is 60-70% complete. 
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Install @tailwindcss/typography + isomorphic-dompurify, sanitize HTML, lock design tokens
+- [x] 01-01-PLAN.md — Install @tailwindcss/typography + isomorphic-dompurify, sanitize HTML, lock design tokens
 - [ ] 01-02-PLAN.md — Extract PageHero shared component, fix RegulationInfographic Server/Client split, verify Lenis scroll
 - [ ] 01-03-PLAN.md — Complete all 4 locale message files with missing keys, replace hardcoded strings, verify hreflang/canonical
 
@@ -98,7 +98,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/3 | Not started | - |
+| 1. Foundation | 1/3 | In progress | - |
 | 2. CMS Data | 0/2 | Not started | - |
 | 3. Components | 0/2 | Not started | - |
 | 4. Page Assembly | 0/3 | Not started | - |
