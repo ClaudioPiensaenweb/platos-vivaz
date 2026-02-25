@@ -88,11 +88,11 @@ Plans:
   2. All 8 pages render correctly at 375px viewport width — no horizontal overflow, no broken layouts
   3. Every page in every locale has a unique meta title, meta description, and Open Graph tags — no duplicates
   4. The sitemap includes all locale variants for each page and hreflang tags are correct for the localePrefix: "as-needed" configuration
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 05-01: Final i18n audit (grep hardcoded strings, verify all 4 locales), sitemap locale variants, hreflang verification
-- [ ] 05-02: Core Web Vitals audit and fixes, mobile responsiveness sweep all 8 pages, unique meta/OG tags per page per locale
+- [ ] 05-01-PLAN.md — SEO metadata completion (shared OG utility, metadataBase, unique descriptions per page per locale), CSS reduced-motion guard, sitemap verification
+- [ ] 05-02-PLAN.md — Core Web Vitals optimization (Image sizes props, LCP), mobile responsiveness sweep (heading overflow, German locale fixes), remaining page metadata
 
 ## Progress
 
