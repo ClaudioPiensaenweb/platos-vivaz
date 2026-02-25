@@ -5,6 +5,9 @@ import Button from "@/components/ui/Button";
 import InView from "@/components/ui/InView";
 import SpotlightReveal from "@/components/ui/SpotlightReveal";
 import PageHero from "@/components/ui/PageHero";
+import PAHComparisonChart from "@/components/technology/PAHComparisonChart";
+import CertBadgeRow from "@/components/technology/CertBadgeRow";
+import TimelineSection from "@/components/about/TimelineSection";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -13,11 +16,37 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: `${t("title")} | VIVAZ Clay Targets` };
 }
 
-export default async function TecnologiaPage() {
-  const t = await getTranslations("technology");
+export default async function TecnologiaPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "technology" });
 
-  const petroleumItems = t("petroleumItems").split("|");
-  const vivazItems = t("vivazItems").split("|");
+  const pahTranslations = {
+    traditional: t("pahChart.traditional"),
+    euLimit: t("pahChart.euLimit"),
+    ecoStar: t("pahChart.ecoStar"),
+    natura: t("pahChart.natura"),
+    euLimitLabel: t("pahChart.euLimitLabel"),
+    noPatLabel: t("pahChart.noPatLabel"),
+    unit: t("pahChart.unit"),
+  };
+
+  const timelineEvents = [
+    {
+      year: 1967,
+      title: t("timeline.founded"),
+      description: t("timeline.foundedDesc"),
+    },
+    {
+      year: 2001,
+      title: t("timeline.pioneers"),
+      description: t("timeline.pioneersDesc"),
+    },
+    {
+      year: 2026,
+      title: t("timeline.regulation"),
+      description: t("timeline.regulationDesc"),
+    },
+  ];
 
   return (
     <main>
@@ -136,65 +165,38 @@ export default async function TecnologiaPage() {
         </Container>
       </section>
 
-      {/* Environmental Comparison — the key visual */}
+      {/* PAH Comparison Chart — replaces text-based comparison (SUST-02) */}
       <section className="bg-cream py-20 lg:py-28">
         <Container>
           <InView animation="fade-in-up">
             <h2 className="mb-4 text-center text-[28px] font-bold text-primary lg:text-[34px]">
-              {t("comparisonTitle")}
+              {t("resinSectionTitle")}
             </h2>
-            <p className="mx-auto mb-12 max-w-xl text-center font-body text-[16px] text-muted">
-              {t("environmentDesc").substring(0, 80)}...
+            <p className="mx-auto mb-12 max-w-2xl text-center font-body text-[16px] text-muted">
+              {t("resinSectionDesc")}
             </p>
           </InView>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* Petroleum column */}
-            <InView animation="slide-in-left">
-              <div className="h-full rounded-[24px] border border-danger-light bg-white p-8 lg:p-10">
-                <div className="mb-6 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-danger-light">
-                    <svg className="h-5 w-5 text-danger" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </div>
-                  <h3 className="text-[20px] font-bold text-danger-dark">{t("petroleumLabel")}</h3>
-                </div>
-                <ul className="space-y-4">
-                  {petroleumItems.map((item) => (
-                    <li key={item} className="flex items-start gap-3 font-body text-[15px] text-danger-muted">
-                      <span className="mt-2 block h-2 w-2 shrink-0 rounded-full bg-danger/50" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </InView>
-
-            {/* Vivaz column */}
-            <InView animation="slide-in-right">
-              <div className="h-full rounded-[24px] border border-nature bg-nature/20 p-8 lg:p-10">
-                <div className="mb-6 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                    <Image src="/svg/check.svg" alt="" width={20} height={20} />
-                  </div>
-                  <h3 className="text-[20px] font-bold text-primary">{t("vivazLabel")}</h3>
-                </div>
-                <ul className="space-y-4">
-                  {vivazItems.map((item) => (
-                    <li key={item} className="flex items-start gap-3 font-body text-[15px] text-primary">
-                      <Image src="/svg/check.svg" alt="" width={18} height={18} className="mt-0.5 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </InView>
-          </div>
+          <InView animation="scale-in">
+            <PAHComparisonChart translations={pahTranslations} />
+          </InView>
         </Container>
       </section>
 
-      {/* REACH Certification */}
+      {/* Timeline — 25 years of ecological leadership */}
+      <section className="bg-white py-20 lg:py-28">
+        <Container>
+          <InView animation="fade-in-up">
+            <div className="mb-12 text-center">
+              <h2 className="text-[28px] font-bold text-primary lg:text-[34px]">
+                {t("timelineTitle")}
+              </h2>
+            </div>
+          </InView>
+          <TimelineSection events={timelineEvents} />
+        </Container>
+      </section>
+
+      {/* REACH Certification + CertBadgeRow (SUST-04) */}
       <section className="relative overflow-hidden bg-primary-dark py-20 lg:py-28">
         <div className="absolute inset-0 opacity-10">
           <Image src="/img/hero-bg.png" alt="" fill className="object-cover" />
@@ -207,7 +209,13 @@ export default async function TecnologiaPage() {
                 <span className="text-[13px] font-medium uppercase tracking-[2px] text-warm-white/80">REACH</span>
               </div>
               <h2 className="mb-6 text-[28px] font-bold text-warm-white lg:text-[36px]">{t("reachTitle")}</h2>
-              <p className="font-body text-[17px] leading-[30px] text-warm-white/80">{t("reachDesc")}</p>
+              <p className="mb-8 font-body text-[17px] leading-[30px] text-warm-white/80">{t("reachDesc")}</p>
+              <div className="flex justify-center">
+                <CertBadgeRow
+                  certifications={["REACH", "ISSF", "ISO 14001", "EU 2025/660"]}
+                  className="justify-center"
+                />
+              </div>
             </div>
           </InView>
         </Container>
