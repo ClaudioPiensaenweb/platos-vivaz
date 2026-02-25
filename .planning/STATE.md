@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-25)
 
 **Core value:** Position Vivaz as the undisputed #1 manufacturer in clay target quality and sustainability, leveraging EU 2026 regulation as the proof point of 25 years of ecological leadership.
-**Current focus:** Phase 4 - Page Assembly (In Progress)
+**Current focus:** Phase 5 - Polish (In Progress)
 
 ## Current Position
 
-Phase: 4 of 5 (Page Assembly)
-Plan: 3 of 3 complete — Phase 04 COMPLETE
-Status: Plan 04-03 complete — Technology/Regulation/Blog pages assembled with Phase 3 components (PAHComparisonChart, ComplianceMatrix, CertBadgeRow, TimelineSection, BlogCard, BlogHero, BlogContent)
-Last activity: 2026-02-25 — Completed 04-03 (Technology page with PAH chart, Regulation page with EUR-Lex link, Blog listing/detail pages)
+Phase: 5 of 5 (Polish)
+Plan: 1 of 2 complete — Phase 05 In Progress
+Status: Plan 05-01 complete — SEO metadata complete for all pages (sharedOpenGraph, metadataBase, OG tags on all 7 pages in 4 locales, prefers-reduced-motion CSS guard)
+Last activity: 2026-02-25 — Completed 05-01 (SEO metadata + reduced-motion guard)
 
-Progress: [█████████░] 90%
+Progress: [█████████░] 93%
 
 ## Performance Metrics
 
@@ -47,6 +47,7 @@ Progress: [█████████░] 90%
 | Phase 04-page-assembly P01 | 9 | 2 tasks | 16 files |
 | Phase 04-page-assembly P02 | 9 | 2 tasks | 8 files |
 | Phase 04-page-assembly P03 | 11 | 2 tasks | 8 files |
+| Phase 05-polish P01 | 5 | 2 tasks | 13 files |
 
 ## Accumulated Context
 
@@ -94,6 +95,9 @@ Recent decisions affecting current work:
 - [04-02]: ProductCard href prop optional — defaults to /productos/[slug], overridden at listing to line-level slugs
 - [Phase 04-page-assembly]: regulacion-2026/page.tsx rebuilt from scratch — dropping RegulationContent wrapper is cleaner for Phase 3 component wiring
 - [Phase 04-page-assembly]: BlogContent accepts content string prop — locale-aware content selection happens in page before passing to component
+- [05-01]: sharedOpenGraph pattern — single constant in metadata.ts spread into each page openGraph, overriding only title/description
+- [05-01]: metadataBase: new URL(siteUrl) in layout.tsx — enables relative OG image paths to resolve as absolute HTTPS URLs for social crawlers
+- [05-01]: prefers-reduced-motion guard uses !important on animation:none — overrides specificity from CSS utility class animation shorthand
 
 ### Pending Todos
 
@@ -110,5 +114,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Completed 04-03-PLAN.md — Technology, Regulation, Blog pages fully assembled. Phase 04-page-assembly COMPLETE.
+Stopped at: Completed 05-01-PLAN.md — SEO metadata (sharedOpenGraph, metadataBase, OG tags all pages), prefers-reduced-motion guard. Phase 05 plan 1/2 complete.
 Resume file: None

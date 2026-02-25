@@ -20,7 +20,7 @@
 - [x] **I18N-01**: All 4 locale message files (es, en, fr, de) complete with briefing copy — no raw translation key strings visible
 - [x] **I18N-02**: Canonical URLs and hreflang tags correct for `localePrefix: "as-needed"` configuration
 - [x] **I18N-03**: No hardcoded user-visible strings in any component — all strings from message files
-- [ ] **I18N-04**: Sitemap includes all locale variants for each page
+- [x] **I18N-04**: Sitemap includes all locale variants for each page
 
 ### Products (PROD)
 
@@ -82,7 +82,7 @@
 - [ ] **PERF-01**: Core Web Vitals passing — LCP < 2.5s, CLS < 0.1, INP < 200ms on all pages
 - [ ] **PERF-02**: Mobile responsive across all pages (375px+)
 - [x] **PERF-03**: JSON-LD structured data on product pages (Product schema)
-- [ ] **PERF-04**: Unique meta title/description per page per locale with Open Graph tags
+- [x] **PERF-04**: Unique meta title/description per page per locale with Open Graph tags
 - [x] **PERF-05**: Animation budget enforced — `useReducedMotion()` on all motion components
 - [x] **PERF-06**: Image pipeline optimized — `assetUrl()` always requests WebP with explicit dimensions
 
@@ -132,7 +132,7 @@
 | I18N-01 | Phase 1 | Complete |
 | I18N-02 | Phase 1 | Complete |
 | I18N-03 | Phase 1 | Complete |
-| I18N-04 | Phase 5 | Pending |
+| I18N-04 | Phase 5 | Complete |
 | PROD-01 | Phase 4 | Complete |
 | PROD-02 | Phase 4 | Complete |
 | PROD-03 | Phase 4 | Complete |
@@ -170,7 +170,7 @@
 | PERF-01 | Phase 5 | Pending |
 | PERF-02 | Phase 5 | Pending |
 | PERF-03 | Phase 2 | Complete |
-| PERF-04 | Phase 5 | Pending |
+| PERF-04 | Phase 5 | Complete |
 | PERF-05 | Phase 3 | Complete |
 | PERF-06 | Phase 2 | Complete |
 | DESGN-01 | Phase 4 | Complete |
