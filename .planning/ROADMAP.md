@@ -56,11 +56,11 @@ Plans:
   3. A product detail page renders TechSpecGrid with PAH level displayed prominently alongside disciplines, weight, and dimensions
   4. MagneticButton and SpotlightReveal interactions are absent on touch devices (pointer: coarse) — no interaction failures on mobile
   5. All motion components respect prefers-reduced-motion — animations do not play when the OS accessibility setting is enabled
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: Build PAHComparisonChart, ComplianceMatrix, TechSpecGrid, CertBadgeRow, TimelineSection (1967→2001→2026)
-- [ ] 03-02: Build ContactSplit, BlogCard/BlogHero/BlogContent, ProductCard revision, StatCard/DataTable primitives; gate pointer effects behind pointer:fine
+- [ ] 03-01-PLAN.md — Retrofit pointer-fine guards on MagneticButton/SpotlightReveal, add MotionConfig reduced-motion blanket, build PAHComparisonChart and ComplianceMatrix
+- [ ] 03-02-PLAN.md — Build TechSpecGrid, TimelineSection, StatCard, ContactSplit with geo-routing, WhatsAppFAB, blog components, CertBadgeRow
 
 ### Phase 4: Page Assembly
 **Goal**: All 8 pages deliver complete, localized, on-brand content — home page converts, product pages sell, regulation page establishes authority, every page reflects the new design direction from the briefing.
