@@ -10,7 +10,9 @@
     "subtitle": "VIVAZ CLAY TARGETS",
     "title": "EUROPEAN LEADERS IN ECOLOGICAL CLAY TARGETS",
     "description": "Over 50 years of manufacturing and pioneers since 2001 in natural resins.",
-    "cta": "DISCOVER OUR RANGE"
+    "cta": "DISCOVER OUR RANGE",
+    "descriptionNational": "Over 50 years of expertise, 100% pine resin and competition-grade performance in every shot.",
+    "descriptionExport": "EU 2026 regulation bans PAH-based targets. VIVAZ has been compliant since 2001. Get ahead of the change today."
   },
   "range": {
     "natura": "NATURA",
@@ -57,7 +59,13 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
     "legal": "Legal Notice",
-    "cookies": "Cookie Policy"
+    "cookies": "Cookie Policy",
+    "tagline": "Ecological clay target manufacturers since 1967.",
+    "navTitle": "Navigation",
+    "contactTitle": "Contact",
+    "followTitle": "Follow us",
+    "address": "Spain",
+    "madeIn": "Made in Spain"
   },
   "contact": {
     "title": "Contact",
@@ -82,9 +90,17 @@
     "interestClub": "Club / Shooting Ground",
     "interestShooter": "Shooter",
     "message": "Message",
-    "send": "Send",
+    "send": "SEND",
     "success": "Message sent successfully. We will contact you soon.",
-    "error": "An error occurred. Please try again."
+    "error": "An error occurred. Please try again.",
+    "apellidos": "Last name",
+    "privacyConsent": "I have read and agree to the",
+    "privacyLink": "Privacy Policy",
+    "national": "National Market",
+    "international": "International Market",
+    "phone_label": "Phone",
+    "email_label": "Email",
+    "formTitle": "Write to us"
   },
   "products": {
     "title": "Our Products",
@@ -96,11 +112,46 @@
     "pahFree": "0 PAH",
     "pahCompliant": "PAH Compliant",
     "viewProduct": "View product",
+    "viewLine": "View range",
     "disciplines": "Disciplines",
     "logistics": "Logistics",
-    "specifications": "Specifications",
+    "specifications": "Technical Specifications",
     "contactUs": "Contact us",
-    "emptyState": "Products available soon."
+    "emptyState": "Products available soon.",
+    "downloadCatalog": "Download PDF Catalogue",
+    "formats": "Available formats",
+    "selectFormat": "Select a format",
+    "certifications": "Certifications",
+    "pahChartTitle": "PAH Comparison vs. Conventional Targets",
+    "pahBadge0": "0 mg/kg PAH",
+    "pahBadgeCompliant": "PAH < 50 mg/kg",
+    "metaDescriptionNatura": "VIVAZ NATURA clay targets: 0 mg/kg PAH, made with 100% natural pine resin. The premium target for demanding shooters. EU 2026 compliant.",
+    "metaDescriptionEcoStar": "VIVAZ ECO STAR clay targets: < 50 mg/kg PAH, superior performance in demanding disciplines. EU 2026 compliant.",
+    "pahLevel": "PAH Level",
+    "diameter": "Diameter",
+    "weight": "Weight",
+    "height": "Height",
+    "material": "Material",
+    "color": "Colour",
+    "resinContent": "Resin %",
+    "issfApproved": "ISSF Approved",
+    "yes": "Yes",
+    "no": "No",
+    "pahChart": {
+      "traditional": "Traditional Targets",
+      "euLimit": "EU 2026 Limit",
+      "ecoStar": "ECO STAR",
+      "natura": "NATURA",
+      "euLimitLabel": "EU Limit: 50 mg/kg",
+      "noPatLabel": "No PAH",
+      "unit": "mg/kg"
+    },
+    "logisticsTable": {
+      "boxUnits": "Units per box",
+      "palletEu": "EU Pallet",
+      "container20": "20' Container",
+      "container40": "40' Container"
+    }
   },
   "regulation": {
     "title": "European Regulation 2026",
@@ -125,7 +176,32 @@
     "marketImpactDesc": "Clubs, federations, and distributors must transition to compliant products before the enforcement date.",
     "ctaTitle": "Ready for EU 2026?",
     "ctaDesc": "Ensure your club or federation is prepared with VIVAZ eco-friendly clay targets.",
-    "ctaButton": "Contact Us"
+    "ctaButton": "Contact Us",
+    "complianceMatrix": {
+      "natura": "NATURA",
+      "ecoStar": "ECO STAR",
+      "traditional": "Traditional Targets",
+      "pahLevel": "PAH Level",
+      "euCompliant": "EU 2026 Compliant",
+      "composition": "Composition",
+      "issfApproved": "ISSF Approved",
+      "biodegradable": "Biodegradable",
+      "compliant": "Compliant",
+      "nonCompliant": "Non-compliant"
+    },
+    "euDocLink": "Read the Legal Text: EU 2025/660",
+    "euDocSummary": "EU Regulation 2025/660 limits Polycyclic Aromatic Hydrocarbons (PAH) in clay targets to a maximum of 50 mg/kg from 22 April 2026. Targets manufactured with coal tar or petroleum derivatives far exceed this limit and will be prohibited across the EU.",
+    "headStart": "25-Year Head Start",
+    "headStartDescription": "Since 2001, VIVAZ has been manufacturing clay targets with natural pine resin — 25 years before the regulation requires it. While the industry adapts, VIVAZ has spent a quarter century leading the ecological transition.",
+    "pahChart": {
+      "traditional": "Traditional Targets",
+      "euLimit": "EU 2026 Limit",
+      "ecoStar": "ECO STAR",
+      "natura": "NATURA",
+      "euLimitLabel": "EU Limit: 50 mg/kg",
+      "noPatLabel": "No PAH",
+      "unit": "mg/kg"
+    }
   },
   "technology": {
     "title": "Technology & Sustainability",
@@ -142,7 +218,27 @@
     "vivazLabel": "VIVAZ targets (pine resin)",
     "vivazItems": "0 mg/kg PAH (Natura)|Naturally biodegradable|Renewable pine resin|Ready for EU 2026",
     "reachTitle": "REACH Regulation",
-    "reachDesc": "All our products comply with the EU REACH Regulation (EC) 1907/2006, which governs the manufacture and use of chemical substances."
+    "reachDesc": "All our products comply with the EU REACH Regulation (EC) 1907/2006, which governs the manufacture and use of chemical substances.",
+    "pahChart": {
+      "traditional": "Traditional Targets",
+      "euLimit": "EU 2026 Limit",
+      "ecoStar": "ECO STAR",
+      "natura": "NATURA",
+      "euLimitLabel": "EU Limit: 50 mg/kg",
+      "noPatLabel": "No PAH",
+      "unit": "mg/kg"
+    },
+    "resinSectionTitle": "Pine Chemistry: Why It Matters",
+    "resinSectionDesc": "Natural pine resin contains no Polycyclic Aromatic Hydrocarbons (PAH). By replacing petroleum-based binders with pine resin, NATURA achieves 0 mg/kg PAH — far below the 50 mg/kg maximum required by EU regulation 2025/660.",
+    "timelineTitle": "25 Years of Ecological Leadership",
+    "timeline": {
+      "founded": "Founded",
+      "foundedDesc": "Jesús y Vicente Vázquez S.L. begins manufacturing high-quality clay targets.",
+      "pioneers": "Resin Pioneers",
+      "pioneersDesc": "First in Europe to launch natural pine resin clay targets. 25 years ahead of the regulation.",
+      "regulation": "EU Regulation 2025/660",
+      "regulationDesc": "European regulation mandates what VIVAZ has been doing since 2001. The industry catches up."
+    }
   },
   "about": {
     "title": "About Vivaz",
@@ -158,14 +254,26 @@
     "valueQuality": "Uncompromising quality",
     "valueInnovation": "Constant innovation",
     "valueSustainability": "Real sustainability",
-    "valueService": "Customer service"
+    "valueService": "Customer service",
+    "timeline": {
+      "founded": "Founded",
+      "foundedDesc": "Jesús y Vicente Vázquez S.L. begins manufacturing high-quality clay targets in Spain.",
+      "pioneers": "Pioneers in Ecology",
+      "pioneersDesc": "First manufacturers in Europe to develop targets with natural pine resin — 25 years ahead of EU regulation.",
+      "regulation": "EU Regulation 2025/660",
+      "regulationDesc": "Regulation bans PAH-based targets. VIVAZ is already compliant. The industry catches up."
+    }
   },
   "news": {
     "title": "News",
     "subtitle": "VIVAZ Updates",
     "readMore": "Read more",
     "noArticles": "News and articles coming soon.",
-    "backToNews": "Back to news"
+    "noPosts": "News and articles coming soon.",
+    "backToNews": "Back to news",
+    "backToList": "Back to news",
+    "metaTitle": "VIVAZ News — Ecological Clay Targets & EU 2026 Regulation Updates",
+    "metaDescription": "Latest news from VIVAZ Clay Targets: ecological target innovation, EU regulation 2025/660 and industry updates."
   },
   "notFound": {
     "title": "Page not found",
@@ -175,5 +283,11 @@
   "metadata": {
     "title": "VIVAZ Clay Targets — European Leaders in Ecological Clay Targets",
     "description": "Ecological clay target manufacturers since 1967. Natura range (0% PAH, 100% pine resin) and Eco Star. Ready for EU 2026 regulation."
+  },
+  "home": {
+    "videos": {
+      "title": "VIVAZ IN ACTION",
+      "watchVideo": "Watch video"
+    }
   }
 }

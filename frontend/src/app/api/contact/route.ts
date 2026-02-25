@@ -15,7 +15,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const { name, email, phone, company, market, interest, message, source_page } = body;
+    const { name, apellidos, email, phone, market, message, source_page, company, interest } = body;
 
     if (!name || !email) {
       return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
     if (!ADMIN_TOKEN) {
       console.warn("Contact form: DIRECTUS_ADMIN_TOKEN not set, logging lead locally");
-      console.log("New lead:", { name, email, phone, company, market, interest, message, source_page });
+      console.log("New lead:", { name, apellidos, email, phone, market, message, source_page });
       return NextResponse.json({ success: true, fallback: true });
     }
 
@@ -40,11 +40,12 @@ export async function POST(request: Request) {
     await client.request(
       createItem("crm_leads", {
         name,
+        apellidos: apellidos || "",
         email,
         phone: phone || "",
         company: company || "",
         market: market || "Internacional",
-        interest: interest || "Distribución",
+        interest: interest || "",
         message: message || "",
         source_page: source_page || "",
         status: "new",
@@ -57,12 +58,13 @@ export async function POST(request: Request) {
       const fromAddress = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
       try {
+        const fullName = [name, apellidos].filter(Boolean).join(" ");
         const [adminResult, userResult] = await Promise.all([
           resend.emails.send({
             from: `Vivaz Notificaciones <${fromAddress}>`,
             to: adminTo,
-            subject: `Nuevo contacto: ${name} - ${company || "Sin empresa"}`,
-            html: generateAdminEmail({ name, email, phone: phone || "", company: company || "", market: market || "Internacional", interest: interest || "Distribución", message: message || "", source_page: source_page || "" }),
+            subject: `Nuevo contacto: ${fullName} - ${market || "Internacional"}`,
+            html: generateAdminEmail({ name: fullName, email, phone: phone || "", company: company || "", market: market || "Internacional", interest: interest || "", message: message || "", source_page: source_page || "" }),
           }),
           resend.emails.send({
             from: `VIVAZ Clay Targets <${fromAddress}>`,

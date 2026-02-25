@@ -10,7 +10,9 @@
     "subtitle": "VIVAZ CLAY TARGETS",
     "title": "EUROPÄISCHE MARKTFÜHRER FÜR ÖKOLOGISCHE WURFSCHEIBEN",
     "description": "Über 50 Jahre Herstellung und Pioniere seit 2001 bei Naturharzen.",
-    "cta": "ENTDECKEN SIE UNSER SORTIMENT"
+    "cta": "ENTDECKEN SIE UNSER SORTIMENT",
+    "descriptionNational": "Über 50 Jahre Erfahrung, 100% Kiefernharz und Wettkampfleistung bei jedem Wurf.",
+    "descriptionExport": "Die EU-Verordnung 2026 verbietet PAH-haltige Scheiben. VIVAZ erfüllt die Anforderungen seit 2001. Bleiben Sie der Zeit voraus."
   },
   "range": {
     "natura": "NATURA",
@@ -57,7 +59,13 @@
     "rights": "Alle Rechte vorbehalten.",
     "privacy": "Datenschutzrichtlinie",
     "legal": "Impressum",
-    "cookies": "Cookie-Richtlinie"
+    "cookies": "Cookie-Richtlinie",
+    "tagline": "Hersteller ökologischer Wurfscheiben seit 1967.",
+    "navTitle": "Navigation",
+    "contactTitle": "Kontakt",
+    "followTitle": "Folgen Sie uns",
+    "address": "Spanien",
+    "madeIn": "Hergestellt in Spanien"
   },
   "contact": {
     "title": "Kontakt",
@@ -82,9 +90,17 @@
     "interestClub": "Verein / Schießstand",
     "interestShooter": "Schütze",
     "message": "Nachricht",
-    "send": "Senden",
+    "send": "SENDEN",
     "success": "Nachricht erfolgreich gesendet. Wir werden Sie bald kontaktieren.",
-    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "apellidos": "Nachname",
+    "privacyConsent": "Ich habe die gelesen und stimme ihr zu",
+    "privacyLink": "Datenschutzrichtlinie",
+    "national": "Nationaler Markt",
+    "international": "Internationaler Markt",
+    "phone_label": "Telefon",
+    "email_label": "E-Mail",
+    "formTitle": "Schreiben Sie uns"
   },
   "products": {
     "title": "Unsere Produkte",
@@ -96,11 +112,46 @@
     "pahFree": "0 PAH",
     "pahCompliant": "PAH-konform",
     "viewProduct": "Produkt ansehen",
+    "viewLine": "Sortiment ansehen",
     "disciplines": "Disziplinen",
     "logistics": "Logistik",
-    "specifications": "Spezifikationen",
+    "specifications": "Technische Spezifikationen",
     "contactUs": "Kontaktieren Sie uns",
-    "emptyState": "Produkte in Kürze verfügbar."
+    "emptyState": "Produkte in Kürze verfügbar.",
+    "downloadCatalog": "PDF-Katalog herunterladen",
+    "formats": "Verfügbare Formate",
+    "selectFormat": "Format auswählen",
+    "certifications": "Zertifizierungen",
+    "pahChartTitle": "PAK-Vergleich vs. Konventionelle Scheiben",
+    "pahBadge0": "0 mg/kg PAK",
+    "pahBadgeCompliant": "PAK < 50 mg/kg",
+    "metaDescriptionNatura": "VIVAZ NATURA-Wurfscheiben: 0 mg/kg PAK, hergestellt aus 100% natürlichem Kiefernharz. Die Premium-Scheibe für anspruchsvolle Schützen. EU 2026 konform.",
+    "metaDescriptionEcoStar": "VIVAZ ECO STAR-Wurfscheiben: < 50 mg/kg PAK, überlegene Leistung in anspruchsvollen Disziplinen. EU 2026 konform.",
+    "pahLevel": "PAK-Gehalt",
+    "diameter": "Durchmesser",
+    "weight": "Gewicht",
+    "height": "Höhe",
+    "material": "Material",
+    "color": "Farbe",
+    "resinContent": "Harzanteil %",
+    "issfApproved": "ISSF-zugelassen",
+    "yes": "Ja",
+    "no": "Nein",
+    "pahChart": {
+      "traditional": "Konventionelle Scheiben",
+      "euLimit": "EU-Grenzwert 2026",
+      "ecoStar": "ECO STAR",
+      "natura": "NATURA",
+      "euLimitLabel": "EU-Grenzwert: 50 mg/kg",
+      "noPatLabel": "Ohne PAK",
+      "unit": "mg/kg"
+    },
+    "logisticsTable": {
+      "boxUnits": "Einheiten pro Karton",
+      "palletEu": "EU-Palette",
+      "container20": "20'-Container",
+      "container40": "40'-Container"
+    }
   },
   "regulation": {
     "title": "Europäische Verordnung 2026",
@@ -158,7 +209,15 @@
     "valueQuality": "Kompromisslose Qualität",
     "valueInnovation": "Ständige Innovation",
     "valueSustainability": "Echte Nachhaltigkeit",
-    "valueService": "Kundenservice"
+    "valueService": "Kundenservice",
+    "timeline": {
+      "founded": "Gründung",
+      "foundedDesc": "Jesús y Vicente Vázquez S.L. beginnt mit der Herstellung hochwertiger Wurfscheiben in Spanien.",
+      "pioneers": "Pioniere der Ökologie",
+      "pioneersDesc": "Erste Hersteller in Europa, die Scheiben mit natürlichem Kiefernharz entwickelten — 25 Jahre vor der EU-Verordnung.",
+      "regulation": "EU-Verordnung 2025/660",
+      "regulationDesc": "Die Verordnung verbietet PAK-haltige Scheiben. VIVAZ ist bereits konform. Die Branche holt auf."
+    }
   },
   "news": {
     "title": "Nachrichten",
@@ -175,5 +234,11 @@
   "metadata": {
     "title": "VIVAZ Clay Targets — Europäische Marktführer für ökologische Wurfscheiben",
     "description": "Hersteller ökologischer Wurfscheiben seit 1967. Natura-Sortiment (0% PAH, 100% Kiefernharz) und Eco Star. Bereit für die EU-Verordnung 2026."
+  },
+  "home": {
+    "videos": {
+      "title": "VIVAZ IN AKTION",
+      "watchVideo": "Video ansehen"
+    }
   }
 }

@@ -10,7 +10,9 @@
     "subtitle": "VIVAZ CLAY TARGETS",
     "title": "LEADERS EUROPÉENS EN PLATEAUX ÉCOLOGIQUES",
     "description": "Plus de 50 ans de fabrication et pionniers depuis 2001 dans les résines naturelles.",
-    "cta": "DÉCOUVREZ NOTRE GAMME"
+    "cta": "DÉCOUVREZ NOTRE GAMME",
+    "descriptionNational": "Plus de 50 ans d'expertise, résine de pin 100% et performance de compétition à chaque lancer.",
+    "descriptionExport": "La réglementation UE 2026 interdit les plateaux avec HAP. VIVAZ est conforme depuis 2001. Anticipez le changement."
   },
   "range": {
     "natura": "NATURA",
@@ -57,7 +59,13 @@
     "rights": "Tous droits réservés.",
     "privacy": "Politique de Confidentialité",
     "legal": "Mentions Légales",
-    "cookies": "Politique de Cookies"
+    "cookies": "Politique de Cookies",
+    "tagline": "Fabricants de plateaux de tir écologiques depuis 1967.",
+    "navTitle": "Navigation",
+    "contactTitle": "Contact",
+    "followTitle": "Suivez-nous",
+    "address": "Espagne",
+    "madeIn": "Fabriqué en Espagne"
   },
   "contact": {
     "title": "Contact",
@@ -82,9 +90,17 @@
     "interestClub": "Club / Stand de Tir",
     "interestShooter": "Tireur",
     "message": "Message",
-    "send": "Envoyer",
+    "send": "ENVOYER",
     "success": "Message envoyé avec succès. Nous vous contacterons bientôt.",
-    "error": "Une erreur s'est produite. Veuillez réessayer."
+    "error": "Une erreur s'est produite. Veuillez réessayer.",
+    "apellidos": "Nom de famille",
+    "privacyConsent": "J'ai lu et j'accepte la",
+    "privacyLink": "Politique de Confidentialité",
+    "national": "Marché National",
+    "international": "Marché International",
+    "phone_label": "Téléphone",
+    "email_label": "Email",
+    "formTitle": "Écrivez-nous"
   },
   "products": {
     "title": "Nos Produits",
@@ -96,11 +112,46 @@
     "pahFree": "0 PAH",
     "pahCompliant": "PAH Conforme",
     "viewProduct": "Voir le produit",
+    "viewLine": "Voir la gamme",
     "disciplines": "Disciplines",
     "logistics": "Logistique",
-    "specifications": "Spécifications",
+    "specifications": "Spécifications Techniques",
     "contactUs": "Nous contacter",
-    "emptyState": "Produits disponibles prochainement."
+    "emptyState": "Produits disponibles prochainement.",
+    "downloadCatalog": "Télécharger le Catalogue PDF",
+    "formats": "Formats disponibles",
+    "selectFormat": "Sélectionnez un format",
+    "certifications": "Certifications",
+    "pahChartTitle": "Comparaison HAP vs. Plateaux Conventionnels",
+    "pahBadge0": "0 mg/kg HAP",
+    "pahBadgeCompliant": "HAP < 50 mg/kg",
+    "metaDescriptionNatura": "Plateaux NATURA de VIVAZ : 0 mg/kg HAP, fabriqués avec 100% de résine de pin naturelle. Le plateau premium pour les tireurs exigeants. Conforme UE 2026.",
+    "metaDescriptionEcoStar": "Plateaux ECO STAR de VIVAZ : < 50 mg/kg HAP, performance supérieure dans les disciplines exigeantes. Conformes à la réglementation UE 2026.",
+    "pahLevel": "Niveau HAP",
+    "diameter": "Diamètre",
+    "weight": "Poids",
+    "height": "Hauteur",
+    "material": "Matériau",
+    "color": "Couleur",
+    "resinContent": "% Résine",
+    "issfApproved": "Approuvé ISSF",
+    "yes": "Oui",
+    "no": "Non",
+    "pahChart": {
+      "traditional": "Plateaux Traditionnels",
+      "euLimit": "Limite UE 2026",
+      "ecoStar": "ECO STAR",
+      "natura": "NATURA",
+      "euLimitLabel": "Limite UE : 50 mg/kg",
+      "noPatLabel": "Sans HAP",
+      "unit": "mg/kg"
+    },
+    "logisticsTable": {
+      "boxUnits": "Unités par boîte",
+      "palletEu": "Palette EU",
+      "container20": "Conteneur 20'",
+      "container40": "Conteneur 40'"
+    }
   },
   "regulation": {
     "title": "Réglementation Européenne 2026",
@@ -125,7 +176,32 @@
     "marketImpactDesc": "Les clubs, fédérations et distributeurs doivent passer à des produits conformes avant la date d'entrée en vigueur.",
     "ctaTitle": "Prêt pour l'UE 2026 ?",
     "ctaDesc": "Assurez-vous que votre club ou fédération est prêt avec les plateaux écologiques VIVAZ.",
-    "ctaButton": "Contactez-nous"
+    "ctaButton": "Contactez-nous",
+    "complianceMatrix": {
+      "natura": "NATURA",
+      "ecoStar": "ECO STAR",
+      "traditional": "Plateaux Traditionnels",
+      "pahLevel": "Niveau HAP",
+      "euCompliant": "Conforme UE 2026",
+      "composition": "Composition",
+      "issfApproved": "Approuvé ISSF",
+      "biodegradable": "Biodégradable",
+      "compliant": "Conforme",
+      "nonCompliant": "Non conforme"
+    },
+    "euDocLink": "Consulter le Texte Légal : UE 2025/660",
+    "euDocSummary": "Le Règlement UE 2025/660 limite les Hydrocarbures Aromatiques Polycycliques (HAP) dans les plateaux d'argile à un maximum de 50 mg/kg à partir du 22 avril 2026. Les plateaux fabriqués avec du goudron de houille ou des dérivés du pétrole dépassent largement cette limite et seront interdits dans toute l'UE.",
+    "headStart": "25 Ans d'Avance",
+    "headStartDescription": "Depuis 2001, VIVAZ fabrique des plateaux d'argile avec de la résine de pin naturelle — 25 ans avant que la réglementation ne l'exige. Pendant que le secteur s'adapte, VIVAZ dirige la transition écologique depuis un quart de siècle.",
+    "pahChart": {
+      "traditional": "Plateaux Traditionnels",
+      "euLimit": "Limite UE 2026",
+      "ecoStar": "ECO STAR",
+      "natura": "NATURA",
+      "euLimitLabel": "Limite UE : 50 mg/kg",
+      "noPatLabel": "Sans HAP",
+      "unit": "mg/kg"
+    }
   },
   "technology": {
     "title": "Technologie et Durabilité",
@@ -142,7 +218,27 @@
     "vivazLabel": "Plateaux VIVAZ (résine de pin)",
     "vivazItems": "0 mg/kg HAP (Natura)|Biodégradables naturellement|Résine de pin renouvelable|Prêts pour l'UE 2026",
     "reachTitle": "Réglementation REACH",
-    "reachDesc": "Tous nos produits sont conformes au règlement REACH (CE) 1907/2006 de l'Union Européenne, qui régit la fabrication et l'utilisation des substances chimiques."
+    "reachDesc": "Tous nos produits sont conformes au règlement REACH (CE) 1907/2006 de l'Union Européenne, qui régit la fabrication et l'utilisation des substances chimiques.",
+    "pahChart": {
+      "traditional": "Plateaux Traditionnels",
+      "euLimit": "Limite UE 2026",
+      "ecoStar": "ECO STAR",
+      "natura": "NATURA",
+      "euLimitLabel": "Limite UE : 50 mg/kg",
+      "noPatLabel": "Sans HAP",
+      "unit": "mg/kg"
+    },
+    "resinSectionTitle": "La Chimie du Pin : Pourquoi Ça Compte",
+    "resinSectionDesc": "La résine de pin naturelle ne contient pas d'Hydrocarbures Aromatiques Polycycliques (HAP). En remplaçant les liants pétroliers par de la résine de pin, NATURA atteint 0 mg/kg de HAP — bien en dessous du maximum de 50 mg/kg exigé par la réglementation UE 2025/660.",
+    "timelineTitle": "25 Ans de Leadership Écologique",
+    "timeline": {
+      "founded": "Fondation",
+      "foundedDesc": "Jesús y Vicente Vázquez S.L. commence à fabriquer des plateaux de tir de haute qualité.",
+      "pioneers": "Pionniers en Résine",
+      "pioneersDesc": "Premiers en Europe à lancer des plateaux en résine de pin naturelle. 25 ans avant la réglementation.",
+      "regulation": "Règlement UE 2025/660",
+      "regulationDesc": "La réglementation européenne exige ce que VIVAZ fait depuis 2001. L'industrie rattrape son retard."
+    }
   },
   "about": {
     "title": "À Propos de Vivaz",
@@ -158,14 +254,26 @@
     "valueQuality": "Qualité sans compromis",
     "valueInnovation": "Innovation constante",
     "valueSustainability": "Durabilité réelle",
-    "valueService": "Service client"
+    "valueService": "Service client",
+    "timeline": {
+      "founded": "Fondation",
+      "foundedDesc": "Jesús y Vicente Vázquez S.L. commence à fabriquer des plateaux de tir de haute qualité en Espagne.",
+      "pioneers": "Pionniers en Écologie",
+      "pioneersDesc": "Premiers fabricants en Europe à développer des plateaux avec de la résine de pin naturelle — 25 ans avant la réglementation UE.",
+      "regulation": "Règlement UE 2025/660",
+      "regulationDesc": "Le règlement interdit les plateaux à base de HAP. VIVAZ est déjà conforme. Le secteur suit."
+    }
   },
   "news": {
     "title": "Actualités",
     "subtitle": "Actualités VIVAZ",
     "readMore": "Lire la suite",
     "noArticles": "Des articles et actualités seront bientôt publiés.",
-    "backToNews": "Retour aux actualités"
+    "noPosts": "Des articles et actualités seront bientôt publiés.",
+    "backToNews": "Retour aux actualités",
+    "backToList": "Retour aux actualités",
+    "metaTitle": "Actualités VIVAZ — Plateaux Écologiques et Réglementation UE 2026",
+    "metaDescription": "Dernières actualités de VIVAZ Clay Targets : innovation en plateaux écologiques, réglementation UE 2025/660 et nouveautés du secteur."
   },
   "notFound": {
     "title": "Page non trouvée",
@@ -175,5 +283,11 @@
   "metadata": {
     "title": "VIVAZ Clay Targets — Leaders Européens en Plateaux Écologiques",
     "description": "Fabricants de plateaux de tir écologiques depuis 1967. Gamme Natura (0% PAH, résine de pin 100%) et Eco Star. Prêts pour la réglementation UE 2026."
+  },
+  "home": {
+    "videos": {
+      "title": "VIVAZ EN ACTION",
+      "watchVideo": "Voir la vidéo"
+    }
   }
 }

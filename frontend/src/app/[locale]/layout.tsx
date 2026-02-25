@@ -8,9 +8,11 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import WhatsAppFAB from "@/components/contact/WhatsAppFAB";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import PageTransition from "@/components/providers/PageTransition";
 import { organizationJsonLd } from "@/lib/json-ld";
+import { getBrandData } from "@/lib/directus";
 import "../globals.css";
 
 const quablo = localFont({
@@ -87,6 +89,15 @@ export default async function LocaleLayout({
 
   const messages = (await import(`@/messages/${locale}.json`)).default;
 
+  // Fetch brand data for WhatsApp number (fallback to known number if unavailable)
+  let whatsappNumber = "+34618757580";
+  try {
+    const brand = await getBrandData();
+    if (brand?.whatsapp) whatsappNumber = brand.whatsapp;
+  } catch {
+    // Use fallback number
+  }
+
   return (
     <html lang={locale}>
       <body className={`${quablo.variable} ${manrope.variable} antialiased`}>
@@ -103,6 +114,7 @@ export default async function LocaleLayout({
               </PageTransition>
             </main>
             <Footer />
+            <WhatsAppFAB number={whatsappNumber} />
           </SmoothScroll>
         </NextIntlClientProvider>
       </body>

@@ -105,11 +105,12 @@ export interface BlogCategory {
 export interface CrmLead {
   id?: number;
   name: string;
+  apellidos?: string;
   email: string;
   phone: string;
-  company: string;
+  company?: string;
   market: "Nacional" | "Internacional";
-  interest: "Distribución" | "Club/Campo" | "Tirador";
+  interest?: "Distribución" | "Club/Campo" | "Tirador";
   message: string;
   source_page: string;
 }
@@ -142,6 +143,15 @@ export interface BrandData {
   catalog_pdf: string | null;
   founded_year: number | null;
   address: string | null;
+}
+
+export interface WebVideo {
+  id: number;
+  title: string;
+  thumbnail: string | null;
+  video_url: string;
+  sort: number;
+  status: string;
 }
 
 export interface WebPage {

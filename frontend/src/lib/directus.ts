@@ -1,5 +1,5 @@
 import { createDirectus, rest, staticToken, readItems, readSingleton } from "@directus/sdk";
-import type { Product, Discipline, BlogPost, RegulationData, BrandData } from "./types";
+import type { Product, Discipline, BlogPost, RegulationData, BrandData, WebVideo } from "./types";
 
 // Internal URL for server-side requests (inside Docker: http://directus:8055)
 // Public URL for client-side / asset URLs (browser-accessible: http://localhost:8055)
@@ -126,6 +126,18 @@ export async function getRegulationData() {
 export async function getBrandData() {
   const data = await client.request(readSingleton("sys_brand"));
   return data as unknown as BrandData;
+}
+
+export async function getVideos() {
+  const items = await client.request(
+    readItems("web_videos", {
+      filter: { status: { _eq: "published" } },
+      sort: ["sort"],
+      limit: 4,
+      fields: ["*"],
+    })
+  );
+  return items as unknown as WebVideo[];
 }
 
 export default client;

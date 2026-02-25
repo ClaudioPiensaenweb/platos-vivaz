@@ -7,13 +7,13 @@ import Button from "@/components/ui/Button";
 export default function ContactForm() {
   const t = useTranslations("contact");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [privacyChecked, setPrivacyChecked] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
+    apellidos: "",
     email: "",
     phone: "",
-    company: "",
     market: "Nacional",
-    interest: "Distribución",
     message: "",
   });
 
@@ -23,6 +23,9 @@ export default function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    if (!privacyChecked) return;
+
     setStatus("sending");
 
     try {
@@ -34,7 +37,8 @@ export default function ContactForm() {
 
       if (res.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", phone: "", company: "", market: "Nacional", interest: "Distribución", message: "" });
+        setFormData({ name: "", apellidos: "", email: "", phone: "", market: "Nacional", message: "" });
+        setPrivacyChecked(false);
       } else {
         setStatus("error");
       }
@@ -61,6 +65,10 @@ export default function ContactForm() {
           <input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} className={inputClasses} />
         </div>
         <div>
+          <label htmlFor="apellidos" className="mb-1.5 block font-body text-sm font-medium text-primary">{t("apellidos")}</label>
+          <input id="apellidos" name="apellidos" type="text" value={formData.apellidos} onChange={handleChange} className={inputClasses} />
+        </div>
+        <div>
           <label htmlFor="email" className="mb-1.5 block font-body text-sm font-medium text-primary">{t("email")}</label>
           <input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className={inputClasses} />
         </div>
@@ -68,23 +76,11 @@ export default function ContactForm() {
           <label htmlFor="phone" className="mb-1.5 block font-body text-sm font-medium text-primary">{t("phone")}</label>
           <input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} className={inputClasses} />
         </div>
-        <div>
-          <label htmlFor="company" className="mb-1.5 block font-body text-sm font-medium text-primary">{t("company")}</label>
-          <input id="company" name="company" type="text" value={formData.company} onChange={handleChange} className={inputClasses} />
-        </div>
-        <div>
+        <div className="md:col-span-2">
           <label htmlFor="market" className="mb-1.5 block font-body text-sm font-medium text-primary">{t("market")}</label>
           <select id="market" name="market" value={formData.market} onChange={handleChange} className={inputClasses}>
             <option value="Nacional">{t("marketNational")}</option>
             <option value="Internacional">{t("marketInternational")}</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="interest" className="mb-1.5 block font-body text-sm font-medium text-primary">{t("interest")}</label>
-          <select id="interest" name="interest" value={formData.interest} onChange={handleChange} className={inputClasses}>
-            <option value="Distribución">{t("interestDistribution")}</option>
-            <option value="Club/Campo">{t("interestClub")}</option>
-            <option value="Tirador">{t("interestShooter")}</option>
           </select>
         </div>
       </div>
@@ -93,11 +89,34 @@ export default function ContactForm() {
         <textarea id="message" name="message" rows={5} value={formData.message} onChange={handleChange} className={inputClasses} />
       </div>
 
+      {/* Privacy checkbox */}
+      <div className="flex items-start gap-3">
+        <input
+          id="privacy"
+          type="checkbox"
+          required
+          checked={privacyChecked}
+          onChange={(e) => setPrivacyChecked(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 rounded border-cream text-primary focus:ring-primary"
+        />
+        <label htmlFor="privacy" className="font-body text-[13px] leading-relaxed text-muted">
+          {t("privacyConsent")}{" "}
+          <a
+            href="/politica-privacidad"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-primary transition-colors"
+          >
+            {t("privacyLink")}
+          </a>
+        </label>
+      </div>
+
       {status === "error" && (
         <p className="font-body text-sm text-danger">{t("error")}</p>
       )}
 
-      <Button type="submit" variant="primary" size="lg" className="w-full">
+      <Button type="submit" variant="primary" size="lg" className="w-full" disabled={!privacyChecked || status === "sending"}>
         {status === "sending" ? "..." : t("send")}
       </Button>
     </form>
