@@ -1,0 +1,167 @@
+{
+  "nav": {
+    "products": "Productos",
+    "technology": "Tecnología y Sostenibilidad",
+    "about": "Sobre Vivaz",
+    "news": "Noticias / Regulación 2026",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "subtitle": "VIVAZ CLAY TARGETS",
+    "title": "LÍDERES EUROPEOS EN PLATOS ECOLÓGICOS",
+    "description": "Más de 50 años de fabricación y pioneros desde 2001 en resinas naturales.",
+    "cta": "DESCUBRE NUESTRA GAMA"
+  },
+  "range": {
+    "natura": "NATURA",
+    "ecostar": "ECO STAR",
+    "vivazRange": "VIVAZ RANGE"
+  },
+  "whyVivaz": {
+    "subtitle": "POR QUÉ VIVAZ",
+    "title": "MÁXIMO RENDIMIENTO CON EL MÍNIMO IMPACTO AMBIENTAL",
+    "quality": "CALIDAD",
+    "qualityDesc": "Platos consistentes: vuelo estable, trayectorias predecibles y rotura fiable.",
+    "sustainability": "SOSTENIBILIDAD",
+    "sustainabilityDesc": "Resinas naturales y producción más limpia, preparados para la normativa europea de 2026.",
+    "performance": "RENDIMIENTO",
+    "performanceDesc": "Más visibilidad, mejor lectura del impacto y una experiencia de tiro precisa y satisfactoria."
+  },
+  "natura": {
+    "badge": "100% Natural eco-friendly",
+    "title": "NATURA. EL PLATO PREMIUM",
+    "description": "Fabricado íntegramente con resina natural de pino, con contenido PAH de 0 mg/kg. Desarrollado para ofrecer el máximo rendimiento en disciplinas ISSF y para tiradores que exigen la máxima precisión en cada lanzamiento.",
+    "cta": "DESCUBRE NATURA"
+  },
+  "ecostar": {
+    "badge": "Environmentally friendly",
+    "title": "ECO STAR. RENDIMIENTO EFICIENTE",
+    "description": "ECO STAR está diseñado para ofrecer una resistencia superior y un comportamiento impecable en lanzamientos largos y exigentes.",
+    "cta": "DESCUBRE ECO STAR"
+  },
+  "commitment": {
+    "title": "EL COMPROMISO DE VIVAZ",
+    "description": "La sostenibilidad es la base de nuestra innovación y el centro de nuestro liderazgo ambiental. VIVAZ lidera la industria ofreciendo productos que minimizan el impacto ambiental, respaldados por décadas de experiencia.",
+    "cta": "SABER MÁS"
+  },
+  "ctaSection": {
+    "subtitle": "VIVAZ CLAY TARGETS",
+    "title": "ELIGE EL PLATO ECOLÓGICO QUE TE DA VENTAJA",
+    "description": "NATURA y ECO STAR ofrecen vuelo estable, alta visibilidad y una rotura limpia y consistente, con materiales más responsables. Cuéntanos tu disciplina y el tipo de uso, y te orientamos hacia la mejor opción.",
+    "cta": "HABLEMOS"
+  },
+  "colorStrip": {
+    "title": "BECAUSE WE ARE CLAY BREAKERS!"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "legal": "Aviso Legal",
+    "cookies": "Política de Cookies"
+  },
+  "contact": {
+    "title": "Contacto",
+    "name": "Nombre",
+    "email": "Email",
+    "phone": "Teléfono",
+    "company": "Empresa",
+    "market": "Mercado",
+    "marketNational": "Nacional",
+    "marketInternational": "Internacional",
+    "interest": "Interés",
+    "interestDistribution": "Distribución",
+    "interestClub": "Club / Campo de Tiro",
+    "interestShooter": "Tirador",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "success": "Mensaje enviado correctamente. Nos pondremos en contacto contigo pronto.",
+    "error": "Ha ocurrido un error. Por favor, inténtalo de nuevo."
+  },
+  "products": {
+    "title": "Nuestros Productos",
+    "allRanges": "Todas las gamas",
+    "premiumNatura": "Premium Natura",
+    "ecoStarEfficiency": "Eco Star Efficiency",
+    "specialFormats": "Formatos Especiales",
+    "pahFree": "0 PAH",
+    "pahCompliant": "PAH Conforme",
+    "viewProduct": "Ver producto",
+    "disciplines": "Disciplinas",
+    "logistics": "Logística",
+    "specifications": "Especificaciones",
+    "contactUs": "Contactar"
+  },
+  "regulation": {
+    "title": "Regulación Europea 2026",
+    "subtitle": "Normativa UE 2025/660",
+    "countdown": "Tiempo restante",
+    "days": "días",
+    "hours": "horas",
+    "minutes": "minutos",
+    "seconds": "segundos",
+    "timeline": "Cronología",
+    "timelineVivazTitle": "Vivaz Pioneros",
+    "timelineVivazDesc": "Primeros platos de resina de pino en Europa",
+    "timelinePublishedTitle": "Normativa Publicada",
+    "timelinePublishedDesc": "Normativa UE publicada",
+    "timelineEnforcedTitle": "Normativa en Vigor",
+    "timelineEnforcedDesc": "Platos con HAP de base petrolífera prohibidos",
+    "pahRestrictionTitle": "Restricción HAP",
+    "pahRestrictionDesc": "Los platos de arcilla con HAP de base petrolífera por encima de los límites reglamentados estarán prohibidos en todos los estados miembros de la UE.",
+    "vivazReadyTitle": "VIVAZ Preparado",
+    "vivazReadyDesc": "Los productos VIVAZ cumplen desde 2001. Nuestra gama Natura utiliza 100% resina de pino con 0 mg/kg de contenido PAH.",
+    "marketImpactTitle": "Impacto en el Mercado",
+    "marketImpactDesc": "Clubes, federaciones y distribuidores deben hacer la transición a productos conformes antes de la fecha de entrada en vigor.",
+    "ctaTitle": "¿Preparado para la UE 2026?",
+    "ctaDesc": "Asegura que tu club o federación está preparado con los platos ecológicos VIVAZ.",
+    "ctaButton": "Contáctanos"
+  },
+  "technology": {
+    "title": "Tecnología y Sostenibilidad",
+    "subtitle": "Innovación ecológica",
+    "pineResinTitle": "Resina de Pino: Nuestra Materia Prima",
+    "pineResinDesc": "Desde 2001, utilizamos resina natural de pino como base de nuestros platos. Un recurso renovable que sustituye completamente a los derivados del petróleo, eliminando la presencia de HAP (Hidrocarburos Aromáticos Policíclicos) en nuestros productos premium.",
+    "processTitle": "Proceso de Fabricación",
+    "processDesc": "Nuestro proceso combina la tradición de más de 50 años con tecnología de vanguardia. Cada plato pasa por controles de calidad que garantizan uniformidad en peso, dureza y comportamiento en vuelo.",
+    "environmentTitle": "Compromiso Ambiental",
+    "environmentDesc": "Los platos Vivaz se biodegradan de forma natural, sin contaminar suelos ni aguas. Cumplimos con la normativa REACH y estamos preparados para la regulación EU 2025/660 que entra en vigor en abril de 2026.",
+    "comparisonTitle": "Comparativa Ambiental",
+    "petroleumLabel": "Platos convencionales (petróleo)",
+    "petroleumItems": "Contienen HAP cancerígenos|Contaminan suelos y aguas|No biodegradables|Incumplen normativa 2026",
+    "vivazLabel": "Platos VIVAZ (resina de pino)",
+    "vivazItems": "0 mg/kg HAP (Natura)|Biodegradables naturalmente|Resina de pino renovable|Preparados para EU 2026",
+    "reachTitle": "Normativa REACH",
+    "reachDesc": "Todos nuestros productos cumplen con el Reglamento REACH (CE) 1907/2006 de la Unión Europea, que regula la fabricación y el uso de sustancias químicas."
+  },
+  "about": {
+    "title": "Sobre Vivaz",
+    "subtitle": "Desde 1967",
+    "historyTitle": "Nuestra Historia",
+    "historyDesc": "Fundada en 1967, Jesús y Vicente Vázquez S.L. ha sido sinónimo de excelencia en la fabricación de platos de tiro durante más de cinco décadas. Desde nuestra fábrica en España, suministramos a tiradores, clubes y federaciones de todo el mundo.",
+    "pioneerTitle": "Pioneros en Ecología",
+    "pioneerDesc": "En 2001, fuimos los primeros fabricantes en Europa en desarrollar platos con resina natural de pino, anticipándonos más de dos décadas a la regulación europea. Esta visión nos ha posicionado como líderes indiscutibles en platos ecológicos.",
+    "factoryTitle": "Nuestra Fábrica",
+    "factoryDesc": "Nuestra planta de producción combina maquinaria de última generación con el conocimiento artesanal acumulado durante generaciones. Cada plato es sometido a rigurosos controles de calidad antes de salir de fábrica.",
+    "valuesTitle": "Nuestros Valores",
+    "valueQuality": "Calidad sin compromisos",
+    "valueInnovation": "Innovación constante",
+    "valueSustainability": "Sostenibilidad real",
+    "valueService": "Servicio al cliente"
+  },
+  "news": {
+    "title": "Noticias",
+    "subtitle": "Actualidad VIVAZ",
+    "readMore": "Leer más",
+    "noArticles": "Próximamente publicaremos noticias y artículos.",
+    "backToNews": "Volver a noticias"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "backHome": "Volver al inicio"
+  },
+  "metadata": {
+    "title": "VIVAZ Clay Targets — Líderes Europeos en Platos Ecológicos",
+    "description": "Fabricantes de platos de tiro ecológicos desde 1967. Gama Natura (0% PAH, resina de pino 100%) y Eco Star. Preparados para la normativa UE 2026."
+  }
+}

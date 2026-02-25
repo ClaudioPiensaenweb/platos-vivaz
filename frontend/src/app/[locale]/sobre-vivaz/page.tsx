@@ -18,7 +18,7 @@ export default async function SobreVivazPage() {
   const values = [
     { key: "valueQuality" as const, icon: "🎯", color: "bg-primary" },
     { key: "valueInnovation" as const, icon: "💡", color: "bg-accent" },
-    { key: "valueSustainability" as const, icon: "🌿", color: "bg-[#0bb14e]" },
+    { key: "valueSustainability" as const, icon: "🌿", color: "bg-success" },
     { key: "valueService" as const, icon: "🤝", color: "bg-primary-dark" },
   ];
 

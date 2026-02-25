@@ -1,0 +1,167 @@
+{
+  "nav": {
+    "products": "Produkte",
+    "technology": "Technologie & Nachhaltigkeit",
+    "about": "Über Vivaz",
+    "news": "Nachrichten / Regulierung 2026",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "subtitle": "VIVAZ CLAY TARGETS",
+    "title": "EUROPÄISCHE MARKTFÜHRER FÜR ÖKOLOGISCHE WURFSCHEIBEN",
+    "description": "Über 50 Jahre Herstellung und Pioniere seit 2001 bei Naturharzen.",
+    "cta": "ENTDECKEN SIE UNSER SORTIMENT"
+  },
+  "range": {
+    "natura": "NATURA",
+    "ecostar": "ECO STAR",
+    "vivazRange": "VIVAZ SORTIMENT"
+  },
+  "whyVivaz": {
+    "subtitle": "WARUM VIVAZ",
+    "title": "MAXIMALE LEISTUNG BEI MINIMALER UMWELTBELASTUNG",
+    "quality": "QUALITÄT",
+    "qualityDesc": "Konsistente Scheiben: stabiler Flug, vorhersehbare Flugbahnen und zuverlässiger Bruch.",
+    "sustainability": "NACHHALTIGKEIT",
+    "sustainabilityDesc": "Naturharze und sauberere Produktion, bereit für die europäische Verordnung 2026.",
+    "performance": "LEISTUNG",
+    "performanceDesc": "Mehr Sichtbarkeit, bessere Trefferbeurteilung und ein präzises, zufriedenstellendes Schießerlebnis."
+  },
+  "natura": {
+    "badge": "100% Natürlich umweltfreundlich",
+    "title": "NATURA. DIE PREMIUM-WURFSCHEIBE",
+    "description": "Vollständig aus natürlichem Kiefernharz hergestellt, mit einem PAH-Gehalt von 0 mg/kg. Entwickelt für maximale Leistung in ISSF-Disziplinen und für Schützen, die höchste Präzision fordern.",
+    "cta": "NATURA ENTDECKEN"
+  },
+  "ecostar": {
+    "badge": "Umweltfreundlich",
+    "title": "ECO STAR. EFFIZIENTE LEISTUNG",
+    "description": "ECO STAR ist für überlegene Widerstandsfähigkeit und einwandfreies Verhalten bei langen und anspruchsvollen Würfen konzipiert.",
+    "cta": "ECO STAR ENTDECKEN"
+  },
+  "commitment": {
+    "title": "DAS VIVAZ-ENGAGEMENT",
+    "description": "Nachhaltigkeit ist die Grundlage unserer Innovation und der Kern unserer Umweltführerschaft. VIVAZ führt die Branche an, indem wir Produkte anbieten, die die Umweltbelastung minimieren.",
+    "cta": "MEHR ERFAHREN"
+  },
+  "ctaSection": {
+    "subtitle": "VIVAZ CLAY TARGETS",
+    "title": "WÄHLEN SIE DIE ÖKOLOGISCHE WURFSCHEIBE, DIE IHNEN DEN VORTEIL GIBT",
+    "description": "NATURA und ECO STAR bieten stabilen Flug, hohe Sichtbarkeit und sauberen, konsistenten Bruch mit verantwortungsvolleren Materialien.",
+    "cta": "KONTAKTIEREN SIE UNS"
+  },
+  "colorStrip": {
+    "title": "BECAUSE WE ARE CLAY BREAKERS!"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzrichtlinie",
+    "legal": "Impressum",
+    "cookies": "Cookie-Richtlinie"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "company": "Unternehmen",
+    "market": "Markt",
+    "marketNational": "National",
+    "marketInternational": "International",
+    "interest": "Interesse",
+    "interestDistribution": "Vertrieb",
+    "interestClub": "Verein / Schießstand",
+    "interestShooter": "Schütze",
+    "message": "Nachricht",
+    "send": "Senden",
+    "success": "Nachricht erfolgreich gesendet. Wir werden Sie bald kontaktieren.",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+  },
+  "products": {
+    "title": "Unsere Produkte",
+    "allRanges": "Alle Sortimente",
+    "premiumNatura": "Premium Natura",
+    "ecoStarEfficiency": "Eco Star Efficiency",
+    "specialFormats": "Sonderformate",
+    "pahFree": "0 PAH",
+    "pahCompliant": "PAH-konform",
+    "viewProduct": "Produkt ansehen",
+    "disciplines": "Disziplinen",
+    "logistics": "Logistik",
+    "specifications": "Spezifikationen",
+    "contactUs": "Kontaktieren Sie uns"
+  },
+  "regulation": {
+    "title": "Europäische Verordnung 2026",
+    "subtitle": "EU-Verordnung 2025/660",
+    "countdown": "Verbleibende Zeit",
+    "days": "Tage",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "seconds": "Sekunden",
+    "timeline": "Zeitplan",
+    "timelineVivazTitle": "Vivaz Pioniere",
+    "timelineVivazDesc": "Erste Wurfscheiben aus Kiefernharz in Europa",
+    "timelinePublishedTitle": "Verordnung Veröffentlicht",
+    "timelinePublishedDesc": "EU-Verordnung veröffentlicht",
+    "timelineEnforcedTitle": "Verordnung in Kraft",
+    "timelineEnforcedDesc": "Erdölbasierte PAK-Scheiben verboten",
+    "pahRestrictionTitle": "PAK-Beschränkung",
+    "pahRestrictionDesc": "Wurfscheiben mit erdölbasiertem PAK über den regulierten Grenzwerten werden in allen EU-Mitgliedstaaten verboten.",
+    "vivazReadyTitle": "VIVAZ Bereit",
+    "vivazReadyDesc": "VIVAZ-Produkte sind seit 2001 konform. Unser Natura-Sortiment verwendet 100% Kiefernharz mit einem PAK-Gehalt von 0 mg/kg.",
+    "marketImpactTitle": "Marktauswirkung",
+    "marketImpactDesc": "Vereine, Verbände und Händler müssen vor dem Inkrafttreten auf konforme Produkte umsteigen.",
+    "ctaTitle": "Bereit für die EU 2026?",
+    "ctaDesc": "Stellen Sie sicher, dass Ihr Verein oder Verband mit den umweltfreundlichen Wurfscheiben von VIVAZ vorbereitet ist.",
+    "ctaButton": "Kontaktieren Sie uns"
+  },
+  "technology": {
+    "title": "Technologie & Nachhaltigkeit",
+    "subtitle": "Ökologische Innovation",
+    "pineResinTitle": "Kiefernharz: Unser Rohstoff",
+    "pineResinDesc": "Seit 2001 verwenden wir natürliches Kiefernharz als Basis für unsere Scheiben. Ein erneuerbarer Rohstoff, der Erdölderivate vollständig ersetzt und das Vorhandensein von PAK (Polyzyklische Aromatische Kohlenwasserstoffe) in unseren Premium-Produkten eliminiert.",
+    "processTitle": "Herstellungsprozess",
+    "processDesc": "Unser Prozess kombiniert über 50 Jahre Tradition mit modernster Technologie. Jede Scheibe durchläuft Qualitätskontrollen, die Gleichmäßigkeit in Gewicht, Härte und Flugverhalten garantieren.",
+    "environmentTitle": "Umweltengagement",
+    "environmentDesc": "Vivaz-Scheiben sind natürlich biologisch abbaubar, ohne Böden oder Gewässer zu kontaminieren. Wir erfüllen die REACH-Verordnung und sind auf die EU-Verordnung 2025/660 vorbereitet, die im April 2026 in Kraft tritt.",
+    "comparisonTitle": "Umweltvergleich",
+    "petroleumLabel": "Konventionelle Scheiben (Erdöl)",
+    "petroleumItems": "Enthalten krebserregende PAK|Kontaminieren Böden und Gewässer|Nicht biologisch abbaubar|Nicht konform mit Verordnung 2026",
+    "vivazLabel": "VIVAZ-Scheiben (Kiefernharz)",
+    "vivazItems": "0 mg/kg PAK (Natura)|Natürlich biologisch abbaubar|Erneuerbares Kiefernharz|Bereit für EU 2026",
+    "reachTitle": "REACH-Verordnung",
+    "reachDesc": "Alle unsere Produkte entsprechen der EU-REACH-Verordnung (EG) 1907/2006, die die Herstellung und Verwendung chemischer Stoffe regelt."
+  },
+  "about": {
+    "title": "Über Vivaz",
+    "subtitle": "Seit 1967",
+    "historyTitle": "Unsere Geschichte",
+    "historyDesc": "Gegründet 1967, ist Jesús y Vicente Vázquez S.L. seit über fünf Jahrzehnten ein Synonym für Exzellenz in der Wurfscheibenherstellung. Von unserer Fabrik in Spanien beliefern wir Schützen, Vereine und Verbände weltweit.",
+    "pioneerTitle": "Pioniere in Ökologie",
+    "pioneerDesc": "2001 waren wir die ersten Hersteller in Europa, die Scheiben mit natürlichem Kiefernharz entwickelten und damit der europäischen Regulierung um mehr als zwei Jahrzehnte vorausgingen. Diese Vision hat uns als unangefochtene Marktführer bei ökologischen Scheiben positioniert.",
+    "factoryTitle": "Unsere Fabrik",
+    "factoryDesc": "Unsere Produktionsanlage kombiniert modernste Maschinen mit dem über Generationen angesammelten handwerklichen Wissen. Jede Scheibe durchläuft strenge Qualitätskontrollen, bevor sie die Fabrik verlässt.",
+    "valuesTitle": "Unsere Werte",
+    "valueQuality": "Kompromisslose Qualität",
+    "valueInnovation": "Ständige Innovation",
+    "valueSustainability": "Echte Nachhaltigkeit",
+    "valueService": "Kundenservice"
+  },
+  "news": {
+    "title": "Nachrichten",
+    "subtitle": "VIVAZ Aktuell",
+    "readMore": "Weiterlesen",
+    "noArticles": "Nachrichten und Artikel werden in Kürze veröffentlicht.",
+    "backToNews": "Zurück zu Nachrichten"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "backHome": "Zurück zur Startseite"
+  },
+  "metadata": {
+    "title": "VIVAZ Clay Targets — Europäische Marktführer für ökologische Wurfscheiben",
+    "description": "Hersteller ökologischer Wurfscheiben seit 1967. Natura-Sortiment (0% PAH, 100% Kiefernharz) und Eco Star. Bereit für die EU-Verordnung 2026."
+  }
+}
