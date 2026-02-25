@@ -1,22 +1,37 @@
 import { getTranslations } from "next-intl/server";
 import Container from "@/components/ui/Container";
-import { getBlogPostBySlug } from "@/lib/directus";
+import BlogHero from "@/components/blog/BlogHero";
+import BlogContent from "@/components/blog/BlogContent";
+import { getBlogPosts, getBlogPostBySlug } from "@/lib/directus";
 import { Link } from "@/i18n/navigation";
 import { notFound } from "next/navigation";
-import { sanitizeHtml } from "@/lib/sanitize";
 import type { Metadata } from "next";
+
+export async function generateStaticParams() {
+  try {
+    const posts = await getBlogPosts({ limit: 100 });
+    return posts.map((post) => ({ slug: post.slug }));
+  } catch {
+    return [];
+  }
+}
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   try {
     const post = await getBlogPostBySlug(slug);
     if (!post) return { title: "VIVAZ Clay Targets" };
+    // Prefer locale-specific translation if available
+    const translation = post.translations?.find(
+      (t) => t.languages_code === locale
+    );
+    const title = translation?.title ?? post.title;
     return {
-      title: `${post.seo_title || post.title} | VIVAZ Clay Targets`,
+      title: `${post.seo_title || title} | VIVAZ Clay Targets`,
       description: post.seo_description || post.excerpt || "",
     };
   } catch {
@@ -29,8 +44,8 @@ export default async function NoticiaDetailPage({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  const t = await getTranslations("news");
+  const { slug, locale } = await params;
+  const t = await getTranslations({ locale, namespace: "news" });
 
   let post;
   try {
@@ -41,41 +56,28 @@ export default async function NoticiaDetailPage({
 
   if (!post) notFound();
 
+  // Prefer locale-specific content for body
+  const translation = post.translations?.find(
+    (tr) => tr.languages_code === locale
+  );
+  const content = translation?.content ?? post.content ?? "";
+
   return (
-    <div className="pt-24">
-      <Container className="py-12">
-        <Link
-          href="/noticias"
-          className="mb-8 inline-block text-sm text-accent hover:text-accent-hover"
-        >
-          &larr; {t("backToNews")}
-        </Link>
+    <main>
+      <BlogHero post={post} locale={locale} />
 
-        <article className="mx-auto max-w-3xl">
-          <div className="mb-8 aspect-video rounded-lg bg-cream" />
+      <section className="bg-white py-12 lg:py-16">
+        <Container className="max-w-3xl">
+          <Link
+            href="/noticias"
+            className="mb-8 inline-block font-body text-sm text-accent hover:text-accent-hover transition-colors"
+          >
+            &larr; {t("backToList")}
+          </Link>
 
-          <time className="text-sm text-muted">
-            {post.published_at
-              ? new Date(post.published_at).toLocaleDateString()
-              : ""}
-          </time>
-
-          <h1 className="mt-2 text-3xl font-bold text-foreground md:text-4xl">
-            {post.title}
-          </h1>
-
-          {post.excerpt && (
-            <p className="mt-4 text-lg text-muted">{post.excerpt}</p>
-          )}
-
-          {post.content && (
-            <div
-              className="prose prose-lg mt-8 max-w-none"
-              dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
-            />
-          )}
-        </article>
-      </Container>
-    </div>
+          {content && <BlogContent content={content} />}
+        </Container>
+      </section>
+    </main>
   );
 }
