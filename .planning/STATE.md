@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-25)
 
 **Core value:** Position Vivaz as the undisputed #1 manufacturer in clay target quality and sustainability, leveraging EU 2026 regulation as the proof point of 25 years of ecological leadership.
-**Current focus:** Phase 2 - CMS Data (In Progress)
+**Current focus:** Phase 3 - Components (In Progress)
 
 ## Current Position
 
-Phase: 2 of 5 (CMS Data)
+Phase: 3 of 5 (Components)
 Plan: 2 of 3 in current phase (Plan 2 complete)
-Status: Plan 02-02 complete — image pipeline WebP defaults, Resend email, productJsonLd rich results
-Last activity: 2026-02-25 — Completed 02-02 (assetUrl WebP defaults, Resend email integration, productJsonLd augmentation)
+Status: Plan 03-02 complete — TechSpecGrid, TimelineSection, StatCard, ContactSplit, ContactCards, WhatsAppFAB, BlogCard, BlogHero, BlogContent, CertBadgeRow
+Last activity: 2026-02-25 — Completed 03-02 (all feature-specific components for product, contact, blog, about, technology pages)
 
-Progress: [████░░░░░░] 40%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 7
 - Average duration: 5 min
-- Total execution time: 0.5 hours
+- Total execution time: ~0.6 hours
 
 **By Phase:**
 
@@ -29,6 +29,7 @@ Progress: [████░░░░░░] 40%
 |-------|-------|-------|----------|
 | 01-foundation | 3/3 | 18 min | 6 min |
 | 02-cms-data | 2/3 | 6 min | 3 min |
+| 03-components | 2/3 | ~10 min | 5 min |
 
 **Recent Trend:**
 - Last 5 plans: 5 min, 5 min, 8 min, 3 min, 3 min
@@ -40,6 +41,7 @@ Progress: [████░░░░░░] 40%
 | Phase 01-foundation P03 | 8 | 2 tasks | 8 files |
 | Phase 02-cms-data P01 | 3 | 2 tasks | 3 files |
 | Phase 02-cms-data P02 | 3 | 3 tasks | 8 files |
+| Phase 03-components P02 | 5 | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -69,6 +71,9 @@ Recent decisions affecting current work:
 - [02-02]: Email in nested try/catch — email failure never blocks form success response
 - [02-02]: onboarding@resend.dev default from address — works without DNS verification in dev/staging
 - [02-02]: productJsonLd Spanish locale prefix = empty string — matches localePrefix: "as-needed"
+- [Phase 03-components]: DirectusImage takes uuid prop not full URL — blog components pass post.image UUID directly, not assetUrl() string
+- [Phase 03-components]: ContactCards is Client Component for highlight state; ContactSplit is Server Component boundary that reads await headers() for geo-routing
+- [Phase 03-components]: TimelineSection receives events array prop — never hardcodes milestones; Phase 4 supplies 1967/2001/2026 content
 
 ### Pending Todos
 
@@ -85,5 +90,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Completed 02-02-PLAN.md — image pipeline WebP defaults, Resend email integration, productJsonLd rich results augmentation
+Stopped at: Completed 03-02-PLAN.md — TechSpecGrid, TimelineSection, StatCard, ContactSplit, ContactCards, WhatsAppFAB, BlogCard, BlogHero, BlogContent, CertBadgeRow
 Resume file: None

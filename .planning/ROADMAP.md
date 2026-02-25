@@ -100,6 +100,6 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete   | 2026-02-25 |
 | 2. CMS Data | 2/2 | Complete   | 2026-02-25 |
-| 3. Components | 0/2 | Not started | - |
+| 3. Components | 1/2 | In Progress|  |
 | 4. Page Assembly | 0/3 | Not started | - |
 | 5. Polish | 0/2 | Not started | - |

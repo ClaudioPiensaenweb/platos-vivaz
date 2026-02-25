@@ -27,7 +27,7 @@
 - [ ] **PROD-01**: NATURA product page displays complete specs — 100% pine resin, 0 mg/kg PAH, ISSF disciplines, weight, dimensions
 - [ ] **PROD-02**: ECO STAR product page displays complete specs — <50 mg/kg PAH, Sporting disciplines, weight, dimensions
 - [ ] **PROD-03**: Product range displays all 6 formats: American Trap, Extra Rabbit, Rabbit, Battue, Midi 90, Mini 60
-- [ ] **PROD-04**: Product detail pages show `TechSpecGrid` with PAH level prominently displayed
+- [x] **PROD-04**: Product detail pages show `TechSpecGrid` with PAH level prominently displayed
 - [ ] **PROD-05**: Product listing page with visual distinction between NATURA (premium) and ECO STAR (performance)
 - [ ] **PROD-06**: Logistics table visible with format x pack size x pallet data for distributor procurement
 - [x] **PROD-07**: Technical data sheets and certificates accessible (downloadable PDFs or linked documents)
@@ -38,7 +38,7 @@
 - [ ] **SUST-02**: Technology page explains pine resin chemistry with visual comparison vs traditional petroleum-based targets
 - [ ] **SUST-03**: Sustainability narrative positioned as primary brand architecture across site — not just a section
 - [ ] **SUST-04**: Carbon footprint data, REACH traceability, and regulatory compliance information accessible
-- [ ] **SUST-05**: 1967 → 2001 → 2026 brand timeline showing innovation history
+- [x] **SUST-05**: 1967 → 2001 → 2026 brand timeline showing innovation history
 
 ### Regulation (REG)
 
@@ -69,7 +69,7 @@
 
 - [ ] **ABOUT-01**: Company history since 1967 with innovation milestones
 - [ ] **ABOUT-02**: Factory, team, and values content from briefing
-- [ ] **ABOUT-03**: Visual timeline of Vivaz's ecological leadership journey
+- [x] **ABOUT-03**: Visual timeline of Vivaz's ecological leadership journey
 
 ### Blog/News (BLOG)
 
@@ -136,7 +136,7 @@
 | PROD-01 | Phase 4 | Pending |
 | PROD-02 | Phase 4 | Pending |
 | PROD-03 | Phase 4 | Pending |
-| PROD-04 | Phase 3 | Pending |
+| PROD-04 | Phase 3 | Complete |
 | PROD-05 | Phase 4 | Pending |
 | PROD-06 | Phase 4 | Pending |
 | PROD-07 | Phase 2 | Complete |
@@ -144,7 +144,7 @@
 | SUST-02 | Phase 4 | Pending |
 | SUST-03 | Phase 4 | Pending |
 | SUST-04 | Phase 4 | Pending |
-| SUST-05 | Phase 3 | Pending |
+| SUST-05 | Phase 3 | Complete |
 | REG-01 | Phase 4 | Pending |
 | REG-02 | Phase 4 | Pending |
 | REG-03 | Phase 4 | Pending |
@@ -163,7 +163,7 @@
 | LEAD-06 | Phase 4 | Pending |
 | ABOUT-01 | Phase 4 | Pending |
 | ABOUT-02 | Phase 4 | Pending |
-| ABOUT-03 | Phase 3 | Pending |
+| ABOUT-03 | Phase 3 | Complete |
 | BLOG-01 | Phase 4 | Pending |
 | BLOG-02 | Phase 4 | Pending |
 | BLOG-03 | Phase 4 | Pending |
