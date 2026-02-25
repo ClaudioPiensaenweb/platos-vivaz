@@ -72,12 +72,12 @@ Plans:
   3. The regulation page explains EU 2025/660 with an infographic, compliance matrix, links to the official EU document, and emphasizes Vivaz's 25-year head start
   4. The contact page displays national and international contact numbers correctly split by market, with a functional WhatsApp button and all contact form fields present
   5. Blog listing and detail pages render Directus content in all 4 locales with correct rich text formatting
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: Home page, About page, Contact page (all sections with briefing copy and geo-adapted content)
-- [ ] 04-02: Product listing + detail pages (NATURA, ECO STAR, all 6 formats, logistics table, data sheets)
-- [ ] 04-03: Technology page, Regulation 2026 page, Blog listing + detail
+- [ ] 04-01-PLAN.md — Home page (geo-adapted hero, VideoSection, ContactSplit inline), About page (TimelineSection, SVG icons), Contact page (side-by-side layout), global WhatsAppFAB, Footer redesign, ContactForm simplification
+- [ ] 04-02-PLAN.md — Product listing (3-category grid with PAH badges, discipline icons), Product detail pages (line-level slugs: /natura, /eco-star) with format variant tabs, TechSpecGrid, PAHComparisonChart, LogisticsTable, CertBadgeRow, catalog PDF CTA
+- [ ] 04-03-PLAN.md — Technology page (PAHComparisonChart, CertBadgeRow, TimelineSection), Regulation 2026 page (countdown, ComplianceMatrix, PAHChart, EUR-Lex link), Blog listing (BlogCard grid), Blog detail (BlogHero + BlogContent)
 
 ### Phase 5: Polish
 **Goal**: Site passes quality bar for launch — Core Web Vitals green on all pages, final i18n audit complete, sitemap/hreflang verified, no orphaned translation keys in any locale.
