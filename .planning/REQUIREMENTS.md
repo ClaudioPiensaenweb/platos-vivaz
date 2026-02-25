@@ -35,18 +35,18 @@
 ### Sustainability & Technology (SUST)
 
 - [x] **SUST-01**: PAH comparison visualization — animated chart showing Traditional (>500) → EU limit (50) → ECO STAR (<50) → NATURA (0)
-- [ ] **SUST-02**: Technology page explains pine resin chemistry with visual comparison vs traditional petroleum-based targets
+- [x] **SUST-02**: Technology page explains pine resin chemistry with visual comparison vs traditional petroleum-based targets
 - [x] **SUST-03**: Sustainability narrative positioned as primary brand architecture across site — not just a section
-- [ ] **SUST-04**: Carbon footprint data, REACH traceability, and regulatory compliance information accessible
+- [x] **SUST-04**: Carbon footprint data, REACH traceability, and regulatory compliance information accessible
 - [x] **SUST-05**: 1967 → 2001 → 2026 brand timeline showing innovation history
 
 ### Regulation (REG)
 
-- [ ] **REG-01**: EU 2025/660 regulation explainer page — PAH limits, enforcement date (April 2026), scope
-- [ ] **REG-02**: Infographic showing what changes and why, in didactic format
-- [ ] **REG-03**: Link to official EU commission regulation document
+- [x] **REG-01**: EU 2025/660 regulation explainer page — PAH limits, enforcement date (April 2026), scope
+- [x] **REG-02**: Infographic showing what changes and why, in didactic format
+- [x] **REG-03**: Link to official EU commission regulation document
 - [x] **REG-04**: Compliance matrix showing NATURA / ECO STAR / Traditional compliance status
-- [ ] **REG-05**: Content emphasizes Vivaz's 25-year head start in ecological production
+- [x] **REG-05**: Content emphasizes Vivaz's 25-year head start in ecological production
 
 ### Home Page (HOME)
 
@@ -73,9 +73,9 @@
 
 ### Blog/News (BLOG)
 
-- [ ] **BLOG-01**: Blog listing page renders posts from Directus CMS
-- [ ] **BLOG-02**: Blog detail page renders rich text content (sanitized HTML from Directus)
-- [ ] **BLOG-03**: Blog posts support all 4 locales
+- [x] **BLOG-01**: Blog listing page renders posts from Directus CMS
+- [x] **BLOG-02**: Blog detail page renders rich text content (sanitized HTML from Directus)
+- [x] **BLOG-03**: Blog posts support all 4 locales
 
 ### Performance & SEO (PERF)
 
@@ -141,15 +141,15 @@
 | PROD-06 | Phase 4 | Complete |
 | PROD-07 | Phase 2 | Complete |
 | SUST-01 | Phase 3 | Complete |
-| SUST-02 | Phase 4 | Pending |
+| SUST-02 | Phase 4 | Complete |
 | SUST-03 | Phase 4 | Complete |
-| SUST-04 | Phase 4 | Pending |
+| SUST-04 | Phase 4 | Complete |
 | SUST-05 | Phase 3 | Complete |
-| REG-01 | Phase 4 | Pending |
-| REG-02 | Phase 4 | Pending |
-| REG-03 | Phase 4 | Pending |
+| REG-01 | Phase 4 | Complete |
+| REG-02 | Phase 4 | Complete |
+| REG-03 | Phase 4 | Complete |
 | REG-04 | Phase 3 | Complete |
-| REG-05 | Phase 4 | Pending |
+| REG-05 | Phase 4 | Complete |
 | HOME-01 | Phase 4 | Complete |
 | HOME-02 | Phase 4 | Complete |
 | HOME-03 | Phase 4 | Complete |
@@ -164,9 +164,9 @@
 | ABOUT-01 | Phase 4 | Complete |
 | ABOUT-02 | Phase 4 | Complete |
 | ABOUT-03 | Phase 3 | Complete |
-| BLOG-01 | Phase 4 | Pending |
-| BLOG-02 | Phase 4 | Pending |
-| BLOG-03 | Phase 4 | Pending |
+| BLOG-01 | Phase 4 | Complete |
+| BLOG-02 | Phase 4 | Complete |
+| BLOG-03 | Phase 4 | Complete |
 | PERF-01 | Phase 5 | Pending |
 | PERF-02 | Phase 5 | Pending |
 | PERF-03 | Phase 2 | Complete |

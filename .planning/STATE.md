@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-25)
 ## Current Position
 
 Phase: 4 of 5 (Page Assembly)
-Plan: 3 of 3 in current phase (Plans 01 and 02 complete)
-Status: Plan 04-02 complete — Product listing page enhanced 3-category grid, product line detail pages (natura/eco-star) with FormatTabs, TechSpecGrid, PAHComparisonChart, LogisticsTable, CertBadgeRow wired
-Last activity: 2026-02-25 — Completed 04-02 (product pages, format variant tabs, all Phase 3 components integrated)
+Plan: 3 of 3 complete — Phase 04 COMPLETE
+Status: Plan 04-03 complete — Technology/Regulation/Blog pages assembled with Phase 3 components (PAHComparisonChart, ComplianceMatrix, CertBadgeRow, TimelineSection, BlogCard, BlogHero, BlogContent)
+Last activity: 2026-02-25 — Completed 04-03 (Technology page with PAH chart, Regulation page with EUR-Lex link, Blog listing/detail pages)
 
-Progress: [████████░░] 80%
+Progress: [█████████░] 90%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10
+- Total plans completed: 11
 - Average duration: 6 min
-- Total execution time: ~0.95 hours
+- Total execution time: ~1.1 hours
 
 **By Phase:**
 
@@ -30,7 +30,7 @@ Progress: [████████░░] 80%
 | 01-foundation | 3/3 | 18 min | 6 min |
 | 02-cms-data | 2/3 | 6 min | 3 min |
 | 03-components | 3/3 | ~17 min | 6 min |
-| 04-page-assembly | 2/3 | ~18 min | 9 min |
+| 04-page-assembly | 3/3 | ~29 min | 10 min |
 
 **Recent Trend:**
 - Last 5 plans: 8 min, 3 min, 3 min, 9 min, 9 min
@@ -46,6 +46,7 @@ Progress: [████████░░] 80%
 | Phase 03-components P01 | 7 | 2 tasks | 7 files |
 | Phase 04-page-assembly P01 | 9 | 2 tasks | 16 files |
 | Phase 04-page-assembly P02 | 9 | 2 tasks | 8 files |
+| Phase 04-page-assembly P03 | 11 | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -91,6 +92,8 @@ Recent decisions affecting current work:
 - [04-02]: LogisticsTable converted from useTranslations hook to props-based translations — required for use inside client component that receives server-fetched translations
 - [04-02]: Catalog PDF URL built directly from DIRECTUS_PUBLIC_URL env var — assetUrl() enforces webp format which would corrupt PDF
 - [04-02]: ProductCard href prop optional — defaults to /productos/[slug], overridden at listing to line-level slugs
+- [Phase 04-page-assembly]: regulacion-2026/page.tsx rebuilt from scratch — dropping RegulationContent wrapper is cleaner for Phase 3 component wiring
+- [Phase 04-page-assembly]: BlogContent accepts content string prop — locale-aware content selection happens in page before passing to component
 
 ### Pending Todos
 
@@ -107,5 +110,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-25
-Stopped at: Completed 04-02-PLAN.md — Product pages (listing + detail), FormatTabs, ProductLinePage, Phase 3 components wired in
+Stopped at: Completed 04-03-PLAN.md — Technology, Regulation, Blog pages fully assembled. Phase 04-page-assembly COMPLETE.
 Resume file: None
