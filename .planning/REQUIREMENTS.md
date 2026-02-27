@@ -89,38 +89,38 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| HOME-01 | — | Pending |
-| HOME-02 | — | Pending |
-| HOME-03 | — | Pending |
-| HOME-04 | — | Pending |
-| HOME-05 | — | Pending |
-| HOME-06 | — | Pending |
-| HOME-07 | — | Pending |
-| HOME-08 | — | Pending |
-| HOME-09 | — | Pending |
-| HOME-10 | — | Pending |
-| NAV-01 | — | Pending |
-| NAV-02 | — | Pending |
-| NAV-03 | — | Pending |
-| SOST-01 | — | Pending |
-| SOST-02 | — | Pending |
-| SOST-03 | — | Pending |
-| REG-01 | — | Pending |
-| REG-02 | — | Pending |
-| REG-03 | — | Pending |
-| REG-04 | — | Pending |
-| PROD-01 | — | Pending |
-| PROD-02 | — | Pending |
-| PROD-03 | — | Pending |
-| TYPO-01 | — | Pending |
-| TYPO-02 | — | Pending |
-| TYPO-03 | — | Pending |
+| HOME-01 | Phase 7 | Pending |
+| HOME-02 | Phase 7 | Pending |
+| HOME-03 | Phase 7 | Pending |
+| HOME-04 | Phase 7 | Pending |
+| HOME-05 | Phase 7 | Pending |
+| HOME-06 | Phase 7 | Pending |
+| HOME-07 | Phase 7 | Pending |
+| HOME-08 | Phase 7 | Pending |
+| HOME-09 | Phase 7 | Pending |
+| HOME-10 | Phase 7 | Pending |
+| NAV-01 | Phase 6 | Pending |
+| NAV-02 | Phase 6 | Pending |
+| NAV-03 | Phase 6 | Pending |
+| SOST-01 | Phase 8 | Pending |
+| SOST-02 | Phase 8 | Pending |
+| SOST-03 | Phase 8 | Pending |
+| REG-01 | Phase 9 | Pending |
+| REG-02 | Phase 9 | Pending |
+| REG-03 | Phase 9 | Pending |
+| REG-04 | Phase 9 | Pending |
+| PROD-01 | Phase 10 | Pending |
+| PROD-02 | Phase 10 | Pending |
+| PROD-03 | Phase 10 | Pending |
+| TYPO-01 | Phase 6 | Pending |
+| TYPO-02 | Phase 6 | Pending |
+| TYPO-03 | Phase 6 | Pending |
 
 **Coverage:**
 - v2.0 requirements: 26 total
-- Mapped to phases: 0
-- Unmapped: 26 ⚠️
+- Mapped to phases: 26
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-02-27*
-*Last updated: 2026-02-27 after initial definition*
+*Last updated: 2026-02-27 — traceability complete after roadmap creation*
