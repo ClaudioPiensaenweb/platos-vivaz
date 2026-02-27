@@ -59,6 +59,8 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-quablo), system-ui, serif;
+  text-transform: uppercase;
+  text-wrap: balance;
 }
 
 /* Scroll-driven reveal animations */
