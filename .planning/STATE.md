@@ -73,5 +73,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-27
-Stopped at: Completed 07-02-PLAN.md — ProductRangeStrip clickable labels, InView animation, VIVAZ RANGE brand name standardized
+Stopped at: Completed 07-01-PLAN.md — Hero section redesign: forest bg + CrosshairHero/CornerMark SVGs + 4-locale title update
 Resume file: None
