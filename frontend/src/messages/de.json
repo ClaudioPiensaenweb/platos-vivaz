@@ -293,6 +293,11 @@
       "title": "VIVAZ IN AKTION",
       "watchVideo": "Video ansehen",
       "viewAll": "Alle Videos ansehen"
+    },
+    "contactCta": {
+      "title": "Kontaktieren Sie uns",
+      "description": "Entdecken Sie, wie VIVAZ Ihr Lieferant fur okologische Wurfscheiben sein kann. Wir helfen Ihnen gerne.",
+      "cta": "Kontakt"
     }
   }
 }

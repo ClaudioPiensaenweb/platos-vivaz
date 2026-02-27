@@ -293,6 +293,11 @@
       "title": "VIVAZ IN ACTION",
       "watchVideo": "Watch video",
       "viewAll": "View all videos"
+    },
+    "contactCta": {
+      "title": "Get in touch",
+      "description": "Discover how VIVAZ can be your supplier of ecological clay targets. We are ready to help.",
+      "cta": "Contact us"
     }
   }
 }

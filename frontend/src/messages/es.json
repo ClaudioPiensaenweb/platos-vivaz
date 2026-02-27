@@ -293,6 +293,11 @@
       "title": "VIVAZ EN ACCIÓN",
       "watchVideo": "Ver vídeo",
       "viewAll": "Ver todos los videos"
+    },
+    "contactCta": {
+      "title": "Contacta con nosotros",
+      "description": "Descubre como VIVAZ puede ser tu proveedor de platos de tiro ecologicos. Estamos listos para ayudarte.",
+      "cta": "Contactar"
     }
   }
 }

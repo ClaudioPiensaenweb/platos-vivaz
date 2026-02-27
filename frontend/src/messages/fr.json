@@ -293,6 +293,11 @@
       "title": "VIVAZ EN ACTION",
       "watchVideo": "Voir la vidéo",
       "viewAll": "Voir toutes les videos"
+    },
+    "contactCta": {
+      "title": "Contactez-nous",
+      "description": "Decouvrez comment VIVAZ peut etre votre fournisseur de plateaux de tir ecologiques. Nous sommes prets a vous aider.",
+      "cta": "Nous contacter"
     }
   }
 }
