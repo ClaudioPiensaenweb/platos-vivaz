@@ -8,7 +8,7 @@
   },
   "hero": {
     "subtitle": "VIVAZ CLAY TARGETS",
-    "title": "EUROPEAN LEADERS IN ECOLOGICAL CLAY TARGETS",
+    "title": "LEADERS IN ECOLOGICAL CLAY TARGETS",
     "description": "Over 50 years of manufacturing and pioneers since 2001 in natural resins.",
     "cta": "DISCOVER OUR RANGE",
     "descriptionNational": "Over 50 years of expertise, 100% pine resin and competition-grade performance in every shot.",
@@ -291,7 +291,8 @@
   "home": {
     "videos": {
       "title": "VIVAZ IN ACTION",
-      "watchVideo": "Watch video"
+      "watchVideo": "Watch video",
+      "viewAll": "View all videos"
     }
   }
 }

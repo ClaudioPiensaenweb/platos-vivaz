@@ -8,7 +8,7 @@
   },
   "hero": {
     "subtitle": "VIVAZ CLAY TARGETS",
-    "title": "LÍDERES EUROPEOS EN PLATOS ECOLÓGICOS",
+    "title": "LÍDERES EN PLATOS ECOLÓGICOS",
     "description": "Más de 50 años de fabricación y pioneros desde 2001 en resinas naturales.",
     "cta": "DESCUBRE NUESTRA GAMA",
     "descriptionNational": "Más de 50 años de experiencia, 100% resina de pino y rendimiento de competición en cada lanzamiento.",
@@ -291,7 +291,8 @@
   "home": {
     "videos": {
       "title": "VIVAZ EN ACCIÓN",
-      "watchVideo": "Ver vídeo"
+      "watchVideo": "Ver vídeo",
+      "viewAll": "Ver todos los videos"
     }
   }
 }

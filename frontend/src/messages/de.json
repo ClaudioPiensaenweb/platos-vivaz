@@ -8,7 +8,7 @@
   },
   "hero": {
     "subtitle": "VIVAZ CLAY TARGETS",
-    "title": "EUROPÄISCHE MARKTFÜHRER FÜR ÖKOLOGISCHE WURFSCHEIBEN",
+    "title": "FUHRER BEI OKOLOGISCHEN WURFSCHEIBEN",
     "description": "Über 50 Jahre Herstellung und Pioniere seit 2001 bei Naturharzen.",
     "cta": "ENTDECKEN SIE UNSER SORTIMENT",
     "descriptionNational": "Über 50 Jahre Erfahrung, 100% Kiefernharz und Wettkampfleistung bei jedem Wurf.",
@@ -291,7 +291,8 @@
   "home": {
     "videos": {
       "title": "VIVAZ IN AKTION",
-      "watchVideo": "Video ansehen"
+      "watchVideo": "Video ansehen",
+      "viewAll": "Alle Videos ansehen"
     }
   }
 }
