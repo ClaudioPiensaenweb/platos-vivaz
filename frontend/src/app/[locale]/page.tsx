@@ -3,11 +3,11 @@ import { getTranslations } from "next-intl/server";
 import HeroSection from "@/components/home/HeroSection";
 import ProductRangeStrip from "@/components/home/ProductRangeStrip";
 import WhyVivazGrid from "@/components/home/WhyVivazGrid";
-import ProductShowcase from "@/components/home/ProductShowcase";
-import CommitmentBanner from "@/components/home/CommitmentBanner";
-import VideoSection from "@/components/home/VideoSection";
-import ContactSplit from "@/components/contact/ContactSplit";
-import { getVideos } from "@/lib/directus";
+import ProductFeature from "@/components/home/ProductFeature";
+import VideoReels from "@/components/home/VideoReels";
+import ContactCTABanner from "@/components/home/ContactCTABanner";
+import ContactFormSection from "@/components/home/ContactFormSection";
+import { getVideos, getProducts } from "@/lib/directus";
 import type { WebVideo } from "@/lib/types";
 
 export default async function HomePage() {
@@ -20,12 +20,26 @@ export default async function HomePage() {
   try {
     videos = await getVideos();
   } catch {
-    // Graceful empty state — VideoSection renders null when videos.length === 0
+    // Graceful empty state — VideoReels renders placeholder cards when videos.length === 0
   }
 
-  const videoTranslations = {
+  // Fetch featured product images for ProductFeature sections
+  let naturaImageUuid: string | null = null;
+  let ecoStarImageUuid: string | null = null;
+  try {
+    const products = await getProducts({ featured: true });
+    const naturaProduct = products.find((p) => p.range_category === "Premium Natura");
+    const ecoStarProduct = products.find((p) => p.range_category === "Eco Star Efficiency");
+    naturaImageUuid = naturaProduct?.image ?? null;
+    ecoStarImageUuid = ecoStarProduct?.image ?? null;
+  } catch {
+    // Falls back to local static images in ProductFeature when UUID is null
+  }
+
+  const videoReelsTranslations = {
     title: t("videos.title"),
     watchVideo: t("videos.watchVideo"),
+    viewAll: t("videos.viewAll"),
   };
 
   return (
@@ -33,11 +47,11 @@ export default async function HomePage() {
       <HeroSection market={market} />
       <ProductRangeStrip />
       <WhyVivazGrid />
-      <ProductShowcase variant="natura" />
-      <ProductShowcase variant="ecostar" />
-      <VideoSection videos={videos} translations={videoTranslations} />
-      <CommitmentBanner />
-      <ContactSplit />
+      <ProductFeature variant="natura" imageUuid={naturaImageUuid} />
+      <ProductFeature variant="ecostar" imageUuid={ecoStarImageUuid} />
+      <VideoReels videos={videos} translations={videoReelsTranslations} />
+      <ContactCTABanner />
+      <ContactFormSection />
     </>
   );
 }

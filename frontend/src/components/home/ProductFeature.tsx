@@ -8,8 +8,14 @@ import { assetUrl } from "@/lib/directus";
 
 interface ProductFeatureProps {
   variant: "natura" | "ecostar";
-  imageUuid: string;
+  /** Directus asset UUID for the product image. Falls back to local static image when absent. */
+  imageUuid?: string | null;
 }
+
+const FALLBACK_IMAGES: Record<"natura" | "ecostar", string> = {
+  natura: "/img/natura-detail.png",
+  ecostar: "/img/ecostar-detail.png",
+};
 
 export default function ProductFeature({
   variant,
@@ -18,6 +24,10 @@ export default function ProductFeature({
   const t = useTranslations(variant);
 
   const isNatura = variant === "natura";
+
+  const imageSrc = imageUuid
+    ? assetUrl(imageUuid, { width: 702, format: "webp" })
+    : FALLBACK_IMAGES[variant];
 
   const content = (
     <InView animation={isNatura ? "slide-in-left" : "slide-in-right"}>
@@ -47,12 +57,12 @@ export default function ProductFeature({
     <InView animation={isNatura ? "slide-in-right" : "slide-in-left"}>
       <div className="group relative overflow-hidden rounded-[20px]">
         <Image
-          src={assetUrl(imageUuid, { width: 702, format: "webp" })}
+          src={imageSrc}
           alt={t("title")}
           width={702}
           height={478}
           sizes="(max-width: 768px) 100vw, 50vw"
-          unoptimized
+          unoptimized={!!imageUuid}
           className="h-auto w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
         />
       </div>
