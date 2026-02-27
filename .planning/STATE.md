@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-27)
 
 **Core value:** Position Vivaz as the undisputed #1 manufacturer in clay target quality and sustainability, leveraging EU 2026 regulation as the proof point of 25 years of ecological leadership.
-**Current focus:** Phase 6 — Global Foundations
+**Current focus:** Phase 7 — Home Page Redesign
 
 ## Current Position
 
-Phase: 6 of 10 (Global Foundations)
-Plan: 2 of 2 in current phase
-Status: Phase complete
-Last activity: 2026-02-27 — 06-02 complete: global h1-h6 uppercase + text-wrap balance, German grammar fix
+Phase: 7 of 10 (Home Page Redesign)
+Plan: 3 of 5 in current phase
+Status: In progress
+Last activity: 2026-02-27 — 07-03 complete: WhyVivazGrid redesign — experience pillar, aspect-ratio cards, 4-locale update
 
-Progress: [███░░░░░░░] 30% (v1.0 complete, Phase 6 complete)
+Progress: [████░░░░░░] 40% (v1.0 complete, Phase 6 complete, Phase 7 in progress)
 
 ## Performance Metrics
 
@@ -23,12 +23,13 @@ Progress: [███░░░░░░░] 30% (v1.0 complete, Phase 6 complete)
 - Average duration: 6 min
 - Total execution time: ~1.3 hours
 
-**v2.0 progress:** 2 plans complete of 12 across 5 phases
+**v2.0 progress:** 3 plans complete of 12 across 5 phases
 
 | Phase | Plan | Duration | Tasks | Files |
 |-------|------|----------|-------|-------|
 | 06-global-foundations | 01 | — | — | — |
 | 06-global-foundations | 02 | 3min | 2 | 2 |
+| 07-home-page-redesign | 03 | 2min | 2 | 5 |
 
 ## Accumulated Context
 
@@ -47,6 +48,7 @@ Recent decisions affecting current work:
 - [v2.0]: All H tags uppercase + text-wrap: balance applied globally in Phase 6 before page work
 - [06-02]: text-transform/text-wrap applied at CSS level (idempotent with Tailwind uppercase class — no component changes)
 - [06-02]: German privacy consent fixed — link-appended render pattern requires consent text to end with article before linked noun
+- [07-03]: Third WhyVivaz pillar renamed from performance/RENDIMIENTO to experience/EXPERIENCIA — heritage narrative (50+ years) replaces feature description
 
 ### Pending Todos
 
@@ -62,5 +64,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-27
-Stopped at: Completed 06-02-PLAN.md — Phase 6 complete (global typography + locale grammar review)
+Stopped at: Completed 07-03-PLAN.md — WhyVivazGrid redesign with experience pillar, aspect-ratio image cards, 4-locale update
 Resume file: None

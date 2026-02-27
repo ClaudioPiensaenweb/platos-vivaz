@@ -18,7 +18,7 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 
 ### Home Page — WhyVivaz
 
-- [ ] **HOME-04**: WhyVivaz section displays "POR QUÉ VIVAZ" with 3 redesigned image cards (Calidad, Sostenibilidad, Experiencia) per design reference
+- [x] **HOME-04**: WhyVivaz section displays "POR QUÉ VIVAZ" with 3 redesigned image cards (Calidad, Sostenibilidad, Experiencia) per design reference
 
 ### Home Page — Product Features
 
@@ -92,7 +92,7 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 | HOME-01 | Phase 7 | Pending |
 | HOME-02 | Phase 7 | Pending |
 | HOME-03 | Phase 7 | Pending |
-| HOME-04 | Phase 7 | Pending |
+| HOME-04 | Phase 7 | Complete |
 | HOME-05 | Phase 7 | Pending |
 | HOME-06 | Phase 7 | Pending |
 | HOME-07 | Phase 7 | Pending |
