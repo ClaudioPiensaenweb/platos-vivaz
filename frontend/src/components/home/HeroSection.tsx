@@ -7,28 +7,38 @@ interface HeroSectionProps {
   market?: "national" | "export";
 }
 
-/* Decorative reticle/scope component (mirilla) */
-function Mirilla({ size = 60, className = "" }: { size?: number; className?: string }) {
+/* White crosshair decoration from briefing/v2/target-hero.svg (39x40px) */
+function CrosshairHero({ className = "" }: { className?: string }) {
   return (
     <svg
       className={`absolute hidden lg:block ${className}`}
-      width={size}
-      height={size}
-      viewBox="0 0 60 60"
+      width="39"
+      height="40"
+      viewBox="0 0 39 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
-      {/* Outer circle */}
-      <circle cx="30" cy="30" r="28" stroke="white" strokeOpacity="0.25" strokeWidth="1" />
-      {/* Inner circle */}
-      <circle cx="30" cy="30" r="12" stroke="white" strokeOpacity="0.2" strokeWidth="1" />
-      {/* Crosshair lines */}
-      <line x1="30" y1="0" x2="30" y2="18" stroke="white" strokeOpacity="0.25" strokeWidth="1" />
-      <line x1="30" y1="42" x2="30" y2="60" stroke="white" strokeOpacity="0.25" strokeWidth="1" />
-      <line x1="0" y1="30" x2="18" y2="30" stroke="white" strokeOpacity="0.25" strokeWidth="1" />
-      <line x1="42" y1="30" x2="60" y2="30" stroke="white" strokeOpacity="0.25" strokeWidth="1" />
-      {/* Center dot */}
-      <circle cx="30" cy="30" r="2" fill="white" fillOpacity="0.3" />
+      <line x1="20.0049" y1="-2.18557e-08" x2="20.0049" y2="39" stroke="white" />
+      <line x1="39" y1="39.5" x2="-4.37114e-08" y2="39.5" stroke="white" />
+    </svg>
+  );
+}
+
+/* Green corner mark from briefing/v2/marca-esquina.svg (20x20px) */
+function CornerMark({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={`absolute hidden lg:block ${className}`}
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <line x1="20" y1="0.5" x2="-4.37114e-08" y2="0.499998" stroke="#075627" />
+      <line x1="0.5" y1="-2.18557e-08" x2="0.500001" y2="20" stroke="#075627" />
     </svg>
   );
 }
@@ -43,7 +53,7 @@ export default function HeroSection({ market }: HeroSectionProps) {
     <section className="relative -mt-[130px] flex h-screen min-h-[700px] items-center overflow-hidden lg:min-h-[996px]">
       {/* Background Image */}
       <Image
-        src="/img/hero-bg.png"
+        src="/img/hero-forest.jpg"
         alt=""
         fill
         sizes="100vw"
@@ -53,23 +63,18 @@ export default function HeroSection({ market }: HeroSectionProps) {
       />
 
       {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60" />
 
-      {/* Topographic SVG overlay (decorative) */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/2 opacity-10">
-        <Image
-          src="/svg/hero-overlay.svg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-top"
-        />
-      </div>
+      {/* Crosshair decorations (desktop only) */}
+      <CrosshairHero className="left-[15%] top-[28%]" />
+      <CrosshairHero className="right-[18%] top-[55%]" />
+      <CrosshairHero className="left-[52%] top-[22%]" />
 
-      {/* Decorative reticles (mirillas) */}
-      <Mirilla size={60} className="left-[19.5%] top-[32%]" />
-      <Mirilla size={60} className="right-[20.9%] top-[49%]" />
-      <Mirilla size={48} className="left-[48%] top-[32%]" />
+      {/* Corner mark decorations (desktop only) */}
+      <CornerMark className="left-[10%] top-[20%]" />
+      <CornerMark className="right-[10%] top-[20%]" />
+      <CornerMark className="left-[10%] bottom-[20%]" />
+      <CornerMark className="right-[10%] bottom-[20%]" />
 
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pt-[130px] text-center">
