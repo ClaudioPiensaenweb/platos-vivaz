@@ -62,9 +62,9 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 
 ### Typography (Global)
 
-- [ ] **TYPO-01**: All H1-H6 headings rendered in uppercase via CSS text-transform
-- [ ] **TYPO-02**: All headings use text-wrap: balance for even line breaks
-- [ ] **TYPO-03**: Spanish grammar review and corrections across all locale files
+- [x] **TYPO-01**: All H1-H6 headings rendered in uppercase via CSS text-transform
+- [x] **TYPO-02**: All headings use text-wrap: balance for even line breaks
+- [x] **TYPO-03**: Spanish grammar review and corrections across all locale files
 
 ## Deferred (v2.1+)
 
@@ -112,9 +112,9 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 | PROD-01 | Phase 10 | Pending |
 | PROD-02 | Phase 10 | Pending |
 | PROD-03 | Phase 10 | Pending |
-| TYPO-01 | Phase 6 | Pending |
-| TYPO-02 | Phase 6 | Pending |
-| TYPO-03 | Phase 6 | Pending |
+| TYPO-01 | Phase 6 | Complete |
+| TYPO-02 | Phase 6 | Complete |
+| TYPO-03 | Phase 6 | Complete |
 
 **Coverage:**
 - v2.0 requirements: 26 total
