@@ -8,6 +8,19 @@ Corporate website for Vivaz Clay Targets (Platos Vivaz), a Spanish manufacturer 
 
 Position Vivaz as the undisputed #1 manufacturer in clay target quality and sustainability, leveraging the EU 2026 regulation (EU 2025/660) as the proof point that Vivaz has been ahead of the industry for 25 years.
 
+## Current Milestone: v2.0 Design Overhaul & Content Expansion
+
+**Goal:** Redesign the home page to match the updated brand direction, expand content pages (Sostenibilidad, Regulación), add VIVAZ RANGE product line, and enforce consistent typography across the site — page by page with sub-phases per block.
+
+**Target features:**
+- Home page restructure: new hero, updated ProductRangeStrip (3 lines), redesigned WhyVivaz cards, new side-by-side product features (NATURA/ECO STAR), vertical video reels section, contact CTA banner + contact form section
+- Navbar updates: "Tecnología y sostenibilidad" rename, "Noticias / Regulación 2026" combined link, Instagram icon
+- Tecnología y sostenibilidad page: expanded sustainability narrative (raw materials, production, energy, waste), SEO-oriented structure
+- Regulación 2026 page: expanded explanatory content for shooters and clubs
+- VIVAZ RANGE (Regular) product line: new product page at /productos/vivaz-range
+- Product pages: 6 shooting disciplines info (American Trap, Extra Rabbit, Rabbit, Battue, Midi 90, Mini 60)
+- Global typography: uppercase H tags, text-wrap: balance, correct Spanish grammar
+
 ## Requirements
 
 ### Validated
@@ -25,13 +38,23 @@ Position Vivaz as the undisputed #1 manufacturer in clay target quality and sust
 
 ### Active
 
-- [ ] Regular product line (pending client confirmation — V2-01)
-- [ ] Distributor/shooting ground finder with map (V2-02)
-- [ ] On-demand PDF data sheet generation (V2-03)
-- [ ] GDPR cookie consent banner (V2-04)
-- [ ] CI pipeline with locale key diff + Lighthouse gate (V2-05)
-- [ ] Directus type generation from OpenAPI spec (V2-06)
-- [ ] Quablo font subsetting for Latin ranges (V2-07)
+- [ ] Home page design overhaul (hero, products, videos, contact CTA)
+- [ ] Navbar restructure (renamed links, Instagram icon)
+- [ ] VIVAZ RANGE product line page
+- [ ] Product pages with 6 disciplines
+- [ ] Tecnología y sostenibilidad page expansion
+- [ ] Regulación 2026 page expansion
+- [ ] Global uppercase headings + text-wrap balance + Spanish grammar
+- [ ] Vertical video reels section (Directus-managed)
+
+### Deferred (v2.1+)
+
+- Distributor/shooting ground finder with map (V2-02)
+- On-demand PDF data sheet generation (V2-03)
+- GDPR cookie consent banner (V2-04)
+- CI pipeline with locale key diff + Lighthouse gate (V2-05)
+- Directus type generation from OpenAPI spec (V2-06)
+- Quablo font subsetting for Latin ranges (V2-07)
 
 ### Out of Scope
 
@@ -80,4 +103,4 @@ Position Vivaz as the undisputed #1 manufacturer in clay target quality and sust
 | Shared OG image (not per-page) | Simpler, consistent brand presence on social | ✓ Good — one 1200x630 brand image |
 
 ---
-*Last updated: 2026-02-25 after v1.0 milestone*
+*Last updated: 2026-02-27 after v2.0 milestone start*
