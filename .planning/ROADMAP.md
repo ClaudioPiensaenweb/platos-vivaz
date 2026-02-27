@@ -42,11 +42,11 @@ See: `.planning/milestones/v1.0-ROADMAP.md` for full details.
   3. Instagram icon link appears in the navbar on every page
   4. All H1-H6 headings across every page render uppercase
   5. All headings wrap with balanced line breaks and Spanish grammar is correct throughout
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 06-01: Navbar restructure (NAV-01, NAV-02, NAV-03)
-- [ ] 06-02: Global typography (TYPO-01, TYPO-02, TYPO-03)
+- [ ] 06-01-PLAN.md — Navbar restructure: fix translation casing, verify combined link, update Instagram URL (NAV-01, NAV-02, NAV-03)
+- [ ] 06-02-PLAN.md — Global typography: uppercase + balanced headings, Spanish grammar review (TYPO-01, TYPO-02, TYPO-03)
 
 ### Phase 7: Home Page Redesign
 **Goal**: Visitors land on a home page that immediately communicates Vivaz brand identity through a forest hero, three product lines, redesigned WhyVivaz cards, product feature sections, vertical video reels, and a contact CTA + form
@@ -121,7 +121,7 @@ Plans:
 | 3. Components | v1.0 | 2/2 | Complete | 2026-02-25 |
 | 4. Page Assembly | v1.0 | 3/3 | Complete | 2026-02-25 |
 | 5. Polish | v1.0 | 2/2 | Complete | 2026-02-25 |
-| 6. Global Foundations | v2.0 | 0/2 | Not started | - |
+| 6. Global Foundations | v2.0 | 0/2 | Planning complete | - |
 | 7. Home Page Redesign | v2.0 | 0/6 | Not started | - |
 | 8. Tecnología y Sostenibilidad | v2.0 | 0/1 | Not started | - |
 | 9. Regulación 2026 | v2.0 | 0/1 | Not started | - |
@@ -129,4 +129,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-02-25*
-*Last updated: 2026-02-27 — v2.0 phases 6-10 added*
+*Last updated: 2026-02-27 — Phase 6 plans created*
