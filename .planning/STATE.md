@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-27)
 ## Current Position
 
 Phase: 6 of 10 (Global Foundations)
-Plan: 0 of 2 in current phase
-Status: Ready to plan
-Last activity: 2026-02-27 — v2.0 roadmap created (phases 6-10)
+Plan: 1 of 2 in current phase
+Status: In progress
+Last activity: 2026-02-27 — 06-01 complete: navbar casing, Instagram URL, combined link verified
 
 Progress: [██░░░░░░░░] 25% (v1.0 complete, v2.0 not started)
 
@@ -36,6 +36,8 @@ Recent decisions affecting current work:
 - [v2.0]: VIVAZ RANGE (Regular) confirmed as third product line at /productos/vivaz-range
 - [v2.0]: Home page complete redesign — forest hero, 3-line ProductRangeStrip, vertical reels, contact CTA
 - [v2.0]: "Tecnología" renamed to "Tecnología y sostenibilidad" in navbar
+- [06-01]: Spanish nav.technology uses sentence-case ("sostenibilidad" lowercase s) — brand decision
+- [06-01]: Instagram navbar URL confirmed as https://www.instagram.com/vivaz_claytargets/ (both desktop + mobile)
 - [v2.0]: Page-by-page approach — plans correspond to page blocks for design fidelity
 - [v2.0]: All H tags uppercase + text-wrap: balance applied globally in Phase 6 before page work
 
@@ -53,5 +55,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-27
-Stopped at: Roadmap created — v2.0 phases 6-10 defined and written to ROADMAP.md
+Stopped at: Completed 06-01-PLAN.md — navbar casing, Instagram URL, combined link finalized
 Resume file: None

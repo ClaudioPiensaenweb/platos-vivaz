@@ -37,9 +37,9 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 
 ### Navbar
 
-- [ ] **NAV-01**: Rename "Tecnología" to "Tecnología y sostenibilidad" across all 4 locales
-- [ ] **NAV-02**: Combine "Noticias" and "Regulación 2026" into single "Noticias / Regulación 2026" nav link
-- [ ] **NAV-03**: Add Instagram icon link to navbar (right side, next to last nav item)
+- [x] **NAV-01**: Rename "Tecnología" to "Tecnología y sostenibilidad" across all 4 locales
+- [x] **NAV-02**: Combine "Noticias" and "Regulación 2026" into single "Noticias / Regulación 2026" nav link
+- [x] **NAV-03**: Add Instagram icon link to navbar (right side, next to last nav item)
 
 ### Tecnología y Sostenibilidad Page
 

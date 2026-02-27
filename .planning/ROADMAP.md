@@ -45,7 +45,7 @@ See: `.planning/milestones/v1.0-ROADMAP.md` for full details.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Navbar restructure: fix translation casing, verify combined link, update Instagram URL (NAV-01, NAV-02, NAV-03)
+- [x] 06-01-PLAN.md — Navbar restructure: fix translation casing, verify combined link, update Instagram URL (NAV-01, NAV-02, NAV-03)
 - [ ] 06-02-PLAN.md — Global typography: uppercase + balanced headings, Spanish grammar review (TYPO-01, TYPO-02, TYPO-03)
 
 ### Phase 7: Home Page Redesign
@@ -121,7 +121,7 @@ Plans:
 | 3. Components | v1.0 | 2/2 | Complete | 2026-02-25 |
 | 4. Page Assembly | v1.0 | 3/3 | Complete | 2026-02-25 |
 | 5. Polish | v1.0 | 2/2 | Complete | 2026-02-25 |
-| 6. Global Foundations | v2.0 | 0/2 | Planning complete | - |
+| 6. Global Foundations | v2.0 | 1/2 | In progress | - |
 | 7. Home Page Redesign | v2.0 | 0/6 | Not started | - |
 | 8. Tecnología y Sostenibilidad | v2.0 | 0/1 | Not started | - |
 | 9. Regulación 2026 | v2.0 | 0/1 | Not started | - |
@@ -129,4 +129,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-02-25*
-*Last updated: 2026-02-27 — Phase 6 plans created*
+*Last updated: 2026-02-27 — 06-01 complete (navbar casing, Instagram URL, combined link)*
