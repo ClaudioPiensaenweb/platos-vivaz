@@ -122,7 +122,7 @@ Plans:
 | 4. Page Assembly | v1.0 | 3/3 | Complete | 2026-02-25 |
 | 5. Polish | v1.0 | 2/2 | Complete | 2026-02-25 |
 | 6. Global Foundations | 2/2 | Complete   | 2026-02-27 | - |
-| 7. Home Page Redesign | 1/6 | In Progress|  | - |
+| 7. Home Page Redesign | 4/6 | In Progress|  | - |
 | 8. Tecnología y Sostenibilidad | v2.0 | 0/1 | Not started | - |
 | 9. Regulación 2026 | v2.0 | 0/1 | Not started | - |
 | 10. Products | v2.0 | 0/2 | Not started | - |

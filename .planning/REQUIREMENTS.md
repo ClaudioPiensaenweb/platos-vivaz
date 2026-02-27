@@ -9,12 +9,12 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 
 ### Home Page — Hero
 
-- [ ] **HOME-01**: Hero displays forest background image with crosshair decorative elements
-- [ ] **HOME-02**: Hero text reads "VIVAZ CLAY TARGETS" + "LÍDERES EN PLATOS ECOLÓGICOS" (uppercase) with subtitle and CTA button to products
+- [x] **HOME-01**: Hero displays forest background image with crosshair decorative elements
+- [x] **HOME-02**: Hero text reads "VIVAZ CLAY TARGETS" + "LÍDERES EN PLATOS ECOLÓGICOS" (uppercase) with subtitle and CTA button to products
 
 ### Home Page — Product Range Strip
 
-- [ ] **HOME-03**: ProductRangeStrip shows 3 product lines: NATURA, ECO STAR, VIVAZ RANGE with product images and crosshair decorations
+- [x] **HOME-03**: ProductRangeStrip shows 3 product lines: NATURA, ECO STAR, VIVAZ RANGE with product images and crosshair decorations
 
 ### Home Page — WhyVivaz
 
@@ -27,8 +27,8 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 
 ### Home Page — Videos
 
-- [ ] **HOME-07**: Vertical video reels section (9:16 ratio) with 4 columns, play button overlays, Directus-managed content
-- [ ] **HOME-08**: "VER TODOS LOS VÍDEOS" link button in section header
+- [x] **HOME-07**: Vertical video reels section (9:16 ratio) with 4 columns, play button overlays, Directus-managed content
+- [x] **HOME-08**: "VER TODOS LOS VÍDEOS" link button in section header
 
 ### Home Page — Contact CTA
 
@@ -89,14 +89,14 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| HOME-01 | Phase 7 | Pending |
-| HOME-02 | Phase 7 | Pending |
-| HOME-03 | Phase 7 | Pending |
+| HOME-01 | Phase 7 | Complete |
+| HOME-02 | Phase 7 | Complete |
+| HOME-03 | Phase 7 | Complete |
 | HOME-04 | Phase 7 | Complete |
 | HOME-05 | Phase 7 | Pending |
 | HOME-06 | Phase 7 | Pending |
-| HOME-07 | Phase 7 | Pending |
-| HOME-08 | Phase 7 | Pending |
+| HOME-07 | Phase 7 | Complete |
+| HOME-08 | Phase 7 | Complete |
 | HOME-09 | Phase 7 | Pending |
 | HOME-10 | Phase 7 | Pending |
 | NAV-01 | Phase 6 | Pending |

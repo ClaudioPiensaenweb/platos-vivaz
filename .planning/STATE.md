@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-27)
 ## Current Position
 
 Phase: 7 of 10 (Home Page Redesign)
-Plan: 3 of 5 in current phase
+Plan: 5 of 6 in current phase
 Status: In progress
-Last activity: 2026-02-27 — 07-03 complete: WhyVivazGrid redesign — experience pillar, aspect-ratio cards, 4-locale update
+Last activity: 2026-02-27 — 07-05 complete: VideoReels component — 9:16 vertical reel grid, placeholder state, viewAll translations
 
 Progress: [████░░░░░░] 40% (v1.0 complete, Phase 6 complete, Phase 7 in progress)
 
@@ -23,13 +23,17 @@ Progress: [████░░░░░░] 40% (v1.0 complete, Phase 6 complete,
 - Average duration: 6 min
 - Total execution time: ~1.3 hours
 
-**v2.0 progress:** 3 plans complete of 12 across 5 phases
+**v2.0 progress:** 5 plans complete of 12 across 5 phases
 
 | Phase | Plan | Duration | Tasks | Files |
 |-------|------|----------|-------|-------|
 | 06-global-foundations | 01 | — | — | — |
 | 06-global-foundations | 02 | 3min | 2 | 2 |
+| 07-home-page-redesign | 02 | 2min | 2 | 3 |
 | 07-home-page-redesign | 03 | 2min | 2 | 5 |
+| 07-home-page-redesign | 04 | — | — | — |
+| 07-home-page-redesign | 01 | 3min | 2 | 6 |
+| 07-home-page-redesign | 05 | 2min | 2 | 5 |
 
 ## Accumulated Context
 
@@ -49,6 +53,11 @@ Recent decisions affecting current work:
 - [06-02]: text-transform/text-wrap applied at CSS level (idempotent with Tailwind uppercase class — no component changes)
 - [06-02]: German privacy consent fixed — link-appended render pattern requires consent text to end with article before linked noun
 - [07-03]: Third WhyVivaz pillar renamed from performance/RENDIMIENTO to experience/EXPERIENCIA — heritage narrative (50+ years) replaces feature description
+- [07-05]: VideoReels renders placeholder cards when videos empty — allows layout preview before real content added to Directus
+- [07-05]: VER TODOS LOS VIDEOS links to Instagram profile as inline video is deferred per CONTEXT.md
+- [Phase 07-home-page-redesign]: hero.title simplified to remove 'EUROPEOS/EUROPEAN' per CONTEXT.md design reference
+- [Phase 07-home-page-redesign]: CrosshairHero and CornerMark SVGs inlined as TSX components for zero HTTP overhead on decorative assets
+- [07-02]: VIVAZ RANGE brand name is not localized — identical string across all 4 locales (fr/de previously had translated variants, corrected)
 
 ### Pending Todos
 
@@ -64,5 +73,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-27
-Stopped at: Completed 07-03-PLAN.md — WhyVivazGrid redesign with experience pillar, aspect-ratio image cards, 4-locale update
+Stopped at: Completed 07-02-PLAN.md — ProductRangeStrip clickable labels, InView animation, VIVAZ RANGE brand name standardized
 Resume file: None
