@@ -59,15 +59,15 @@ Plans:
   4. NATURA and ECO STAR each have a side-by-side feature section with badge, heading, description, CTA, and product image
   5. Vertical video reels section shows 4 columns at 9:16 ratio with play overlays and a "VER TODOS LOS VÍDEOS" link
   6. Contact CTA banner and contact form section appear at the bottom of the home page
-**Plans**: TBD
+**Plans**: 6 plans
 
 Plans:
-- [ ] 07-01: Hero block (HOME-01, HOME-02)
-- [ ] 07-02: ProductRangeStrip 3-line update (HOME-03)
-- [ ] 07-03: WhyVivaz card redesign (HOME-04)
-- [ ] 07-04: NATURA and ECO STAR feature sections (HOME-05, HOME-06)
-- [ ] 07-05: Vertical video reels section (HOME-07, HOME-08)
-- [ ] 07-06: Contact CTA banner and contact form section (HOME-09, HOME-10)
+- [ ] 07-01-PLAN.md — Hero: forest background + crosshair SVGs + updated text hierarchy (HOME-01, HOME-02)
+- [ ] 07-02-PLAN.md — ProductRangeStrip: 3-line update with clickable labels + animation (HOME-03)
+- [ ] 07-03-PLAN.md — WhyVivaz: card redesign with Experiencia replacing Performance (HOME-04)
+- [ ] 07-04-PLAN.md — ProductFeature: NATURA + ECO STAR side-by-side sections with ProductBadge (HOME-05, HOME-06)
+- [ ] 07-05-PLAN.md — VideoReels: 9:16 vertical thumbnails + VER TODOS link (HOME-07, HOME-08)
+- [ ] 07-06-PLAN.md — ContactCTABanner + ContactFormSection + page.tsx assembly (HOME-09, HOME-10)
 
 ### Phase 8: Tecnología y Sostenibilidad
 **Goal**: The Tecnología y sostenibilidad page tells a complete, SEO-optimised sustainability story that retains all v1.0 technical facts while adding narrative depth across four pillars
@@ -129,4 +129,4 @@ Plans:
 
 ---
 *Roadmap created: 2026-02-25*
-*Last updated: 2026-02-27 — 06-01 complete (navbar casing, Instagram URL, combined link)*
+*Last updated: 2026-02-27 — Phase 7 planned (6 plans in 2 waves)*
