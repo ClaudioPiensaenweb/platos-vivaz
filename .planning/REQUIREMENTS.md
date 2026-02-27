@@ -22,8 +22,8 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 
 ### Home Page — Product Features
 
-- [ ] **HOME-05**: NATURA side-by-side feature section with eco-friendly badge, heading, description, CTA, and close-up product image
-- [ ] **HOME-06**: ECO STAR side-by-side feature section following same layout pattern
+- [x] **HOME-05**: NATURA side-by-side feature section with eco-friendly badge, heading, description, CTA, and close-up product image
+- [x] **HOME-06**: ECO STAR side-by-side feature section following same layout pattern
 
 ### Home Page — Videos
 
@@ -93,8 +93,8 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 | HOME-02 | Phase 7 | Complete |
 | HOME-03 | Phase 7 | Complete |
 | HOME-04 | Phase 7 | Complete |
-| HOME-05 | Phase 7 | Pending |
-| HOME-06 | Phase 7 | Pending |
+| HOME-05 | Phase 7 | Complete |
+| HOME-06 | Phase 7 | Complete |
 | HOME-07 | Phase 7 | Complete |
 | HOME-08 | Phase 7 | Complete |
 | HOME-09 | Phase 7 | Pending |

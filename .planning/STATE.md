@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-27)
 ## Current Position
 
 Phase: 7 of 10 (Home Page Redesign)
-Plan: 5 of 6 in current phase
+Plan: 6 of 6 in current phase
 Status: In progress
-Last activity: 2026-02-27 — 07-05 complete: VideoReels component — 9:16 vertical reel grid, placeholder state, viewAll translations
+Last activity: 2026-02-27 — 07-04 complete: ProductBadge + ProductFeature components with Directus imageUuid prop, updated badge translations
 
 Progress: [████░░░░░░] 40% (v1.0 complete, Phase 6 complete, Phase 7 in progress)
 
@@ -32,7 +32,7 @@ Progress: [████░░░░░░] 40% (v1.0 complete, Phase 6 complete,
 | 07-home-page-redesign | 02 | 2min | 2 | 3 |
 | 07-home-page-redesign | 03 | 2min | 2 | 5 |
 | 07-home-page-redesign | 01 | 3min | 2 | 6 |
-| 07-home-page-redesign | 04 | — | — | — |
+| 07-home-page-redesign | 04 | 6min | 2 | 6 |
 | 07-home-page-redesign | 05 | 2min | 2 | 5 |
 
 ## Accumulated Context
@@ -73,5 +73,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-27
-Stopped at: Completed 07-05-PLAN.md — VideoReels component with 9:16 vertical thumbnails, placeholder state, viewAll translation keys
+Stopped at: Completed 07-04-PLAN.md — ProductBadge + ProductFeature with Directus imageUuid prop, alternating layout, badge translations in 4 locales
 Resume file: None
