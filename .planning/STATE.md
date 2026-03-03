@@ -1,3 +1,16 @@
+---
+gsd_state_version: 1.0
+milestone: v2.0
+milestone_name: Design Overhaul & Content Expansion
+status: unknown
+last_updated: "2026-03-03T12:20:49.893Z"
+progress:
+  total_phases: 7
+  completed_phases: 7
+  total_plans: 20
+  completed_plans: 20
+---
+
 # Project State
 
 ## Project Reference
@@ -11,8 +24,8 @@ See: .planning/PROJECT.md (updated 2026-02-27)
 
 Phase: 7 of 10 (Home Page Redesign)
 Plan: 6 of 6 in current phase
-Status: In progress
-Last activity: 2026-02-27 — 07-04 complete: ProductBadge + ProductFeature components with Directus imageUuid prop, updated badge translations
+Status: Complete — awaiting visual verification checkpoint (Task 3, human-verify)
+Last activity: 2026-03-03 — 07-06 complete: ContactCTABanner + ContactFormSection + assembled v2.0 home page, Navbar/PageHero redesign
 
 Progress: [████░░░░░░] 40% (v1.0 complete, Phase 6 complete, Phase 7 in progress)
 
@@ -34,6 +47,7 @@ Progress: [████░░░░░░] 40% (v1.0 complete, Phase 6 complete,
 | 07-home-page-redesign | 01 | 3min | 2 | 6 |
 | 07-home-page-redesign | 04 | 6min | 2 | 6 |
 | 07-home-page-redesign | 05 | 2min | 2 | 5 |
+| 07-home-page-redesign | 06 | 15min | 2 | 14 |
 
 ## Accumulated Context
 
@@ -58,6 +72,9 @@ Recent decisions affecting current work:
 - [Phase 07-home-page-redesign]: hero.title simplified to remove 'EUROPEOS/EUROPEAN' per CONTEXT.md design reference
 - [Phase 07-home-page-redesign]: CrosshairHero and CornerMark SVGs inlined as TSX components for zero HTTP overhead on decorative assets
 - [07-02]: VIVAZ RANGE brand name is not localized — identical string across all 4 locales (fr/de previously had translated variants, corrected)
+- [Phase 07-home-page-redesign]: 07-06: ContactCTABanner uses full-bleed photo inside inline gradient; ContactFormSection inlines address data for Figma fidelity
+- [Phase 07-home-page-redesign]: 07-06: Navbar redesigned to transparent-on-home-top → dark/blurred when scrolled, solid bg-primary on inner pages
+- [Phase 07-home-page-redesign]: 07-06: PageHero removes backgroundImage prop — uses CSS gradient always for cleaner API and consistent inner page heroes
 
 ### Pending Todos
 
@@ -72,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-27
-Stopped at: Completed 07-04-PLAN.md — ProductBadge + ProductFeature with Directus imageUuid prop, alternating layout, badge translations in 4 locales
+Last session: 2026-03-03
+Stopped at: Completed 07-06-PLAN.md tasks 1+2 — ContactCTABanner + ContactFormSection + home assembly, awaiting Task 3 visual verification checkpoint
 Resume file: None

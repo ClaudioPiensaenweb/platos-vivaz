@@ -32,8 +32,8 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 
 ### Home Page — Contact CTA
 
-- [ ] **HOME-09**: Contact CTA banner with dark green gradient background, product photo left, heading + CTA right
-- [ ] **HOME-10**: Contact section with address + Nacional/Internacional data left, contact form (Nombre, Apellidos, Email, Teléfono, Mensaje) right
+- [x] **HOME-09**: Contact CTA banner with dark green gradient background, product photo left, heading + CTA right
+- [x] **HOME-10**: Contact section with address + Nacional/Internacional data left, contact form (Nombre, Apellidos, Email, Teléfono, Mensaje) right
 
 ### Navbar
 
@@ -97,8 +97,8 @@ Requirements for v2.0 Design Overhaul & Content Expansion. Each maps to roadmap 
 | HOME-06 | Phase 7 | Complete |
 | HOME-07 | Phase 7 | Complete |
 | HOME-08 | Phase 7 | Complete |
-| HOME-09 | Phase 7 | Pending |
-| HOME-10 | Phase 7 | Pending |
+| HOME-09 | Phase 7 | Complete |
+| HOME-10 | Phase 7 | Complete |
 | NAV-01 | Phase 6 | Pending |
 | NAV-02 | Phase 6 | Pending |
 | NAV-03 | Phase 6 | Pending |

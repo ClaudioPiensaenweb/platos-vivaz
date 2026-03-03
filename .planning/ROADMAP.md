@@ -25,7 +25,7 @@ See: `.planning/milestones/v1.0-ROADMAP.md` for full details.
 **Milestone Goal:** Redesign the home page to match updated brand direction, expand content pages (Sostenibilidad, Regulación), add VIVAZ RANGE product line, and enforce consistent typography site-wide — page by page with plans per block.
 
 - [x] **Phase 6: Global Foundations** - Navbar restructure and site-wide typography applied before any page work (completed 2026-02-27)
-- [ ] **Phase 7: Home Page Redesign** - Full home page overhaul block by block (hero → products → videos → contact)
+- [x] **Phase 7: Home Page Redesign** - Full home page overhaul block by block (hero → products → videos → contact) (completed 2026-03-03)
 - [ ] **Phase 8: Tecnología y Sostenibilidad** - Expanded sustainability narrative and SEO heading structure
 - [ ] **Phase 9: Regulación 2026** - Expanded explanatory content for shooters and clubs
 - [ ] **Phase 10: Products** - VIVAZ RANGE product line page and 6-discipline info on all product pages
@@ -122,7 +122,7 @@ Plans:
 | 4. Page Assembly | v1.0 | 3/3 | Complete | 2026-02-25 |
 | 5. Polish | v1.0 | 2/2 | Complete | 2026-02-25 |
 | 6. Global Foundations | 2/2 | Complete   | 2026-02-27 | - |
-| 7. Home Page Redesign | 5/6 | In Progress|  | - |
+| 7. Home Page Redesign | 6/6 | Complete   | 2026-03-03 | - |
 | 8. Tecnología y Sostenibilidad | v2.0 | 0/1 | Not started | - |
 | 9. Regulación 2026 | v2.0 | 0/1 | Not started | - |
 | 10. Products | v2.0 | 0/2 | Not started | - |
