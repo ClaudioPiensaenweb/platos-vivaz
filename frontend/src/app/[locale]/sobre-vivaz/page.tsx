@@ -144,8 +144,6 @@ export default async function SobreVivazPage() {
       <PageHero
         title={t("title")}
         subtitle={t("subtitle")}
-        backgroundImage="/img/commitment-bg.png"
-        backgroundOpacity="opacity-30"
       />
 
       {/* History */}

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Container from "@/components/ui/Container";
 import InView from "@/components/ui/InView";
 import type { ReactNode } from "react";
@@ -6,45 +5,42 @@ import type { ReactNode } from "react";
 interface PageHeroProps {
   title: string;
   subtitle?: string;
-  backgroundImage?: string;
-  backgroundOpacity?: string;
-  minHeight?: string;
-  minHeightLg?: string;
   children?: ReactNode;
 }
 
 export default function PageHero({
   title,
   subtitle,
-  backgroundImage = "/img/hero-bg.png",
-  backgroundOpacity = "opacity-25",
-  minHeight = "min-h-[60vh]",
-  minHeightLg = "lg:min-h-[70vh]",
   children,
 }: PageHeroProps) {
   return (
     <section
-      className={`relative flex ${minHeight} items-end overflow-hidden bg-primary-dark ${minHeightLg}`}
+      className="relative z-10 flex min-h-[36vh] items-end overflow-hidden rounded-bl-[60px] rounded-br-[60px] -mb-6 md:rounded-bl-[120px] md:rounded-br-[120px] md:-mb-10 lg:min-h-[40vh]"
+      style={{
+        backgroundImage:
+          "linear-gradient(180deg, #075627 0%, #03441d 55%, #242e22 100%)",
+      }}
     >
-      <Image
-        src={backgroundImage}
-        alt=""
-        fill
-        sizes="100vw"
-        className={`object-cover ${backgroundOpacity}`}
-        priority
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/60 to-transparent" />
-      <Container className="relative z-10 pb-16 pt-40 lg:pb-24">
+      {/* pt: fixed header height (70px mobile / 105px lg) + breathing room */}
+      {/* pb: extra space to account for negative margin overlap */}
+      <Container className="relative z-10 pb-14 pt-[calc(70px+2rem)] md:pb-20 lg:pt-[calc(105px+2rem)]">
         <InView animation="fade-in-up">
-          {subtitle && (
-            <p className="mb-3 text-[14px] font-medium uppercase tracking-[3px] text-nature">
-              {subtitle}
-            </p>
-          )}
-          <h1 className="max-w-2xl break-words text-[28px] font-bold leading-tight text-warm-white md:text-[36px] lg:text-[52px] lg:leading-[1.15]">
-            {title}
-          </h1>
+          <div className="text-center">
+            {subtitle && (
+              <p
+                className="mb-3 font-medium uppercase tracking-[3px] text-nature"
+                style={{ fontSize: "clamp(0.75rem, 0.5rem + 0.5vw, 0.875rem)" }}
+              >
+                {subtitle}
+              </p>
+            )}
+            <h1
+              className="mx-auto max-w-3xl break-words font-bold leading-tight text-warm-white lg:leading-[1.15]"
+              style={{ fontSize: "clamp(1.75rem, 1rem + 3vw, 3.25rem)", letterSpacing: "-0.03em" }}
+            >
+              {title}
+            </h1>
+          </div>
         </InView>
         {children}
       </Container>

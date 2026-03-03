@@ -77,8 +77,6 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
       <PageHero
         title={t("title")}
         subtitle={regulationData.regulation_name}
-        minHeight="min-h-[60vh]"
-        minHeightLg="lg:min-h-[75vh]"
       >
         <InView animation="fade-in-up" delay={200}>
           <CountdownTimer targetDate={regulationData.limit_date} />

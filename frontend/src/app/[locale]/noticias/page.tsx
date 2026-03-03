@@ -34,7 +34,6 @@ export default async function NoticiasPage({ params }: { params: Promise<{ local
       <PageHero
         title={t("title")}
         subtitle={t("subtitle")}
-        backgroundOpacity="opacity-30"
       />
 
       <section className="bg-cream-light py-20 lg:py-28">

@@ -53,8 +53,6 @@ export default async function ProductosPage({
       <PageHero
         title={t("title")}
         subtitle={t("heroSubtitle")}
-        minHeight="min-h-[50vh]"
-        minHeightLg="lg:min-h-[55vh]"
       />
 
       {/* Products */}

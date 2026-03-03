@@ -40,8 +40,6 @@ export default function RegulationContent({
       <PageHero
         title={translations.title}
         subtitle={regulationName}
-        minHeight="min-h-[60vh]"
-        minHeightLg="lg:min-h-[75vh]"
       >
         <InView animation="fade-in-up" delay={200}>
           <CountdownTimer targetDate={limitDate} />

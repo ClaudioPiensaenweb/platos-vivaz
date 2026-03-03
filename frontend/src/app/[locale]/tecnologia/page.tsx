@@ -59,8 +59,6 @@ export default async function TecnologiaPage({ params }: { params: Promise<{ loc
       <PageHero
         title={t("title")}
         subtitle={t("subtitle")}
-        backgroundImage="/img/natura-detail.png"
-        backgroundOpacity="opacity-40"
       />
 
       {/* Pine Resin */}

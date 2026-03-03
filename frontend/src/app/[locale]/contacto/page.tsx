@@ -25,10 +25,6 @@ export default async function ContactoPage() {
       <PageHero
         title={t("title")}
         subtitle={t("heroSubtitle")}
-        backgroundImage="/img/hero-bg.png"
-        backgroundOpacity="opacity-20"
-        minHeight="min-h-[45vh]"
-        minHeightLg="lg:min-h-[50vh]"
       />
 
       {/* ContactSplit — form + Nacional/Internacional side-by-side on desktop */}
