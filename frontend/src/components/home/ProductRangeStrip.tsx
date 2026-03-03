@@ -4,45 +4,44 @@ import Container from "@/components/ui/Container";
 import { Link } from "@/i18n/navigation";
 import InView from "@/components/ui/InView";
 
-/* Decorative reticle/scope (mirilla) for corners */
-function CornerMirilla({ className = "" }: { className?: string }) {
+/* L-shaped corner mark from briefing/v2/marca-esquina.svg — matches Figma design */
+function CornerMark({
+  className = "",
+  rotate = "",
+}: {
+  className?: string;
+  rotate?: string;
+}) {
   return (
     <svg
-      className={`absolute hidden lg:block ${className}`}
-      width="28"
-      height="28"
-      viewBox="0 0 28 28"
+      className={`absolute hidden lg:block ${rotate} ${className}`}
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
-      <circle cx="14" cy="14" r="13" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <line x1="14" y1="0" x2="14" y2="8" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <line x1="14" y1="20" x2="14" y2="28" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <line x1="0" y1="14" x2="8" y2="14" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <line x1="20" y1="14" x2="28" y2="14" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <circle cx="14" cy="14" r="1.5" fill="#075627" fillOpacity="0.2" />
+      <line x1="20" y1="0.5" x2="0" y2="0.5" stroke="#075627" />
+      <line x1="0.5" y1="0" x2="0.5" y2="20" stroke="#075627" />
     </svg>
   );
 }
 
-/* Separator reticle/scope (mirilla) between columns */
-function SeparatorMirilla({ className = "" }: { className?: string }) {
+/* Dark crosshair for separator between columns (22x23, from target-oscuro.svg) */
+function SeparatorCrosshair({ className = "" }: { className?: string }) {
   return (
     <svg
       className={`absolute hidden lg:block ${className}`}
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
+      width="22"
+      height="23"
+      viewBox="0 0 22 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
     >
-      <circle cx="16" cy="16" r="15" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <circle cx="16" cy="16" r="6" stroke="#075627" strokeOpacity="0.15" strokeWidth="1" />
-      <line x1="16" y1="0" x2="16" y2="10" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <line x1="16" y1="22" x2="16" y2="32" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <line x1="0" y1="16" x2="10" y2="16" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <line x1="22" y1="16" x2="32" y2="16" stroke="#075627" strokeOpacity="0.2" strokeWidth="1" />
-      <circle cx="16" cy="16" r="1.5" fill="#075627" fillOpacity="0.2" />
+      <line x1="10.4951" y1="23" x2="10.4951" y2="1" stroke="#075627" />
+      <line x1="0" y1="0.5" x2="22" y2="0.5" stroke="#075627" />
     </svg>
   );
 }
@@ -51,28 +50,27 @@ const ranges = [
   {
     key: "natura" as const,
     href: "/productos/natura-standard",
+    type: "chips" as const,
     chips: [
-      { src: "/img/vivaz-clay-04-3.png", offset: 0 },
-      { src: "/img/vivaz-clay-05-3.png", offset: 116 },
+      { src: "/img/vivaz-clay-04-3.png", offset: 0, rotate: -10, size: 138 },
+      { src: "/img/vivaz-clay-05-3.png", offset: 100, rotate: 8, size: 138 },
     ],
   },
   {
     key: "ecostar" as const,
     href: "/productos/eco-star-standard",
+    type: "chips" as const,
     chips: [
-      { src: "/img/vivaz-clay-04-4.png", offset: 0 },
-      { src: "/img/vivaz-clay-11-3.png", offset: 116 },
+      { src: "/img/vivaz-clay-04-4.png", offset: 0, rotate: -8, size: 131 },
+      { src: "/img/vivaz-clay-11-3.png", offset: 97, rotate: 10, size: 131 },
     ],
   },
   {
     key: "vivazRange" as const,
     href: "/productos",
-    chips: [
-      { src: "/img/vivaz-clay-03-3.png", offset: 0 },
-      { src: "/img/vivaz-clay-07-3.png", offset: 87 },
-      { src: "/img/vivaz-clay-14-3.png", offset: 174 },
-      { src: "/img/vivaz-clay-16-3.png", offset: 261 },
-    ],
+    type: "product" as const,
+    productImage: "/img/vivaz-range-product.png",
+    chips: [],
   },
 ];
 
@@ -80,60 +78,77 @@ export default function ProductRangeStrip() {
   const t = useTranslations("range");
 
   return (
-    <section className="relative -mt-36 rounded-b-[120px] bg-cream-light pb-20 pt-44">
+    <section className="relative z-[1] -mt-36 overflow-hidden rounded-bl-[60px] rounded-br-[60px] bg-cream-light pb-24 pt-44 md:rounded-bl-[120px] md:rounded-br-[120px]">
       <Container>
-        {/* Corner crosses */}
-        <div className="relative">
-          <CornerMirilla className="-left-6 -top-10" />
-          <CornerMirilla className="-right-6 -top-10" />
-          <CornerMirilla className="-bottom-10 -left-6" />
-          <CornerMirilla className="-bottom-10 -right-6" />
+        {/* Corner L-marks + grid — all inside same relative container */}
+        <InView animation="fade-in-up">
+          <div className="relative">
+            {/* Corner marks aligned to grid container edges */}
+            <CornerMark className="-left-6 top-0" />
+            <CornerMark className="-right-6 top-0" rotate="rotate-90" />
+            <CornerMark className="-left-6 bottom-0" rotate="-rotate-90" />
+            <CornerMark className="-right-6 bottom-0" rotate="rotate-180" />
 
-          <InView animation="fade-in-up">
             <div className="relative grid grid-cols-1 items-end gap-8 md:grid-cols-3">
-              {/* Separator crosses between columns */}
-              <SeparatorMirilla className="left-[33%] top-1/2 -translate-x-1/2 -translate-y-1/2" />
-              <SeparatorMirilla className="left-[66%] top-1/2 -translate-x-1/2 -translate-y-1/2" />
+              {/* Separator crosshairs — 4 total: top + bottom of each gap */}
+              <SeparatorCrosshair className="left-[33%] top-0 -translate-x-1/2" />
+              <SeparatorCrosshair className="bottom-0 left-[33%] -translate-x-1/2 rotate-180" />
+              <SeparatorCrosshair className="left-[66%] top-0 -translate-x-1/2" />
+              <SeparatorCrosshair className="bottom-0 left-[66%] -translate-x-1/2 rotate-180" />
 
               {ranges.map((range) => (
-                <div key={range.key} className="flex flex-col items-center">
-                  {/* Clay chips */}
+                <Link
+                  key={range.key}
+                  href={range.href}
+                  className="group flex flex-col items-center"
+                >
+                  {/* Product visual with reticle overlay */}
                   <div
-                    className="relative mx-auto"
+                    className="relative mx-auto flex items-end justify-center"
                     style={{
-                      width: range.chips.length > 2 ? 436 : 291,
+                      width: range.type === "product" ? 430 : 260,
                       height: 174,
                     }}
                   >
-                    {range.chips.map((chip, i) => (
-                      <div
-                        key={i}
-                        className="absolute top-0 transition-transform duration-300 hover:scale-105"
-                        style={{ left: chip.offset }}
-                      >
-                        <Image
-                          src={chip.src}
-                          alt=""
-                          width={175}
-                          height={174}
-                          className="object-cover"
-                        />
-                      </div>
-                    ))}
+                    {range.type === "product" && range.productImage ? (
+                      <Image
+                        src={range.productImage}
+                        alt=""
+                        width={430}
+                        height={174}
+                        className="object-contain transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      range.chips.map((chip, i) => (
+                        <div
+                          key={i}
+                          className="absolute bottom-0 transition-transform duration-500 group-hover:scale-110"
+                          style={{
+                            left: chip.offset,
+                            transform: `rotate(${chip.rotate}deg)`,
+                          }}
+                        >
+                          <Image
+                            src={chip.src}
+                            alt=""
+                            width={chip.size}
+                            height={chip.size}
+                            className="object-cover drop-shadow-[0px_4px_9px_rgba(0,0,0,0.15)]"
+                          />
+                        </div>
+                      ))
+                    )}
                   </div>
 
-                  {/* Label with link */}
-                  <Link
-                    href={range.href}
-                    className="mt-6 text-[24px] font-bold tracking-[-0.96px] text-primary transition-colors hover:text-accent"
-                  >
+                  {/* Label */}
+                  <span className="mt-10 text-[20px] font-bold tracking-[-0.8px] text-primary transition-colors duration-300 group-hover:text-accent">
                     {t(range.key)}
-                  </Link>
-                </div>
+                  </span>
+                </Link>
               ))}
             </div>
-          </InView>
-        </div>
+          </div>
+        </InView>
       </Container>
     </section>
   );

@@ -15,14 +15,14 @@ const pillars = [
   {
     key: "sustainability" as const,
     descKey: "sustainabilityDesc" as const,
-    image: "/img/why-sustainability.png",
+    image: "/img/why-sustainability-v2.png",
     width: 481,
     height: 275,
   },
   {
     key: "experience" as const,
     descKey: "experienceDesc" as const,
-    image: "/img/why-performance.png",
+    image: "/img/why-performance.jpg",
     width: 464,
     height: 275,
   },
@@ -32,7 +32,7 @@ export default function WhyVivazGrid() {
   const t = useTranslations("whyVivaz");
 
   return (
-    <section className="bg-white py-20">
+    <section className="relative z-0 -mt-16 bg-white pt-28 pb-20">
       <Container>
         <InView animation="fade-in-up">
           <SectionHeader
@@ -45,9 +45,9 @@ export default function WhyVivazGrid() {
         <div className="grid gap-4 md:grid-cols-3">
           {pillars.map((pillar, i) => (
             <InView key={pillar.key} animation="scale-in" delay={i * 150}>
-              <div className="group overflow-hidden rounded-b-[30px]">
+              <div className="group flex h-full flex-col overflow-hidden rounded-[30px]">
                 {/* Image top */}
-                <div className="relative aspect-[16/10] overflow-hidden rounded-t-[30px]">
+                <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
                     src={pillar.image}
                     alt={t(pillar.key)}
@@ -58,12 +58,12 @@ export default function WhyVivazGrid() {
                 </div>
 
                 {/* Green card body */}
-                <div className="bg-nature px-8 py-8 text-center">
-                  <h3 className="text-[24px] font-bold text-primary-deep">
+                <div className="flex flex-1 flex-col items-center bg-nature px-8 py-8 text-center">
+                  <h3 className="text-[20px] font-bold text-primary-deep">
                     {t(pillar.key)}
                   </h3>
-                  <div className="mx-auto my-3 h-px w-[42px] bg-primary-deep" />
-                  <p className="font-body text-[16px] leading-[26px] text-primary-deep">
+                  <div className="mx-auto my-3 h-px w-[42px] bg-accent" />
+                  <p className="font-body text-[15px] leading-[24px] text-primary-deep">
                     {t(pillar.descKey)}
                   </p>
                 </div>

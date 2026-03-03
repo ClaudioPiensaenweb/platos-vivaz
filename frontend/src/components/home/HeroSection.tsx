@@ -25,23 +25,6 @@ function CrosshairHero({ className = "" }: { className?: string }) {
   );
 }
 
-/* Green corner mark from briefing/v2/marca-esquina.svg (20x20px) */
-function CornerMark({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      className={`absolute hidden lg:block ${className}`}
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <line x1="20" y1="0.5" x2="-4.37114e-08" y2="0.499998" stroke="#075627" />
-      <line x1="0.5" y1="-2.18557e-08" x2="0.500001" y2="20" stroke="#075627" />
-    </svg>
-  );
-}
 
 export default function HeroSection({ market }: HeroSectionProps) {
   const t = useTranslations("hero");
@@ -50,7 +33,7 @@ export default function HeroSection({ market }: HeroSectionProps) {
     market === "national" ? t("descriptionNational") : t("descriptionExport");
 
   return (
-    <section className="relative -mt-[130px] flex h-screen min-h-[700px] items-center overflow-hidden lg:min-h-[996px]">
+    <section className="relative z-10 flex h-dvh min-h-[600px] items-center overflow-hidden rounded-bl-[60px] rounded-br-[60px] md:rounded-bl-[120px] md:rounded-br-[120px] lg:min-h-[900px]">
       {/* Background Image */}
       <Image
         src="/img/hero-forest.jpg"
@@ -62,30 +45,32 @@ export default function HeroSection({ market }: HeroSectionProps) {
         quality={90}
       />
 
-      {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60" />
+      {/* Dark overlay matching Figma (flat 40% black) */}
+      <div className="absolute inset-0 bg-black/40" />
 
-      {/* Crosshair decorations (desktop only) */}
-      <CrosshairHero className="left-[15%] top-[28%]" />
-      <CrosshairHero className="right-[18%] top-[55%]" />
-      <CrosshairHero className="left-[52%] top-[22%]" />
+      {/* Crosshair decorations — positioned to frame the content, not overlap */}
+      <CrosshairHero className="left-1/2 top-[22%] -translate-x-1/2" />
+      <CrosshairHero className="left-[12%] top-1/2 -translate-y-1/2 -rotate-90 xl:left-[18%]" />
+      <CrosshairHero className="right-[12%] top-1/2 -translate-y-1/2 rotate-90 xl:right-[18%]" />
 
-      {/* Corner mark decorations (desktop only) */}
-      <CornerMark className="left-[10%] top-[20%]" />
-      <CornerMark className="right-[10%] top-[20%]" />
-      <CornerMark className="left-[10%] bottom-[20%]" />
-      <CornerMark className="right-[10%] bottom-[20%]" />
-
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pt-[130px] text-center">
-        <p className="animate-fade-in-up mb-4 flex items-center gap-3 font-body text-base font-medium uppercase tracking-[4.16px] text-white md:text-lg lg:text-[26px]">
-          <span className="inline-block h-[10px] w-[10px] rounded-full bg-accent lg:h-[14px] lg:w-[14px]" />
+      {/* Content — fluid responsive sizing */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center md:px-8">
+        <p
+          className="animate-fade-in-up mb-3 font-body font-medium uppercase tracking-[3px] text-white md:mb-4 md:tracking-[4.16px]"
+          style={{ fontSize: "clamp(0.75rem, 0.5rem + 1vw, 1.25rem)" }}
+        >
           {t("subtitle")}
         </p>
-        <h1 className="animate-fade-in-up delay-100 mb-6 max-w-4xl break-words text-3xl font-bold leading-tight tracking-[-1.5px] text-white md:text-5xl lg:text-[72px] lg:leading-[88px] lg:tracking-[-2.88px]">
+        <h1
+          className="animate-fade-in-up delay-100 mb-4 max-w-[90%] break-words font-bold leading-[1.1] text-white md:mb-6 md:max-w-4xl"
+          style={{ fontSize: "clamp(1.75rem, 1rem + 4vw, 4rem)", letterSpacing: "-0.04em" }}
+        >
           {t("title")}
         </h1>
-        <p className="animate-fade-in-up delay-200 mb-8 max-w-2xl font-body text-base text-white md:text-lg lg:text-[26px]">
+        <p
+          className="animate-fade-in-up delay-200 mb-6 max-w-[85%] font-body font-medium text-white md:mb-8 md:max-w-2xl"
+          style={{ fontSize: "clamp(0.813rem, 0.6rem + 0.8vw, 1.25rem)" }}
+        >
           {description}
         </p>
         <div className="animate-fade-in-up delay-300">
