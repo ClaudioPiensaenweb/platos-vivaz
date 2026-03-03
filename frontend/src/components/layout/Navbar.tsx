@@ -17,8 +17,8 @@ export default function Navbar() {
 
   return (
     <NavbarClient menuItems={menuItems}>
-      {/* Left dark section with logo */}
-      <div className="flex shrink-0 items-center bg-primary-dark pl-6 lg:w-[320px] lg:pl-12 xl:w-[410px] xl:pl-[93px]">
+      {/* Logo */}
+      <div className="flex shrink-0 items-center pl-6 lg:pl-12 xl:pl-[93px]">
         <Link href="/">
           <Image
             src="/svg/vivaz-logo-light.svg"
@@ -31,8 +31,8 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* Right green section with links (desktop) — centered */}
-      <div className="hidden flex-1 items-center justify-center bg-primary px-4 lg:flex xl:px-6">
+      {/* Desktop navigation links — centered */}
+      <div className="hidden flex-1 items-center justify-center px-4 lg:flex xl:px-6">
         <div className="flex items-center">
           {menuItems.map((item, i) => (
             <div key={item.href} className="flex items-center">
@@ -45,8 +45,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Instagram + lang separator — desktop only, after centered links */}
-      <div className="hidden items-center bg-primary lg:flex">
+      {/* Instagram icon — desktop only */}
+      <div className="hidden items-center lg:flex">
         <div className="mx-2 h-[39px] w-px bg-white/20" />
         <a
           href="https://www.instagram.com/vivaz_claytargets/"
@@ -63,8 +63,8 @@ export default function Navbar() {
         </a>
       </div>
 
-      {/* Mobile: green fill */}
-      <div className="flex flex-1 items-center justify-end bg-primary pr-6 lg:hidden" />
+      {/* Mobile: spacer to push hamburger right */}
+      <div className="flex flex-1 items-center justify-end pr-0 lg:hidden" />
     </NavbarClient>
   );
 }

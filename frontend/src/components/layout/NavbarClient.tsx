@@ -28,6 +28,7 @@ const localeShort: Record<string, string> = {
 export default function NavbarClient({ menuItems, children }: NavbarClientProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const lastScrollY = useRef(0);
   const langRef = useRef<HTMLDivElement>(null);
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -43,16 +44,21 @@ export default function NavbarClient({ menuItems, children }: NavbarClientProps)
     setMobileOpen(false);
   }, [pathname]);
 
-  // Home: hide on scroll down, show on scroll up
+  // Home: hide on scroll down, show on scroll up + track scrolled state
   // Interior: always visible (no hide logic)
   useEffect(() => {
     if (!isHome) {
       setHidden(false);
+      setScrolled(false);
       return;
     }
 
     function handleScroll() {
       const currentY = window.scrollY;
+
+      // Track if we've scrolled past initial viewport
+      setScrolled(currentY > 50);
+
       // Only start hiding after scrolling past the navbar height
       if (currentY > 120) {
         setHidden(currentY > lastScrollY.current);
@@ -95,30 +101,33 @@ export default function NavbarClient({ menuItems, children }: NavbarClientProps)
     }, 200);
   }
 
+  // Determine nav background style
+  const navBg = isHome
+    ? scrolled
+      ? "bg-primary-dark/90 backdrop-blur-md"
+      : "bg-transparent"
+    : "bg-primary";
+
   return (
     <>
       <header
-        className={`fixed left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
           hidden ? "-translate-y-[calc(100%+20px)]" : "translate-y-0"
         } ${
           isHome
-            ? "top-5 px-4 lg:px-8 xl:px-[120px] 2xl:px-[240px]"
+            ? "top-0 px-0"
             : "top-0 px-0"
         }`}
       >
         <nav
-          className={`mx-auto flex h-[70px] overflow-hidden lg:h-[105px] ${
-            isHome
-              ? "max-w-[1440px] rounded-[20px]"
-              : "max-w-none rounded-none shadow-lg shadow-black/10"
-          }`}
+          className={`mx-auto flex h-[70px] items-stretch transition-colors duration-300 lg:h-[105px] ${navBg}`}
         >
           {children}
 
           {/* Desktop language dropdown — hover */}
           <div
             ref={langRef}
-            className="hidden items-center bg-primary pr-4 lg:flex xl:pr-6"
+            className="hidden items-center pr-4 lg:flex xl:pr-6"
             onMouseEnter={handleLangMouseEnter}
             onMouseLeave={handleLangMouseLeave}
           >
@@ -174,7 +183,7 @@ export default function NavbarClient({ menuItems, children }: NavbarClientProps)
           </div>
 
           {/* Mobile: hamburger + compact lang */}
-          <div className="flex items-center gap-3 bg-primary pr-5 lg:hidden">
+          <div className="flex items-center gap-3 pr-5 lg:hidden">
             <button
               onClick={() => {
                 const idx = routing.locales.indexOf(locale as typeof routing.locales[number]);

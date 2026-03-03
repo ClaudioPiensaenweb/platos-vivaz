@@ -52,7 +52,7 @@
 }
 
 body {
-  background: var(--color-cream);
+  background: #ffffff;
   color: var(--color-foreground);
   font-family: var(--font-manrope), system-ui, sans-serif;
 }
