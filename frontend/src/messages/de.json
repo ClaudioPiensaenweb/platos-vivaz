@@ -295,9 +295,19 @@
       "viewAll": "Alle Videos ansehen"
     },
     "contactCta": {
-      "title": "Kontaktieren Sie uns",
-      "description": "Entdecken Sie, wie VIVAZ Ihr Lieferant fur okologische Wurfscheiben sein kann. Wir helfen Ihnen gerne.",
-      "cta": "Kontakt"
+      "title": "DIE ÖKOLOGISCHE WURFSCHEIBE\nDIE IHNEN DEN VORTEIL GIBT",
+      "description": "NATURA und ECO STAR bieten stabilen Flug, hohe Sichtbarkeit und einen sauberen, gleichmäßigen Bruch mit verantwortungsvolleren Materialien.",
+      "description2": "Nennen Sie uns Ihre Disziplin und Nutzungsart, und wir beraten Sie zur besten Option.",
+      "cta": "SPRECHEN WIR"
+    },
+    "contactForm": {
+      "title": "BRAUCHEN SIE HILFE?",
+      "description": "Unser technisches Team berät Sie gerne und findet die optimale Lösung.",
+      "address": "Adresse",
+      "phone": "Telefon",
+      "email": "e-Mail",
+      "national": "NATIONAL",
+      "international": "INTERNATIONAL"
     }
   }
 }

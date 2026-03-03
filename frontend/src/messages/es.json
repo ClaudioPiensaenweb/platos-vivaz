@@ -295,9 +295,19 @@
       "viewAll": "Ver todos los videos"
     },
     "contactCta": {
-      "title": "Contacta con nosotros",
-      "description": "Descubre como VIVAZ puede ser tu proveedor de platos de tiro ecologicos. Estamos listos para ayudarte.",
-      "cta": "Contactar"
+      "title": "EL PLATO ECOLÓGICO\nQUE TE DA VENTAJA",
+      "description": "NATURA y ECO STAR ofrecen vuelo estable, alta visibilidad y una rotura limpia y consistente, con materiales más responsables.",
+      "description2": "Cuéntanos tu disciplina y el tipo de uso, y te orientamos hacia la mejor opción.",
+      "cta": "HABLEMOS"
+    },
+    "contactForm": {
+      "title": "¿NECESITAS AYUDA?",
+      "description": "Nuestro equipo técnico está preparado para asesorarte y encontrar la solución óptima.",
+      "address": "Dirección",
+      "phone": "Teléfono",
+      "email": "e-Mail",
+      "national": "NACIONAL",
+      "international": "INTERNACIONAL"
     }
   }
 }

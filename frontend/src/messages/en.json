@@ -295,9 +295,19 @@
       "viewAll": "View all videos"
     },
     "contactCta": {
-      "title": "Get in touch",
-      "description": "Discover how VIVAZ can be your supplier of ecological clay targets. We are ready to help.",
-      "cta": "Contact us"
+      "title": "THE ECOLOGICAL CLAY\nTHAT GIVES YOU THE EDGE",
+      "description": "NATURA and ECO STAR offer stable flight, high visibility, and clean, consistent breakage with more responsible materials.",
+      "description2": "Tell us your discipline and type of use, and we'll guide you to the best option.",
+      "cta": "LET'S TALK"
+    },
+    "contactForm": {
+      "title": "NEED HELP?",
+      "description": "Our technical team is ready to advise you and find the optimal solution.",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "e-Mail",
+      "national": "NATIONAL",
+      "international": "INTERNATIONAL"
     }
   }
 }

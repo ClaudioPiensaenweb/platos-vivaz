@@ -295,9 +295,19 @@
       "viewAll": "Voir toutes les videos"
     },
     "contactCta": {
-      "title": "Contactez-nous",
-      "description": "Decouvrez comment VIVAZ peut etre votre fournisseur de plateaux de tir ecologiques. Nous sommes prets a vous aider.",
-      "cta": "Nous contacter"
+      "title": "LE PLATEAU ÉCOLOGIQUE\nQUI VOUS DONNE L'AVANTAGE",
+      "description": "NATURA et ECO STAR offrent un vol stable, une haute visibilité et une cassure nette et régulière, avec des matériaux plus responsables.",
+      "description2": "Dites-nous votre discipline et votre type d'utilisation, et nous vous orienterons vers la meilleure option.",
+      "cta": "PARLONS-EN"
+    },
+    "contactForm": {
+      "title": "BESOIN D'AIDE ?",
+      "description": "Notre équipe technique est prête à vous conseiller et à trouver la solution optimale.",
+      "address": "Adresse",
+      "phone": "Téléphone",
+      "email": "e-Mail",
+      "national": "NATIONAL",
+      "international": "INTERNATIONAL"
     }
   }
 }
