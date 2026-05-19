@@ -13,55 +13,33 @@ interface LogisticsTableProps {
   translations: LogisticsTranslations;
 }
 
+function fmt(n: unknown): string {
+  const num = Number(n) || 0;
+  return num.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 export default function LogisticsTable({ data, translations }: LogisticsTableProps) {
+  if (!data || typeof data !== "object") return null;
+
+  const pallet = data.pallet_eu ?? { boxes: 0, total: 0 };
+  const c20 = data.container_20 ?? { pallets: 0, method: "-", total: 0 };
+  const c40 = data.container_40 ?? { pallets: 0, type: "-", total: 0 };
+
+  const rows = [
+    { label: translations.boxUnits, value: fmt(data.box_units) },
+    { label: `${translations.palletEu} (${pallet.boxes} boxes)`, value: `${fmt(pallet.total)} units` },
+    ...(c20.total > 0 ? [{ label: `${translations.container20} (${c20.pallets} pallets)`, value: `${fmt(c20.total)} units` }] : []),
+    ...(c40.total > 0 ? [{ label: `${translations.container40} (${c40.pallets} pallets)`, value: `${fmt(c40.total)} units` }] : []),
+  ];
+
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="border-b border-cream-dark">
-            <th className="px-4 py-3 text-left font-semibold text-foreground">
-              {translations.logistics}
-            </th>
-            <th className="px-4 py-3 text-right font-semibold text-foreground">
-              Qty
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="border-b border-cream">
-            <td className="px-4 py-3 text-muted">{translations.boxUnits}</td>
-            <td className="px-4 py-3 text-right font-medium text-foreground">
-              {data.box_units}
-            </td>
-          </tr>
-          <tr className="border-b border-cream">
-            <td className="px-4 py-3 text-muted">
-              {translations.palletEu} ({data.pallet_eu.boxes} boxes)
-            </td>
-            <td className="px-4 py-3 text-right font-medium text-foreground">
-              {data.pallet_eu.total.toLocaleString()} units
-            </td>
-          </tr>
-          <tr className="border-b border-cream">
-            <td className="px-4 py-3 text-muted">
-              {translations.container20} ({data.container_20.pallets} pallets -{" "}
-              {data.container_20.method})
-            </td>
-            <td className="px-4 py-3 text-right font-medium text-foreground">
-              {data.container_20.total.toLocaleString()} units
-            </td>
-          </tr>
-          <tr>
-            <td className="px-4 py-3 text-muted">
-              {translations.container40} ({data.container_40.pallets} pallets -{" "}
-              {data.container_40.type})
-            </td>
-            <td className="px-4 py-3 text-right font-medium text-foreground">
-              {data.container_40.total.toLocaleString()} units
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="space-y-3">
+      {rows.map((row, i) => (
+        <div key={i} className="flex items-center justify-between gap-4 rounded-lg bg-white p-4">
+          <span className="text-sm text-muted">{row.label}</span>
+          <span className="whitespace-nowrap text-sm font-semibold text-primary">{row.value}</span>
+        </div>
+      ))}
     </div>
   );
 }

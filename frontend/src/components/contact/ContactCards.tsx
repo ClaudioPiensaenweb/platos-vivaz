@@ -62,7 +62,7 @@ export default function ContactCards({
   translations,
   phoneNational = "+34 618 757 580",
   phoneExport = "+34 606 172 746",
-  emailNational = "export@platosvivaz.com",
+  emailNational = "info@platosvivaz.com",
   emailExport = "sales@vivazclaytargets.com",
   layout = "stacked",
 }: ContactCardsProps) {

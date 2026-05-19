@@ -7,7 +7,7 @@ export interface Product {
   subtitle: string | null;
   range_category: "Premium Natura" | "Eco Star Efficiency" | "Special Formats";
   pah_level: "0 mg/kg - Free" | "< 50 mg/kg - Compliant";
-  material: "Resina de Pino 100%" | "Híbrido Ecológico";
+  material: "Resina de Pino 100%" | "Híbrido Ecológico" | "Resina" | string;
   diameter_mm: number | null;
   weight_g: number | null;
   color: string | null;

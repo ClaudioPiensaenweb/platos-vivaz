@@ -53,9 +53,6 @@ export default async function ContactSplit({
 
           {/* Contact cards */}
           <div className="lg:col-span-2">
-            <p className="mb-4 font-body text-[14px] font-medium uppercase tracking-[2px] text-primary/60">
-              {t("national")}
-            </p>
             <ContactCards
               highlightedMarket={market}
               layout={cardLayout}

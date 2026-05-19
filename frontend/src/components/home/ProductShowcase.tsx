@@ -14,7 +14,7 @@ export default function ProductShowcase({ variant }: ProductShowcaseProps) {
 
   const isNatura = variant === "natura";
 
-  const imageSrc = isNatura ? "/img/natura-detail.png" : "/img/ecostar-detail.png";
+  const imageSrc = isNatura ? "/img/products/natura.png" : "/img/products/eco-star.png";
 
   const content = (
     <InView animation={isNatura ? "slide-in-left" : "slide-in-right"}>
@@ -29,7 +29,7 @@ export default function ProductShowcase({ variant }: ProductShowcaseProps) {
           {t("description")}
         </p>
         <Button
-          href={`/productos/${isNatura ? "natura-standard" : "eco-star-standard"}`}
+          href={{ pathname: "/productos/[slug]", params: { slug: isNatura ? "natura-110" : "eco-star-110" } }}
           className="self-start"
         >
           {t("cta")}

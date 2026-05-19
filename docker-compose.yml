@@ -1,0 +1,82 @@
+# docker-compose.yml — Vivaz Clay Targets CMS
+# Desplegado en Dokploy (185.14.58.119) — solo DB + Directus
+# El frontend Next.js va como Application separada en Dokploy (build vía Dockerfile)
+#
+# Variables de entorno requeridas (configurar en Dokploy → Environment):
+#   MARIADB_DATABASE, MARIADB_USER, MARIADB_PASSWORD, MARIADB_ROOT_PASSWORD
+#   DIRECTUS_KEY, DIRECTUS_SECRET
+#   DIRECTUS_ADMIN_EMAIL, DIRECTUS_ADMIN_PASSWORD
+#   DIRECTUS_PUBLIC_URL  (https://admin.platosvivaz.com)
+#   CORS_ORIGIN          (https://platosvivaz.com,https://www.platosvivaz.com)
+
+services:
+  db:
+    image: mariadb:11
+    restart: always
+    environment:
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - default
+
+  directus:
+    image: directus/directus:11.14.1
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      KEY: ${DIRECTUS_KEY}
+      SECRET: ${DIRECTUS_SECRET}
+      ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD}
+
+      DB_CLIENT: "mysql"
+      DB_HOST: "db"
+      DB_PORT: "3306"
+      DB_DATABASE: ${MARIADB_DATABASE}
+      DB_USER: ${MARIADB_USER}
+      DB_PASSWORD: ${MARIADB_PASSWORD}
+
+      WEBSOCKETS_ENABLED: "true"
+
+      CORS_ENABLED: "true"
+      CORS_ORIGIN: ${CORS_ORIGIN:-https://platosvivaz.com,https://www.platosvivaz.com}
+
+      PUBLIC_URL: ${DIRECTUS_PUBLIC_URL:-https://admin.platosvivaz.com}
+    volumes:
+      - directus_uploads:/directus/uploads
+      - directus_extensions:/directus/extensions
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8055/server/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.vivaz-cms.rule=Host(`admin.platosvivaz.com`)"
+      - "traefik.http.routers.vivaz-cms.tls.certresolver=letsencrypt"
+      - "traefik.http.services.vivaz-cms.loadbalancer.server.port=8055"
+    networks:
+      - default
+      - dokploy-network
+
+volumes:
+  db_data:
+  directus_uploads:
+  directus_extensions:
+
+networks:
+  dokploy-network:
+    external: true
+    name: dokploy-network

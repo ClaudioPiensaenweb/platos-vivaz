@@ -55,6 +55,7 @@ body {
   background: #ffffff;
   color: var(--color-foreground);
   font-family: var(--font-manrope), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {

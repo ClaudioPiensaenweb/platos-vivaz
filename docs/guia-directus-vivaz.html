@@ -1,0 +1,2616 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GuÃ­a de gestiÃ³n de contenidos Â· Vivaz Clay Targets</title>
+  <meta name="description" content="GuÃ­a interactiva para gestionar el CMS Directus de Vivaz Clay Targets. Actualiza productos, noticias y traducciones sin conocimientos tÃ©cnicos.">
+  <style>
+    /* ============================================================
+       RESET & VARIABLES VIVAZ LIGHT
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Vivaz brand */
+      --vv-bg:            #fafaf8;
+      --vv-surface:       #ffffff;
+      --vv-border:        #e8e3db;
+      --vv-border-light:  #f0ebe3;
+      --vv-text:          #1a1a18;
+      --vv-text-muted:    #6b6b68;
+      --vv-text-faint:    #9e9e9a;
+      --vv-green:         #4a7c59;
+      --vv-green-light:   #f0f5f2;
+      --vv-green-dim:     #3a6247;
+      --vv-gold:          #c8a96e;
+      --vv-gold-light:    #fdf8f0;
+
+      --sidebar-width:    260px;
+      --header-height:    60px;
+
+      --font-ui:    'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono:  'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-ui);
+      background: var(--vv-bg);
+      color: var(--vv-text);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       SKIP LINK (accesibilidad)
+    ============================================================ */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--vv-green);
+      color: #fff;
+      padding: .5rem 1rem;
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      font-size: .875rem;
+      z-index: 9999;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ============================================================
+       HEADER â€” Vivaz light
+    ============================================================ */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-height);
+      background: var(--vv-surface);
+      border-bottom: 1px solid var(--vv-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      z-index: 300;
+      gap: 1rem;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: .35rem;
+    }
+
+    .logo-vivaz {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--vv-text);
+    }
+
+    .logo-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--vv-green);
+      border-radius: 50%;
+      display: inline-block;
+      margin-bottom: 2px;
+      flex-shrink: 0;
+    }
+
+    .logo-sub {
+      font-size: .8rem;
+      font-weight: 400;
+      color: var(--vv-text-muted);
+      letter-spacing: 0;
+    }
+
+    .header-meta {
+      font-size: .8rem;
+      color: var(--vv-text-muted);
+      flex-shrink: 0;
+    }
+
+    .header-meta strong {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--vv-green-light);
+      color: var(--vv-green);
+      border: 1px solid rgba(74,124,89,.18);
+      padding: .25rem .7rem;
+      border-radius: 99px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .header-meta strong::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--vv-green);
+      border-radius: 50%;
+    }
+
+    .header-subtitle {
+      font-size: .8rem;
+      color: var(--vv-text-muted);
+      white-space: nowrap;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: 1px solid var(--vv-border);
+      cursor: pointer;
+      padding: .45rem .5rem;
+      border-radius: var(--radius-sm);
+    }
+    .hamburger:focus-visible { outline: 2px solid var(--vv-green); outline-offset: 2px; }
+    .hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--vv-text);
+      border-radius: 2px;
+      transition: transform .22s, opacity .22s;
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .layout {
+      display: flex;
+      padding-top: var(--header-height);
+      min-height: 100vh;
+    }
+
+    /* ============================================================
+       SIDEBAR â€” Vivaz light
+    ============================================================ */
+    .sidebar {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      bottom: 0;
+      width: var(--sidebar-width);
+      background: var(--vv-surface);
+      border-right: 1px solid var(--vv-border);
+      overflow-y: auto;
+      padding: 1.25rem 0 2rem;
+      z-index: 200;
+      transition: transform .28s cubic-bezier(.4,0,.2,1);
+    }
+
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26,26,24,.35);
+      z-index: 199;
+      backdrop-filter: blur(3px);
+    }
+
+    .nav-label {
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--vv-text-faint);
+      padding: 1rem 1.25rem .3rem;
+      margin-top: .25rem;
+    }
+
+    .sidebar nav ul { list-style: none; }
+
+    .sidebar nav ul li a {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .5rem 1.25rem .5rem 1rem;
+      color: var(--vv-text-muted);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 400;
+      border-left: 3px solid transparent;
+      transition: color .14s, background .14s, border-color .14s;
+    }
+
+    .sidebar nav ul li a:hover {
+      color: var(--vv-text);
+      background: #f5f5f3;
+    }
+
+    .sidebar nav ul li a.active {
+      color: var(--vv-green);
+      background: var(--vv-green-light);
+      border-left-color: var(--vv-green);
+      font-weight: 600;
+    }
+
+    .nav-num {
+      font-size: .65rem;
+      font-weight: 700;
+      color: var(--vv-text-faint);
+      min-width: 22px;
+      letter-spacing: .04em;
+    }
+
+    .sidebar nav ul li a.active .nav-num { color: var(--vv-green); opacity: .7; }
+
+    /* ============================================================
+       MAIN CONTENT
+    ============================================================ */
+    .main-content {
+      flex: 1;
+      margin-left: var(--sidebar-width);
+      padding: 2.5rem 2.5rem 5rem;
+      max-width: 900px;
+    }
+
+    /* ============================================================
+       SECTIONS
+    ============================================================ */
+    .doc-section {
+      margin-bottom: 5rem;
+      scroll-margin-top: calc(var(--header-height) + 1.5rem);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--vv-border);
+    }
+
+    .section-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: var(--vv-green);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 800;
+      border-radius: 50%;
+      flex-shrink: 0;
+      letter-spacing: .02em;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--vv-text);
+      letter-spacing: -.01em;
+    }
+
+    .section-lead {
+      color: var(--vv-text-muted);
+      font-size: .95rem;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+      max-width: 640px;
+    }
+
+    /* ============================================================
+       CALLOUT BOXES
+    ============================================================ */
+    .callout {
+      display: flex;
+      gap: .85rem;
+      padding: 1rem 1.2rem;
+      border-radius: var(--radius-md);
+      border-left: 4px solid;
+      margin: 1.5rem 0;
+      font-size: .875rem;
+      line-height: 1.6;
+    }
+
+    .callout-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: .05rem; }
+
+    .callout.info {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e40af;
+    }
+
+    .callout.warn {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+
+    .callout.danger {
+      background: #fff5f5;
+      border-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .callout.success {
+      background: #f0fdf4;
+      border-color: #22c55e;
+      color: #14532d;
+    }
+
+    /* Callout danger grande */
+    .danger-card {
+      background: #fff5f5;
+      border-left: 4px solid #ef4444;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .danger-card-icon {
+      font-size: 2rem;
+      margin-bottom: .75rem;
+    }
+
+    .danger-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #991b1b;
+      margin-bottom: .5rem;
+    }
+
+    .danger-card p {
+      font-size: .875rem;
+      color: #7f1d1d;
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       STEPS
+    ============================================================ */
+    .steps { margin: 1.5rem 0; }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      padding: .85rem 0;
+      border-bottom: 1px solid var(--vv-border-light);
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      background: var(--vv-green-light);
+      border: 2px solid var(--vv-green);
+      color: var(--vv-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .7rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: .15rem;
+    }
+
+    .step-body {
+      font-size: .9rem;
+      color: var(--vv-text);
+      line-height: 1.6;
+    }
+
+    .step-body strong { color: var(--vv-text); font-weight: 600; }
+
+    /* ============================================================
+       CODE / PATH
+    ============================================================ */
+    code {
+      background: #f3f2ef;
+      color: #c7254e;
+      padding: .15em .45em;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: .82em;
+    }
+
+    /* ============================================================
+       BROWSER WINDOW WRAPPER (para mockups)
+    ============================================================ */
+    .browser-window {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08);
+      margin: 2rem 0;
+      background: #f0f2f5;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+
+    .browser-bar {
+      background: #e8e8e8;
+      padding: .55rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      border-bottom: 1px solid #d0d0d0;
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .browser-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .browser-dot.red    { background: #ff5f57; }
+    .browser-dot.yellow { background: #febc2e; }
+    .browser-dot.green  { background: #28c840; }
+
+    .browser-url {
+      flex: 1;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: .25rem .75rem;
+      font-size: .75rem;
+      font-family: var(--font-mono);
+      color: #555;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 420px;
+    }
+
+    /* ============================================================
+       DIRECTUS UI â€” variables
+    ============================================================ */
+    :root {
+      --d-sidebar-bg:    #1e2128;
+      --d-sidebar-text:  #8b9ab0;
+      --d-sidebar-active:#ffffff;
+      --d-topbar-bg:     #ffffff;
+      --d-content-bg:    #f0f2f5;
+      --d-card-bg:       #ffffff;
+      --d-input-border:  #d3dae4;
+      --d-label-color:   #a2b5cd;
+      --d-purple:        #6644e4;
+      --d-green:         #00c897;
+      --d-text:          #1e2128;
+      --d-text-muted:    #68768a;
+    }
+
+    /* ============================================================
+       DIRECTUS SHELL LAYOUT
+    ============================================================ */
+    .d-shell {
+      display: flex;
+      height: 520px;
+      background: var(--d-content-bg);
+    }
+
+    .d-shell.tall { height: 620px; }
+    .d-shell.short { height: 420px; }
+
+    /* Sidebar Directus */
+    .d-sidebar {
+      width: 56px;
+      background: var(--d-sidebar-bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: .75rem 0;
+      gap: .25rem;
+      flex-shrink: 0;
+    }
+
+    .d-sidebar-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .85rem;
+      cursor: pointer;
+      color: var(--d-sidebar-text);
+      transition: background .15s, color .15s;
+      position: relative;
+    }
+
+    /* Iconos SVG dentro del sidebar */
+    .d-sidebar-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      display: block;
+    }
+
+    /* Bullet de colecciÃ³n (cuadrado coloreado pequeÃ±o) */
+    .d-coll-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    .d-sidebar-icon:hover,
+    .d-sidebar-icon.active {
+      background: rgba(255,255,255,.08);
+      color: var(--d-sidebar-active);
+    }
+
+    .d-sidebar-sep {
+      width: 28px;
+      height: 1px;
+      background: rgba(255,255,255,.08);
+      margin: .35rem 0;
+    }
+
+    .d-sidebar-badge {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 8px;
+      height: 8px;
+      background: #ef4444;
+      border-radius: 50%;
+      border: 1.5px solid var(--d-sidebar-bg);
+    }
+
+    /* Nav colecciones Directus (panel expandible) */
+    .d-nav-panel {
+      width: 210px;
+      background: #252932;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .d-nav-search {
+      padding: .75rem .75rem .5rem;
+    }
+
+    .d-nav-search input {
+      width: 100%;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-sm);
+      padding: .35rem .65rem;
+      font-size: .75rem;
+      color: #aaa;
+      font-family: var(--font-ui);
+    }
+
+    .d-nav-section {
+      padding: .75rem .75rem .2rem;
+      font-size: .55rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.28);
+    }
+
+    .d-nav-section.danger-label { color: rgba(239,68,68,.55); }
+
+    .d-nav-item {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .45rem .75rem;
+      font-size: .78rem;
+      color: var(--d-sidebar-text);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      margin: 0 .35rem;
+      transition: background .13s, color .13s;
+      position: relative;
+    }
+
+    .d-nav-item:hover { background: rgba(255,255,255,.06); color: #fff; }
+
+    .d-nav-item.active {
+      background: rgba(102,68,228,.22);
+      color: #fff;
+    }
+
+    .d-nav-item-icon {
+      font-size: .9rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      width: 16px;
+    }
+    .d-nav-item-icon svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .d-nav-item-label { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .d-nav-badge {
+      font-size: .55rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+      background: rgba(239,68,68,.18);
+      color: #f87171;
+      border: 1px solid rgba(239,68,68,.3);
+      padding: .1rem .35rem;
+      border-radius: 4px;
+    }
+
+    .d-nav-item.danger-item { color: rgba(239,68,68,.65); }
+    .d-nav-item.danger-item:hover { color: #f87171; background: rgba(239,68,68,.08); }
+
+    /* Topbar Directus */
+    .d-topbar {
+      background: var(--d-topbar-bg);
+      border-bottom: 1px solid #e8ecf0;
+      padding: 0 1.5rem;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+
+    .d-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      font-size: .8rem;
+      color: var(--d-text-muted);
+    }
+
+    .d-breadcrumb-sep { color: #d0d5dd; }
+
+    .d-breadcrumb-current { color: var(--d-text); font-weight: 600; }
+
+    .d-topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    /* Botones Directus */
+    .d-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      transition: filter .14s;
+      white-space: nowrap;
+    }
+
+    .d-btn:hover { filter: brightness(.92); }
+
+    .d-btn-primary {
+      background: var(--d-purple);
+      color: #fff;
+      padding: .45rem 1.1rem;
+      font-size: .82rem;
+    }
+
+    .d-btn-create {
+      background: var(--d-green);
+      color: #fff;
+      padding: .45rem 1rem;
+      font-size: .82rem;
+    }
+
+    .d-btn-secondary {
+      background: #f0f2f5;
+      color: var(--d-text-muted);
+      border: 1px solid var(--d-input-border);
+      padding: .4rem .9rem;
+      font-size: .8rem;
+    }
+
+    /* Contenido Directus */
+    .d-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .d-main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+    }
+
+    /* Card / panel */
+    .d-card {
+      background: var(--d-card-bg);
+      border-radius: var(--radius-md);
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+      overflow: hidden;
+    }
+
+    /* Inputs Directus */
+    .d-field { margin-bottom: 1.1rem; position: relative; }
+
+    .d-label {
+      display: block;
+      font-size: .67rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--d-label-color);
+      margin-bottom: .4rem;
+    }
+
+    .d-input {
+      width: 100%;
+      height: 40px;
+      border: 1px solid var(--d-input-border);
+      border-radius: var(--radius-sm);
+      padding: 0 .85rem;
+      font-size: .875rem;
+      color: var(--d-text);
+      background: #fff;
+      font-family: var(--font-ui);
+      appearance: none;
+    }
+
+    .d-textarea {
+      width: 100%;
+      border: 1px solid var(--d-input-border);
+      border-radius: var(--radius-sm);
+      padding: .65rem .85rem;
+      font-size: .875rem;
+      color: var(--d-text);
+      background: #fff;
+      font-family: var(--font-ui);
+      resize: none;
+      line-height: 1.5;
+    }
+
+    .d-select {
+      width: 100%;
+      height: 40px;
+      border: 1px solid var(--d-input-border);
+      border-radius: var(--radius-sm);
+      padding: 0 .85rem;
+      font-size: .875rem;
+      color: var(--d-text);
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2368768a' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right .85rem center;
+      padding-right: 2.5rem;
+      font-family: var(--font-ui);
+      appearance: none;
+    }
+
+    /* Upload zone */
+    .d-upload {
+      border: 2px dashed var(--d-input-border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      text-align: center;
+      color: var(--d-text-muted);
+      font-size: .8rem;
+      background: #f9fafb;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .d-upload-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: rgba(255,255,255,.8);
+    }
+
+    .d-upload-thumb.green { background: linear-gradient(135deg, #4a7c59, #78b591); }
+    .d-upload-thumb.blue  { background: linear-gradient(135deg, #3b6aad, #5b9bd5); }
+    .d-upload-thumb.orange{ background: linear-gradient(135deg, #c07030, #e09050); }
+    .d-upload-thumb.preview-img { background: #e8ecf0; font-size: .7rem; color: #68768a; }
+
+    /* Field labels de estado */
+    .field-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      padding: .2rem .55rem;
+      border-radius: 4px;
+      margin-left: .4rem;
+      vertical-align: middle;
+    }
+
+    .field-tag.editable {
+      background: #f0fdf4;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+
+    .field-tag.locked {
+      background: #fff5f5;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    /* SecciÃ³n colapsada */
+    .d-collapsed {
+      background: #f9fafb;
+      border: 1px solid var(--d-input-border);
+      border-radius: var(--radius-sm);
+      padding: .75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      margin-top: .5rem;
+    }
+
+    .d-collapsed-title {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--d-text-muted);
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+    }
+
+    /* Status badge */
+    .d-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--d-text);
+    }
+
+    .d-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .d-status-dot.published { background: #22c55e; }
+    .d-status-dot.draft     { background: #94a3b8; }
+    .d-status-dot.archived  { background: #f59e0b; }
+
+    /* Tabla Directus */
+    .d-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+
+    .d-table thead tr {
+      background: #f5f7fa;
+      border-bottom: 2px solid #e5e9f0;
+    }
+
+    .d-table thead th {
+      padding: .6rem 1rem;
+      text-align: left;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--d-text-muted);
+    }
+
+    .d-table tbody tr {
+      border-bottom: 1px solid #f0f2f5;
+      transition: background .1s;
+    }
+
+    .d-table tbody tr:hover { background: #f5f7fa; }
+
+    .d-table tbody td {
+      padding: .7rem 1rem;
+      color: var(--d-text);
+      vertical-align: middle;
+    }
+
+    .d-table .thumb {
+      width: 36px;
+      height: 36px;
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      color: rgba(255,255,255,.85);
+      font-weight: 700;
+    }
+
+    .d-checkbox {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--d-input-border);
+      border-radius: 4px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    /* Date picker simulado */
+    .d-datepicker {
+      position: relative;
+    }
+
+    .d-datepicker-icon {
+      position: absolute;
+      right: .85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--d-label-color);
+      font-size: .9rem;
+      pointer-events: none;
+    }
+
+    /* Toggle estado */
+    .d-toggle-group {
+      display: inline-flex;
+      border: 1px solid var(--d-input-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .d-toggle-opt {
+      padding: .4rem .9rem;
+      font-size: .8rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      border: none;
+      font-family: var(--font-ui);
+    }
+
+    .d-toggle-opt.inactive {
+      background: #fff;
+      color: var(--d-text-muted);
+    }
+
+    .d-toggle-opt.active-pub {
+      background: #22c55e;
+      color: #fff;
+    }
+
+    .d-toggle-opt.active-draft {
+      background: #94a3b8;
+      color: #fff;
+    }
+
+    /* Editor WYSIWYG simulado */
+    .d-editor { border: 1px solid var(--d-input-border); border-radius: var(--radius-sm); overflow: hidden; }
+
+    .d-editor-toolbar {
+      background: #f5f7fa;
+      border-bottom: 1px solid var(--d-input-border);
+      padding: .4rem .65rem;
+      display: flex;
+      align-items: center;
+      gap: .2rem;
+    }
+
+    .d-editor-tool {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: none;
+      border-radius: 4px;
+      font-size: .78rem;
+      font-family: var(--font-ui);
+      color: var(--d-text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .d-editor-tool:hover { background: #e8ecf0; color: var(--d-text); }
+
+    .d-editor-sep { width: 1px; height: 18px; background: var(--d-input-border); margin: 0 .2rem; }
+
+    .d-editor-body {
+      padding: .75rem .85rem;
+      font-size: .875rem;
+      color: var(--d-text);
+      min-height: 80px;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* PestaÃ±as de idioma */
+    .d-tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--d-input-border);
+      margin-bottom: 1.25rem;
+    }
+
+    .d-tab {
+      padding: .55rem .95rem;
+      font-size: .78rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      color: var(--d-text-muted);
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      white-space: nowrap;
+    }
+
+    .d-tab.active {
+      color: var(--d-purple);
+      border-bottom-color: var(--d-purple);
+      background: rgba(102,68,228,.05);
+      font-weight: 600;
+    }
+
+    .d-tab.empty { color: #b0bcc8; }
+
+    /* â”€â”€ Login Directus Â· Split layout real â”€â”€ */
+    .d-login-split {
+      display: flex;
+      min-height: 380px;
+      height: 100%;
+    }
+
+    /* Panel izquierdo blanco */
+    .d-login-panel {
+      width: 320px;
+      flex-shrink: 0;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 1.75rem 2.25rem 1.5rem;
+      position: relative;
+    }
+
+    .d-login-brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: auto;
+    }
+
+    .d-login-brand-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg,#6644e0,#8855f5);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .d-login-brand-text { line-height: 1.2; }
+    .d-login-brand-name { font-size: .9rem; font-weight: 700; color: var(--d-text); display: block; }
+    .d-login-brand-sub  { font-size: .72rem; color: var(--d-text-muted); }
+
+    .d-login-form-area { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 1.5rem 0; }
+
+    .d-login-heading {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--d-text);
+      margin-bottom: 1.4rem;
+      letter-spacing: -.02em;
+    }
+
+    .d-login-field { margin-bottom: .85rem; text-align: left; }
+
+    .d-login-input {
+      width: 100%;
+      height: 42px;
+      border: 1.5px solid #d8dde6;
+      border-radius: var(--radius-sm);
+      padding: 0 2.6rem 0 .9rem;
+      font-size: .875rem;
+      color: var(--d-text);
+      background: #fff;
+      font-family: var(--font-ui);
+      appearance: none;
+    }
+
+    .d-login-input:focus-visible { outline: 2px solid var(--d-purple); border-color: var(--d-purple); }
+
+    .d-login-input-wrap { position: relative; }
+
+    .d-login-input-icon {
+      position: absolute;
+      right: .75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #b0bcc8;
+      display: flex;
+      align-items: center;
+    }
+
+    .d-login-submit {
+      width: 100%;
+      height: 42px;
+      background: var(--d-purple);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: .9rem;
+      font-weight: 700;
+      font-family: var(--font-ui);
+      cursor: pointer;
+      margin-top: .3rem;
+      letter-spacing: .01em;
+    }
+
+    .d-login-forgot {
+      display: block;
+      text-align: left;
+      margin-top: .8rem;
+      font-size: .8rem;
+      color: var(--d-text-muted);
+    }
+
+    .d-login-status {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .72rem;
+      color: #94a3b8;
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    /* Panel derecho oscuro */
+    .d-login-bg {
+      flex: 1;
+      background:
+        radial-gradient(ellipse at 25% 65%, rgba(102,68,228,.55) 0%, transparent 60%),
+        radial-gradient(ellipse at 75% 30%, rgba(160,90,200,.3) 0%, transparent 55%),
+        #0d0d1a;
+    }
+
+    /* Legacy (ya no se usa, por compatibilidad) */
+    .d-login-wrapper {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100%; background: #f0f2f5; padding: 2rem;
+    }
+    .d-login-card {
+      background: #fff; border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem; width: 340px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.1); text-align: center;
+    }
+    .d-logo-circle {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg,#6644e4,#9c6ee4);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem; font-size: 1.4rem; font-weight: 900;
+      color: #fff; font-style: italic; letter-spacing: -.03em;
+    }
+    .d-login-title { font-size: .95rem; font-weight: 700; color: var(--d-text); margin-bottom: .25rem; }
+    .d-login-sub   { font-size: .78rem; color: var(--d-text-muted); margin-bottom: 1.5rem; }
+
+    /* Banner informativo */
+    .d-banner {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .75rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: .8rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .d-banner.info-blue {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    .d-banner.warn-red {
+      background: #fff5f5;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+    }
+
+    /* Overlay "no tocar" sobre sidebar */
+    .d-danger-overlay {
+      position: relative;
+    }
+
+    .d-danger-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(239,68,68,.13);
+      border-radius: var(--radius-sm);
+      pointer-events: none;
+    }
+
+    .d-danger-badge {
+      position: absolute;
+      right: .4rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: .7rem;
+      z-index: 2;
+    }
+
+    /* ============================================================
+       FAQ â€” ACORDEÃ“N
+    ============================================================ */
+    .faq-list { margin-top: 1rem; }
+
+    .faq-item {
+      border: 1px solid var(--vv-border);
+      border-radius: var(--radius-md);
+      margin-bottom: .65rem;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: var(--vv-surface);
+      border: none;
+      padding: 1rem 1.25rem;
+      font-family: var(--font-ui);
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--vv-text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: background .14s;
+    }
+
+    .faq-question:hover { background: #f7f7f5; }
+
+    .faq-question:focus-visible { outline: 2px solid var(--vv-green); outline-offset: -2px; }
+
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--vv-green-light);
+      color: var(--vv-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      flex-shrink: 0;
+      transition: transform .22s;
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      display: none;
+      padding: .1rem 1.25rem 1.25rem;
+      font-size: .875rem;
+      color: var(--vv-text-muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--vv-border-light);
+    }
+
+    .faq-item.open .faq-answer { display: block; }
+
+    .faq-answer ol {
+      margin: .75rem 0 .75rem 1.1rem;
+    }
+
+    .faq-answer ol li { margin-bottom: .4rem; }
+
+    .faq-answer p { margin-bottom: .6rem; }
+
+    .faq-ref {
+      display: inline;
+      background: var(--vv-green-light);
+      color: var(--vv-green);
+      border: 1px solid rgba(74,124,89,.2);
+      border-radius: 4px;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .1rem .4rem;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .main-content {
+        padding: 2rem 1.5rem 4rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hamburger { display: flex; }
+
+      .sidebar {
+        transform: translateX(-100%);
+        z-index: 400;
+        box-shadow: 4px 0 24px rgba(0,0,0,.12);
+      }
+
+      .sidebar.open { transform: translateX(0); }
+
+      .sidebar-overlay.open { display: block; }
+
+      .main-content {
+        margin-left: 0;
+        padding: 1.5rem 1rem 4rem;
+      }
+
+      .header-subtitle { display: none; }
+      .header-meta { display: none; }
+
+      .d-nav-panel { display: none; }
+      .d-shell { height: auto; min-height: 340px; }
+
+      .browser-url { max-width: 160px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Ir al contenido principal</a>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="site-header" role="banner">
+  <div class="header-brand">
+    <span class="logo-wordmark" aria-label="Vivaz Clay Targets">
+      <span class="logo-vivaz">VIVAZ</span>
+      <span class="logo-dot" aria-hidden="true"></span>
+      <span class="logo-sub">Clay Targets</span>
+    </span>
+  </div>
+
+  <span class="header-subtitle">GuÃ­a de gestiÃ³n &middot; Directus CMS</span>
+
+  <div class="header-meta">
+    <strong aria-label="VersiÃ³n 1.0, Mayo 2026">v1.0 Â· Mayo 2026</strong>
+  </div>
+
+  <button class="hamburger" aria-label="Abrir menÃº de navegaciÃ³n" aria-expanded="false" aria-controls="sidebar">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </button>
+</header>
+
+<!-- ============================================================
+     LAYOUT
+============================================================ -->
+<div class="layout">
+
+  <!-- Overlay mÃ³vil -->
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  <!-- SIDEBAR GUÃA -->
+  <aside class="sidebar" id="sidebar" aria-label="NavegaciÃ³n de la guÃ­a">
+    <nav aria-label="Secciones de la guÃ­a">
+      <p class="nav-label">GuÃ­a Directus</p>
+      <ul>
+        <li>
+          <a href="#s1" data-section="s1">
+            <span class="nav-num">01</span>
+            CÃ³mo acceder
+          </a>
+        </li>
+        <li>
+          <a href="#s2" data-section="s2">
+            <span class="nav-num">02</span>
+            Editar un producto
+          </a>
+        </li>
+        <li>
+          <a href="#s3" data-section="s3">
+            <span class="nav-num">03</span>
+            Publicar una noticia
+          </a>
+        </li>
+        <li>
+          <a href="#s4" data-section="s4">
+            <span class="nav-num">04</span>
+            Gestionar traducciones
+          </a>
+        </li>
+        <li>
+          <a href="#s5" data-section="s5">
+            <span class="nav-num">05</span>
+            Ver contactos/leads
+          </a>
+        </li>
+        <li>
+          <a href="#s6" data-section="s6">
+            <span class="nav-num">06</span>
+            QuÃ© NO tocar
+          </a>
+        </li>
+        <li>
+          <a href="#s7" data-section="s7">
+            <span class="nav-num">07</span>
+            Preguntas frecuentes
+          </a>
+        </li>
+      </ul>
+
+      <p class="nav-label" style="margin-top:1.5rem;">Soporte</p>
+      <ul>
+        <li>
+          <a href="mailto:claudio@piensaenweb.com">
+            <span class="nav-num" aria-hidden="true">âœ‰</span>
+            Contactar con Piensaenweb
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main class="main-content" id="main" tabindex="-1">
+
+
+    <!-- ========================================================
+         SECCIÃ“N 1 â€” ACCESO
+    ========================================================= -->
+    <section class="doc-section" id="s1" aria-labelledby="title-s1">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">01</span>
+        <h1 class="section-title" id="title-s1">CÃ³mo acceder al CMS</h1>
+      </div>
+
+      <p class="section-lead">
+        El panel de administraciÃ³n de contenidos estÃ¡ en una URL privada. Solo deberÃ­as acceder con las credenciales que te ha proporcionado Piensaenweb.
+      </p>
+
+      <div class="callout info">
+        <span class="callout-icon" aria-hidden="true">â„¹ï¸</span>
+        <div>
+          <strong>URL de acceso:</strong> <code>admin.platosvivaz.com/admin</code> â€” Ãbrela en tu navegador e introduce tu email y contraseÃ±a.
+        </div>
+      </div>
+
+      <!-- Mockup login -->
+      <div class="browser-window" aria-label="Captura simulada de la pantalla de acceso de Directus">
+        <div class="browser-bar">
+          <div class="browser-dots" aria-hidden="true">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url" aria-label="URL: admin.platosvivaz.com/admin/login">admin.platosvivaz.com/admin/login</div>
+        </div>
+        <!-- Split login â€” replica el diseÃ±o real de Directus 11 -->
+        <div class="d-login-split" aria-hidden="true">
+          <!-- Panel blanco izquierdo -->
+          <div class="d-login-panel">
+            <!-- Logo -->
+            <div class="d-login-brand">
+              <div class="d-login-brand-icon">
+                <svg width="22" height="14" viewBox="0 0 64 39" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" fill-rule="evenodd" clip-rule="evenodd" d="M51.18 24.61c-.3-.07-.55-.15-.77-.25-.16-.07-.3-.16-.42-.26a.31.31 0 0 1-.1-.27c.11-1.24-.02-2.33.1-3.56.5-5 3.64-3.41 6.46-4.23 1.62-.45 3.24-1.35 3.83-3.1.1-.3.01-.61-.19-.84a36.2 36.2 0 0 0-6.12-5.54A36.73 36.73 0 0 0 27.94.36a.46.46 0 0 0-.33.7 13.7 13.7 0 0 0 4.31 4.24c.31.19.19.6-.17.52a8.2 8.2 0 0 1-2.92-1.26.35.35 0 0 0-.33-.04l-1.64.67a.45.45 0 0 0-.12.75A13.7 13.7 0 0 0 42.8 7.3c.3-.19.8.2.7.55a27 27 0 0 0-.54 2.37c-1.26 6.37-4.9 5.87-9.4 4.27-9-3.26-14.12-.48-18.66-5.98-.31-.38-.87-.51-1.24-.19a4.25 4.25 0 0 0 .43 6.8c.14.1.33.05.44-.08.28-.35.5-.59.8-.74.3-.16.46.29.2.52-.97.85-1.25 1.87-1.88 3.87-.99 3.13-.57 6.34-5.2 7.18-2.45.12-2.4 1.78-3.29 4.25-1.03 2.98-2.39 4.3-4.9 6.9-.34.36-.36.93.01 1.25 1 .85 2.04.9 3.09.46 2.6-1.08 4.6-4.44 6.48-6.61 2.1-2.42 7.15-1.39 10.97-3.76 2.05-1.25 3.29-2.86 2.9-5.27-.07-.38.37-.62.53-.26.31.68.51 1.4.6 2.16.02.2.2.34.39.33 4.12-.23 9.46 4.3 14.44 5.53.3.08.52-.27.35-.53a9.17 9.17 0 0 1-1.3-3.02c-.1-.39.47-.5.66-.14a9.2 9.2 0 0 0 7.4 4.71c1.2.1 2.54-.05 3.93-.47 1.66-.5 3.19-1.14 5.02-.79 1.36.25 2.63.94 3.42 2.1 1.1 1.62 3.45 2.04 4.7.35a.81.81 0 0 0 .08-.8c-2.76-6.43-9.75-6.88-12.75-7.65Z"/></svg>
+              </div>
+              <div class="d-login-brand-text">
+                <span class="d-login-brand-name">Directus</span>
+                <span class="d-login-brand-sub">Application</span>
+              </div>
+            </div>
+
+            <!-- Formulario -->
+            <div class="d-login-form-area">
+              <p class="d-login-heading">Sign In</p>
+              <div class="d-login-field">
+                <div class="d-login-input-wrap">
+                  <input class="d-login-input" type="email" value="juanma@vivazclaytargets.com" readonly tabindex="-1" style="pointer-events:none;">
+                  <span class="d-login-input-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg>
+                  </span>
+                </div>
+              </div>
+              <div class="d-login-field">
+                <div class="d-login-input-wrap">
+                  <input class="d-login-input" type="password" value="password" readonly tabindex="-1" style="pointer-events:none;">
+                  <span class="d-login-input-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  </span>
+                </div>
+              </div>
+              <button class="d-login-submit" tabindex="-1">Sign In</button>
+              <span class="d-login-forgot">Forgot Password</span>
+            </div>
+
+            <!-- Estado pie -->
+            <div class="d-login-status">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Not Authenticated
+            </div>
+          </div>
+
+          <!-- Panel derecho oscuro gradient -->
+          <div class="d-login-bg"></div>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <p class="step-body">Abre tu navegador y ve a <code>admin.platosvivaz.com/admin</code>.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <p class="step-body">Introduce tu direcciÃ³n de email (<code>juanma@vivazclaytargets.com</code>) y la contraseÃ±a que te facilitamos.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <p class="step-body">Haz clic en <strong>Iniciar sesiÃ³n</strong>. LlegarÃ¡s directamente al panel de inicio.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">4</span>
+          <p class="step-body">Si olvidas la contraseÃ±a, usa el enlace <em>"Â¿Olvidaste tu contraseÃ±a?"</em> o escrÃ­benos a <a href="mailto:claudio@piensaenweb.com" style="color:var(--vv-green);">claudio@piensaenweb.com</a>.</p>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon" aria-hidden="true">âš ï¸</span>
+        <div>No compartas tus credenciales con nadie. Si necesitas dar acceso a un colaborador, contÃ¡ctanos para crear un usuario adicional con los permisos adecuados.</div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÃ“N 2 â€” EDITAR PRODUCTO
+    ========================================================= -->
+    <section class="doc-section" id="s2" aria-labelledby="title-s2">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">02</span>
+        <h2 class="section-title" id="title-s2">Editar un producto</h2>
+      </div>
+
+      <p class="section-lead">
+        Desde la colecciÃ³n <code>pim_products</code> puedes actualizar nombres, descripciones, imÃ¡genes y estado de publicaciÃ³n de cada plato. AquÃ­ te mostramos el flujo completo.
+      </p>
+
+      <!-- Mockup A â€” Lista de productos -->
+      <h3 style="font-size:.9rem; font-weight:700; color:var(--vv-text-muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.75rem;">Lista de productos</h3>
+
+      <div class="browser-window" aria-label="Captura simulada de la lista de productos en Directus">
+        <div class="browser-bar">
+          <div class="browser-dots" aria-hidden="true">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">admin.platosvivaz.com/admin/content/pim_products</div>
+        </div>
+        <div class="d-shell short" aria-hidden="true">
+          <!-- Sidebar icono -->
+          <div class="d-sidebar">
+            <div class="d-sidebar-icon active" title="Colecciones"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div class="d-sidebar-icon" title="Inicio"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="d-sidebar-icon active" title="Contenido"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
+            <div class="d-sidebar-icon" title="Archivos"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="d-sidebar-icon" title="Usuarios"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div class="d-sidebar-icon" title="Ajustes" style="margin-top:auto; margin-bottom:.25rem;"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          </div>
+          <!-- Nav panel -->
+          <div class="d-nav-panel">
+            <div class="d-nav-search">
+              <input type="text" placeholder="Buscar colecciÃ³n..." tabindex="-1" style="outline:none;">
+            </div>
+            <div class="d-nav-section">Colecciones</div>
+            <div class="d-nav-item">
+              <span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+              <span class="d-nav-item-label">Inicio</span>
+            </div>
+            <div class="d-nav-item active">
+              <span class="d-coll-dot" style="background:#f59e0b;"></span>
+              <span class="d-nav-item-label">Productos</span>
+            </div>
+            <div class="d-nav-item">
+              <span class="d-coll-dot" style="background:#3b82f6;"></span>
+              <span class="d-nav-item-label">Noticias</span>
+            </div>
+            <div class="d-nav-item">
+              <span class="d-coll-dot" style="background:#8b5cf6;"></span>
+              <span class="d-nav-item-label">Contactos</span>
+              <span class="d-nav-badge">Solo lectura</span>
+            </div>
+            <div class="d-nav-section danger-label">Sistema</div>
+            <div class="d-nav-item danger-item">
+              <span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+              <span class="d-nav-item-label">Ajustes</span>
+              <span style="font-size:.85rem;">ðŸš«</span>
+            </div>
+          </div>
+          <!-- Contenido -->
+          <div class="d-content">
+            <div class="d-topbar">
+              <div class="d-breadcrumb">
+                <span>Contenido</span>
+                <span class="d-breadcrumb-sep">/</span>
+                <span class="d-breadcrumb-current">Productos</span>
+              </div>
+              <div class="d-topbar-actions">
+                <button class="d-btn d-btn-create" tabindex="-1">+ Crear elemento</button>
+              </div>
+            </div>
+            <div class="d-main">
+              <div class="d-card">
+                <table class="d-table">
+                  <thead>
+                    <tr>
+                      <th style="width:36px;"><span class="d-checkbox"></span></th>
+                      <th>Imagen</th>
+                      <th>Nombre</th>
+                      <th>Estado</th>
+                      <th>Ãšltima modificaciÃ³n</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="d-checkbox"></span></td>
+                      <td><span class="thumb" style="background:linear-gradient(135deg,#4a7c59,#78b591);">N</span></td>
+                      <td style="font-weight:600;">Natura 110</td>
+                      <td>
+                        <span class="d-status">
+                          <span class="d-status-dot published"></span>
+                          Publicado
+                        </span>
+                      </td>
+                      <td style="color:var(--d-text-muted);">hace 2 dÃ­as</td>
+                    </tr>
+                    <tr>
+                      <td><span class="d-checkbox"></span></td>
+                      <td><span class="thumb" style="background:linear-gradient(135deg,#3b6aad,#5b9bd5);">E</span></td>
+                      <td style="font-weight:600;">Eco-Star 110</td>
+                      <td>
+                        <span class="d-status">
+                          <span class="d-status-dot published"></span>
+                          Publicado
+                        </span>
+                      </td>
+                      <td style="color:var(--d-text-muted);">hace 5 dÃ­as</td>
+                    </tr>
+                    <tr>
+                      <td><span class="d-checkbox"></span></td>
+                      <td><span class="thumb" style="background:linear-gradient(135deg,#c07030,#e09050);">S</span></td>
+                      <td style="font-weight:600;">Standard Orange</td>
+                      <td>
+                        <span class="d-status">
+                          <span class="d-status-dot draft"></span>
+                          Borrador
+                        </span>
+                      </td>
+                      <td style="color:var(--d-text-muted);">hace 1 semana</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup B â€” Formulario ediciÃ³n -->
+      <h3 style="font-size:.9rem; font-weight:700; color:var(--vv-text-muted); text-transform:uppercase; letter-spacing:.06em; margin:.75rem 0;">Formulario de ediciÃ³n â€” Natura 110</h3>
+
+      <div class="browser-window" aria-label="Captura simulada del formulario de ediciÃ³n de producto en Directus">
+        <div class="browser-bar">
+          <div class="browser-dots" aria-hidden="true">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">admin.platosvivaz.com/admin/content/pim_products/3</div>
+        </div>
+        <div class="d-shell" aria-hidden="true">
+          <div class="d-sidebar">
+            <div class="d-sidebar-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div class="d-sidebar-icon">âŒ‚</div>
+            <div class="d-sidebar-icon active">â—«</div>
+            <div ><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <div ><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div ><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          </div>
+          <div class="d-nav-panel">
+            <div class="d-nav-search"><input type="text" placeholder="Buscar colecciÃ³n..." tabindex="-1" style="outline:none;"></div>
+            <div class="d-nav-section">Colecciones</div>
+            <div class="d-nav-item"><span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="d-nav-item-label">Inicio</span></div>
+            <div class="d-nav-item active"><span class="d-coll-dot" style="background:#f59e0b;"></span><span class="d-nav-item-label">Productos</span></div>
+            <div class="d-nav-item"><span class="d-coll-dot" style="background:#3b82f6;"></span><span class="d-nav-item-label">Noticias</span></div>
+            <div class="d-nav-item"><span class="d-coll-dot" style="background:#8b5cf6;"></span><span class="d-nav-item-label">Contactos</span><span class="d-nav-badge">Solo lectura</span></div>
+            <div class="d-nav-section danger-label">Sistema</div>
+            <div class="d-nav-item danger-item"><span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="d-nav-item-label">Ajustes</span><span style="font-size:.85rem;">ðŸš«</span></div>
+          </div>
+          <div class="d-content">
+            <div class="d-topbar">
+              <div class="d-breadcrumb">
+                <span>Productos</span>
+                <span class="d-breadcrumb-sep">/</span>
+                <span class="d-breadcrumb-current">Natura 110</span>
+              </div>
+              <div class="d-topbar-actions">
+                <button class="d-btn d-btn-secondary" tabindex="-1">Descartar</button>
+                <button class="d-btn d-btn-primary" tabindex="-1">Guardar</button>
+              </div>
+            </div>
+            <div class="d-main">
+              <div class="d-card" style="padding:1.25rem;">
+                <!-- Campo NOMBRE -->
+                <div class="d-field">
+                  <label class="d-label">
+                    Nombre
+                    <span class="field-tag editable">âœ Puedes editar</span>
+                  </label>
+                  <input class="d-input" type="text" value="Natura 110" readonly tabindex="-1" style="pointer-events:none;">
+                </div>
+                <!-- Campo DESCRIPCIÃ“N -->
+                <div class="d-field">
+                  <label class="d-label">
+                    DescripciÃ³n
+                    <span class="field-tag editable">âœ Puedes editar</span>
+                  </label>
+                  <textarea class="d-textarea" rows="3" readonly tabindex="-1" style="pointer-events:none;">Plato biodegradable fabricado con mezcla de alquitrÃ¡n de carbÃ³n certificada PAH 0. DiÃ¡metro 110 mm, color negro natural. Ideal para entrenamiento y competiciÃ³n.</textarea>
+                </div>
+                <!-- Campo ESTADO -->
+                <div class="d-field">
+                  <label class="d-label">
+                    Estado
+                    <span class="field-tag editable">âœ Puedes editar</span>
+                  </label>
+                  <select class="d-select" tabindex="-1" style="pointer-events:none;">
+                    <option selected>â— Publicado</option>
+                    <option>â—‹ Borrador</option>
+                  </select>
+                </div>
+                <!-- Campo IMÃGENES -->
+                <div class="d-field">
+                  <label class="d-label">
+                    ImÃ¡genes
+                    <span class="field-tag editable">âœ Puedes editar</span>
+                  </label>
+                  <div class="d-upload">
+                    <div class="d-upload-thumb green" aria-hidden="true">ðŸ–¼</div>
+                    <div>
+                      <div style="font-weight:600; color:var(--d-text); font-size:.82rem;">natura-110-principal.jpg</div>
+                      <div style="font-size:.72rem; margin-top:.2rem;">840 Ã— 840 px Â· 124 KB Â· JPG</div>
+                      <div style="font-size:.72rem; color:#3b82f6; margin-top:.3rem;">+ AÃ±adir otra imagen</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- SecciÃ³n tÃ©cnica colapsada -->
+                <div class="d-collapsed">
+                  <span class="d-collapsed-title">
+                    ðŸ”’ Campos tÃ©cnicos
+                    <span class="field-tag locked">ðŸ”’ No tocar</span>
+                  </span>
+                  <span style="color:var(--d-text-muted); font-size:.75rem;">â–¼ Expandir</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <p class="step-body">En el sidebar de Directus, haz clic en <strong>Productos</strong> (icono ðŸ“¦).</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <p class="step-body">Haz clic sobre el nombre del producto que quieres modificar.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <p class="step-body">Edita los campos marcados con <span class="field-tag editable" style="font-size:.72rem;">âœ Puedes editar</span>: nombre, descripciÃ³n, estado e imÃ¡genes.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">4</span>
+          <p class="step-body"><strong>No expandas ni modifiques</strong> la secciÃ³n <em>"Campos tÃ©cnicos"</em> marcada con el candado.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">5</span>
+          <p class="step-body">Haz clic en <strong>Guardar</strong> (botÃ³n morado, arriba a la derecha). La web se actualiza automÃ¡ticamente en menos de 30 segundos.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÃ“N 3 â€” PUBLICAR NOTICIA
+    ========================================================= -->
+    <section class="doc-section" id="s3" aria-labelledby="title-s3">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">03</span>
+        <h2 class="section-title" id="title-s3">Publicar una noticia</h2>
+      </div>
+
+      <p class="section-lead">
+        Las noticias del blog se gestionan desde <code>blog_posts</code>. Puedes crear entradas nuevas o editar las existentes. Recuerda: una noticia en estado <em>Borrador</em> no aparece en la web hasta que la publicas.
+      </p>
+
+      <div class="browser-window" aria-label="Captura simulada del formulario de nueva noticia en Directus">
+        <div class="browser-bar">
+          <div class="browser-dots" aria-hidden="true">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">admin.platosvivaz.com/admin/content/blog_posts/+</div>
+        </div>
+        <div class="d-shell tall" aria-hidden="true">
+          <div class="d-sidebar">
+            <div class="d-sidebar-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div class="d-sidebar-icon">âŒ‚</div>
+            <div class="d-sidebar-icon active">â—«</div>
+            <div ><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <div ><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div ><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          </div>
+          <div class="d-nav-panel">
+            <div class="d-nav-search"><input type="text" placeholder="Buscar colecciÃ³n..." tabindex="-1" style="outline:none;"></div>
+            <div class="d-nav-section">Colecciones</div>
+            <div class="d-nav-item"><span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="d-nav-item-label">Inicio</span></div>
+            <div class="d-nav-item"><span class="d-coll-dot" style="background:#f59e0b;"></span><span class="d-nav-item-label">Productos</span></div>
+            <div class="d-nav-item active"><span class="d-coll-dot" style="background:#3b82f6;"></span><span class="d-nav-item-label">Noticias</span></div>
+            <div class="d-nav-item"><span class="d-coll-dot" style="background:#8b5cf6;"></span><span class="d-nav-item-label">Contactos</span><span class="d-nav-badge">Solo lectura</span></div>
+            <div class="d-nav-section danger-label">Sistema</div>
+            <div class="d-nav-item danger-item"><span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="d-nav-item-label">Ajustes</span><span style="font-size:.85rem;">ðŸš«</span></div>
+          </div>
+          <div class="d-content">
+            <div class="d-topbar">
+              <div class="d-breadcrumb">
+                <span>Noticias</span>
+                <span class="d-breadcrumb-sep">/</span>
+                <span class="d-breadcrumb-current">Nueva entrada</span>
+              </div>
+              <div class="d-topbar-actions">
+                <button class="d-btn d-btn-secondary" tabindex="-1">Descartar</button>
+                <button class="d-btn d-btn-primary" tabindex="-1">Guardar</button>
+              </div>
+            </div>
+            <div class="d-main">
+              <div class="d-card" style="padding:1.25rem;">
+                <div class="d-field">
+                  <label class="d-label">TÃ­tulo</label>
+                  <input class="d-input" type="text" value="Vivaz presenta su nueva lÃ­nea Natura para 2026" readonly tabindex="-1" style="pointer-events:none;">
+                </div>
+                <div class="d-field">
+                  <label class="d-label">Contenido</label>
+                  <div class="d-editor">
+                    <div class="d-editor-toolbar">
+                      <button class="d-editor-tool" tabindex="-1"><strong>B</strong></button>
+                      <button class="d-editor-tool" tabindex="-1"><em>I</em></button>
+                      <button class="d-editor-tool" tabindex="-1"><u>U</u></button>
+                      <div class="d-editor-sep"></div>
+                      <button class="d-editor-tool" tabindex="-1">â‰¡</button>
+                      <button class="d-editor-tool" tabindex="-1">ðŸ”—</button>
+                      <button class="d-editor-tool" tabindex="-1">ðŸ–¼</button>
+                    </div>
+                    <div class="d-editor-body">
+                      <p>Vivaz Clay Targets amplÃ­a su gama ecolÃ³gica con la nueva lÃ­nea Natura, disponible en calibres 110 y 90 mm. Fabricados con materiales biodegradables y certificados con PAH 0 mg/kg, estos platos responden a la creciente demanda de municiÃ³n sostenible en Europa.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-field">
+                  <label class="d-label">Imagen destacada</label>
+                  <div class="d-upload">
+                    <div class="d-upload-thumb preview-img" style="width:80px; height:56px; border-radius:5px; background:linear-gradient(135deg,#4a7c59,#78b591); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">ðŸŒ¿</div>
+                    <div>
+                      <div style="font-weight:600; color:var(--d-text); font-size:.82rem;">natura-2026-hero.jpg</div>
+                      <div style="font-size:.72rem; margin-top:.2rem;">1280 Ã— 720 px Â· 210 KB</div>
+                    </div>
+                  </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                  <div class="d-field">
+                    <label class="d-label">Fecha de publicaciÃ³n</label>
+                    <div class="d-datepicker">
+                      <input class="d-input" type="text" value="14/05/2026" readonly tabindex="-1" style="pointer-events:none;">
+                      <span class="d-datepicker-icon" aria-hidden="true">ðŸ“…</span>
+                    </div>
+                  </div>
+                  <div class="d-field">
+                    <label class="d-label">Estado</label>
+                    <div class="d-toggle-group">
+                      <button class="d-toggle-opt inactive" tabindex="-1">
+                        <span class="d-status-dot draft"></span> Borrador
+                      </button>
+                      <button class="d-toggle-opt active-pub" tabindex="-1">
+                        <span class="d-status-dot published" style="background:rgba(255,255,255,.8);"></span> Publicado
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <p class="step-body">Haz clic en <strong>Noticias</strong> en el sidebar (icono ðŸ“°).</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <p class="step-body">Pulsa <strong>+ Crear elemento</strong> para una noticia nueva, o haz clic en una existente para editarla.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <p class="step-body">Rellena el <strong>TÃ­tulo</strong>, el <strong>Contenido</strong> y sube la <strong>Imagen destacada</strong>.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">4</span>
+          <p class="step-body">Fija la <strong>Fecha de publicaciÃ³n</strong> y cambia el <strong>Estado</strong> a <em>Publicado</em> cuando estÃ© lista para aparecer en la web.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">5</span>
+          <p class="step-body">Haz clic en <strong>Guardar</strong>. La noticia aparecerÃ¡ en la web en unos segundos.</p>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <span class="callout-icon" aria-hidden="true">âœ…</span>
+        <div>Si quieres preparar una noticia con antelaciÃ³n sin que se publique todavÃ­a, guÃ¡rdala en estado <strong>Borrador</strong>. Cuando quieras publicarla, vuelve a editarla y cambia el estado a <strong>Publicado</strong>.</div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÃ“N 4 â€” TRADUCCIONES
+    ========================================================= -->
+    <section class="doc-section" id="s4" aria-labelledby="title-s4">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">04</span>
+        <h2 class="section-title" id="title-s4">Gestionar traducciones</h2>
+      </div>
+
+      <p class="section-lead">
+        Vivaz Clay Targets tiene la web en cuatro idiomas: espaÃ±ol, inglÃ©s, francÃ©s y alemÃ¡n. Cada Ã­tem (producto o noticia) tiene pestaÃ±as de idioma. El <strong>espaÃ±ol es el idioma base</strong>: rellÃ©nalo siempre primero.
+      </p>
+
+      <div class="browser-window" aria-label="Captura simulada de las pestaÃ±as de idioma en Directus">
+        <div class="browser-bar">
+          <div class="browser-dots" aria-hidden="true">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">admin.platosvivaz.com/admin/content/pim_products/3</div>
+        </div>
+        <div class="d-shell" aria-hidden="true">
+          <div class="d-sidebar">
+            <div class="d-sidebar-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div class="d-sidebar-icon">âŒ‚</div>
+            <div class="d-sidebar-icon active">â—«</div>
+            <div ><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <div ><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div ><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          </div>
+          <div class="d-nav-panel">
+            <div class="d-nav-search"><input type="text" placeholder="Buscar colecciÃ³n..." tabindex="-1" style="outline:none;"></div>
+            <div class="d-nav-section">Colecciones</div>
+            <div class="d-nav-item"><span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="d-nav-item-label">Inicio</span></div>
+            <div class="d-nav-item active"><span class="d-coll-dot" style="background:#f59e0b;"></span><span class="d-nav-item-label">Productos</span></div>
+            <div class="d-nav-item"><span class="d-coll-dot" style="background:#3b82f6;"></span><span class="d-nav-item-label">Noticias</span></div>
+            <div class="d-nav-item"><span class="d-coll-dot" style="background:#8b5cf6;"></span><span class="d-nav-item-label">Contactos</span><span class="d-nav-badge">Solo lectura</span></div>
+            <div class="d-nav-section danger-label">Sistema</div>
+            <div class="d-nav-item danger-item"><span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="d-nav-item-label">Ajustes</span><span style="font-size:.85rem;">ðŸš«</span></div>
+          </div>
+          <div class="d-content">
+            <div class="d-topbar">
+              <div class="d-breadcrumb">
+                <span>Productos</span>
+                <span class="d-breadcrumb-sep">/</span>
+                <span class="d-breadcrumb-current">Natura 110 Â· Traducciones</span>
+              </div>
+              <div class="d-topbar-actions">
+                <button class="d-btn d-btn-primary" tabindex="-1">Guardar</button>
+              </div>
+            </div>
+            <div class="d-main">
+              <div class="d-card" style="padding:1.25rem;">
+                <!-- PestaÃ±as idioma -->
+                <div class="d-tabs">
+                  <div class="d-tab active">ðŸ‡ªðŸ‡¸ EspaÃ±ol</div>
+                  <div class="d-tab">ðŸ‡¬ðŸ‡§ English</div>
+                  <div class="d-tab">ðŸ‡«ðŸ‡· FranÃ§ais</div>
+                  <div class="d-tab empty">ðŸ‡©ðŸ‡ª Deutsch <span style="font-size:.65rem; color:#b0bcc8; margin-left:.2rem;">(sin traducir)</span></div>
+                </div>
+                <!-- Contenido pestaÃ±a activa ES -->
+                <div class="d-field">
+                  <label class="d-label">Nombre</label>
+                  <input class="d-input" type="text" value="Natura 110" readonly tabindex="-1" style="pointer-events:none;">
+                </div>
+                <div class="d-field">
+                  <label class="d-label">DescripciÃ³n</label>
+                  <textarea class="d-textarea" rows="3" readonly tabindex="-1" style="pointer-events:none;">Plato biodegradable fabricado con mezcla de alquitrÃ¡n de carbÃ³n certificada PAH 0. DiÃ¡metro 110 mm, color negro natural. Ideal para entrenamiento y competiciÃ³n.</textarea>
+                </div>
+                <!-- Aviso base -->
+                <div class="d-banner info-blue">
+                  <span style="font-size:1rem; flex-shrink:0;">âš ï¸</span>
+                  <span>Rellena siempre primero el <strong>EspaÃ±ol</strong> â€” es el idioma base. El resto de idiomas heredan los datos que falten.</span>
+                </div>
+                <!-- Preview pestaÃ±a EN vacÃ­a -->
+                <div style="background:#f9fafb; border:1px dashed var(--d-input-border); border-radius:var(--radius-sm); padding:.85rem; margin-top:.5rem;">
+                  <div style="font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#b0bcc8; margin-bottom:.6rem;">Ejemplo pestaÃ±a English â€” sin rellenar</div>
+                  <div class="d-field" style="margin-bottom:.6rem;">
+                    <label class="d-label" style="color:#c8d4e0;">Name</label>
+                    <input class="d-input" type="text" placeholder="Sin traducir" readonly tabindex="-1" style="pointer-events:none; color:#b0bcc8; background:#f5f7fa;">
+                  </div>
+                  <div class="d-field" style="margin-bottom:0;">
+                    <label class="d-label" style="color:#c8d4e0;">Description</label>
+                    <textarea class="d-textarea" rows="2" placeholder="Sin traducir" readonly tabindex="-1" style="pointer-events:none; color:#b0bcc8; background:#f5f7fa;"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <p class="step-body">Abre el producto o noticia que quieras traducir y busca la secciÃ³n de <strong>Traducciones</strong>.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <p class="step-body">Empieza siempre por la pestaÃ±a <strong>ðŸ‡ªðŸ‡¸ EspaÃ±ol</strong>. Es el idioma base y no puede estar vacÃ­o.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <p class="step-body">Cambia a <strong>ðŸ‡¬ðŸ‡§ English</strong>, <strong>ðŸ‡«ðŸ‡· FranÃ§ais</strong> y <strong>ðŸ‡©ðŸ‡ª Deutsch</strong> para aÃ±adir las traducciones correspondientes.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">4</span>
+          <p class="step-body">Las pestaÃ±as con fondo morado claro estÃ¡n rellenas. Las marcadas como <em>"sin traducir"</em> en gris muestran el contenido en espaÃ±ol como fallback en la web.</p>
+        </div>
+        <div class="step">
+          <span class="step-num" aria-hidden="true">5</span>
+          <p class="step-body">Haz clic en <strong>Guardar</strong> cuando termines.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÃ“N 5 â€” CONTACTOS / LEADS
+    ========================================================= -->
+    <section class="doc-section" id="s5" aria-labelledby="title-s5">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">05</span>
+        <h2 class="section-title" id="title-s5">Ver contactos y leads</h2>
+      </div>
+
+      <p class="section-lead">
+        Cada vez que alguien rellena el formulario de contacto de la web, su informaciÃ³n se guarda automÃ¡ticamente en la colecciÃ³n <code>crm_leads</code>. Esta secciÃ³n es de <strong>solo lectura</strong>.
+      </p>
+
+      <div class="browser-window" aria-label="Captura simulada de la tabla de leads en Directus">
+        <div class="browser-bar">
+          <div class="browser-dots" aria-hidden="true">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">admin.platosvivaz.com/admin/content/crm_leads</div>
+        </div>
+        <div class="d-shell" aria-hidden="true" style="height:460px;">
+          <div class="d-sidebar">
+            <div class="d-sidebar-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div class="d-sidebar-icon">âŒ‚</div>
+            <div class="d-sidebar-icon active">â—«</div>
+            <div ><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <div ><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div ><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          </div>
+          <div class="d-nav-panel">
+            <div class="d-nav-search"><input type="text" placeholder="Buscar colecciÃ³n..." tabindex="-1" style="outline:none;"></div>
+            <div class="d-nav-section">Colecciones</div>
+            <div class="d-nav-item"><span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="d-nav-item-label">Inicio</span></div>
+            <div class="d-nav-item"><span class="d-coll-dot" style="background:#f59e0b;"></span><span class="d-nav-item-label">Productos</span></div>
+            <div class="d-nav-item"><span class="d-coll-dot" style="background:#3b82f6;"></span><span class="d-nav-item-label">Noticias</span></div>
+            <div class="d-nav-item active"><span class="d-coll-dot" style="background:#8b5cf6;"></span><span class="d-nav-item-label">Contactos</span><span class="d-nav-badge">Solo lectura</span></div>
+            <div class="d-nav-section danger-label">Sistema</div>
+            <div class="d-nav-item danger-item"><span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="d-nav-item-label">Ajustes</span><span style="font-size:.85rem;">ðŸš«</span></div>
+          </div>
+          <div class="d-content">
+            <div class="d-topbar">
+              <div class="d-breadcrumb">
+                <span>Contenido</span>
+                <span class="d-breadcrumb-sep">/</span>
+                <span class="d-breadcrumb-current">Contactos / Leads</span>
+              </div>
+              <!-- Sin botÃ³n Crear elemento -->
+            </div>
+            <div class="d-main">
+              <div class="d-banner info-blue" style="margin-bottom:1rem;">
+                <span style="font-size:1rem; flex-shrink:0;">â„¹ï¸</span>
+                <span>Esta secciÃ³n es de <strong>solo lectura</strong>. No elimines ningÃºn registro â€” los datos se exportan mensualmente.</span>
+              </div>
+              <div class="d-card">
+                <table class="d-table">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Email</th>
+                      <th>TelÃ©fono</th>
+                      <th>Empresa</th>
+                      <th>Mercado</th>
+                      <th>Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight:600;">Laurent Dubois</td>
+                      <td style="font-family:var(--font-mono); font-size:.75rem;">l.dubois@chasse.fr</td>
+                      <td style="color:var(--d-text-muted); font-size:.8rem;">+33 6 12 Â·Â·Â·</td>
+                      <td>Chasse &amp; Nature</td>
+                      <td><span style="font-size:.85rem;">ðŸŒ</span> Internacional</td>
+                      <td style="color:var(--d-text-muted); font-size:.8rem; white-space:nowrap;">12/05/2026</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:600;">Carlos Medina</td>
+                      <td style="font-family:var(--font-mono); font-size:.75rem;">cmedina@federacion.es</td>
+                      <td style="color:var(--d-text-muted); font-size:.8rem;">+34 678 Â·Â·Â·</td>
+                      <td>Fed. Caza Murcia</td>
+                      <td><span style="font-size:.85rem;">ðŸ‡ªðŸ‡¸</span> Nacional</td>
+                      <td style="color:var(--d-text-muted); font-size:.8rem; white-space:nowrap;">10/05/2026</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight:600;">Hans Weber</td>
+                      <td style="font-family:var(--font-mono); font-size:.75rem;">hweber@jagd.de</td>
+                      <td style="color:var(--d-text-muted); font-size:.8rem;">+49 172 Â·Â·Â·</td>
+                      <td>Jagd Bayern</td>
+                      <td><span style="font-size:.85rem;">ðŸŒ</span> Internacional</td>
+                      <td style="color:var(--d-text-muted); font-size:.8rem; white-space:nowrap;">08/05/2026</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout danger">
+        <span class="callout-icon" aria-hidden="true">ðŸš«</span>
+        <div>
+          <strong>No elimines registros.</strong> Aunque el sistema te lo permita, borrar un lead destruye informaciÃ³n de clientes potenciales que puede ser valiosa. Si necesitas limpiar datos, escrÃ­benos primero.
+        </div>
+      </div>
+
+      <div class="callout info">
+        <span class="callout-icon" aria-hidden="true">ðŸ’¡</span>
+        <div>
+          Los leads tambiÃ©n llegan por email a tu bandeja de entrada. La tabla de Directus es el archivo completo para consulta histÃ³rica.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÃ“N 6 â€” QUÃ‰ NO TOCAR
+    ========================================================= -->
+    <section class="doc-section" id="s6" aria-labelledby="title-s6">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">06</span>
+        <h2 class="section-title" id="title-s6">QuÃ© NO tocar</h2>
+      </div>
+
+      <p class="section-lead">
+        Directus da acceso a secciones que son exclusivamente de uso tÃ©cnico. Modificarlas puede romper la web o el sistema de envÃ­o de formularios.
+      </p>
+
+      <div class="danger-card" role="alert">
+        <div class="danger-card-icon" aria-hidden="true">âš ï¸</div>
+        <h3>Zonas de riesgo</h3>
+        <p>Modificar estas secciones puede hacer que la web deje de funcionar. Si necesitas algo relacionado con ellas, contacta con Piensaenweb antes de tocar cualquier cosa.</p>
+      </div>
+
+      <!-- Mockup sidebar con overlay rojo en colecciones peligrosas -->
+      <div class="browser-window" aria-label="Captura simulada del sidebar de Directus con las colecciones prohibidas marcadas">
+        <div class="browser-bar">
+          <div class="browser-dots" aria-hidden="true">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+          </div>
+          <div class="browser-url">admin.platosvivaz.com/admin</div>
+        </div>
+        <div style="display:flex; height:380px; background:var(--d-content-bg);" aria-hidden="true">
+          <!-- Solo sidebar para este mockup -->
+          <div class="d-sidebar">
+            <div class="d-sidebar-icon active"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div class="d-sidebar-icon">âŒ‚</div>
+            <div class="d-sidebar-icon active">â—«</div>
+            <div ><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+            <div ><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="d-sidebar-sep"></div>
+            <div ><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          </div>
+          <div class="d-nav-panel" style="width:260px;">
+            <div class="d-nav-search"><input type="text" placeholder="Buscar colecciÃ³n..." tabindex="-1" style="outline:none;"></div>
+            <div class="d-nav-section">Colecciones â€” uso normal</div>
+            <div class="d-nav-item"><span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span class="d-nav-item-label">Inicio</span></div>
+            <div class="d-nav-item" style="color:#22c55e;"><span class="d-coll-dot" style="background:#f59e0b;"></span><span class="d-nav-item-label">Productos</span> <span style="font-size:.75rem; color:#22c55e; margin-left:auto;">âœ“ OK</span></div>
+            <div class="d-nav-item" style="color:#22c55e;"><span class="d-coll-dot" style="background:#3b82f6;"></span><span class="d-nav-item-label">Noticias</span> <span style="font-size:.75rem; color:#22c55e; margin-left:auto;">âœ“ OK</span></div>
+            <div class="d-nav-item" style="color:#3b82f6;"><span class="d-coll-dot" style="background:#8b5cf6;"></span><span class="d-nav-item-label">Contactos</span> <span style="font-size:.65rem; color:#3b82f6; margin-left:auto;">Solo lectura</span></div>
+
+            <div class="d-nav-section danger-label">Zonas de riesgo â€” NO modificar</div>
+            <div class="d-nav-item d-danger-overlay" style="color:rgba(239,68,68,.75); position:relative;">
+              <span class="d-nav-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+              <span class="d-nav-item-label">Ajustes del sistema</span>
+              <span class="d-danger-badge">ðŸš«</span>
+            </div>
+            <div class="d-nav-item d-danger-overlay" style="color:rgba(239,68,68,.75); position:relative;">
+              <span class="d-nav-item-icon">ðŸ”—</span>
+              <span class="d-nav-item-label">Relaciones / Flows</span>
+              <span class="d-danger-badge">ðŸš«</span>
+            </div>
+            <div class="d-nav-item d-danger-overlay" style="color:rgba(239,68,68,.75); position:relative;">
+              <span class="d-nav-item-icon">ðŸ‘¤</span>
+              <span class="d-nav-item-label">Roles y permisos</span>
+              <span class="d-danger-badge">ðŸš«</span>
+            </div>
+            <div class="d-nav-item d-danger-overlay" style="color:rgba(239,68,68,.75); position:relative;">
+              <span class="d-nav-item-icon">ðŸ—„</span>
+              <span class="d-nav-item-label">Modelo de datos</span>
+              <span class="d-danger-badge">ðŸš«</span>
+            </div>
+          </div>
+          <!-- Panel derecho informativo -->
+          <div style="flex:1; padding:1.5rem;">
+            <div style="background:#fff5f5; border:1px solid #fecaca; border-radius:var(--radius-md); padding:1.25rem; max-width:340px;">
+              <div style="font-size:1.5rem; margin-bottom:.6rem;">ðŸš«</div>
+              <div style="font-size:.82rem; font-weight:700; color:#991b1b; margin-bottom:.5rem;">Colecciones prohibidas</div>
+              <ul style="font-size:.78rem; color:#7f1d1d; line-height:1.7; margin-left:1rem;">
+                <li>Ajustes del sistema</li>
+                <li>Relaciones / Flows (automatizaciones)</li>
+                <li>Roles y permisos de usuario</li>
+                <li>Modelo de datos (estructura de tablas)</li>
+                <li>Webhooks y endpoints de API</li>
+              </ul>
+              <div style="font-size:.75rem; color:#b91c1c; margin-top:.75rem; padding-top:.75rem; border-top:1px solid #fecaca;">
+                Si necesitas algo en estas secciones, escribe a <strong>claudio@piensaenweb.com</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.5rem;">
+        <h3 style="font-size:.95rem; font-weight:700; color:var(--vv-text); margin-bottom:1rem;">Resumen de lo que puedes y no puedes hacer</h3>
+        <table style="width:100%; border-collapse:collapse; font-size:.875rem;">
+          <thead>
+            <tr style="background:var(--vv-green-light);">
+              <th style="text-align:left; padding:.65rem 1rem; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--vv-green); border-bottom:1px solid var(--vv-border);">AcciÃ³n</th>
+              <th style="text-align:center; padding:.65rem 1rem; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--vv-green); border-bottom:1px solid var(--vv-border);">Permitido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--vv-border-light);">
+              <td style="padding:.6rem 1rem;">Editar nombre o descripciÃ³n de un producto</td>
+              <td style="text-align:center; padding:.6rem 1rem;">âœ…</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--vv-border-light); background:#fafaf8;">
+              <td style="padding:.6rem 1rem;">Subir imagen de producto</td>
+              <td style="text-align:center; padding:.6rem 1rem;">âœ…</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--vv-border-light);">
+              <td style="padding:.6rem 1rem;">Crear o editar noticias</td>
+              <td style="text-align:center; padding:.6rem 1rem;">âœ…</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--vv-border-light); background:#fafaf8;">
+              <td style="padding:.6rem 1rem;">AÃ±adir traducciones</td>
+              <td style="text-align:center; padding:.6rem 1rem;">âœ…</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--vv-border-light);">
+              <td style="padding:.6rem 1rem;">Consultar leads recibidos</td>
+              <td style="text-align:center; padding:.6rem 1rem;">âœ… (solo lectura)</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--vv-border-light); background:#fff5f5;">
+              <td style="padding:.6rem 1rem; color:#991b1b;">Modificar la estructura de una colecciÃ³n</td>
+              <td style="text-align:center; padding:.6rem 1rem;">ðŸš«</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--vv-border-light); background:#fff5f5;">
+              <td style="padding:.6rem 1rem; color:#991b1b;">Cambiar roles o permisos</td>
+              <td style="text-align:center; padding:.6rem 1rem;">ðŸš«</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--vv-border-light); background:#fff5f5;">
+              <td style="padding:.6rem 1rem; color:#991b1b;">Tocar Ajustes del sistema</td>
+              <td style="text-align:center; padding:.6rem 1rem;">ðŸš«</td>
+            </tr>
+            <tr style="background:#fff5f5;">
+              <td style="padding:.6rem 1rem; color:#991b1b;">Eliminar leads o registros CRM</td>
+              <td style="text-align:center; padding:.6rem 1rem;">ðŸš«</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÃ“N 7 â€” FAQ
+    ========================================================= -->
+    <section class="doc-section" id="s7" aria-labelledby="title-s7">
+      <div class="section-header">
+        <span class="section-number" aria-hidden="true">07</span>
+        <h2 class="section-title" id="title-s7">Preguntas frecuentes</h2>
+      </div>
+
+      <p class="section-lead">
+        Respuestas a las dudas mÃ¡s habituales al gestionar el CMS.
+      </p>
+
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span>Â¿CuÃ¡nto tarda en actualizarse la web despuÃ©s de guardar?</span>
+            <span class="faq-chevron" aria-hidden="true">â–¾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Normalmente entre 15 y 30 segundos. La web de Vivaz usa un sistema de cachÃ© que se regenera automÃ¡ticamente al guardar cualquier cambio en Directus.</p>
+            <ol>
+              <li>Haz clic en <strong>Guardar</strong> (botÃ³n morado, como se ve en <span class="faq-ref">SecciÃ³n 2</span> y <span class="faq-ref">SecciÃ³n 3</span>).</li>
+              <li>Espera unos 30 segundos.</li>
+              <li>Recarga la pÃ¡gina de la web con <kbd>Ctrl+F5</kbd> (o <kbd>Cmd+Shift+R</kbd> en Mac) para forzar la actualizaciÃ³n del navegador.</li>
+            </ol>
+            <p>Si tras 2 minutos el cambio no aparece, escrÃ­benos.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span>Â¿QuÃ© pasa si guardo una noticia en Borrador por error?</span>
+            <span class="faq-chevron" aria-hidden="true">â–¾</span>
+          </button>
+          <div class="faq-answer">
+            <p>No pasa nada irreversible. Los borradores no son visibles en la web. Para publicarla:</p>
+            <ol>
+              <li>Ve a <strong>Noticias</strong> en el sidebar (como se muestra en <span class="faq-ref">SecciÃ³n 3</span>).</li>
+              <li>Haz clic sobre la noticia que estÃ¡ en borrador.</li>
+              <li>Cambia el campo <strong>Estado</strong> de <em>Borrador</em> a <em>Publicado</em>.</li>
+              <li>Haz clic en <strong>Guardar</strong>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span>Â¿Puedo subir cualquier formato de imagen?</span>
+            <span class="faq-chevron" aria-hidden="true">â–¾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Directus acepta JPG, PNG, WebP y AVIF. Para mejores resultados:</p>
+            <ol>
+              <li>Usa <strong>JPG o WebP</strong> para fotografÃ­as de productos.</li>
+              <li>Sube imÃ¡genes de al menos <strong>1000 px de ancho</strong>. El sistema las redimensiona automÃ¡ticamente.</li>
+              <li>Evita archivos mayores de <strong>5 MB</strong> para no ralentizar la carga.</li>
+              <li>Sobre los campos de imagen editables, verÃ¡s el indicador <span class="field-tag editable" style="font-size:.72rem;">âœ Puedes editar</span> como se muestra en <span class="faq-ref">SecciÃ³n 2</span>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span>Â¿CÃ³mo sÃ© si un producto estÃ¡ visible en la web?</span>
+            <span class="faq-chevron" aria-hidden="true">â–¾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Mira el campo <strong>Estado</strong> en el formulario del producto (visible en <span class="faq-ref">SecciÃ³n 2</span>):</p>
+            <ol>
+              <li><span class="d-status" style="font-size:.85rem;"><span class="d-status-dot published" style="display:inline-block;"></span> <strong>Publicado</strong></span> â€” el producto aparece en la web.</li>
+              <li><span class="d-status" style="font-size:.85rem;"><span class="d-status-dot draft" style="display:inline-block;"></span> <strong>Borrador</strong></span> â€” el producto existe en el CMS pero no es visible para los visitantes.</li>
+            </ol>
+            <p>Para activarlo, cambia el estado a <em>Publicado</em> y guarda.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" type="button">
+            <span>Â¿QuÃ© hago si algo deja de funcionar en la web?</span>
+            <span class="faq-chevron" aria-hidden="true">â–¾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Primero, no hagas mÃ¡s cambios para no empeorar la situaciÃ³n. Luego:</p>
+            <ol>
+              <li>Anota quÃ© acciÃ³n estabas realizando cuando ocurriÃ³ el problema.</li>
+              <li>Haz una captura de pantalla del error (si hay algÃºn mensaje visible).</li>
+              <li>Escribe a <a href="mailto:claudio@piensaenweb.com" style="color:var(--vv-green);">claudio@piensaenweb.com</a> con la descripciÃ³n y la captura.</li>
+            </ol>
+            <p>Respondemos en menos de 24 horas en dÃ­as laborables. Para urgencias, llama directamente.</p>
+          </div>
+        </div>
+
+      </div><!-- /faq-list -->
+    </section>
+
+  </main>
+</div><!-- /layout -->
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // â”€â”€ HAMBURGER MENU â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    var hamburger = document.querySelector('.hamburger');
+    var sidebar   = document.getElementById('sidebar');
+    var overlay   = document.getElementById('sidebar-overlay');
+
+    function openSidebar() {
+      sidebar.classList.add('open');
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      sidebar.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburger.addEventListener('click', function () {
+      if (sidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    });
+
+    overlay.addEventListener('click', closeSidebar);
+
+    // Cerrar con Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+        closeSidebar();
+        hamburger.focus();
+      }
+    });
+
+    // â”€â”€ ACTIVE SECTION (IntersectionObserver) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    var navLinks = document.querySelectorAll('.sidebar nav a[data-section]');
+    var sections = document.querySelectorAll('.doc-section[id]');
+
+    var observerOptions = {
+      rootMargin: '-60px 0px -60% 0px',
+      threshold: 0
+    };
+
+    var activeId = null;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          activeId = entry.target.id;
+          updateActive(activeId);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(function (section) {
+      observer.observe(section);
+    });
+
+    function updateActive(id) {
+      navLinks.forEach(function (link) {
+        var isActive = link.getAttribute('data-section') === id;
+        link.classList.toggle('active', isActive);
+        link.setAttribute('aria-current', isActive ? 'true' : 'false');
+      });
+    }
+
+    // â”€â”€ FAQ ACORDEÃ“N â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    var faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(function (item) {
+      var btn    = item.querySelector('.faq-question');
+      var answer = item.querySelector('.faq-answer');
+
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+
+        // Cerrar todos
+        faqItems.forEach(function (i) {
+          i.classList.remove('open');
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Abrir el actual si estaba cerrado
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // â”€â”€ CERRAR SIDEBAR AL NAVEGAR (mÃ³vil) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 720) {
+          closeSidebar();
+        }
+      });
+    });
+
+  });
+</script>
+</body>
+</html>

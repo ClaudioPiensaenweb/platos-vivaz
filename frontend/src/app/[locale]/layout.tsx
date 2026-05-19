@@ -9,9 +9,11 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFAB from "@/components/contact/WhatsAppFAB";
+import CookieBanner from "@/components/legal/CookieBanner";
+import GTMScript, { GTMNoScript } from "@/components/analytics/GTMScript";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import PageTransition from "@/components/providers/PageTransition";
-import { organizationJsonLd } from "@/lib/json-ld";
+import { organizationJsonLd, webSiteJsonLd } from "@/lib/json-ld";
 import { getBrandData } from "@/lib/directus";
 import { sharedOpenGraph } from "@/lib/metadata";
 import "../globals.css";
@@ -55,8 +57,18 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(siteUrl),
+    robots: siteUrl.includes("platosvivaz.com") && !siteUrl.includes("piensalab")
+      ? { index: true, follow: true }
+      : { index: false, follow: false },
     title: t("title"),
     description: t("description"),
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "48x48" },
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    },
     alternates: {
       canonical,
       languages: {
@@ -91,10 +103,14 @@ export default async function LocaleLayout({
   const messages = (await import(`@/messages/${locale}.json`)).default;
 
   // Fetch brand data for WhatsApp number (fallback to known number if unavailable)
-  let whatsappNumber = "+34618757580";
+  let whatsappNumber = "+34606172746";
   try {
     const brand = await getBrandData();
-    if (brand?.whatsapp) whatsappNumber = brand.whatsapp;
+    if (brand?.phone_export) {
+      whatsappNumber = brand.phone_export;
+    } else if (brand?.whatsapp) {
+      whatsappNumber = brand.whatsapp;
+    }
   } catch {
     // Use fallback number
   }
@@ -102,9 +118,15 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={`${quablo.variable} ${manrope.variable} antialiased`}>
+        <GTMNoScript />
+        <GTMScript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd()) }}
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <SmoothScroll>
@@ -116,6 +138,7 @@ export default async function LocaleLayout({
             </main>
             <Footer />
             <WhatsAppFAB number={whatsappNumber} />
+            <CookieBanner />
           </SmoothScroll>
         </NextIntlClientProvider>
       </body>

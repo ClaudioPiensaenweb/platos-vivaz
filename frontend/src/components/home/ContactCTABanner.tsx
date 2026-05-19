@@ -6,9 +6,9 @@ export default async function ContactCTABanner() {
   const t = await getTranslations("home");
 
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full px-4 pt-4">
       <div
-        className="relative grid min-h-[572px] overflow-hidden md:grid-cols-2"
+        className="relative grid min-h-[572px] overflow-hidden rounded-3xl md:grid-cols-2"
         style={{
           backgroundImage:
             "linear-gradient(26.6deg, rgb(3, 68, 29) 43.7%, rgb(36, 46, 34) 86.4%)",

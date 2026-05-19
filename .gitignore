@@ -1,0 +1,20 @@
+.env
+.env.deploy
+.env.dokploy
+.mcp.json
+docker-compose.override.yml
+node_modules
+.next
+deploy.py
+backend/remote-*.py
+frontend/.env*.local
+frontend/.env.production.local
+
+# Claude Code local config
+.claude/
+
+# Planning internals (logs, cache, session notes)
+.planning/.engram-cache.json
+.planning/subagent-log.jsonl
+.planning/memoria/
+.planning/codebase/

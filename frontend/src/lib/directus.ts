@@ -65,7 +65,29 @@ export async function getProducts(options?: {
     })
   );
 
-  return items as unknown as Product[];
+  return (items as unknown as Product[]).map(normalizeProduct);
+}
+
+/** Normalize JSON fields that Directus may return as strings */
+function normalizeProduct(p: Product): Product {
+  // logistics_data may come as JSON string from some DB drivers
+  if (typeof p.logistics_data === "string") {
+    try {
+      p.logistics_data = JSON.parse(p.logistics_data);
+    } catch {
+      p.logistics_data = null;
+    }
+  }
+  // certifications may come as JSON string
+  if (typeof p.certifications === "string") {
+    try {
+      p.certifications = JSON.parse(p.certifications);
+    } catch {
+      p.certifications = null;
+    }
+  }
+  // banned_substances (regulation) similar pattern
+  return p;
 }
 
 export async function getProductBySlug(slug: string) {
@@ -77,7 +99,8 @@ export async function getProductBySlug(slug: string) {
     })
   );
 
-  return (items as unknown as Product[])[0] || null;
+  const product = (items as unknown as Product[])[0] || null;
+  return product ? normalizeProduct(product) : null;
 }
 
 export async function getDisciplines() {
@@ -119,8 +142,16 @@ export async function getBlogPostBySlug(slug: string) {
 }
 
 export async function getRegulationData() {
-  const data = await client.request(readSingleton("web_regulation"));
-  return data as unknown as RegulationData;
+  const data = await client.request(readSingleton("web_regulation")) as unknown as RegulationData;
+  // banned_substances may come as JSON string
+  if (typeof data?.banned_substances === "string") {
+    try {
+      data.banned_substances = JSON.parse(data.banned_substances);
+    } catch {
+      data.banned_substances = [];
+    }
+  }
+  return data;
 }
 
 export async function getBrandData() {
@@ -138,6 +169,25 @@ export async function getVideos() {
     })
   );
   return items as unknown as WebVideo[];
+}
+
+/**
+ * Merge the Directus translations array for a given locale into the base
+ * product fields. Falls back to the base (Spanish) value when the translation
+ * is absent or null/empty so the page never shows a blank field.
+ */
+export function applyProductTranslation(product: Product, locale: string): Product {
+  if (!product.translations?.length || locale === "es") return product;
+  const tr = product.translations.find((t) => t.languages_code === locale);
+  if (!tr) return product;
+  return {
+    ...product,
+    name:              tr.name              || product.name,
+    subtitle:          tr.subtitle          ?? product.subtitle,
+    description_short: tr.description_short ?? product.description_short,
+    description:       tr.description       ?? product.description,
+    badge_text:        tr.badge_text        ?? product.badge_text,
+  };
 }
 
 export default client;

@@ -7,7 +7,8 @@ export default async function ContactFormSection() {
   const tContact = await getTranslations("contact");
 
   return (
-    <section id="contacto" className="bg-cream-light py-20 lg:py-28">
+    <section id="contacto" className="px-4 pt-4">
+      <div className="overflow-hidden rounded-3xl bg-cream-light py-20 lg:py-28">
       <Container>
         <div className="relative grid gap-12 lg:grid-cols-[3fr_2fr]">
           {/* Vertical separator line — matches Figma */}
@@ -36,9 +37,9 @@ export default async function ContactFormSection() {
             </div>
 
             {/* Nacional / Internacional side by side */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               {/* Nacional */}
-              <div>
+              <div className="min-w-0">
                 <h3 className="mb-4 text-[18px] font-bold text-primary uppercase">
                   {t("contactForm.national")}
                 </h3>
@@ -57,15 +58,15 @@ export default async function ContactFormSection() {
                   {t("contactForm.email")}
                 </p>
                 <a
-                  href="mailto:export@platosvivaz.com"
-                  className="block font-body text-[18px] font-light text-primary underline transition-colors hover:text-accent"
+                  href="mailto:info@platosvivaz.com"
+                  className="block break-all font-body text-[18px] font-light text-primary underline transition-colors hover:text-accent"
                 >
-                  export@platosvivaz.com
+                  info@platosvivaz.com
                 </a>
               </div>
 
               {/* Internacional */}
-              <div>
+              <div className="min-w-0">
                 <h3 className="mb-4 text-[18px] font-bold text-primary uppercase">
                   {t("contactForm.international")}
                 </h3>
@@ -85,7 +86,7 @@ export default async function ContactFormSection() {
                 </p>
                 <a
                   href="mailto:sales@vivazclaytargets.com"
-                  className="block font-body text-[18px] font-light text-primary underline transition-colors hover:text-accent"
+                  className="block break-all font-body text-[18px] font-light text-primary underline transition-colors hover:text-accent"
                 >
                   sales@vivazclaytargets.com
                 </a>
@@ -102,6 +103,7 @@ export default async function ContactFormSection() {
           </div>
         </div>
       </Container>
+      </div>
     </section>
   );
 }

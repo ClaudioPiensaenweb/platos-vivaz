@@ -5,6 +5,7 @@ import Button from "@/components/ui/Button";
 import InView from "@/components/ui/InView";
 import PageHero from "@/components/ui/PageHero";
 import TimelineSection from "@/components/about/TimelineSection";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -116,7 +117,12 @@ const VALUE_ICONS = {
   valueService: { Icon: ServiceIcon, bg: "bg-primary-dark", text: "text-warm-white" },
 } as const;
 
-export default async function SobreVivazPage() {
+export default async function SobreVivazPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   const t = await getTranslations("about");
 
   const timelineEvents = [
@@ -141,6 +147,7 @@ export default async function SobreVivazPage() {
 
   return (
     <main>
+      <BreadcrumbSchema locale={locale} items={[{ name: "Sobre Vivaz", path: "/sobre-vivaz" }]} />
       <PageHero
         title={t("title")}
         subtitle={t("subtitle")}
@@ -153,10 +160,10 @@ export default async function SobreVivazPage() {
             <InView animation="slide-in-left">
               <div className="overflow-hidden rounded-[24px]">
                 <Image
-                  src="/img/why-quality.png"
+                  src="/img/vivaz-nuestra-historia.jpg"
                   alt={t("historyTitle")}
-                  width={464}
-                  height={275}
+                  width={1200}
+                  height={900}
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
                 />
@@ -218,7 +225,7 @@ export default async function SobreVivazPage() {
             <InView animation="slide-in-right" className="order-1 lg:order-2">
               <div className="overflow-hidden rounded-[24px]">
                 <Image
-                  src="/img/why-sustainability.png"
+                  src="/img/why-sustainability-v2.png"
                   alt={t("pioneerTitle")}
                   width={481}
                   height={275}
@@ -291,20 +298,27 @@ export default async function SobreVivazPage() {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="bg-cream py-16 text-center lg:py-20">
-        <Container>
-          <InView animation="fade-in-up">
-            <h2 className="mb-2 text-[14px] font-medium uppercase tracking-[3px] text-primary/60">{t("brandName")}</h2>
-            <p className="mb-8 text-[24px] font-bold text-primary lg:text-[28px]">
-              {t("title")}
-            </p>
-            <Button href="/contacto" variant="primary" size="lg">
-              {t("title")}
-            </Button>
-          </InView>
-        </Container>
-      </section>
+      {/* CTA — rounded card matching footer */}
+      <div className="px-4 pt-4">
+        <div className="relative overflow-hidden rounded-3xl bg-primary-dark py-20 lg:py-24">
+          <div className="absolute inset-0 opacity-15">
+            <Image src="/img/commitment-bg.png" alt="" fill sizes="100vw" className="object-cover" />
+          </div>
+          <Container className="relative z-10 text-center">
+            <InView animation="fade-in-up">
+              <h2 className="mb-4 text-[24px] font-bold text-warm-white lg:text-[30px]">
+                {t("ctaTitle")}
+              </h2>
+              <p className="mx-auto mb-8 max-w-xl font-body text-[17px] text-warm-white/70">
+                {t("ctaDesc")}
+              </p>
+              <Button href="/contacto" variant="primary" size="lg">
+                {t("ctaButton")}
+              </Button>
+            </InView>
+          </Container>
+        </div>
+      </div>
     </main>
   );
 }

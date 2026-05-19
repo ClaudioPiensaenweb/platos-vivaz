@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
-import { Link } from "@/i18n/navigation";
+import { Link, type AppHref } from "@/i18n/navigation";
 import InView from "@/components/ui/InView";
 
 /* L-shaped corner mark from briefing/v2/marca-esquina.svg — matches Figma design */
@@ -46,29 +46,31 @@ function SeparatorCrosshair({ className = "" }: { className?: string }) {
   );
 }
 
-const ranges = [
+const ranges: {
+  key: "natura" | "ecostar" | "vivazRange";
+  href: AppHref;
+  type: "chips" | "product";
+  productImage?: string;
+  chips: { src: string; offset: number; rotate: number; size: number; z?: number }[];
+}[] = [
   {
-    key: "natura" as const,
-    href: "/productos/natura-standard",
-    type: "chips" as const,
-    chips: [
-      { src: "/img/vivaz-clay-04-3.png", offset: 0, rotate: -10, size: 138 },
-      { src: "/img/vivaz-clay-05-3.png", offset: 100, rotate: 8, size: 138 },
-    ],
+    key: "natura",
+    href: { pathname: "/productos/[slug]", params: { slug: "natura-110" } },
+    type: "product",
+    productImage: "/img/products/natura.png",
+    chips: [],
   },
   {
-    key: "ecostar" as const,
-    href: "/productos/eco-star-standard",
-    type: "chips" as const,
-    chips: [
-      { src: "/img/vivaz-clay-04-4.png", offset: 0, rotate: -8, size: 131 },
-      { src: "/img/vivaz-clay-11-3.png", offset: 97, rotate: 10, size: 131 },
-    ],
+    key: "ecostar",
+    href: { pathname: "/productos/[slug]", params: { slug: "eco-star-110" } },
+    type: "product",
+    productImage: "/img/products/eco-star.png",
+    chips: [],
   },
   {
-    key: "vivazRange" as const,
+    key: "vivazRange",
     href: "/productos",
-    type: "product" as const,
+    type: "product",
     productImage: "/img/vivaz-range-product.png",
     chips: [],
   },
@@ -104,9 +106,10 @@ export default function ProductRangeStrip() {
                 >
                   {/* Product visual with reticle overlay */}
                   <div
-                    className="relative mx-auto flex items-end justify-center"
+                    className="relative mx-auto flex items-center justify-center"
                     style={{
-                      width: range.type === "product" ? 430 : 260,
+                      width: 260,
+                      maxWidth: 260,
                       height: 174,
                     }}
                   >
@@ -114,18 +117,20 @@ export default function ProductRangeStrip() {
                       <Image
                         src={range.productImage}
                         alt=""
-                        width={430}
-                        height={174}
-                        className="object-contain transition-transform duration-500 group-hover:scale-105"
+                        width={160}
+                        height={160}
+                        className="h-[120px] w-auto object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-[0px_4px_9px_rgba(0,0,0,0.15)]"
                       />
                     ) : (
                       range.chips.map((chip, i) => (
                         <div
                           key={i}
-                          className="absolute bottom-0 transition-transform duration-500 group-hover:scale-110"
+                          className="absolute transition-transform duration-500 group-hover:scale-110"
                           style={{
                             left: chip.offset,
-                            transform: `rotate(${chip.rotate}deg)`,
+                            top: "50%",
+                            transform: `translateY(-50%) rotate(${chip.rotate}deg)`,
+                            zIndex: chip.z ?? i,
                           }}
                         >
                           <Image

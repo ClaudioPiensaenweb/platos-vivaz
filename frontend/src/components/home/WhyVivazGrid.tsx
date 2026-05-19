@@ -8,14 +8,14 @@ const pillars = [
   {
     key: "quality" as const,
     descKey: "qualityDesc" as const,
-    image: "/img/why-quality.png",
+    image: "/img/vivaz-calidad.jpg",
     width: 464,
     height: 275,
   },
   {
     key: "sustainability" as const,
     descKey: "sustainabilityDesc" as const,
-    image: "/img/why-sustainability-v2.png",
+    image: "/img/vivaz-clay-targets-sustainability-home.jpg",
     width: 481,
     height: 275,
   },

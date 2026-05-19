@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
+import { Link, type AppHref } from "@/i18n/navigation";
 import Badge from "@/components/ui/Badge";
 import MotionImage from "@/components/ui/MotionImage";
 import DisciplineBadge from "@/components/product/DisciplineBadge";
@@ -9,7 +9,7 @@ import type { Product } from "@/lib/types";
 interface ProductCardProps {
   product: Product;
   /** Override the link destination (default: /productos/[slug]) */
-  href?: string;
+  href?: AppHref;
   /** Labels for PAH badges */
   pahFreeLabel?: string;
   pahCompliantLabel?: string;
@@ -23,12 +23,19 @@ export default function ProductCard({
 }: ProductCardProps) {
   const isNatura = product.range_category === "Premium Natura";
   const bgColor = isNatura ? "bg-accent/10" : "bg-primary/10";
-  const cardHref = href ?? `/productos/${product.slug}`;
+  const cardHref: AppHref = href ?? {
+    pathname: "/productos/[slug]",
+    params: { slug: product.slug },
+  };
 
   const isPahFree = product.pah_level === "0 mg/kg - Free";
+  const singleSportingBadgeProducts = new Set(["natura-rabbit", "eco-star-110", "eco-star-standard"]);
+  const displayDisciplines = singleSportingBadgeProducts.has(product.slug)
+    ? (product.disciplines ?? []).filter((discipline) => discipline.pim_disciplines_id.name === "Sporting")
+    : product.disciplines ?? [];
   // Show first 3 disciplines, mark overflow
-  const visibleDisciplines = product.disciplines?.slice(0, 3) ?? [];
-  const overflowCount = (product.disciplines?.length ?? 0) - visibleDisciplines.length;
+  const visibleDisciplines = displayDisciplines.slice(0, 3);
+  const overflowCount = displayDisciplines.length - visibleDisciplines.length;
 
   return (
     <Link

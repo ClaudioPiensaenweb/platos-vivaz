@@ -6,7 +6,6 @@ interface ComplianceMatrixTranslations {
   euCompliant: string;
   composition: string;
   issfApproved: string;
-  biodegradable: string;
   compliant: string;
   nonCompliant: string;
 }
@@ -70,16 +69,14 @@ export default function ComplianceMatrix({ translations }: ComplianceMatrixProps
       euCompliant: true,
       composition: "Resina de pino",
       issfApproved: true,
-      biodegradable: true,
       highlight: true,
     },
     {
       product: translations.ecoStar,
       pahLevel: "<50 mg/kg",
       euCompliant: true,
-      composition: "Bio-compound",
-      issfApproved: false,
-      biodegradable: true,
+      composition: "Resina sintética",
+      issfApproved: true,
       highlight: false,
     },
     {
@@ -88,7 +85,6 @@ export default function ComplianceMatrix({ translations }: ComplianceMatrixProps
       euCompliant: false,
       composition: "Petroleo/Alquitran",
       issfApproved: true,
-      biodegradable: false,
       highlight: false,
     },
   ];
@@ -115,9 +111,6 @@ export default function ComplianceMatrix({ translations }: ComplianceMatrixProps
             </th>
             <th scope="col" className="px-4 py-3 text-left font-semibold text-foreground">
               {translations.issfApproved}
-            </th>
-            <th scope="col" className="px-4 py-3 text-left font-semibold text-foreground">
-              {translations.biodegradable}
             </th>
           </tr>
         </thead>
@@ -161,13 +154,6 @@ export default function ComplianceMatrix({ translations }: ComplianceMatrixProps
               <td className="px-4 py-3">
                 <StatusCell
                   value={row.issfApproved}
-                  compliantLabel={translations.compliant}
-                  nonCompliantLabel={translations.nonCompliant}
-                />
-              </td>
-              <td className="px-4 py-3">
-                <StatusCell
-                  value={row.biodegradable}
                   compliantLabel={translations.compliant}
                   nonCompliantLabel={translations.nonCompliant}
                 />

@@ -1,9 +1,9 @@
-import { Link } from "@/i18n/navigation";
+import { Link, type AppHref } from "@/i18n/navigation";
 import type { ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode;
-  href?: string;
+  href?: AppHref;
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
   className?: string;

@@ -4,7 +4,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import InView from "@/components/ui/InView";
 import ProductBadge from "@/components/ui/ProductBadge";
-import { Link } from "@/i18n/navigation";
+import { Link, type AppHref } from "@/i18n/navigation";
 import { assetUrl } from "@/lib/directus";
 
 interface ProductFeatureProps {
@@ -14,8 +14,8 @@ interface ProductFeatureProps {
 }
 
 const FALLBACK_IMAGES: Record<"natura" | "ecostar", string> = {
-  natura: "/img/natura-detail.png",
-  ecostar: "/img/ecostar-detail.png",
+  natura: "/img/products/natura.png",
+  ecostar: "/img/products/eco-star.png",
 };
 
 export default function ProductFeature({
@@ -25,7 +25,10 @@ export default function ProductFeature({
   const t = useTranslations(variant);
 
   const isNatura = variant === "natura";
-  const href = `/productos/${isNatura ? "natura-standard" : "eco-star-standard"}`;
+  const href: AppHref = {
+    pathname: "/productos/[slug]",
+    params: { slug: isNatura ? "natura-110" : "eco-star-110" },
+  };
 
   const imageSrc = imageUuid
     ? assetUrl(imageUuid, { width: 702, format: "webp" })
@@ -39,7 +42,7 @@ export default function ProductFeature({
           variant={isNatura ? "nature" : "eco"}
           className="mb-6 self-start"
         />
-        <h2 className="text-[24px] font-bold leading-tight text-primary md:text-[32px]">
+        <h2 className="whitespace-pre-line text-[24px] font-bold leading-tight text-primary md:text-[32px]">
           {t("title")}
         </h2>
         <p className="mt-4 max-w-[475px] font-body text-[16px] leading-[26px] text-primary">
@@ -76,7 +79,7 @@ export default function ProductFeature({
   return (
     <section className="bg-white py-20">
       <Container>
-        <div className="group grid items-center gap-12 rounded-[40px] md:grid-cols-2">
+        <div className="group grid items-center gap-8 rounded-[40px] md:grid-cols-2 md:gap-12">
           {isNatura ? (
             <>
               {content}
@@ -84,8 +87,8 @@ export default function ProductFeature({
             </>
           ) : (
             <>
-              {image}
-              {content}
+              <div className="order-2 md:order-1">{image}</div>
+              <div className="order-1 md:order-2">{content}</div>
             </>
           )}
         </div>

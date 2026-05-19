@@ -1,0 +1,57 @@
+# docker-compose.frontend.yml — Vivaz Next.js Frontend
+# Desplegado en Dokploy como compose independiente — dominio: platosvivaz.com
+#
+# Variables de entorno requeridas (configurar en Dokploy → Environment):
+#
+# BUILD ARGS (inlined en el binario Next.js, se pasan como build args):
+#   NEXT_PUBLIC_DIRECTUS_URL=https://admin.platosvivaz.com
+#   NEXT_PUBLIC_SITE_URL=https://platosvivaz.com
+#   NEXT_PUBLIC_GTM_ID=GTM-MGJMPCW
+#   NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAAAAADSfiBci3Ddwuy93
+#
+# RUNTIME (disponibles en tiempo de ejecución del servidor Next.js):
+#   DIRECTUS_INTERNAL_URL=https://admin.platosvivaz.com
+#   DIRECTUS_ADMIN_TOKEN=vivaz-prod-token-2026
+#   TURNSTILE_SECRET_KEY=0x4AAAAAADSfiDwAx64CVFw1mj_LPjoV_IA
+#   SMTP_HOST=smtp.strato.com
+#   SMTP_PORT=465
+#   SMTP_USER=web@platosvivaz.com
+#   SMTP_PASS=[contraseña SMTP]
+#   ADMIN_EMAIL=info@platosvivaz.com
+#   ADMIN_EMAIL_NACIONAL=info@platosvivaz.com
+#   ADMIN_EMAIL_EXPORT=sales@vivazclaytargets.com
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_DIRECTUS_URL: ${NEXT_PUBLIC_DIRECTUS_URL}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+        NEXT_PUBLIC_GTM_ID: ${NEXT_PUBLIC_GTM_ID}
+        NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+    restart: always
+    environment:
+      DIRECTUS_INTERNAL_URL: ${DIRECTUS_INTERNAL_URL}
+      DIRECTUS_ADMIN_TOKEN: ${DIRECTUS_ADMIN_TOKEN}
+      TURNSTILE_SECRET_KEY: ${TURNSTILE_SECRET_KEY}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_EMAIL_NACIONAL: ${ADMIN_EMAIL_NACIONAL}
+      ADMIN_EMAIL_EXPORT: ${ADMIN_EMAIL_EXPORT}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.vivaz-frontend.rule=Host(`platosvivaz.com`) || Host(`www.platosvivaz.com`)"
+      - "traefik.http.routers.vivaz-frontend.tls.certresolver=letsencrypt"
+      - "traefik.http.services.vivaz-frontend.loadbalancer.server.port=3030"
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true
+    name: dokploy-network

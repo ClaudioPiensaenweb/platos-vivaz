@@ -1,0 +1,14 @@
+{
+  "name": "vivaz-backend",
+  "type": "module",
+  "scripts": {
+    "setup": "node setup-schema.js",
+    "seed": "node seed-data.js",
+    "init": "node docker-init.js",
+    "post": "node post-schema.js"
+  },
+  "dependencies": {
+    "@directus/sdk": "^18.0.0",
+    "dotenv": "^16.4.0"
+  }
+}

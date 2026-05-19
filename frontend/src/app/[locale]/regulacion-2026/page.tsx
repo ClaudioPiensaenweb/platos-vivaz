@@ -3,6 +3,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import InView from "@/components/ui/InView";
 import PageHero from "@/components/ui/PageHero";
+import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import CountdownTimer from "@/components/regulation/CountdownTimer";
 import ComplianceMatrix from "@/components/regulation/ComplianceMatrix";
 import PAHComparisonChart from "@/components/technology/PAHComparisonChart";
@@ -56,7 +57,6 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
     euCompliant: t("complianceMatrix.euCompliant"),
     composition: t("complianceMatrix.composition"),
     issfApproved: t("complianceMatrix.issfApproved"),
-    biodegradable: t("complianceMatrix.biodegradable"),
     compliant: t("complianceMatrix.compliant"),
     nonCompliant: t("complianceMatrix.nonCompliant"),
   };
@@ -73,6 +73,7 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
 
   return (
     <main>
+      <BreadcrumbSchema locale={locale} items={[{ name: "Regulación 2026", path: "/regulacion-2026" }]} />
       {/* Hero — dramatic dark with countdown as focal point */}
       <PageHero
         title={t("title")}
@@ -82,6 +83,54 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
           <CountdownTimer targetDate={regulationData.limit_date} />
         </InView>
       </PageHero>
+
+      {/* EUR-Lex External Link — moved here for visibility */}
+      <section className="bg-cream py-16 lg:py-20">
+        <Container>
+          <InView animation="fade-in-up">
+            <div className="mx-auto max-w-3xl rounded-[24px] border border-primary/10 bg-white p-8 shadow-sm lg:p-10">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                  <svg
+                    className="h-5 w-5 text-primary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-[18px] font-bold text-primary">
+                  {regulationData.regulation_name}
+                </h3>
+              </div>
+              <p className="mb-6 font-body text-[15px] leading-relaxed text-muted">
+                {t("euDocSummary")}
+              </p>
+              <a
+                href={EUR_LEX_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-medium text-accent hover:text-accent-hover transition-colors"
+              >
+                {t("euDocLink")}
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </InView>
+        </Container>
+      </section>
 
       {/* Timeline — 2001 → 2025 → 2026 */}
       <section className="bg-white py-20 lg:py-28">
@@ -224,54 +273,6 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
         </Container>
       </section>
 
-      {/* EUR-Lex External Link (REG-03) */}
-      <section className="bg-cream py-16 lg:py-20">
-        <Container>
-          <InView animation="fade-in-up">
-            <div className="mx-auto max-w-3xl rounded-[24px] border border-primary/10 bg-white p-8 shadow-sm lg:p-10">
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                  <svg
-                    className="h-5 w-5 text-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-[18px] font-bold text-primary">
-                  {regulationData.regulation_name}
-                </h3>
-              </div>
-              <p className="mb-6 font-body text-[15px] leading-relaxed text-muted">
-                {t("euDocSummary")}
-              </p>
-              <a
-                href={EUR_LEX_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-medium text-accent hover:text-accent-hover transition-colors"
-              >
-                {t("euDocLink")}
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
-          </InView>
-        </Container>
-      </section>
-
       {/* Info Cards */}
       <section className="bg-cream-light py-20 lg:py-28">
         <Container>
@@ -345,31 +346,33 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden bg-primary-dark py-20 lg:py-24">
-        <div className="absolute inset-0 opacity-15">
-          <Image
-            src="/img/commitment-bg.png"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
+      {/* CTA — rounded card matching footer */}
+      <div className="px-4 pt-4">
+        <div className="relative overflow-hidden rounded-3xl bg-primary-dark py-20 lg:py-24">
+          <div className="absolute inset-0 opacity-15">
+            <Image
+              src="/img/commitment-bg.png"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <Container className="relative z-10 text-center">
+            <InView animation="fade-in-up">
+              <h2 className="mb-4 text-[24px] font-bold text-warm-white lg:text-[30px]">
+                {t("ctaTitle")}
+              </h2>
+              <p className="mx-auto mb-8 max-w-xl font-body text-[17px] text-warm-white/70">
+                {t("ctaDesc")}
+              </p>
+              <Button href="/contacto" variant="primary" size="lg">
+                {t("ctaButton")}
+              </Button>
+            </InView>
+          </Container>
         </div>
-        <Container className="relative z-10 text-center">
-          <InView animation="fade-in-up">
-            <h2 className="mb-4 text-[24px] font-bold text-warm-white lg:text-[30px]">
-              {t("ctaTitle")}
-            </h2>
-            <p className="mx-auto mb-8 max-w-xl font-body text-[17px] text-warm-white/70">
-              {t("ctaDesc")}
-            </p>
-            <Button href="/contacto" variant="primary" size="lg">
-              {t("ctaButton")}
-            </Button>
-          </InView>
-        </Container>
-      </section>
+      </div>
     </main>
   );
 }

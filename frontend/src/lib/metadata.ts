@@ -5,7 +5,7 @@ export const sharedOpenGraph = {
   type: "website" as const,
   images: [
     {
-      url: `${SITE_URL}/img/og-vivaz.jpg`,
+      url: `${SITE_URL}/img/og-vivaz.png`,
       width: 1200,
       height: 630,
       alt: "VIVAZ Clay Targets — Ecological Clay Target Manufacturers Since 1967",
