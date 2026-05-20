@@ -40,6 +40,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      // Route /sitemap.xml to the custom handler (Next.js reserves this path internally)
+      { source: "/sitemap.xml", destination: "/api/sitemap" },
+    ];
+  },
+
   async headers() {
     return [
       {

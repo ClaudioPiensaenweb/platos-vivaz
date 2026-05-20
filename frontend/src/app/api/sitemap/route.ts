@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getProducts, getBlogPosts, assetUrl, IMG_PRESETS } from "@/lib/directus";
 
-export const revalidate = 3600; // Revalidate every hour
+export const revalidate = 3600;
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://platosvivaz.com";
 const locales = ["es", "en", "fr", "de"] as const;
@@ -82,19 +82,18 @@ function expandLocales(
 const today = new Date().toISOString().split("T")[0];
 
 const staticPages: { path: string; changefreq: string; priority: number }[] = [
-  { path: "",                changefreq: "weekly",  priority: 1.0 },
-  { path: "/productos",      changefreq: "weekly",  priority: 0.9 },
-  { path: "/tecnologia",     changefreq: "monthly", priority: 0.8 },
-  { path: "/sobre-vivaz",    changefreq: "monthly", priority: 0.8 },
-  { path: "/regulacion-2026",changefreq: "monthly", priority: 0.7 },
-  { path: "/noticias",       changefreq: "weekly",  priority: 0.8 },
-  { path: "/contacto",       changefreq: "monthly", priority: 0.7 },
+  { path: "",                 changefreq: "weekly",  priority: 1.0 },
+  { path: "/productos",       changefreq: "weekly",  priority: 0.9 },
+  { path: "/tecnologia",      changefreq: "monthly", priority: 0.8 },
+  { path: "/sobre-vivaz",     changefreq: "monthly", priority: 0.8 },
+  { path: "/regulacion-2026", changefreq: "monthly", priority: 0.7 },
+  { path: "/noticias",        changefreq: "weekly",  priority: 0.8 },
+  { path: "/contacto",        changefreq: "monthly", priority: 0.7 },
 ];
 
 export async function GET() {
   const entries: UrlEntry[] = [];
 
-  // 1. Static pages
   for (const page of staticPages) {
     entries.push(
       ...expandLocales(page.path, {
@@ -105,7 +104,6 @@ export async function GET() {
     );
   }
 
-  // 2. Product pages (with Google Images data)
   try {
     const products = await getProducts();
     for (const product of products) {
@@ -133,10 +131,9 @@ export async function GET() {
       );
     }
   } catch {
-    // Directus unavailable at build time — skip product pages
+    // Directus unavailable — skip product pages
   }
 
-  // 3. Blog / news posts
   try {
     const posts = await getBlogPosts({ limit: 200 });
     for (const post of posts) {
@@ -151,7 +148,7 @@ export async function GET() {
       );
     }
   } catch {
-    // Directus unavailable at build time — skip blog posts
+    // Directus unavailable — skip blog posts
   }
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
