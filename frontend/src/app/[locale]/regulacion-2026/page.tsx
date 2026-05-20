@@ -10,6 +10,7 @@ import PAHComparisonChart from "@/components/technology/PAHComparisonChart";
 import CertBadgeRow from "@/components/technology/CertBadgeRow";
 import Image from "next/image";
 import { getRegulationData } from "@/lib/directus";
+import { faqPageJsonLd } from "@/lib/json-ld";
 import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -73,6 +74,10 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageJsonLd(locale)) }}
+      />
       <BreadcrumbSchema locale={locale} items={[{ name: "Regulación 2026", path: "/regulacion-2026" }]} />
       {/* Hero — dramatic dark with countdown as focal point */}
       <PageHero
