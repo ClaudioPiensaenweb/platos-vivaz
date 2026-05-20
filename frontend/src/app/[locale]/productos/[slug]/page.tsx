@@ -1,3 +1,5 @@
+export const revalidate = 30; // Revalida cada 30 s → cambios del CMS visibles en ≤30 s
+
 import { getProducts, getBrandData, applyProductTranslation } from "@/lib/directus";
 import { getTranslations } from "next-intl/server";
 import ProductLinePage from "@/components/product/ProductLinePage";

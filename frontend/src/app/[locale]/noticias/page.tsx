@@ -1,3 +1,5 @@
+export const revalidate = 30; // Revalida cada 30 s → cambios del CMS visibles en ≤30 s
+
 import { getTranslations } from "next-intl/server";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
