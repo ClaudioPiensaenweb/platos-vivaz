@@ -1403,6 +1403,32 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; }
     }
+
+    /* ============================================================
+       INTERACTIVIDAD — links y hovers
+    ============================================================ */
+    a.faq-ref {
+      text-decoration: none;
+      transition: background .15s, color .15s;
+    }
+    a.faq-ref:hover {
+      background: var(--vv-green);
+      color: #fff;
+    }
+    a.browser-url {
+      display: block;
+      text-decoration: none;
+      transition: color .15s;
+    }
+    a.browser-url:hover {
+      color: var(--vv-green);
+      text-decoration: underline;
+    }
+    .header-brand {
+      color: inherit;
+      text-decoration: none;
+    }
+    .header-brand:hover .logo-vivaz { color: var(--vv-green); }
   </style>
 </head>
 <body>
@@ -1413,13 +1439,13 @@
      HEADER
 ============================================================ -->
 <header class="site-header" role="banner">
-  <div class="header-brand">
+  <a class="header-brand" href="https://platosvivaz.com" target="_blank" rel="noopener" aria-label="Ir a platosvivaz.com">
     <span class="logo-wordmark" aria-label="Vivaz Clay Targets">
       <span class="logo-vivaz">VIVAZ</span>
       <span class="logo-dot" aria-hidden="true"></span>
       <span class="logo-sub">Clay Targets</span>
     </span>
-  </div>
+  </a>
 
   <span class="header-subtitle">Guía de gestión &middot; Directus CMS</span>
 
@@ -1525,7 +1551,7 @@
       <div class="callout info">
         <span class="callout-icon" aria-hidden="true">ℹ️</span>
         <div>
-          <strong>URL de acceso:</strong> <code>admin.platosvivaz.com/admin</code> — Ábrela en tu navegador e introduce tu email y contraseña.
+          <strong>URL de acceso:</strong> <a href="https://admin.platosvivaz.com/admin" target="_blank" rel="noopener" style="color:var(--vv-green);"><code>admin.platosvivaz.com/admin</code></a> — Ábrela en tu navegador e introduce tu email y contraseña.
         </div>
       </div>
 
@@ -1537,7 +1563,7 @@
             <div class="browser-dot yellow"></div>
             <div class="browser-dot green"></div>
           </div>
-          <div class="browser-url" aria-label="URL: admin.platosvivaz.com/admin/login">admin.platosvivaz.com/admin/login</div>
+          <a class="browser-url" href="https://admin.platosvivaz.com/admin/login" target="_blank" rel="noopener" tabindex="-1">admin.platosvivaz.com/admin/login</a>
         </div>
         <!-- Split login — replica el diseño real de Directus 11 -->
         <div class="d-login-split" aria-hidden="true">
@@ -1592,7 +1618,7 @@
       <div class="steps">
         <div class="step">
           <span class="step-num" aria-hidden="true">1</span>
-          <p class="step-body">Abre tu navegador y ve a <code>admin.platosvivaz.com/admin</code>.</p>
+          <p class="step-body">Abre tu navegador y ve a <a href="https://admin.platosvivaz.com/admin" target="_blank" rel="noopener" style="color:var(--vv-green);"><code>admin.platosvivaz.com/admin</code></a>.</p>
         </div>
         <div class="step">
           <span class="step-num" aria-hidden="true">2</span>
@@ -1638,7 +1664,7 @@
             <div class="browser-dot yellow"></div>
             <div class="browser-dot green"></div>
           </div>
-          <div class="browser-url">admin.platosvivaz.com/admin/content/pim_products</div>
+          <a class="browser-url" href="https://admin.platosvivaz.com/admin/content/pim_products" target="_blank" rel="noopener" tabindex="-1">admin.platosvivaz.com/admin/content/pim_products</a>
         </div>
         <div class="d-shell short" aria-hidden="true">
           <!-- Sidebar icono -->
@@ -1761,7 +1787,7 @@
             <div class="browser-dot yellow"></div>
             <div class="browser-dot green"></div>
           </div>
-          <div class="browser-url">admin.platosvivaz.com/admin/content/pim_products/3</div>
+          <a class="browser-url" href="https://admin.platosvivaz.com/admin/content/pim_products" target="_blank" rel="noopener" tabindex="-1">admin.platosvivaz.com/admin/content/pim_products/3</a>
         </div>
         <div class="d-shell" aria-hidden="true">
           <div class="d-sidebar">
@@ -1899,7 +1925,7 @@
             <div class="browser-dot yellow"></div>
             <div class="browser-dot green"></div>
           </div>
-          <div class="browser-url">admin.platosvivaz.com/admin/content/blog_posts/+</div>
+          <a class="browser-url" href="https://admin.platosvivaz.com/admin/content/blog_posts" target="_blank" rel="noopener" tabindex="-1">admin.platosvivaz.com/admin/content/blog_posts/+</a>
         </div>
         <div class="d-shell tall" aria-hidden="true">
           <div class="d-sidebar">
@@ -2043,7 +2069,7 @@
             <div class="browser-dot yellow"></div>
             <div class="browser-dot green"></div>
           </div>
-          <div class="browser-url">admin.platosvivaz.com/admin/content/pim_products/3</div>
+          <a class="browser-url" href="https://admin.platosvivaz.com/admin/content/pim_products" target="_blank" rel="noopener" tabindex="-1">admin.platosvivaz.com/admin/content/pim_products/3</a>
         </div>
         <div class="d-shell" aria-hidden="true">
           <div class="d-sidebar">
@@ -2163,7 +2189,7 @@
             <div class="browser-dot yellow"></div>
             <div class="browser-dot green"></div>
           </div>
-          <div class="browser-url">admin.platosvivaz.com/admin/content/crm_leads</div>
+          <a class="browser-url" href="https://admin.platosvivaz.com/admin/content/crm_leads" target="_blank" rel="noopener" tabindex="-1">admin.platosvivaz.com/admin/content/crm_leads</a>
         </div>
         <div class="d-shell" aria-hidden="true" style="height:460px;">
           <div class="d-sidebar">
@@ -2427,7 +2453,7 @@
           <div class="faq-answer">
             <p>Normalmente entre 15 y 30 segundos. La web de Vivaz usa un sistema de caché que se regenera automáticamente al guardar cualquier cambio en Directus.</p>
             <ol>
-              <li>Haz clic en <strong>Guardar</strong> (botón morado, como se ve en <span class="faq-ref">Sección 2</span> y <span class="faq-ref">Sección 3</span>).</li>
+              <li>Haz clic en <strong>Guardar</strong> (botón morado, como se ve en <a href="#s2" class="faq-ref">Sección 2</a> y <a href="#s3" class="faq-ref">Sección 3</a>).</li>
               <li>Espera unos 30 segundos.</li>
               <li>Recarga la página de la web con <kbd>Ctrl+F5</kbd> (o <kbd>Cmd+Shift+R</kbd> en Mac) para forzar la actualización del navegador.</li>
             </ol>
@@ -2443,7 +2469,7 @@
           <div class="faq-answer">
             <p>No pasa nada irreversible. Los borradores no son visibles en la web. Para publicarla:</p>
             <ol>
-              <li>Ve a <strong>Noticias</strong> en el sidebar (como se muestra en <span class="faq-ref">Sección 3</span>).</li>
+              <li>Ve a <strong>Noticias</strong> en el sidebar (como se muestra en <a href="#s3" class="faq-ref">Sección 3</a>).</li>
               <li>Haz clic sobre la noticia que está en borrador.</li>
               <li>Cambia el campo <strong>Estado</strong> de <em>Borrador</em> a <em>Publicado</em>.</li>
               <li>Haz clic en <strong>Guardar</strong>.</li>
@@ -2462,7 +2488,7 @@
               <li>Usa <strong>JPG o WebP</strong> para fotografías de productos.</li>
               <li>Sube imágenes de al menos <strong>1000 px de ancho</strong>. El sistema las redimensiona automáticamente.</li>
               <li>Evita archivos mayores de <strong>5 MB</strong> para no ralentizar la carga.</li>
-              <li>Sobre los campos de imagen editables, verás el indicador <span class="field-tag editable" style="font-size:.72rem;">✏ Puedes editar</span> como se muestra en <span class="faq-ref">Sección 2</span>.</li>
+              <li>Sobre los campos de imagen editables, verás el indicador <span class="field-tag editable" style="font-size:.72rem;">✏ Puedes editar</span> como se muestra en <a href="#s2" class="faq-ref">Sección 2</a>.</li>
             </ol>
           </div>
         </div>
@@ -2473,7 +2499,7 @@
             <span class="faq-chevron" aria-hidden="true">▾</span>
           </button>
           <div class="faq-answer">
-            <p>Mira el campo <strong>Estado</strong> en el formulario del producto (visible en <span class="faq-ref">Sección 2</span>):</p>
+            <p>Mira el campo <strong>Estado</strong> en el formulario del producto (visible en <a href="#s2" class="faq-ref">Sección 2</a>):</p>
             <ol>
               <li><span class="d-status" style="font-size:.85rem;"><span class="d-status-dot published" style="display:inline-block;"></span> <strong>Publicado</strong></span> — el producto aparece en la web.</li>
               <li><span class="d-status" style="font-size:.85rem;"><span class="d-status-dot draft" style="display:inline-block;"></span> <strong>Borrador</strong></span> — el producto existe en el CMS pero no es visible para los visitantes.</li>
