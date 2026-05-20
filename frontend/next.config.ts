@@ -42,13 +42,62 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // www → non-www (301 permanent) — belt-and-suspenders with Traefik middleware
+      // ── Infraestructura ───────────────────────────────────────────────────
+      // www → non-www (belt-and-suspenders — Traefik también lo gestiona)
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.platosvivaz.com" }],
         destination: "https://platosvivaz.com/:path*",
         permanent: true,
       },
+
+      // ── WordPress legacy — contenido legítimo con posibles backlinks ──────
+      // Blog: /estas-seguro-... → /noticias
+      {
+        source: "/estas-seguro-de-que-ese-plato-de-tiro-es-ecologico",
+        destination: "/noticias",
+        permanent: true,
+      },
+      {
+        source: "/estas-seguro-de-que-ese-plato-de-tiro-es-ecologico/",
+        destination: "/noticias/",
+        permanent: true,
+      },
+      // Blog EN: /en/are-you-sure-... → /en/noticias
+      {
+        source: "/en/are-you-sure-the-targets-you-are-shooting-are-environmentally-friendly",
+        destination: "/en/noticias",
+        permanent: true,
+      },
+      {
+        source: "/en/are-you-sure-the-targets-you-are-shooting-are-environmentally-friendly/",
+        destination: "/en/noticias/",
+        permanent: true,
+      },
+      // /news/ → /noticias/ (antiguo slug inglés del blog)
+      { source: "/news", destination: "/noticias", permanent: true },
+      { source: "/news/", destination: "/noticias/", permanent: true },
+      { source: "/news/:slug*", destination: "/noticias/:slug*", permanent: true },
+      // Formulario DE de muestra gratuita → contacto
+      {
+        source: "/de/kostenloses-muster",
+        destination: "/de/contacto",
+        permanent: true,
+      },
+      {
+        source: "/de/kostenloses-muster/",
+        destination: "/de/contacto/",
+        permanent: true,
+      },
+
+      // ── WordPress media / admin — archivos con extensión (el matcher del ──
+      // ── middleware excluye paths con puntos, así que los gestionamos aquí) ─
+      // Catálogos PDF → /productos
+      { source: "/wp-content/:path*", destination: "/productos", permanent: true },
+      // WordPress admin/login → home (disuasorio, ya devuelven 404 si no hay WP)
+      { source: "/wp-admin/:path*", destination: "/", permanent: true },
+      { source: "/wp-login.php", destination: "/", permanent: true },
+      { source: "/wp-login.php/", destination: "/", permanent: true },
     ];
   },
 
