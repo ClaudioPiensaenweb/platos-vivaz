@@ -163,7 +163,7 @@ export default function CookieBanner() {
                 .
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-2 md:flex-shrink-0">
+            <div className="grid grid-cols-2 gap-2 md:flex md:flex-wrap md:items-center md:flex-shrink-0">
               <button
                 onClick={handleRejectAll}
                 className="rounded-full border border-warm-white/25 px-5 py-2 font-body text-[13px] font-medium text-warm-white/75 transition-colors hover:border-warm-white/50 hover:text-warm-white focus:outline-none focus-visible:ring-2 focus-visible:ring-warm-white/40"
@@ -178,7 +178,7 @@ export default function CookieBanner() {
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="rounded-full bg-nature px-5 py-2 font-body text-[13px] font-semibold text-primary transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-nature/60"
+                className="col-span-2 rounded-full bg-nature px-5 py-2.5 font-body text-[13px] font-semibold text-primary transition-opacity hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-nature/60 md:col-span-1"
               >
                 {t("acceptAll")}
               </button>
