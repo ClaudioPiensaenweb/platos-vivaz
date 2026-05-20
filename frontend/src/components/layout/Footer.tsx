@@ -82,10 +82,7 @@ export default async function Footer() {
                 {t("contactTitle")}
               </h3>
               <div className="flex flex-col gap-2.5">
-                <p className="font-body text-[14px] text-warm-white/70">
-                  {t("address")}
-                </p>
-                <p className="font-body text-[11px] font-medium uppercase tracking-wider text-warm-white/40 mt-1">España</p>
+                <p className="font-body text-[11px] font-medium uppercase tracking-wider text-warm-white/40">España</p>
                 <a
                   href="tel:+34618757580"
                   className="font-body text-[14px] text-warm-white/70 transition-colors hover:text-warm-white"
