@@ -24,25 +24,25 @@ export default function PageHero({
         style={{
           backgroundImage:
             "linear-gradient(180deg, #042e15 0%, #075627 30%, #03441d 65%, #242e22 100%)",
-          minHeight: "260px",
+          minHeight: "clamp(160px, 22vh, 260px)",
         }}
       >
         {/* Just enough height for navbar + overlap area */}
-        <div className="pt-[calc(70px+2rem)] lg:pt-[calc(105px+2rem)] pb-16" />
+        <div className="pt-[calc(70px+1.5rem)] md:pt-[calc(70px+2rem)] lg:pt-[calc(105px+2rem)] pb-10 md:pb-14 lg:pb-16" />
       </section>
     );
   }
 
   return (
     <section
-      className="relative z-10 flex min-h-[40vh] items-end overflow-hidden rounded-bl-[60px] rounded-br-[60px] -mb-6 md:rounded-bl-[120px] md:rounded-br-[120px] md:-mb-10 lg:min-h-[44vh]"
+      className="relative z-10 flex min-h-[220px] items-end overflow-hidden rounded-bl-[60px] rounded-br-[60px] -mb-6 md:min-h-[300px] md:rounded-bl-[120px] md:rounded-br-[120px] md:-mb-10 lg:min-h-[44vh]"
       style={{
         backgroundImage:
           "linear-gradient(180deg, #042e15 0%, #075627 30%, #03441d 65%, #242e22 100%)",
       }}
     >
-      {/* pt: accounts for transparent fixed header (70px mobile / 105px lg) + generous breathing room */}
-      <Container className="relative z-10 pb-16 pt-[calc(70px+4rem)] md:pb-20 lg:pt-[calc(105px+4rem)]">
+      {/* pt: accounts for transparent fixed header (70px mobile / 105px lg) + breathing room */}
+      <Container className="relative z-10 pb-10 pt-[calc(70px+2rem)] md:pb-16 md:pt-[calc(70px+3rem)] lg:pb-20 lg:pt-[calc(105px+4rem)]">
         <InView animation="fade-in-up">
           <div className="text-center">
             {subtitle && (
