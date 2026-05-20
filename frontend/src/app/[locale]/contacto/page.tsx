@@ -4,6 +4,7 @@ import InView from "@/components/ui/InView";
 import PageHero from "@/components/ui/PageHero";
 import ContactForm from "@/components/contact/ContactForm";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import { contactPageJsonLd } from "@/lib/json-ld";
 import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -42,6 +43,10 @@ export default async function ContactoPage({
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd(locale)) }}
+      />
       <BreadcrumbSchema locale={locale} items={[{ name: "Contacto", path: "/contacto" }]} />
       <PageHero
         title={t("title")}

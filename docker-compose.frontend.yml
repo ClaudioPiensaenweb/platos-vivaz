@@ -45,9 +45,18 @@ services:
       ADMIN_EMAIL_EXPORT: ${ADMIN_EMAIL_EXPORT}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.vivaz-frontend.rule=Host(`platosvivaz.com`) || Host(`www.platosvivaz.com`)"
+      # Main router — canonical non-www
+      - "traefik.http.routers.vivaz-frontend.rule=Host(`platosvivaz.com`)"
       - "traefik.http.routers.vivaz-frontend.tls.certresolver=letsencrypt"
       - "traefik.http.services.vivaz-frontend.loadbalancer.server.port=3030"
+      # WWW → non-www redirect (301 permanent)
+      - "traefik.http.routers.vivaz-www.rule=Host(`www.platosvivaz.com`)"
+      - "traefik.http.routers.vivaz-www.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.vivaz-www.service=vivaz-frontend"
+      - "traefik.http.routers.vivaz-www.middlewares=redirect-www@docker"
+      - "traefik.http.middlewares.redirect-www.redirectregex.regex=^https://www\\.platosvivaz\\.com/(.*)"
+      - "traefik.http.middlewares.redirect-www.redirectregex.replacement=https://platosvivaz.com/$${1}"
+      - "traefik.http.middlewares.redirect-www.redirectregex.permanent=true"
     networks:
       - dokploy-network
 

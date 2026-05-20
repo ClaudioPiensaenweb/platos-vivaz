@@ -221,8 +221,70 @@ export function productJsonLd(product: Product, locale: string) {
   };
 }
 
+/* ── ContactPage (contacto page) ── */
+export function contactPageJsonLd(locale: string) {
+  const localePrefix = locale === "es" ? "" : `/${locale}`;
+  const pageUrl = `${SITE_URL}${localePrefix}/contacto`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${pageUrl}#page`,
+    name: "Contacto — VIVAZ Clay Targets",
+    url: pageUrl,
+    inLanguage: locale,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+    },
+    mainEntity: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "VIVAZ Clay Targets", item: `${SITE_URL}${localePrefix}/` },
+        { "@type": "ListItem", position: 2, name: "Contacto", item: pageUrl },
+      ],
+    },
+  };
+}
+
+/* ── AboutPage (sobre-vivaz page) ── */
+export function aboutPageJsonLd(locale: string) {
+  const localePrefix = locale === "es" ? "" : `/${locale}`;
+  const pageUrl = `${SITE_URL}${localePrefix}/sobre-vivaz`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${pageUrl}#page`,
+    name: "Sobre VIVAZ — VIVAZ Clay Targets",
+    url: pageUrl,
+    inLanguage: locale,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+    },
+    mainEntity: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "h2", "[data-speakable]"],
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "VIVAZ Clay Targets", item: `${SITE_URL}${localePrefix}/` },
+        { "@type": "ListItem", position: 2, name: "Sobre Vivaz", item: pageUrl },
+      ],
+    },
+  };
+}
+
 /* ── FAQPage (regulation-2026 page) ── */
-const REGULATION_FAQ: Record<string, Array<{ q: string; a: string }>> = {
+export const REGULATION_FAQ: Record<string, Array<{ q: string; a: string }>> = {
   es: [
     {
       q: "¿Qué es el Reglamento UE 2025/660?",

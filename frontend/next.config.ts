@@ -40,6 +40,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // www → non-www (301 permanent) — belt-and-suspenders with Traefik middleware
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.platosvivaz.com" }],
+        destination: "https://platosvivaz.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
   async rewrites() {
     // beforeFiles runs before Next.js filesystem checks — needed because
     // /sitemap.xml is a reserved internal path that would otherwise 404

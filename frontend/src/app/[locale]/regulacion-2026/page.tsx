@@ -10,7 +10,7 @@ import PAHComparisonChart from "@/components/technology/PAHComparisonChart";
 import CertBadgeRow from "@/components/technology/CertBadgeRow";
 import Image from "next/image";
 import { getRegulationData } from "@/lib/directus";
-import { faqPageJsonLd } from "@/lib/json-ld";
+import { faqPageJsonLd, REGULATION_FAQ } from "@/lib/json-ld";
 import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -49,6 +49,8 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
   }
 
   const t = await getTranslations({ locale, namespace: "regulation" });
+
+  const faqs = REGULATION_FAQ[locale] ?? REGULATION_FAQ.es;
 
   const complianceTranslations = {
     natura: t("complianceMatrix.natura"),
@@ -347,6 +349,47 @@ export default async function RegulacionPage({ params }: { params: Promise<{ loc
                 </p>
               </div>
             </InView>
+          </div>
+        </Container>
+      </section>
+
+      {/* FAQ — visible para usuarios y crawlers de IA (GEO) */}
+      <section className="bg-white py-20 lg:py-28">
+        <Container>
+          <InView animation="fade-in-up">
+            <div className="mb-10 text-center">
+              <p className="mb-2 text-[13px] font-medium uppercase tracking-[2px] text-primary/60">FAQ</p>
+              <h2 className="mb-3 text-[28px] font-bold text-primary lg:text-[34px]">
+                {t("faqTitle")}
+              </h2>
+              <p className="mx-auto max-w-2xl font-body text-[16px] text-muted">
+                {t("faqSubtitle")}
+              </p>
+            </div>
+          </InView>
+          <div className="mx-auto max-w-3xl space-y-3">
+            {faqs.map((faq, i) => (
+              <InView key={i} animation="fade-in-up" delay={i * 60}>
+                <details className="group rounded-[20px] border border-primary/10 bg-cream-light">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 [&::-webkit-details-marker]:hidden">
+                    <span className="font-semibold text-[16px] text-primary">{faq.q}</span>
+                    <svg
+                      className="h-5 w-5 shrink-0 text-accent transition-transform duration-300 group-open:rotate-45"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </summary>
+                  <div className="border-t border-primary/10 px-6 pb-6 pt-4 font-body text-[15px] leading-relaxed text-muted">
+                    {faq.a}
+                  </div>
+                </details>
+              </InView>
+            ))}
           </div>
         </Container>
       </section>

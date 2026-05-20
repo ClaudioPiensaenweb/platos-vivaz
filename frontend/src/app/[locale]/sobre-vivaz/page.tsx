@@ -6,6 +6,7 @@ import InView from "@/components/ui/InView";
 import PageHero from "@/components/ui/PageHero";
 import TimelineSection from "@/components/about/TimelineSection";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import { aboutPageJsonLd } from "@/lib/json-ld";
 import { sharedOpenGraph } from "@/lib/metadata";
 import type { Metadata } from "next";
 
@@ -147,6 +148,10 @@ export default async function SobreVivazPage({
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd(locale)) }}
+      />
       <BreadcrumbSchema locale={locale} items={[{ name: "Sobre Vivaz", path: "/sobre-vivaz" }]} />
       <PageHero
         title={t("title")}
