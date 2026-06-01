@@ -7,7 +7,7 @@ import PageHero from "@/components/ui/PageHero";
 import TimelineSection from "@/components/about/TimelineSection";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import { aboutPageJsonLd } from "@/lib/json-ld";
-import { sharedOpenGraph } from "@/lib/metadata";
+import { sharedOpenGraph, buildAlternates } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description: t("metaDescription"),
     openGraph: { ...sharedOpenGraph, title, description: t("metaDescription") },
+    alternates: buildAlternates("/sobre-vivaz"),
   };
 }
 

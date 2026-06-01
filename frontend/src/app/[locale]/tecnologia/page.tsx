@@ -8,7 +8,7 @@ import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import PAHComparisonChart from "@/components/technology/PAHComparisonChart";
 import CertBadgeRow from "@/components/technology/CertBadgeRow";
 import TimelineSection from "@/components/about/TimelineSection";
-import { sharedOpenGraph } from "@/lib/metadata";
+import { sharedOpenGraph, buildAlternates } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description: t("metaDescription"),
     openGraph: { ...sharedOpenGraph, title, description: t("metaDescription") },
+    alternates: buildAlternates("/tecnologia"),
   };
 }
 

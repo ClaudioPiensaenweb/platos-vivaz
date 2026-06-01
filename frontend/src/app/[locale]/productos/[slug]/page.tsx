@@ -5,7 +5,7 @@ import { getTranslations } from "next-intl/server";
 import ProductLinePage from "@/components/product/ProductLinePage";
 import PageHero from "@/components/ui/PageHero";
 import { notFound } from "next/navigation";
-import { sharedOpenGraph } from "@/lib/metadata";
+import { sharedOpenGraph, buildAlternates } from "@/lib/metadata";
 import { productJsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
 import type { Metadata } from "next";
 
@@ -121,6 +121,7 @@ export async function generateMetadata({
       title: productTitle,
       description: productDescription,
     },
+    alternates: buildAlternates("/productos/[slug]", { slug }),
   };
 }
 

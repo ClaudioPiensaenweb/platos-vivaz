@@ -6,6 +6,7 @@ import Container from "@/components/ui/Container";
 import InView from "@/components/ui/InView";
 import PageHero from "@/components/ui/PageHero";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
+import { buildAlternates } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 /* ── Static product catalog ── */
@@ -93,6 +94,7 @@ export async function generateMetadata({
   return {
     title: `${t("title")} | VIVAZ Clay Targets`,
     description: t("metaDescriptionNatura"),
+    alternates: buildAlternates("/productos"),
   };
 }
 

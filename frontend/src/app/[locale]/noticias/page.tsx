@@ -8,7 +8,7 @@ import InView from "@/components/ui/InView";
 import BlogCard from "@/components/blog/BlogCard";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import { getBlogPosts } from "@/lib/directus";
-import { sharedOpenGraph } from "@/lib/metadata";
+import { sharedOpenGraph, buildAlternates } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description: t("metaDescription"),
     openGraph: { ...sharedOpenGraph, title, description: t("metaDescription") },
+    alternates: buildAlternates("/noticias"),
   };
 }
 

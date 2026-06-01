@@ -13,7 +13,7 @@ import CertBadgeRow from "@/components/technology/CertBadgeRow";
 import Image from "next/image";
 import { getRegulationData } from "@/lib/directus";
 import { faqPageJsonLd, REGULATION_FAQ } from "@/lib/json-ld";
-import { sharedOpenGraph } from "@/lib/metadata";
+import { sharedOpenGraph, buildAlternates } from "@/lib/metadata";
 import type { Metadata } from "next";
 
 const EUR_LEX_URL =
@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description: t("metaDescription"),
     openGraph: { ...sharedOpenGraph, title, description: t("metaDescription") },
+    alternates: buildAlternates("/regulacion-2026"),
   };
 }
 
