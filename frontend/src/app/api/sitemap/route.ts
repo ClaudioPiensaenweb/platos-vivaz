@@ -7,9 +7,37 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://platosvivaz.com";
 const locales = ["es", "en", "fr", "de"] as const;
 type Locale = (typeof locales)[number];
 
-function localeUrl(locale: Locale, path: string): string {
+/**
+ * Localized path segments per locale (non-ES only).
+ * Matches routing.ts pathnames exactly — keep in sync if routes change.
+ */
+const LOCALE_PATHS: Record<string, Partial<Record<Locale, string>>> = {
+  "/productos":           { en: "/products",           fr: "/produits",               de: "/produkte" },
+  "/noticias":            { en: "/news",                fr: "/actualites",             de: "/nachrichten" },
+  "/tecnologia":          { en: "/technology",          fr: "/technologie",            de: "/technologie" },
+  "/sobre-vivaz":         { en: "/about",               fr: "/a-propos",               de: "/ueber-uns" },
+  "/regulacion-2026":     { en: "/regulation-2026",     fr: "/reglementation-2026",    de: "/regulierung-2026" },
+  "/contacto":            { en: "/contact",             fr: "/contact",                de: "/kontakt" },
+  "/politica-privacidad": { en: "/privacy-policy",      fr: "/politique-confidentialite", de: "/datenschutz" },
+  "/aviso-legal":         { en: "/legal-notice",        fr: "/mentions-legales",       de: "/impressum" },
+  "/politica-cookies":    { en: "/cookie-policy",       fr: "/politique-cookies",      de: "/cookie-richtlinie" },
+};
+
+/** Resolves the locale-specific path for a given ES canonical path. */
+function localizedPath(locale: Locale, esPath: string): string {
+  if (locale === "es") return esPath;
+  for (const [esBase, map] of Object.entries(LOCALE_PATHS)) {
+    if (esPath === esBase || esPath.startsWith(esBase + "/")) {
+      const localBase = map[locale] ?? esBase;
+      return localBase + esPath.slice(esBase.length);
+    }
+  }
+  return esPath;
+}
+
+function localeUrl(locale: Locale, esPath: string): string {
   const prefix = locale === "es" ? "" : `/${locale}`;
-  return `${SITE_URL}${prefix}${path}`;
+  return `${SITE_URL}${prefix}${localizedPath(locale, esPath)}`;
 }
 
 function esc(str: string): string {
@@ -88,7 +116,10 @@ const staticPages: { path: string; changefreq: string; priority: number }[] = [
   { path: "/sobre-vivaz",     changefreq: "monthly", priority: 0.8 },
   { path: "/regulacion-2026", changefreq: "monthly", priority: 0.7 },
   { path: "/noticias",        changefreq: "weekly",  priority: 0.8 },
-  { path: "/contacto",        changefreq: "monthly", priority: 0.7 },
+  { path: "/contacto",            changefreq: "monthly", priority: 0.7 },
+  { path: "/politica-privacidad", changefreq: "yearly",  priority: 0.3 },
+  { path: "/aviso-legal",         changefreq: "yearly",  priority: 0.3 },
+  { path: "/politica-cookies",    changefreq: "yearly",  priority: 0.3 },
 ];
 
 export async function GET() {

@@ -16,7 +16,7 @@ export function organizationJsonLd() {
     logo: {
       "@type": "ImageObject",
       "@id": `${SITE_URL}/#logo`,
-      url: `${SITE_URL}/svg/vivaz-logo-light.svg`,
+      url: `${SITE_URL}/img/vivaz-logo-light.png`,
       width: 200,
       height: 60,
     },
@@ -164,6 +164,7 @@ export function productJsonLd(product: Product, locale: string) {
       width: 800,
     },
     url: productUrl,
+    sku: product.slug || product.name.toLowerCase().replace(/\s+/g, "-"),
     brand: {
       "@type": "Brand",
       name: "VIVAZ Clay Targets",
@@ -239,6 +240,8 @@ export function contactPageJsonLd(locale: string) {
     mainEntity: {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
+      telephone: "+34-606-172-746",
+      email: "sales@vivazclaytargets.com",
     },
     breadcrumb: {
       "@type": "BreadcrumbList",

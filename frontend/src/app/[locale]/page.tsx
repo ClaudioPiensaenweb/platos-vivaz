@@ -1,3 +1,5 @@
+export const revalidate = 30; // Revalida cada 30 s → cambios del CMS visibles en ≤30 s
+
 import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
 import HeroSection from "@/components/home/HeroSection";
