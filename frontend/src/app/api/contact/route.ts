@@ -67,16 +67,27 @@ async function verifyTurnstile(token: string): Promise<boolean> {
   if (!token) return false;
   try {
     const res = await fetch(
-      "https://challenges.cloudflare.com/turnstile/v1/siteverify",
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ secret, response: token }),
       }
     );
-    const data = (await res.json()) as { success: boolean };
+    if (!res.ok) {
+      console.error("Contact form: Turnstile siteverify respondió", res.status);
+      return false;
+    }
+    const data = (await res.json()) as {
+      success: boolean;
+      "error-codes"?: string[];
+    };
+    if (!data.success) {
+      console.warn("Contact form: Turnstile rechazó el token", data["error-codes"]);
+    }
     return data.success === true;
-  } catch {
+  } catch (error) {
+    console.error("Contact form: fallo al verificar Turnstile", error);
     return false;
   }
 }
