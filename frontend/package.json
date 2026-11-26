@@ -10,7 +10,7 @@
     "test": "node --test src/lib/*.test.ts"
   },
   "dependencies": {
-    "@directus/sdk": "^18.0.0",
+    "@directus/sdk": "^27.2.0",
     "@tailwindcss/typography": "^0.5.19",
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.0",
