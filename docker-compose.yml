@@ -29,7 +29,7 @@ services:
       - default
 
   directus:
-    image: directus/directus:11.14.1
+    image: directus/directus:12.7.0
     restart: always
     depends_on:
       db:
