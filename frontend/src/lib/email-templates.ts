@@ -135,7 +135,7 @@ export function generateAdminEmail(data: AdminEmailData): string {
           <tr>
             <td style="padding: 24px 36px 0 36px;">
               ${etiqueta("Mensaje")}
-              <div style="padding: 16px 18px; background-color: ${CREMA_CLARA}; border-left: 3px solid ${VERDE}; border-radius: 4px; font-family: ${FONT}; font-size: 15px; line-height: 1.65; color: ${TEXTO};">${mensaje}</div>
+              <div style="padding: 16px 18px; background-color: ${CREMA_CLARA}; border: 1px solid ${BORDE}; border-radius: 8px; font-family: ${FONT}; font-size: 15px; line-height: 1.65; color: ${TEXTO};">${mensaje}</div>
             </td>
           </tr>
           <tr>
